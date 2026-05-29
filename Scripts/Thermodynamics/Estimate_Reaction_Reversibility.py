@@ -1,287 +1,307 @@
 #!/usr/bin/env python
+"""Estimate reaction reversibility (``>``, ``<``, ``=``, or ``?``) from the
+stored thermodynamic energies and write it back into the reactions JSON.
+
+The algorithm is a fixed cascade of heuristics: the first one that fires
+decides the reversibility. To add or remove a heuristic, add or remove
+its entry from ``estimate_one()``. To re-use the building blocks elsewhere
+(e.g. a different rule set), import the ``_*`` helpers from this module.
+
+Output is intentionally byte-identical to the pre-refactor script."""
 import sys
 sys.path.append('../../Libs/Python/')
 from BiochemPy import Reactions
-reactions_helper = Reactions()
-reactions_dict = reactions_helper.loadReactions()
-
 from math import log
 
-DB_Level = ''
-if(len(sys.argv)>1 and (sys.argv[1] == 'EQ' or sys.argv[1] == 'GC')):
-    DB_Level = sys.argv[1]
+# ---------------------------------------------------------------------------
+# Constants
+# ---------------------------------------------------------------------------
+TEMPERATURE = 298.15
+GAS_CONSTANT = 0.0019858775
+RT_CONST = TEMPERATURE * GAS_CONSTANT
+FARADAY = 0.023061  # kcal/vol gram divided by 1000?
+SENTINEL_DG = 10000000
 
-#Constants
-TEMPERATURE=298.15
-GAS_CONSTANT=0.0019858775
-RT_CONST=TEMPERATURE*GAS_CONSTANT
-FARADAY = 0.023061 # kcal/vol gram divided by 1000?
+# Intracellular concentration range for the bounded MdeltaG estimate.
+CELL_MAX = 0.02
+CELL_MIN = 0.00001
+CELL_CONC = 0.001
 
-# max and min values refer to range of intracellular concentrations
-(cell_max,cell_min,cell_conc)=(0.02,0.00001,0.001)
+# Compounds we treat specially during the stoichiometry walk.
+PROTON = "cpd00067"
+WATER = "cpd00001"
+CO2 = "cpd00011"
+PROTON_WATER = frozenset((PROTON, WATER))
+LOW_LOCAL_CONC = frozenset(("cpd00007", "cpd11640"))  # O2, H2
+ATPS_REAGENTS = frozenset(("cpd00002", "cpd00008", "cpd00009",
+                           "cpd00001", "cpd00067"))
+ATP = "cpd00002"
 
-#Phosphates
-phosphate_ids=("cpd00002", #ATP
-               "cpd00008", #ADP
-               "cpd00018", #AMP
-               "cpd00009", #Pi
-               "cpd00012") #PPi
+# Phosphate-related compounds, used for the low-energy-points heuristic and
+# the ABC transporter check.
+PHOSPHATE_IDS = ("cpd00002",   # ATP
+                 "cpd00008",   # ADP
+                 "cpd00018",   # AMP
+                 "cpd00009",   # Pi
+                 "cpd00012")   # PPi
 
-#Low energy compounds
-#taken from MFAToolkit/Parameters/Defaults.txt
-low_energy_cpds=("cpd00011", #CO2
-                 "cpd00013", #NH3
-                 "cpd11493", #ACP
-                 "cpd00009", #Pi
-                 "cpd00012", #Ppi
-                 "cpd00010", #CoA
-                 "cpd00449", #Dihydrolipoamide
-                 "cpd00242") #HCO3
+# Low-energy compounds, taken from MFAToolkit/Parameters/Defaults.txt.
+LOW_ENERGY_CPDS = ("cpd00011",  # CO2
+                   "cpd00013",  # NH3
+                   "cpd11493",  # ACP
+                   "cpd00009",  # Pi
+                   "cpd00012",  # PPi
+                   "cpd00010",  # CoA
+                   "cpd00449",  # Dihydrolipoamide
+                   "cpd00242")  # HCO3
 
-PROTON_WATER = frozenset(("cpd00067", "cpd00001"))
-LOW_LOCAL_CONC = frozenset(("cpd00007", "cpd11640")) # O2, H2
-ATPS_REAGENTS = frozenset(("cpd00002", "cpd00008", "cpd00009", "cpd00001", "cpd00067"))
 
-reversibility_report=dict()
-for rxn in sorted(reactions_dict.keys()):
-    
-    #defaults
+# ---------------------------------------------------------------------------
+# Per-reaction analysis
+# ---------------------------------------------------------------------------
+def _is_db_eligible(rxn_entry, db_level):
+    """When a ``GC``/``EQ`` filter is active, the reaction must carry a
+    ``GCC`` (Group Contribution Complete) or ``EQU`` note matching it."""
+    if not db_level:
+        return True
+    for note in rxn_entry["notes"]:
+        if db_level in note and note in ("GCC", "EQU"):
+            return True
+    return False
+
+
+def _incomplete_decision(rxn_entry, db_level):
+    """Status when the reaction has no usable energy. EQ runs fall back to
+    the existing GC reversibility when ``GCC`` is in the notes."""
+    status = "Incomplete"
     thermoreversibility = "?"
+    if db_level == "EQ" and "GCC" in rxn_entry["notes"]:
+        thermoreversibility = rxn_entry["reversibility"]
+        status += " (GCC)"
+    return status, thermoreversibility
 
-    if(reactions_dict[rxn]['status'] == "EMPTY"):
 
-        thermoreversibility = "?"
-        reversibility_report[rxn]=["Empty",reactions_dict[rxn]["reversibility"],thermoreversibility]
-        reactions_dict[rxn]['reversibility']=thermoreversibility
+def _walk_stoichiometry(stoichiometry):
+    """Single pass that produces every accumulator the downstream heuristics
+    need. Keeps the original ordering and per-compound special cases."""
+    rct_min = rct_max = 0.0
+    pdt_min = pdt_max = 0.0
+    rgt_sum = 0.0
+    proton_cpts = {}
+    phosphates = {}
 
-        continue
+    for rgt in stoichiometry:
+        cpd = rgt['compound']
+        cpt = rgt['compartment']
+        coeff = float(rgt['coefficient'])
 
-    rxn_dg = reactions_dict[rxn]['deltag']
-    rxn_dge = reactions_dict[rxn]['deltagerr']
+        if cpd == PROTON:
+            proton_cpts[cpt] = 1
 
-    # Here, if I'm specifying either GC or EQ,
-    # Then I want to check that I should estimate for this reaction
-    # (I.e. either "GCC" or "EQC")
-    # Otherwise its labeled as incomplete
-    DB_Rxn=True
-    if(len(DB_Level)>0):
-        DB_Rxn=False
-        for entry in reactions_dict[rxn]["notes"]:
-            if(DB_Level in entry and (entry == "GCC" or entry == "EQU")):
-                DB_Rxn=True
+        # NB: two latent bugs preserved verbatim from the original for
+        # output equivalence — DO NOT "clean up" either:
+        #   1. ``cpd in rgt`` tests the dict keys of the stoichiometry row
+        #      (``compound``, ``coefficient``, ``compartment``, ...), not
+        #      its compound id. The condition is therefore always False,
+        #      so ``phosphates`` is always empty, making the ABCT and
+        #      low-energy-points branches unreachable in practice.
+        #   2. The loop variable name is ``cpd``, deliberately shadowing
+        #      the outer ``cpd``. After the loop, ``cpd`` is the LAST
+        #      value of ``PHOSPHATE_IDS`` (cpd00012, PPi) regardless of
+        #      the reagent. This makes the PROTON_WATER skip below a
+        #      no-op and the CO2 / LOW_LOCAL_CONC special-concentration
+        #      branches unreachable. Renaming this variable changes the
+        #      output of the entire pipeline.
+        for cpd in PHOSPHATE_IDS:
+            if cpd in rgt:
+                phosphates.setdefault(cpd, 0.0)
+                phosphates[cpd] += coeff
 
-    if(rxn_dg == 10000000 or rxn_dg is None or not DB_Rxn):
-
-        thermoreversibility = "?"
-        status="Incomplete"
-
-        #Here, if using EQ, but incomplete/not-updated reaction
-        #Can still fall back onto GC if complete by GC standards
-
-        if(DB_Level == "EQ" and "GCC" in reactions_dict[rxn]['notes']):
-            thermoreversibility=reactions_dict[rxn]["reversibility"]
-            status+=" (GCC)"
-
-        reversibility_report[rxn]=[status,reactions_dict[rxn]["reversibility"],thermoreversibility]
-        reactions_dict[rxn]['reversibility']=thermoreversibility
-
-        continue
-
-    #Calculate MdeltaG
-    (rct_min,rct_max)=(0.0,0.0)
-    (pdt_min,pdt_max)=(0.0,0.0)
-
-    #Calculate mMdeltaG
-    rgt_sum=0.0
-
-    #Capture specific compounds for heuristics
-    proton_cpt_dict = dict()
-    phosphates = dict()
-    for rgt in reactions_dict[rxn]['stoichiometry']:
-        cpd=rgt['compound']
-        cpt=rgt['compartment']
-        coeff=float(rgt['coefficient'])
-
-        if(cpd == 'cpd00067'):
-            proton_cpt_dict[cpt]=1
-
-        #Find phosphates
-        for cpd in phosphate_ids:
-            if(cpd in rgt):
-                if(cpd not in phosphates):
-                    phosphates[cpd]=0.0
-                phosphates[cpd]+=coeff
-
-        #ignore protons and water for following computation
-        if(cpd in PROTON_WATER):
+        # (cpd is now PHOSPHATE_IDS[-1], not the reagent's compound id;
+        # see the note above.)
+        if cpd in PROTON_WATER:
             continue
 
-        #Here we can change accordingly to compartments
-        #This section for MdeltaG under concentration range
-        (cpt_max,cpt_min)=(cell_max,cell_min)
-        if(coeff<0):
-            rct_min += (coeff*log(cpt_min))
-            rct_max += (coeff*log(cpt_max))
+        # MdeltaG bounds under concentration range
+        if coeff < 0:
+            rct_min += coeff * log(CELL_MIN)
+            rct_max += coeff * log(CELL_MAX)
         else:
-            pdt_min += (coeff*log(cpt_min))
-            pdt_max += (coeff*log(cpt_max))
+            pdt_min += coeff * log(CELL_MIN)
+            pdt_max += coeff * log(CELL_MAX)
 
-        #This section for mMdeltaG under fixed concentration
-        local_conc=cell_conc
-        if(cpd == 'cpd00011'): #CO2
-            local_conc=0.0001
-        elif(cpd in LOW_LOCAL_CONC): #O2 && H2
-            local_conc=0.000001
-        rgt_sum += (coeff*log(local_conc))
+        # mMdeltaG under fixed local concentration
+        local_conc = CELL_CONC
+        if cpd == CO2:
+            local_conc = 0.0001
+        elif cpd in LOW_LOCAL_CONC:
+            local_conc = 0.000001
+        rgt_sum += coeff * log(local_conc)
 
-    #for future reference
+    return {
+        'rct_min': rct_min, 'rct_max': rct_max,
+        'pdt_min': pdt_min, 'pdt_max': pdt_max,
+        'rgt_sum': rgt_sum,
+        'proton_cpts': proton_cpts,
+        'phosphates': phosphates,
+    }
+
+
+def _stored_bounds(rxn_dg, rxn_dge, terms):
+    """Min/max stored deltaG including concentration-range terms.
+    ``rxn_dg_transport`` is reserved for future use (matches original)."""
     rxn_dg_transport = 0.0
-    
-    stored_max=rxn_dg+rxn_dg_transport+rxn_dge
-    stored_min=rxn_dg+rxn_dg_transport-rxn_dge
+    stored_max = (rxn_dg + rxn_dg_transport + rxn_dge
+                  + RT_CONST * terms['pdt_max']
+                  + RT_CONST * terms['rct_min'])
+    stored_min = (rxn_dg + rxn_dg_transport - rxn_dge
+                  + RT_CONST * terms['pdt_min']
+                  + RT_CONST * terms['rct_max'])
+    return stored_max, stored_min
 
-    stored_max+=(RT_CONST*pdt_max)+(RT_CONST*rct_min)
-    stored_min+=(RT_CONST*pdt_min)+(RT_CONST*rct_max)
 
-    if(stored_max < 0):
+def _is_atp_synthase(rxn_entry, proton_cpts):
+    """ATP synthase: transport, multiple proton compartments, exactly the
+    five ATPS reagents involved, and only protons crossing the membrane."""
+    if rxn_entry['is_transport'] != 1 or len(proton_cpts) <= 1:
+        return False
 
-        thermoreversibility = ">"
-        reversibility_report[rxn]=["MdeltaG(Max): {0:.2f}".format(stored_max),reactions_dict[rxn]["reversibility"],thermoreversibility]
-        reactions_dict[rxn]['reversibility']=thermoreversibility
+    cpds_cpts = {}
+    for rgt in rxn_entry['stoichiometry']:
+        cpds_cpts.setdefault(rgt['compound'], []).append(rgt['compartment'])
 
-        continue
+    if len(cpds_cpts) != 5:
+        return False
+    for cpd, cpts in cpds_cpts.items():
+        if cpd not in ATPS_REAGENTS:
+            return False
+        if len(cpts) == 2 and cpd != PROTON:
+            return False
+    return True
 
-    if(stored_min > 0):
 
-        thermoreversibility = "<"
-        reversibility_report[rxn]=["MdeltaG(Min): {0:.2f}".format(stored_min),reactions_dict[rxn]["reversibility"],thermoreversibility]
-        reactions_dict[rxn]['reversibility']=thermoreversibility
+def _abc_transporter_decision(rxn_entry, phosphates):
+    """Transport reactions with an ATP coefficient: direction follows the
+    sign. (Latent today because ``phosphates`` is always empty — preserved
+    for parity with the original.)"""
+    if rxn_entry['is_transport'] != 1 or ATP not in phosphates:
+        return None
+    coeff = phosphates[ATP]
+    if coeff < 0:
+        rev = ">"
+    elif coeff > 0:
+        rev = "<"
+    else:
+        # ATP is itself transported; manually reviewed not to be chemical.
+        rev = "="
+    return f"ABCT: {coeff}", rev
 
-        continue
 
-    #Do heuristics
-    #1: ATP hydrolysis transport
-    #1a: ATP Synthase is reversible, but cannot involve any other compound, and can only transport protons
-    is_atp_synthase=False
-    if(reactions_dict[rxn]['is_transport']==1 and len(proton_cpt_dict.keys())>1):
-        cpds_cpts_dict=dict()
-        #Collect compound compartments
-        for rgt in reactions_dict[rxn]['stoichiometry']:
-            cpd=rgt['compound']
-            cpt=rgt['compartment']
-            coeff=float(rgt['coefficient'])
-        
-            if(cpd not in cpds_cpts_dict):
-                cpds_cpts_dict[cpd]=list()
-            cpds_cpts_dict[cpd].append(cpt)
+def _low_energy_points(stoichiometry, phosphates):
+    """Score using phosphate spread + low-energy-compound coefficients."""
+    points = 0.0
+    min_coeff = SENTINEL_DG
+    if ATP in phosphates and len(phosphates) > 2:
+        for pho_coeff in phosphates.values():
+            if pho_coeff < min_coeff:
+                min_coeff = pho_coeff
+    if min_coeff != SENTINEL_DG:
+        points -= abs(min_coeff)
 
-        #defaults
-        is_atp_synthase=True
-        for cpd in cpds_cpts_dict.keys():
-            #Must not contain reactants not in ATP Synthase
-            if(cpd not in ATPS_REAGENTS):
-                is_atp_synthase = False
+    for rgt in stoichiometry:
+        if rgt['compound'] in LOW_ENERGY_CPDS:
+            points -= float(rgt['coefficient'])
+    return points
 
-        #Must contain _all_ five reactants in ATP Synthase
-        if(len(cpds_cpts_dict.keys())!=5):
-            is_atp_synthase = False
 
-        #Only protons are transported
-        for cpd in cpds_cpts_dict.keys():
-            if(len(cpds_cpts_dict[cpd])==2 and cpd != 'cpd00067'):
-                is_atp_synthase = False
+def estimate_one(rxn_entry, db_level):
+    """Returns ``(status_label, thermoreversibility)`` for a single reaction.
 
-    if(is_atp_synthase):
+    The heuristic cascade is intentionally explicit so that adding a new
+    rule means inserting one ``if`` branch — and removing one means deleting
+    it. Each branch's helper is independently testable."""
+    if rxn_entry['status'] == "EMPTY":
+        return "Empty", "?"
 
-        thermoreversibility = "="
-        reversibility_report[rxn]=["ATPS",reactions_dict[rxn]["reversibility"],thermoreversibility]
-        reactions_dict[rxn]['reversibility']=thermoreversibility
+    rxn_dg = rxn_entry['deltag']
+    rxn_dge = rxn_entry['deltagerr']
 
-        continue
+    if (rxn_dg == SENTINEL_DG or rxn_dg is None
+            or not _is_db_eligible(rxn_entry, db_level)):
+        return _incomplete_decision(rxn_entry, db_level)
 
-    #1b: Find ABC Transporters (but not ATP Synthase)
-    if(reactions_dict[rxn]['is_transport']==1 and 'cpd00002' in phosphates):
+    terms = _walk_stoichiometry(rxn_entry['stoichiometry'])
+    stored_max, stored_min = _stored_bounds(rxn_dg, rxn_dge, terms)
 
-        thermoreversibility="="
+    if stored_max < 0:
+        return "MdeltaG(Max): {0:.2f}".format(stored_max), ">"
+    if stored_min > 0:
+        return "MdeltaG(Min): {0:.2f}".format(stored_min), "<"
 
-        if(phosphates['cpd00002']<0):
-            thermoreversibility=">"
-        elif(phosphates['cpd00002']>0):
-            thermoreversibility="<"
-        else:
-            #If zero, then itself ATP is transported
-            #I manually reviewed these, these are not chemical reactions
-            pass
-        
-        reversibility_report[rxn]=["ABCT: "+str(phosphates['cpd00002']),reactions_dict[rxn]["reversibility"],thermoreversibility]
-        reactions_dict[rxn]['reversibility']=thermoreversibility
+    if _is_atp_synthase(rxn_entry, terms['proton_cpts']):
+        return "ATPS", "="
 
-        continue
+    abct = _abc_transporter_decision(rxn_entry, terms['phosphates'])
+    if abct is not None:
+        return abct
 
-    #2: Calculate and evaluate mMdeltaG
-    mMdeltaG=rxn_dg+(RT_CONST*rgt_sum)
-    if(mMdeltaG >= -2.0 and mMdeltaG <= 2.0):
+    mMdeltaG = rxn_dg + RT_CONST * terms['rgt_sum']
+    if -2.0 <= mMdeltaG <= 2.0:
+        return "mMdeltaG: {0:.2f}".format(mMdeltaG), "="
 
-        thermoreversibility = "="
-        reversibility_report[rxn]=["mMdeltaG: {0:.2f}".format(mMdeltaG),reactions_dict[rxn]["reversibility"],thermoreversibility]
-        reactions_dict[rxn]['reversibility']=thermoreversibility
+    points = _low_energy_points(rxn_entry['stoichiometry'], terms['phosphates'])
+    if points * mMdeltaG > 2:
+        if mMdeltaG < 0:
+            return ("lowE: {0:.2f}".format(mMdeltaG) + ":" + str(points), ">")
+        if mMdeltaG > 0:
+            return ("lowE: {0:.2f}".format(mMdeltaG) + ":" + str(points), "<")
 
-        continue
+    return "default", "="
 
-    #3: Calculate low energy points
-    low_energy_points = 0
 
-    #3a: Find minimum phosphate-related coefficient
-    min_coeff = 10000000
-    if('cpd00002' in phosphates and len(phosphates.keys())>2):
-        for pho in phosphates.keys():
-            if(phosphates[pho]<min_coeff):
-                min_coeff = phosphates[pho]
+# ---------------------------------------------------------------------------
+# Report writer
+# ---------------------------------------------------------------------------
+def _write_report(db_level, report):
+    """Format matches the original: GC runs drop the original-reversibility
+    column from the report, EQ and unfiltered runs keep it."""
+    name = "Estimated_Reaction_Reversibility_Report"
+    if db_level:
+        name += "_" + db_level
+    name += ".txt"
+    with open(name, "w") as fh:
+        for rxn in sorted(report):
+            row = list(report[rxn])
+            if db_level == "GC":
+                del row[1]
+            fh.write(rxn + "\t" + "\t".join(row) + "\n")
 
-    if(min_coeff != 10000000):
-        low_energy_points-=(abs(min_coeff))
-    
-    #3b:Find other low energy compounds
-    for rgt in reactions_dict[rxn]['stoichiometry']:
-        cpd=rgt['compound']
-        cpt=rgt['compartment']
-        coeff=float(rgt['coefficient'])
-        
-        if(cpd in low_energy_cpds):
-            low_energy_points-=coeff
 
-    #Evaluate low energy
-    if((low_energy_points*mMdeltaG) > 2 and mMdeltaG < 0):
+# ---------------------------------------------------------------------------
+# Main
+# ---------------------------------------------------------------------------
+def _parse_db_level(argv):
+    if len(argv) > 1 and argv[1] in ('EQ', 'GC'):
+        return argv[1]
+    return ''
 
-        thermoreversibility = ">"
-        reversibility_report[rxn]=["lowE: {0:.2f}".format(mMdeltaG)+":"+str(low_energy_points),reactions_dict[rxn]["reversibility"],thermoreversibility]
-        reactions_dict[rxn]['reversibility']=thermoreversibility
 
-        continue
+def main():
+    db_level = _parse_db_level(sys.argv)
+    helper = Reactions()
+    reactions_dict = helper.loadReactions()
 
-    elif((low_energy_points*mMdeltaG) > 2 and mMdeltaG > 0):
+    report = {}
+    for rxn in sorted(reactions_dict.keys()):
+        rxn_entry = reactions_dict[rxn]
+        status, thermoreversibility = estimate_one(rxn_entry, db_level)
+        report[rxn] = [status, rxn_entry["reversibility"], thermoreversibility]
+        rxn_entry['reversibility'] = thermoreversibility
 
-        thermoreversibility = "<"
-        reversibility_report[rxn]=["lowE: {0:.2f}".format(mMdeltaG)+":"+str(low_energy_points),reactions_dict[rxn]["reversibility"],thermoreversibility]
-        reactions_dict[rxn]['reversibility']=thermoreversibility
+    _write_report(db_level, report)
+    print("Saving reactions")
+    helper.saveReactions(reactions_dict)
 
-        continue
 
-    thermoreversibility = "="
-    reversibility_report[rxn]=["default",reactions_dict[rxn]["reversibility"],thermoreversibility]
-    reactions_dict[rxn]['reversibility']=thermoreversibility
-
-file_name="Estimated_Reaction_Reversibility_Report"
-if(len(DB_Level)>0):
-    file_name+="_"+DB_Level
-file_name+=".txt"
-with open(file_name,"w") as fh:
-    for rxn in sorted(reversibility_report):
-        report_array=list(reversibility_report[rxn])
-        if(DB_Level == "GC"):
-            del(report_array[1])
-        fh.write(rxn+"\t"+"\t".join(report_array)+"\n")
-fh.close()
-
-print("Saving reactions")
-reactions_helper.saveReactions(reactions_dict)
+if __name__ == "__main__":
+    main()
