@@ -29,17 +29,11 @@ with open(file_name) as file_handle:
         all_structures_dict[array[0]][array[7]][array[3]]=1
 
 for cpd in structures_dict:
-    structure_type='InChIKey'
-    if(structure_type not in structures_dict[cpd]):
-        structure_type='SMILE'
-
-    structure = list(structures_dict[cpd][structure_type].keys())[0]
-    aliases_list = list(structures_dict[cpd][structure_type][structure]['alias'])
-    new_aliases_list = list()
-    for alias in aliases_list:
-        if(alias in all_structures_dict[cpd][structure]):
-            new_aliases_list.append(alias)
-    structures_dict[cpd][structure_type][structure]['alias']=new_aliases_list
+    structure_type = 'InChIKey' if 'InChIKey' in structures_dict[cpd] else 'SMILE'
+    struct_entry = structures_dict[cpd][structure_type]
+    structure = next(iter(struct_entry))
+    curated = all_structures_dict[cpd][structure]
+    struct_entry[structure]['alias'] = [a for a in struct_entry[structure]['alias'] if a in curated]
 ############################################################################
 
 thermodynamics_root=os.path.dirname(__file__)+"/../../Biochemistry/Thermodynamics/"
@@ -68,16 +62,12 @@ for cpd in sorted (compounds_dict.keys()):
     # Condition 1, no structure, use default
     # Condition 2, structure is InChIKey or SMILE
 
-    structure_type=None
-    if(cpd in structures_dict):
-        if('InChIKey' in structures_dict[cpd]):
-            structure_type = 'InChIKey' 
-        elif('SMILE' in structures_dict[cpd]):
-            structure_type = 'SMILE'
-    
     structure = None
-    if(structure_type is not None):
-        structure = list(structures_dict[cpd][structure_type].keys())[0]
+    if cpd in structures_dict:
+        for structure_type in ('InChIKey', 'SMILE'):
+            if structure_type in structures_dict[cpd]:
+                structure = next(iter(structures_dict[cpd][structure_type]))
+                break
 
     if(structure is not None):
         energies_dict=dict()
@@ -96,12 +86,11 @@ for cpd in sorted (compounds_dict.keys()):
                 lowest_dge=energies_dict[energy]
 
     # values always saved as list of energy and error
-    if(not isinstance(compounds_dict[cpd]['thermodynamics'],dict)):
-        compounds_dict[cpd]['thermodynamics'] = dict()
-    if('Group contribution' not in compounds_dict[cpd]['thermodynamics']):
-        compounds_dict[cpd]['thermodynamics']['Group contribution']=list()
-    compounds_dict[cpd]['thermodynamics']['Group contribution'].append(lowest_dg)
-    compounds_dict[cpd]['thermodynamics']['Group contribution'].append(lowest_dge)
+    thermo = compounds_dict[cpd].get('thermodynamics')
+    if not isinstance(thermo, dict):
+        thermo = dict()
+        compounds_dict[cpd]['thermodynamics'] = thermo
+    thermo['Group contribution'] = [lowest_dg, lowest_dge]
 
 print("Saving compounds")
 compounds_helper.saveCompounds(compounds_dict)

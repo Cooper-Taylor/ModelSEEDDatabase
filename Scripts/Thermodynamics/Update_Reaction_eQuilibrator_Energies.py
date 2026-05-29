@@ -26,8 +26,6 @@ with open(file_name) as file_handle:
 
         eq_reactions[array[0]]=[float("{0:.2f}".format(float(array[1]))),float("{0:.2f}".format(float(array[2])))]
 
-file_handle.close()
-
 # print(len(eq_reactions))
 # 13, 874 ModelSEED Reactions
 
@@ -41,17 +39,12 @@ for rxn in sorted (reactions_dict.keys()):
         #energy for every compound with a structure in eQuilibrator
         continue
 
-    #Here we establish an arbitrary threshold of 100 for the error, if the error
-    #is too big, we shouldn't use it, but for storing the database we keep it now
-    if(float(eq_reactions[rxn][1]) > 100):
-        pass
-
     # values always saved as list of energy and error
-    if(not isinstance(reactions_dict[rxn]['thermodynamics'],dict)):
-        reactions_dict[rxn]['thermodynamics'] = dict()
-    if(label not in reactions_dict[rxn]['thermodynamics']):
-        reactions_dict[rxn]['thermodynamics'][label]=list()
-    reactions_dict[rxn]['thermodynamics'][label]=eq_reactions[rxn]
+    rxn_thermo = reactions_dict[rxn].get('thermodynamics')
+    if(not isinstance(rxn_thermo, dict)):
+        rxn_thermo = dict()
+        reactions_dict[rxn]['thermodynamics'] = rxn_thermo
+    rxn_thermo[label] = eq_reactions[rxn]
 
 print("Saving reactions")
 reactions_helper.saveReactions(reactions_dict)

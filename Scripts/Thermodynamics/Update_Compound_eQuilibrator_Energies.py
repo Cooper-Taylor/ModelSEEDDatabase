@@ -26,7 +26,6 @@ with open(file_name) as file_handle:
 
         eq_compounds[array[0]]=[float("{0:.2f}".format(float(array[1]))),
                                 float("{0:.2f}".format(float(array[2])))]
-file_handle.close()
 
 # print(len(eq_compounds))
 # 19,432/22,391 (87%) MetaNetX records for which we can retrieve a compound formation energy
@@ -46,8 +45,6 @@ with open(file_name) as file_handle:
         if(mnx not in struct_mnx_dict[inchikey]):
             struct_mnx_dict[inchikey].append(mnx)
 
-file_handle.close()
-
 # print(len(struct_mnx_dict))
 # 18,206/19,432 (94%) MetaNetX records for which there is a unique structure
 
@@ -59,16 +56,12 @@ for cpd in sorted (compounds_dict.keys()):
     # Condition 1, no structure, use default
     # Condition 2, structure is InChIKey or SMILE
 
-    structure_type=None
-    if(cpd in structures_dict):
-        if('InChIKey' in structures_dict[cpd]):
-            structure_type = 'InChIKey' 
-        elif('SMILE' in structures_dict[cpd]):
-            structure_type = 'SMILE'
-
     structure = None
-    if(structure_type is not None):
-        structure = list(structures_dict[cpd][structure_type].keys())[0]
+    if cpd in structures_dict:
+        for structure_type in ('InChIKey', 'SMILE'):
+            if structure_type in structures_dict[cpd]:
+                structure = next(iter(structures_dict[cpd][structure_type]))
+                break
 
     if(structure is not None):
 
@@ -90,11 +83,11 @@ for cpd in sorted (compounds_dict.keys()):
         
     #Here we indicate that we use the equilibrator value
     # values always saved as list of energy and error
-    if(not isinstance(compounds_dict[cpd]['thermodynamics'],dict)):
-        compounds_dict[cpd]['thermodynamics'] = dict()
-    if('eQuilibrator' not in compounds_dict[cpd]['thermodynamics']):
-        compounds_dict[cpd]['thermodynamics']['eQuilibrator']=list()
-    compounds_dict[cpd]['thermodynamics']['eQuilibrator']=dg_dge_list
+    thermo = compounds_dict[cpd].get('thermodynamics')
+    if(not isinstance(thermo, dict)):
+        thermo = dict()
+        compounds_dict[cpd]['thermodynamics'] = thermo
+    thermo['eQuilibrator'] = dg_dge_list
 
 print("Saving compounds")
 compounds_helper.saveCompounds(compounds_dict)
