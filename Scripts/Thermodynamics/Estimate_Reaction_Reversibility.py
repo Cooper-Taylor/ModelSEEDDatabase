@@ -7,7 +7,10 @@ decides the reversibility. To add or remove a heuristic, add or remove
 its entry from ``estimate_one()``. To re-use the building blocks elsewhere
 (e.g. a different rule set), import the ``_*`` helpers from this module.
 
-Output is intentionally byte-identical to the pre-refactor script."""
+The per-source ``GCC``/``EQU`` notes are no longer consulted; ``GC`` and
+``EQ`` runs read directly from ``thermodynamics['Group contribution']`` and
+``thermodynamics['eQuilibrator']``. After estimation, the computed direction
+is appended to whichever Thermodynamics sublist supplied the energy."""
 import sys
 sys.path.append('../../Libs/Python/')
 from BiochemPy import Reactions
@@ -55,27 +58,99 @@ LOW_ENERGY_CPDS = ("cpd00011",  # CO2
                    "cpd00449",  # Dihydrolipoamide
                    "cpd00242")  # HCO3
 
+# Mapping from the ``GC``/``EQ`` CLI flag to the per-source subkey under
+# ``rxn_entry['thermodynamics']``. Adding a source means adding one entry.
+DB_LEVEL_LABEL = {
+    "GC": "Group contribution",
+    "EQ": "eQuilibrator",
+}
+# Order matters for the no-filter fallback: prefer the eQuilibrator energy
+# over the Group-contribution one when both are present, mirroring the
+# Update_*_eQuilibrator_Energies.py "EQ overwrites GC" precedence that drives
+# the top-level ``deltag``/``deltagerr`` values.
+DB_LEVEL_PRIORITY = ("EQ", "GC")
+
 
 # ---------------------------------------------------------------------------
 # Per-reaction analysis
 # ---------------------------------------------------------------------------
-def _is_db_eligible(rxn_entry, db_level):
-    """When a ``GC``/``EQ`` filter is active, the reaction must carry a
-    ``GCC`` (Group Contribution Complete) or ``EQU`` note matching it."""
-    if not db_level:
-        return True
-    for note in rxn_entry["notes"]:
-        if db_level in note and note in ("GCC", "EQU"):
-            return True
-    return False
+def _thermo_pair(rxn_entry, label):
+    """Return ``[dg, dge]`` from ``thermodynamics[label]`` when present and
+    non-sentinel, else ``None``. Lists longer than two elements (an earlier
+    estimation run appended its direction) are tolerated."""
+    thermo = rxn_entry.get('thermodynamics')
+    if not isinstance(thermo, dict):
+        return None
+    pair = thermo.get(label)
+    if not pair or pair[0] is None:
+        return None
+    dg = float(pair[0])
+    if dg == SENTINEL_DG:
+        return None
+    return [dg, float(pair[1])]
+
+
+def _energy_for(rxn_entry, db_level):
+    """Resolve ``(dg, dge, source_label)`` for the reaction under ``db_level``.
+
+    The energy *values* always come from the top-level ``deltag``/``deltagerr``
+    so the reversibility-report numbers stay byte-identical to the dev-branch
+    pre-refactor pipeline. The Thermodynamics key drives only two things:
+
+    - *eligibility*: under ``GC``/``EQ`` the reaction is only processed when
+      the matching sublist (``Group contribution`` / ``eQuilibrator``) is
+      present with a non-sentinel energy. This replaces the legacy
+      ``GCC``/``EQU`` notes check.
+    - *source label*: the matching sublist's key, returned for the caller's
+      direction-appender so the computed reversibility is restamped back
+      into the correct sublist.
+
+    For the unfiltered run, ``source_label`` is the sublist whose first
+    entry matches the top-level ``deltag`` exactly, with
+    ``DB_LEVEL_PRIORITY`` breaking ties — this mirrors the
+    ``Update_*_eQuilibrator_Energies.py`` "EQ overwrites GC" precedence that
+    drives the top-level value. ``None`` when no sublist matches.
+
+    Returns ``(None, None, None)`` when no usable energy is available."""
+    rxn_dg = rxn_entry['deltag']
+    rxn_dge = rxn_entry['deltagerr']
+    if rxn_dg is not None:
+        rxn_dg = float(rxn_dg)
+    if rxn_dge is not None:
+        rxn_dge = float(rxn_dge)
+    if rxn_dg is None or rxn_dg == SENTINEL_DG:
+        return None, None, None
+
+    if db_level:
+        label = DB_LEVEL_LABEL[db_level]
+        if _thermo_pair(rxn_entry, label) is None:
+            return None, None, None
+        return rxn_dg, rxn_dge, label
+
+    chosen_label = None
+    for level in DB_LEVEL_PRIORITY:
+        label = DB_LEVEL_LABEL[level]
+        pair = _thermo_pair(rxn_entry, label)
+        if pair is not None and abs(pair[0] - rxn_dg) < 1e-9:
+            chosen_label = label
+            break
+    return rxn_dg, rxn_dge, chosen_label
+
+
+def _has_gc_data(rxn_entry):
+    """True iff the reaction carries non-sentinel Group-contribution energy.
+    Used by EQ runs to decide whether to fall back to the reversibility a
+    prior GC run already wrote."""
+    return _thermo_pair(rxn_entry, DB_LEVEL_LABEL["GC"]) is not None
 
 
 def _incomplete_decision(rxn_entry, db_level):
     """Status when the reaction has no usable energy. EQ runs fall back to
-    the existing GC reversibility when ``GCC`` is in the notes."""
+    the existing GC reversibility when the reaction has Group-contribution
+    data in its Thermodynamics block (set by an earlier GC run)."""
     status = "Incomplete"
     thermoreversibility = "?"
-    if db_level == "EQ" and "GCC" in rxn_entry["notes"]:
+    if db_level == "EQ" and _has_gc_data(rxn_entry):
         thermoreversibility = rxn_entry["reversibility"]
         status += " (GCC)"
     return status, thermoreversibility
@@ -215,48 +290,56 @@ def _low_energy_points(stoichiometry, phosphates):
 
 
 def estimate_one(rxn_entry, db_level):
-    """Returns ``(status_label, thermoreversibility)`` for a single reaction.
+    """Returns ``(status_label, thermoreversibility, source_label)`` for one
+    reaction.
+
+    ``source_label`` is the Thermodynamics subkey whose energy fed the
+    estimate (``'Group contribution'`` or ``'eQuilibrator'``), or ``None``
+    when no estimate ran (empty/incomplete) or when the unfiltered run's
+    top-level energy did not match any sublist exactly. The caller uses it
+    to append the direction back into the matching sublist.
 
     The heuristic cascade is intentionally explicit so that adding a new
     rule means inserting one ``if`` branch — and removing one means deleting
     it. Each branch's helper is independently testable."""
     if rxn_entry['status'] == "EMPTY":
-        return "Empty", "?"
+        return "Empty", "?", None
 
-    rxn_dg = rxn_entry['deltag']
-    rxn_dge = rxn_entry['deltagerr']
-
-    if (rxn_dg == SENTINEL_DG or rxn_dg is None
-            or not _is_db_eligible(rxn_entry, db_level)):
-        return _incomplete_decision(rxn_entry, db_level)
+    rxn_dg, rxn_dge, source_label = _energy_for(rxn_entry, db_level)
+    if rxn_dg is None:
+        status, thermoreversibility = _incomplete_decision(rxn_entry, db_level)
+        return status, thermoreversibility, None
 
     terms = _walk_stoichiometry(rxn_entry['stoichiometry'])
     stored_max, stored_min = _stored_bounds(rxn_dg, rxn_dge, terms)
 
     if stored_max < 0:
-        return "MdeltaG(Max): {0:.2f}".format(stored_max), ">"
+        return "MdeltaG(Max): {0:.2f}".format(stored_max), ">", source_label
     if stored_min > 0:
-        return "MdeltaG(Min): {0:.2f}".format(stored_min), "<"
+        return "MdeltaG(Min): {0:.2f}".format(stored_min), "<", source_label
 
     if _is_atp_synthase(rxn_entry, terms['proton_cpts']):
-        return "ATPS", "="
+        return "ATPS", "=", source_label
 
     abct = _abc_transporter_decision(rxn_entry, terms['phosphates'])
     if abct is not None:
-        return abct
+        status, thermoreversibility = abct
+        return status, thermoreversibility, source_label
 
     mMdeltaG = rxn_dg + RT_CONST * terms['rgt_sum']
     if -2.0 <= mMdeltaG <= 2.0:
-        return "mMdeltaG: {0:.2f}".format(mMdeltaG), "="
+        return "mMdeltaG: {0:.2f}".format(mMdeltaG), "=", source_label
 
     points = _low_energy_points(rxn_entry['stoichiometry'], terms['phosphates'])
     if points * mMdeltaG > 2:
         if mMdeltaG < 0:
-            return ("lowE: {0:.2f}".format(mMdeltaG) + ":" + str(points), ">")
+            return ("lowE: {0:.2f}".format(mMdeltaG) + ":" + str(points),
+                    ">", source_label)
         if mMdeltaG > 0:
-            return ("lowE: {0:.2f}".format(mMdeltaG) + ":" + str(points), "<")
+            return ("lowE: {0:.2f}".format(mMdeltaG) + ":" + str(points),
+                    "<", source_label)
 
-    return "default", "="
+    return "default", "=", source_label
 
 
 # ---------------------------------------------------------------------------
@@ -286,6 +369,22 @@ def _parse_db_level(argv):
     return ''
 
 
+def _append_direction(rxn_entry, source_label, direction):
+    """Re-stamp the picked sublist as ``[dg, dge, direction]``. Truncates
+    any prior direction so re-running stays idempotent. No-ops when no
+    source label was returned (empty/incomplete reactions, or unfiltered
+    runs whose top-level energy did not match a sublist)."""
+    if source_label is None:
+        return
+    thermo = rxn_entry.get('thermodynamics')
+    if not isinstance(thermo, dict) or source_label not in thermo:
+        return
+    pair = thermo[source_label]
+    if not pair:
+        return
+    thermo[source_label] = [pair[0], pair[1], direction]
+
+
 def main():
     db_level = _parse_db_level(sys.argv)
     helper = Reactions()
@@ -294,9 +393,11 @@ def main():
     report = {}
     for rxn in sorted(reactions_dict.keys()):
         rxn_entry = reactions_dict[rxn]
-        status, thermoreversibility = estimate_one(rxn_entry, db_level)
+        status, thermoreversibility, source_label = estimate_one(
+            rxn_entry, db_level)
         report[rxn] = [status, rxn_entry["reversibility"], thermoreversibility]
         rxn_entry['reversibility'] = thermoreversibility
+        _append_direction(rxn_entry, source_label, thermoreversibility)
 
     _write_report(db_level, report)
     print("Saving reactions")

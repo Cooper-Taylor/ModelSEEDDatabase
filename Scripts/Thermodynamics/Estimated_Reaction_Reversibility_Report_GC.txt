@@ -84,7 +84,7 @@ rxn00085	default	=
 rxn00086	default	=
 rxn00087	default	=
 rxn00088	lowE: -3.02:-1.0	>
-rxn00089	default	=
+rxn00089	Incomplete	?
 rxn00090	default	=
 rxn00091	MdeltaG(Max): -46.83	>
 rxn00092	MdeltaG(Max): -1.29	>
@@ -1509,7 +1509,7 @@ rxn01538	default	=
 rxn01539	MdeltaG(Min): 7.04	<
 rxn01540	default	=
 rxn01541	mMdeltaG: 0.48	=
-rxn01542	default	=
+rxn01542	Incomplete	?
 rxn01543	default	=
 rxn01544	lowE: 9.26:1.0	<
 rxn01545	mMdeltaG: -0.54	=
@@ -1840,7 +1840,7 @@ rxn01873	Incomplete	?
 rxn01874	mMdeltaG: 0.48	=
 rxn01875	default	=
 rxn01876	MdeltaG(Max): -5.65	>
-rxn01877	default	=
+rxn01877	Incomplete	?
 rxn01878	lowE: -9.01:-1.0	>
 rxn01879	default	=
 rxn01880	mMdeltaG: 0.35	=
@@ -2254,7 +2254,7 @@ rxn02295	MdeltaG(Max): -48.81	>
 rxn02296	default	=
 rxn02297	default	=
 rxn02298	MdeltaG(Min): 2.09	<
-rxn02299	default	=
+rxn02299	Incomplete	?
 rxn02300	MdeltaG(Max): -0.52	>
 rxn02301	MdeltaG(Max): -6.99	>
 rxn02302	MdeltaG(Max): -6.16	>
@@ -2284,7 +2284,7 @@ rxn02325	default	=
 rxn02326	MdeltaG(Max): -4.07	>
 rxn02327	MdeltaG(Min): 2.92	<
 rxn02328	MdeltaG(Max): -11.96	>
-rxn02329	MdeltaG(Max): -59.90	>
+rxn02329	Incomplete	?
 rxn02331	lowE: 11.63:1.0	<
 rxn02332	default	=
 rxn02333	Incomplete	?
@@ -2482,7 +2482,7 @@ rxn02525	default	=
 rxn02526	MdeltaG(Max): -57.58	>
 rxn02527	mMdeltaG: -1.57	=
 rxn02528	mMdeltaG: -1.57	=
-rxn02529	default	=
+rxn02529	Incomplete	?
 rxn02530	Incomplete	?
 rxn02531	MdeltaG(Max): -3.05	>
 rxn02532	MdeltaG(Max): -96.18	>
@@ -3308,13 +3308,13 @@ rxn03357	default	=
 rxn03358	MdeltaG(Max): -41.03	>
 rxn03359	MdeltaG(Max): -41.03	>
 rxn03360	lowE: 5.07:1.0	<
-rxn03361	MdeltaG(Max): -4.93	>
+rxn03361	Incomplete	?
 rxn03362	default	=
 rxn03363	MdeltaG(Max): -23.49	>
 rxn03364	MdeltaG(Max): -93.32	>
 rxn03365	default	=
 rxn03366	default	=
-rxn03367	lowE: 2.39:1.0	<
+rxn03367	Incomplete	?
 rxn03368	mMdeltaG: -0.75	=
 rxn03369	Incomplete	?
 rxn03370	default	=
@@ -4013,9 +4013,9 @@ rxn04074	MdeltaG(Min): 3.16	<
 rxn04075	MdeltaG(Max): -37.32	>
 rxn04076	default	=
 rxn04077	MdeltaG(Max): -15.12	>
-rxn04078	MdeltaG(Max): -17.07	>
-rxn04079	default	=
-rxn04080	default	=
+rxn04078	Incomplete	?
+rxn04079	Incomplete	?
+rxn04080	Incomplete	?
 rxn04081	MdeltaG(Max): -23.29	>
 rxn04082	mMdeltaG: -0.12	=
 rxn04083	Incomplete	?
@@ -4519,8 +4519,8 @@ rxn04583	Incomplete	?
 rxn04584	default	=
 rxn04585	lowE: -11.93:-1.0	>
 rxn04586	MdeltaG(Max): -3.09	>
-rxn04587	default	=
-rxn04588	default	=
+rxn04587	Incomplete	?
+rxn04588	Incomplete	?
 rxn04589	default	=
 rxn04590	default	=
 rxn04591	default	=
@@ -4984,7 +4984,7 @@ rxn05059	MdeltaG(Max): -3.22	>
 rxn05060	Incomplete	?
 rxn05061	lowE: -4.16:-1.0	>
 rxn05062	MdeltaG(Max): -12.84	>
-rxn05063	default	=
+rxn05063	Incomplete	?
 rxn05064	mMdeltaG: 1.79	=
 rxn05065	MdeltaG(Max): -8.78	>
 rxn05066	MdeltaG(Max): -3.18	>
@@ -5951,7 +5951,7 @@ rxn06101	Incomplete	?
 rxn06102	Incomplete	?
 rxn06103	Incomplete	?
 rxn06104	Incomplete	?
-rxn06105	MdeltaG(Min): 6.43	<
+rxn06105	Incomplete	?
 rxn06106	Incomplete	?
 rxn06107	Incomplete	?
 rxn06108	Incomplete	?
@@ -8001,9 +8001,9 @@ rxn08273	Incomplete	?
 rxn08274	Incomplete	?
 rxn08275	Incomplete	?
 rxn08276	Incomplete	?
-rxn08277	lowE: -3.16:-2.0	>
-rxn08278	mMdeltaG: 0.00	=
-rxn08279	mMdeltaG: 0.00	=
+rxn08277	Incomplete	?
+rxn08278	Incomplete	?
+rxn08279	Incomplete	?
 rxn08280	lowE: -10.25:-1.0	>
 rxn08281	lowE: -10.25:-1.0	>
 rxn08282	lowE: -10.25:-1.0	>
@@ -9568,7 +9568,7 @@ rxn10128	MdeltaG(Max): -32.11	>
 rxn10129	Incomplete	?
 rxn10130	Incomplete	?
 rxn10131	mMdeltaG: 0.00	=
-rxn10132	mMdeltaG: 0.00	=
+rxn10132	Incomplete	?
 rxn10133	mMdeltaG: 0.00	=
 rxn10134	mMdeltaG: 0.00	=
 rxn10135	mMdeltaG: 0.00	=
@@ -10857,7 +10857,7 @@ rxn11697	Incomplete	?
 rxn11698	Incomplete	?
 rxn11699	Incomplete	?
 rxn11700	Incomplete	?
-rxn11701	default	=
+rxn11701	Incomplete	?
 rxn11702	lowE: -3.73:-1.0	>
 rxn11703	MdeltaG(Max): -12.26	>
 rxn11704	MdeltaG(Max): -0.26	>
@@ -11158,7 +11158,7 @@ rxn12014	Incomplete	?
 rxn12015	MdeltaG(Max): -32.09	>
 rxn12017	Incomplete	?
 rxn12018	Incomplete	?
-rxn12019	lowE: -6.10:-1.0	>
+rxn12019	Incomplete	?
 rxn12020	lowE: -10.32:-1.0	>
 rxn12021	mMdeltaG: -1.50	=
 rxn12022	Incomplete	?
@@ -12843,7 +12843,7 @@ rxn14009	lowE: -10.33:-1.0	>
 rxn14010	Incomplete	?
 rxn14011	MdeltaG(Max): -10.74	>
 rxn14012	MdeltaG(Max): -10.74	>
-rxn14013	MdeltaG(Max): -77.92	>
+rxn14013	Incomplete	?
 rxn14014	Incomplete	?
 rxn14015	Incomplete	?
 rxn14016	Incomplete	?
@@ -12898,7 +12898,7 @@ rxn14064	Incomplete	?
 rxn14065	mMdeltaG: 1.28	=
 rxn14066	Incomplete	?
 rxn14067	Incomplete	?
-rxn14068	lowE: -6.10:-1.0	>
+rxn14068	Incomplete	?
 rxn14069	lowE: -12.04:-1.0	>
 rxn14070	Incomplete	?
 rxn14071	Incomplete	?
@@ -12960,7 +12960,7 @@ rxn14126	MdeltaG(Max): -10.74	>
 rxn14127	MdeltaG(Max): -145.71	>
 rxn14128	Incomplete	?
 rxn14129	MdeltaG(Max): -85.54	>
-rxn14130	lowE: -6.10:-1.0	>
+rxn14130	Incomplete	?
 rxn14131	Incomplete	?
 rxn14132	Incomplete	?
 rxn14133	MdeltaG(Max): -0.35	>
@@ -13024,7 +13024,7 @@ rxn14190	MdeltaG(Max): -11.89	>
 rxn14191	Incomplete	?
 rxn14192	default	=
 rxn14193	Incomplete	?
-rxn14194	default	=
+rxn14194	Incomplete	?
 rxn14195	Incomplete	?
 rxn14196	Incomplete	?
 rxn14197	Incomplete	?
@@ -14026,7 +14026,7 @@ rxn15809	default	=
 rxn15810	MdeltaG(Max): -10.89	>
 rxn15811	default	=
 rxn15812	MdeltaG(Max): -8.61	>
-rxn15813	default	=
+rxn15813	Incomplete	?
 rxn15814	default	=
 rxn15815	MdeltaG(Max): -24.46	>
 rxn15816	mMdeltaG: 0.00	=
@@ -15454,7 +15454,7 @@ rxn17549	Incomplete	?
 rxn17550	default	=
 rxn17551	default	=
 rxn17553	MdeltaG(Max): -3.17	>
-rxn17554	default	=
+rxn17554	Incomplete	?
 rxn17555	default	=
 rxn17556	Incomplete	?
 rxn17557	MdeltaG(Min): 144.94	<
@@ -16762,7 +16762,7 @@ rxn18868	lowE: -10.25:-1.0	>
 rxn18869	Incomplete	?
 rxn18870	lowE: -10.25:-1.0	>
 rxn18871	lowE: -10.25:-1.0	>
-rxn18872	lowE: -10.90:-1.0	>
+rxn18872	Incomplete	?
 rxn18873	lowE: -10.25:-1.0	>
 rxn18874	lowE: -10.25:-1.0	>
 rxn18875	Incomplete	?
@@ -18039,7 +18039,7 @@ rxn20727	Incomplete	?
 rxn20728	MdeltaG(Min): 36.81	<
 rxn20729	Incomplete	?
 rxn20731	Incomplete	?
-rxn20733	default	=
+rxn20733	Incomplete	?
 rxn20734	Incomplete	?
 rxn20735	Incomplete	?
 rxn20736	Incomplete	?
@@ -18938,8 +18938,8 @@ rxn21821	mMdeltaG: -0.87	=
 rxn21822	mMdeltaG: -0.87	=
 rxn21823	mMdeltaG: -0.87	=
 rxn21824	mMdeltaG: -0.46	=
-rxn21825	default	=
-rxn21826	default	=
+rxn21825	Incomplete	?
+rxn21826	Incomplete	?
 rxn21827	default	=
 rxn21828	default	=
 rxn21829	MdeltaG(Max): -85.94	>
@@ -20112,7 +20112,7 @@ rxn23229	Incomplete	?
 rxn23230	Incomplete	?
 rxn23231	Incomplete	?
 rxn23232	MdeltaG(Max): -50.91	>
-rxn23233	lowE: -3.16:-2.0	>
+rxn23233	Incomplete	?
 rxn23234	Incomplete	?
 rxn23235	MdeltaG(Max): -75.79	>
 rxn23236	mMdeltaG: -0.06	=
@@ -20553,7 +20553,7 @@ rxn23701	MdeltaG(Max): -145.57	>
 rxn23702	MdeltaG(Max): -26.14	>
 rxn23703	MdeltaG(Max): -4.92	>
 rxn23704	MdeltaG(Max): -89.11	>
-rxn23705	default	=
+rxn23705	Incomplete	?
 rxn23706	default	=
 rxn23707	MdeltaG(Max): -6.14	>
 rxn23708	Incomplete	?
@@ -22670,8 +22670,8 @@ rxn25949	MdeltaG(Max): -14.47	>
 rxn25950	MdeltaG(Max): -79.50	>
 rxn25951	Incomplete	?
 rxn25952	MdeltaG(Max): -193.57	>
-rxn25953	lowE: -17.36:-1.0	>
-rxn25954	default	=
+rxn25953	Incomplete	?
+rxn25954	Incomplete	?
 rxn25955	Incomplete	?
 rxn25956	MdeltaG(Max): -44.22	>
 rxn25957	lowE: -2.77:-1.0	>
@@ -25055,7 +25055,7 @@ rxn29052	Incomplete	?
 rxn29053	Incomplete	?
 rxn29054	mMdeltaG: 0.00	=
 rxn29055	Incomplete	?
-rxn29056	mMdeltaG: 0.00	=
+rxn29056	Incomplete	?
 rxn29057	Incomplete	?
 rxn29058	Incomplete	?
 rxn29059	Incomplete	?
@@ -28205,7 +28205,7 @@ rxn32495	mMdeltaG: 0.00	=
 rxn32496	Incomplete	?
 rxn32497	mMdeltaG: -0.32	=
 rxn32498	mMdeltaG: 0.00	=
-rxn32499	mMdeltaG: 0.00	=
+rxn32499	Incomplete	?
 rxn32500	mMdeltaG: 0.00	=
 rxn32501	lowE: 2.32:1.0	<
 rxn32502	mMdeltaG: 0.00	=
@@ -28614,10 +28614,10 @@ rxn32907	MdeltaG(Max): -4.21	>
 rxn32908	mMdeltaG: 0.00	=
 rxn32909	Incomplete	?
 rxn32910	Incomplete	?
-rxn32911	default	=
-rxn32912	default	=
+rxn32911	Incomplete	?
+rxn32912	Incomplete	?
 rxn32913	Incomplete	?
-rxn32914	default	=
+rxn32914	Incomplete	?
 rxn32915	mMdeltaG: 0.00	=
 rxn32916	mMdeltaG: 0.00	=
 rxn32917	default	=
@@ -28725,7 +28725,7 @@ rxn33019	MdeltaG(Max): -6.14	>
 rxn33020	mMdeltaG: 0.00	=
 rxn33021	mMdeltaG: 0.00	=
 rxn33022	mMdeltaG: 0.00	=
-rxn33023	lowE: -6.10:-1.0	>
+rxn33023	Incomplete	?
 rxn33024	mMdeltaG: -0.60	=
 rxn33025	default	=
 rxn33026	mMdeltaG: 0.00	=
@@ -28738,7 +28738,7 @@ rxn33032	lowE: -4.59:-1.0	>
 rxn33033	mMdeltaG: 0.00	=
 rxn33034	mMdeltaG: 0.00	=
 rxn33035	mMdeltaG: -1.31	=
-rxn33036	lowE: -6.10:-1.0	>
+rxn33036	Incomplete	?
 rxn33037	mMdeltaG: 0.00	=
 rxn33038	MdeltaG(Max): -10.74	>
 rxn33039	default	=
@@ -29215,18 +29215,18 @@ rxn33512	mMdeltaG: 0.00	=
 rxn33513	mMdeltaG: 0.00	=
 rxn33514	mMdeltaG: 0.00	=
 rxn33515	lowE: 4.73:1.0	<
-rxn33516	default	=
+rxn33516	Incomplete	?
 rxn33517	lowE: 4.73:1.0	<
 rxn33518	mMdeltaG: 0.00	=
 rxn33519	default	=
 rxn33520	mMdeltaG: 0.00	=
 rxn33521	mMdeltaG: 0.00	=
 rxn33522	mMdeltaG: 0.00	=
-rxn33523	mMdeltaG: 0.00	=
+rxn33523	Incomplete	?
 rxn33524	lowE: -6.42:-1.0	>
 rxn33525	Incomplete	?
-rxn33526	default	=
-rxn33527	mMdeltaG: 0.00	=
+rxn33526	Incomplete	?
+rxn33527	Incomplete	?
 rxn33528	mMdeltaG: 0.00	=
 rxn33529	mMdeltaG: 0.00	=
 rxn33530	mMdeltaG: 0.00	=
@@ -37901,7 +37901,7 @@ rxn42532	Incomplete	?
 rxn42533	Incomplete	?
 rxn42534	Incomplete	?
 rxn42535	mMdeltaG: 0.00	=
-rxn42536	default	=
+rxn42536	Incomplete	?
 rxn42537	MdeltaG(Max): -56.29	>
 rxn42538	lowE: -41.53:-7.0	>
 rxn42539	Incomplete	?
@@ -38430,7 +38430,7 @@ rxn43076	Incomplete	?
 rxn43077	default	=
 rxn43078	Incomplete	?
 rxn43079	mMdeltaG: 1.42	=
-rxn43080	default	=
+rxn43080	Incomplete	?
 rxn43081	Incomplete	?
 rxn43082	Incomplete	?
 rxn43083	Incomplete	?
