@@ -44,7 +44,7 @@ rxn00044	mMdeltaG: 1.15	=	=
 rxn00045	Incomplete (GCC)	=	=
 rxn00046	mMdeltaG: -1.82	=	=
 rxn00047	MdeltaG(Max): -11.58	>	>
-rxn00048	MdeltaG(Max): -11.98	>	>
+rxn00048	MdeltaG(Max): -11.98	?	>
 rxn00050	Incomplete (GCC)	<	<
 rxn00051	MdeltaG(Max): -102.09	>	>
 rxn00052	MdeltaG(Max): -25.46	>	>
@@ -86,7 +86,7 @@ rxn00087	default	=	=
 rxn00088	lowE: -3.02:-1.0	>	>
 rxn00089	Incomplete	?	?
 rxn00090	default	=	=
-rxn00091	MdeltaG(Max): -46.83	>	>
+rxn00091	MdeltaG(Max): -46.83	?	>
 rxn00092	MdeltaG(Max): -1.29	>	>
 rxn00093	lowE: -10.53:-1.0	>	>
 rxn00095	default	=	=
@@ -553,7 +553,7 @@ rxn00561	default	=	=
 rxn00562	default	=	=
 rxn00563	MdeltaG(Max): -4.13	>	>
 rxn00564	Incomplete (GCC)	=	=
-rxn00565	MdeltaG(Max): -66.16	>	>
+rxn00565	MdeltaG(Max): -66.16	?	>
 rxn00566	lowE: -4.92:-1.0	>	>
 rxn00567	Incomplete	?	?
 rxn00568	MdeltaG(Min): 52.38	<	<
@@ -612,7 +612,7 @@ rxn00621	mMdeltaG: 0.52	=	=
 rxn00622	Incomplete	?	?
 rxn00623	default	=	=
 rxn00624	Incomplete	?	?
-rxn00625	Incomplete (GCC)	<	<
+rxn00625	Incomplete	?	?
 rxn00626	Incomplete	?	?
 rxn00627	default	=	=
 rxn00629	mMdeltaG: -1.53	=	=
@@ -777,7 +777,7 @@ rxn00792	lowE: -11.13:-1.0	>	>
 rxn00793	Incomplete (GCC)	>	>
 rxn00794	lowE: -2.84:-1.0	>	>
 rxn00795	mMdeltaG: 1.07	=	=
-rxn00796	default	=	=
+rxn00796	default	?	=
 rxn00797	default	=	=
 rxn00798	mMdeltaG: 0.65	=	=
 rxn00799	default	=	=
@@ -1201,7 +1201,7 @@ rxn01221	MdeltaG(Max): -0.50	>	>
 rxn01222	MdeltaG(Max): -4.36	>	>
 rxn01223	default	=	=
 rxn01224	MdeltaG(Max): -1.51	>	>
-rxn01225	lowE: -4.79:-1.0	>	>
+rxn01225	lowE: -4.79:-1.0	?	>
 rxn01226	mMdeltaG: -0.45	=	=
 rxn01228	lowE: -2.53:-1.0	>	>
 rxn01229	Incomplete (GCC)	=	=
@@ -1271,8 +1271,8 @@ rxn01293	mMdeltaG: 0.78	=	=
 rxn01294	lowE: -2.78:-1.0	>	>
 rxn01295	default	=	=
 rxn01296	Incomplete	?	?
-rxn01297	default	=	=
-rxn01298	MdeltaG(Max): -10.71	>	>
+rxn01297	default	?	=
+rxn01298	MdeltaG(Max): -10.71	?	>
 rxn01299	mMdeltaG: -0.95	=	=
 rxn01300	MdeltaG(Max): -0.34	>	>
 rxn01301	mMdeltaG: 1.27	=	=
@@ -1489,9 +1489,9 @@ rxn01518	default	=	=
 rxn01519	MdeltaG(Max): -4.12	>	>
 rxn01520	MdeltaG(Max): -0.85	>	>
 rxn01521	lowE: -3.09:-1.0	>	>
-rxn01522	default	=	=
+rxn01522	default	?	=
 rxn01523	default	=	=
-rxn01524	MdeltaG(Max): -22.01	>	>
+rxn01524	MdeltaG(Max): -22.01	?	>
 rxn01525	Incomplete (GCC)	=	=
 rxn01526	MdeltaG(Min): 97.88	<	<
 rxn01527	default	=	=
@@ -1510,9 +1510,9 @@ rxn01539	MdeltaG(Min): 7.04	<	<
 rxn01540	default	=	=
 rxn01541	mMdeltaG: 0.48	=	=
 rxn01542	default	?	=
-rxn01543	default	=	=
-rxn01544	lowE: 9.26:1.0	<	<
-rxn01545	mMdeltaG: -0.54	=	=
+rxn01543	default	?	=
+rxn01544	lowE: 9.26:1.0	?	<
+rxn01545	mMdeltaG: -0.54	?	=
 rxn01546	default	=	=
 rxn01547	lowE: -4.79:-1.0	>	>
 rxn01548	lowE: 2.67:1.0	<	<
@@ -1522,11 +1522,11 @@ rxn01551	lowE: -9.08:-1.0	>	>
 rxn01552	lowE: -9.03:-1.0	>	>
 rxn01553	lowE: -15.40:-1.0	>	>
 rxn01554	default	=	=
-rxn01555	Incomplete (GCC)	>	>
-rxn01556	default	=	=
-rxn01557	default	=	=
-rxn01558	MdeltaG(Max): -6.14	>	>
-rxn01559	MdeltaG(Max): -105.45	>	>
+rxn01555	Incomplete	?	?
+rxn01556	default	?	=
+rxn01557	default	?	=
+rxn01558	MdeltaG(Max): -6.14	?	>
+rxn01559	MdeltaG(Max): -105.45	?	>
 rxn01560	mMdeltaG: -1.50	=	=
 rxn01561	default	=	=
 rxn01562	Incomplete (GCC)	=	=
@@ -1614,7 +1614,7 @@ rxn01645	default	=	=
 rxn01646	default	=	=
 rxn01647	default	=	=
 rxn01648	lowE: 3.60:1.0	<	<
-rxn01649	lowE: 2.57:1.0	<	<
+rxn01649	lowE: 2.57:1.0	?	<
 rxn01650	Incomplete (GCC)	>	>
 rxn01652	MdeltaG(Min): 0.99	<	<
 rxn01653	MdeltaG(Max): -9.47	>	>
@@ -1723,7 +1723,7 @@ rxn01756	Incomplete	?	?
 rxn01757	default	=	=
 rxn01758	Incomplete	?	?
 rxn01759	default	=	=
-rxn01760	default	=	=
+rxn01760	default	?	=
 rxn01761	mMdeltaG: 0.67	=	=
 rxn01762	mMdeltaG: 1.03	=	=
 rxn01763	default	=	=
@@ -1869,7 +1869,7 @@ rxn01903	MdeltaG(Max): -7.96	>	>
 rxn01904	default	=	=
 rxn01905	default	?	=
 rxn01906	default	?	=
-rxn01907	default	=	=
+rxn01907	default	?	=
 rxn01908	MdeltaG(Max): -1.37	>	>
 rxn01909	mMdeltaG: 1.00	=	=
 rxn01910	lowE: -2.52:-1.0	>	>
@@ -1981,7 +1981,7 @@ rxn02020	MdeltaG(Max): -0.97	>	>
 rxn02021	Incomplete	?	?
 rxn02022	Incomplete	?	?
 rxn02023	default	=	=
-rxn02024	default	=	=
+rxn02024	default	?	=
 rxn02025	MdeltaG(Max): -40.80	>	>
 rxn02026	MdeltaG(Max): -6.72	>	>
 rxn02027	MdeltaG(Min): 38.48	<	<
@@ -2055,7 +2055,7 @@ rxn02095	mMdeltaG: -1.52	=	=
 rxn02096	lowE: -9.22:-1.0	>	>
 rxn02097	mMdeltaG: -1.03	=	=
 rxn02098	default	=	=
-rxn02099	default	=	=
+rxn02099	default	?	=
 rxn02100	default	=	=
 rxn02101	Incomplete	?	?
 rxn02102	default	=	=
@@ -2187,7 +2187,7 @@ rxn02228	mMdeltaG: 0.35	=	=
 rxn02229	Incomplete (GCC)	=	=
 rxn02230	Incomplete	?	?
 rxn02231	default	=	=
-rxn02232	default	=	=
+rxn02232	default	?	=
 rxn02233	default	=	=
 rxn02234	default	=	=
 rxn02235	mMdeltaG: 0.80	=	=
@@ -2307,7 +2307,7 @@ rxn02350	default	=	=
 rxn02351	default	=	=
 rxn02352	Incomplete (GCC)	>	>
 rxn02353	Incomplete (GCC)	=	=
-rxn02354	MdeltaG(Max): -3.37	>	>
+rxn02354	MdeltaG(Max): -3.37	?	>
 rxn02355	default	=	=
 rxn02356	default	=	=
 rxn02357	default	=	=
@@ -2425,7 +2425,7 @@ rxn02468	default	?	=
 rxn02469	MdeltaG(Max): -93.05	>	>
 rxn02470	MdeltaG(Max): -75.62	>	>
 rxn02471	MdeltaG(Max): -36.33	>	>
-rxn02472	default	=	=
+rxn02472	default	?	=
 rxn02473	MdeltaG(Max): -7.21	>	>
 rxn02474	default	=	=
 rxn02475	lowE: -4.79:-1.0	>	>
@@ -2497,7 +2497,7 @@ rxn02540	MdeltaG(Max): -84.73	>	>
 rxn02541	MdeltaG(Max): -84.73	>	>
 rxn02542	default	?	=
 rxn02543	default	?	=
-rxn02544	default	=	=
+rxn02544	default	?	=
 rxn02545	MdeltaG(Max): -84.73	>	>
 rxn02546	lowE: -2.66:-1.0	>	>
 rxn02547	MdeltaG(Max): -84.73	>	>
@@ -2515,8 +2515,8 @@ rxn02558	default	=	=
 rxn02559	default	=	=
 rxn02560	default	=	=
 rxn02561	default	=	=
-rxn02562	default	=	=
-rxn02563	default	=	=
+rxn02562	default	?	=
+rxn02563	default	?	=
 rxn02564	MdeltaG(Max): -109.42	>	>
 rxn02565	Incomplete	?	?
 rxn02566	Incomplete	?	?
@@ -2569,7 +2569,7 @@ rxn02612	mMdeltaG: 1.77	=	=
 rxn02613	MdeltaG(Min): 67.04	<	<
 rxn02614	Incomplete	?	?
 rxn02615	MdeltaG(Min): 32.80	<	<
-rxn02616	Incomplete (GCC)	=	=
+rxn02616	Incomplete	?	?
 rxn02617	MdeltaG(Max): -7.53	>	>
 rxn02618	default	=	=
 rxn02619	MdeltaG(Max): -79.84	>	>
@@ -2602,7 +2602,7 @@ rxn02645	Incomplete (GCC)	=	=
 rxn02646	Incomplete	?	?
 rxn02647	Incomplete (GCC)	=	=
 rxn02648	Incomplete	?	?
-rxn02649	default	=	=
+rxn02649	default	?	=
 rxn02650	default	=	=
 rxn02651	mMdeltaG: 0.14	=	=
 rxn02652	lowE: 8.84:1.0	<	<
@@ -2639,7 +2639,7 @@ rxn02682	default	?	=
 rxn02683	MdeltaG(Max): -3.58	>	>
 rxn02684	mMdeltaG: 0.00	=	=
 rxn02685	default	=	=
-rxn02686	Incomplete (GCC)	=	=
+rxn02686	Incomplete	?	?
 rxn02687	mMdeltaG: 0.35	=	=
 rxn02688	mMdeltaG: 0.00	=	=
 rxn02689	mMdeltaG: 0.35	=	=
@@ -2817,7 +2817,7 @@ rxn02861	MdeltaG(Max): -51.75	>	>
 rxn02862	default	=	=
 rxn02863	MdeltaG(Min): 0.86	<	<
 rxn02864	Incomplete (GCC)	>	>
-rxn02865	Incomplete (GCC)	>	>
+rxn02865	Incomplete	?	?
 rxn02866	default	=	=
 rxn02867	mMdeltaG: 0.69	=	=
 rxn02868	default	=	=
@@ -3001,7 +3001,7 @@ rxn03045	default	=	=
 rxn03046	mMdeltaG: -0.56	=	=
 rxn03047	default	=	=
 rxn03048	lowE: -10.83:-2.0	>	>
-rxn03049	default	=	=
+rxn03049	default	?	=
 rxn03050	default	=	=
 rxn03051	MdeltaG(Min): 95.24	<	<
 rxn03052	MdeltaG(Max): -0.27	>	>
@@ -3030,8 +3030,8 @@ rxn03076	Incomplete (GCC)	=	=
 rxn03077	Incomplete	?	?
 rxn03078	default	=	=
 rxn03079	mMdeltaG: -1.93	=	=
-rxn03080	MdeltaG(Max): -17.51	>	>
-rxn03081	Incomplete (GCC)	>	>
+rxn03080	MdeltaG(Max): -17.51	?	>
+rxn03081	Incomplete	?	?
 rxn03082	MdeltaG(Max): -57.24	>	>
 rxn03083	MdeltaG(Max): -82.13	>	>
 rxn03084	Incomplete (GCC)	>	>
@@ -3055,7 +3055,7 @@ rxn03101	MdeltaG(Max): -9.30	>	>
 rxn03102	Incomplete	?	?
 rxn03103	MdeltaG(Min): 13.55	<	<
 rxn03104	MdeltaG(Max): -73.05	>	>
-rxn03105	default	=	=
+rxn03105	default	?	=
 rxn03106	default	=	=
 rxn03107	default	=	=
 rxn03108	default	=	=
@@ -3070,7 +3070,7 @@ rxn03116	Incomplete	?	?
 rxn03117	Incomplete	?	?
 rxn03118	MdeltaG(Min): 60.13	<	<
 rxn03119	Incomplete (GCC)	=	=
-rxn03120	Incomplete (GCC)	=	=
+rxn03120	Incomplete	?	?
 rxn03121	Incomplete	?	?
 rxn03122	default	=	=
 rxn03123	Incomplete (GCC)	=	=
@@ -3115,7 +3115,7 @@ rxn03161	Incomplete (GCC)	=	=
 rxn03162	Incomplete	?	?
 rxn03163	MdeltaG(Max): -67.53	>	>
 rxn03164	Incomplete	?	?
-rxn03165	Incomplete (GCC)	>	>
+rxn03165	Incomplete	?	?
 rxn03166	default	=	=
 rxn03167	MdeltaG(Max): -3.00	>	>
 rxn03168	mMdeltaG: 1.82	=	=
@@ -3279,7 +3279,7 @@ rxn03328	lowE: -2.88:-1.0	>	>
 rxn03329	mMdeltaG: -0.22	=	=
 rxn03330	mMdeltaG: -0.36	=	=
 rxn03331	Incomplete	?	?
-rxn03332	Incomplete (GCC)	<	<
+rxn03332	Incomplete	?	?
 rxn03333	mMdeltaG: 0.80	=	=
 rxn03334	default	=	=
 rxn03335	default	=	=
@@ -3357,7 +3357,7 @@ rxn03406	Incomplete	?	?
 rxn03407	default	=	=
 rxn03408	default	=	=
 rxn03409	Incomplete	?	?
-rxn03410	default	=	=
+rxn03410	default	?	=
 rxn03411	Incomplete	?	?
 rxn03412	Incomplete	?	?
 rxn03413	default	=	=
@@ -3576,7 +3576,7 @@ rxn03629	MdeltaG(Max): -78.72	>	>
 rxn03630	MdeltaG(Max): -92.19	>	>
 rxn03631	MdeltaG(Max): -76.40	>	>
 rxn03632	MdeltaG(Max): -76.40	>	>
-rxn03633	default	=	=
+rxn03633	default	?	=
 rxn03634	mMdeltaG: 1.54	=	=
 rxn03635	mMdeltaG: -0.37	=	=
 rxn03636	default	=	=
@@ -4325,8 +4325,8 @@ rxn04389	default	?	=
 rxn04390	Incomplete	?	?
 rxn04391	Incomplete	?	?
 rxn04392	Incomplete	?	?
-rxn04393	MdeltaG(Max): -60.27	>	>
-rxn04394	MdeltaG(Max): -107.49	>	>
+rxn04393	MdeltaG(Max): -60.27	?	>
+rxn04394	MdeltaG(Max): -107.49	?	>
 rxn04395	MdeltaG(Max): -110.19	>	>
 rxn04396	Incomplete	?	?
 rxn04397	Incomplete	?	?
@@ -4344,7 +4344,7 @@ rxn04408	MdeltaG(Max): -13.23	>	>
 rxn04409	MdeltaG(Max): -13.37	>	>
 rxn04410	MdeltaG(Max): -17.25	>	>
 rxn04411	MdeltaG(Max): -17.60	>	>
-rxn04412	MdeltaG(Max): -23.46	>	>
+rxn04412	MdeltaG(Max): -23.46	?	>
 rxn04413	Incomplete	?	?
 rxn04414	Incomplete	?	?
 rxn04415	MdeltaG(Max): -84.78	>	>
@@ -4541,9 +4541,9 @@ rxn04605	Incomplete (GCC)	>	>
 rxn04606	Incomplete (GCC)	>	>
 rxn04607	Incomplete	?	?
 rxn04608	MdeltaG(Max): -8.63	>	>
-rxn04609	default	=	=
-rxn04610	default	=	=
-rxn04611	lowE: -5.00:-1.0	>	>
+rxn04609	default	?	=
+rxn04610	default	?	=
+rxn04611	lowE: -5.00:-1.0	?	>
 rxn04612	mMdeltaG: -1.88	=	=
 rxn04613	MdeltaG(Max): -82.86	?	>
 rxn04614	mMdeltaG: -0.71	?	=
@@ -4562,8 +4562,8 @@ rxn04626	default	=	=
 rxn04627	default	=	=
 rxn04628	default	=	=
 rxn04629	mMdeltaG: -0.36	=	=
-rxn04630	default	=	=
-rxn04631	default	=	=
+rxn04630	default	?	=
+rxn04631	default	?	=
 rxn04632	mMdeltaG: -0.91	?	=
 rxn04633	MdeltaG(Max): -1.88	?	>
 rxn04634	MdeltaG(Max): -3.00	?	>
@@ -4574,9 +4574,9 @@ rxn04638	MdeltaG(Max): -19.21	>	>
 rxn04639	default	=	=
 rxn04640	Incomplete	?	?
 rxn04641	default	=	=
-rxn04642	default	=	=
-rxn04643	MdeltaG(Max): -3.71	>	>
-rxn04644	default	=	=
+rxn04642	default	?	=
+rxn04643	MdeltaG(Max): -3.71	?	>
+rxn04644	default	?	=
 rxn04645	lowE: -4.68:-1.0	>	>
 rxn04646	MdeltaG(Max): -40.64	>	>
 rxn04647	MdeltaG(Max): -0.38	>	>
@@ -5012,7 +5012,7 @@ rxn05089	Incomplete	?	?
 rxn05090	MdeltaG(Max): -65.60	>	>
 rxn05091	Incomplete (GCC)	>	>
 rxn05092	MdeltaG(Max): -115.99	>	>
-rxn05093	MdeltaG(Max): -17.32	>	>
+rxn05093	MdeltaG(Max): -17.32	?	>
 rxn05094	MdeltaG(Max): -110.19	>	>
 rxn05095	MdeltaG(Max): -106.82	>	>
 rxn05096	MdeltaG(Max): -105.17	>	>
@@ -5115,7 +5115,7 @@ rxn05198	Incomplete (GCC)	=	=
 rxn05199	Incomplete (GCC)	=	=
 rxn05200	Incomplete (GCC)	=	=
 rxn05201	Incomplete (GCC)	=	=
-rxn05202	Incomplete (GCC)	=	=
+rxn05202	Incomplete	?	?
 rxn05203	Incomplete (GCC)	=	=
 rxn05204	Incomplete (GCC)	=	=
 rxn05205	Incomplete (GCC)	=	=
@@ -5778,7 +5778,7 @@ rxn05923	Incomplete	?	?
 rxn05924	Incomplete	?	?
 rxn05925	Incomplete	?	?
 rxn05926	Incomplete	?	?
-rxn05927	default	=	=
+rxn05927	default	?	=
 rxn05928	MdeltaG(Max): -0.29	>	>
 rxn05929	MdeltaG(Max): -59.89	>	>
 rxn05930	Incomplete	?	?
@@ -6889,7 +6889,7 @@ rxn07111	lowE: -2.03:-1.0	?	>
 rxn07112	lowE: -2.18:-1.0	?	>
 rxn07113	MdeltaG(Max): -8.81	?	>
 rxn07114	MdeltaG(Min): 40.36	?	<
-rxn07115	MdeltaG(Max): -141.43	>	>
+rxn07115	MdeltaG(Max): -141.43	?	>
 rxn07116	Incomplete	?	?
 rxn07117	MdeltaG(Min): 27.80	<	<
 rxn07118	MdeltaG(Max): -84.74	>	>
@@ -7336,7 +7336,7 @@ rxn07567	MdeltaG(Max): -3.13	>	>
 rxn07568	mMdeltaG: -0.68	=	=
 rxn07569	MdeltaG(Min): 98.01	<	<
 rxn07570	MdeltaG(Min): 65.40	<	<
-rxn07571	mMdeltaG: -0.93	=	=
+rxn07571	mMdeltaG: -0.93	?	=
 rxn07572	default	=	=
 rxn07573	mMdeltaG: -0.35	=	=
 rxn07574	default	=	=
@@ -7517,12 +7517,12 @@ rxn07751	MdeltaG(Max): -80.45	>	>
 rxn07752	MdeltaG(Max): -80.45	>	>
 rxn07753	MdeltaG(Max): -80.49	>	>
 rxn07754	MdeltaG(Max): -80.49	>	>
-rxn07755	MdeltaG(Max): -81.39	>	>
-rxn07756	MdeltaG(Max): -81.40	>	>
-rxn07757	MdeltaG(Max): -81.36	>	>
-rxn07758	MdeltaG(Max): -81.36	>	>
-rxn07759	MdeltaG(Max): -69.96	>	>
-rxn07760	MdeltaG(Max): -69.96	>	>
+rxn07755	MdeltaG(Max): -81.39	?	>
+rxn07756	MdeltaG(Max): -81.40	?	>
+rxn07757	MdeltaG(Max): -81.36	?	>
+rxn07758	MdeltaG(Max): -81.36	?	>
+rxn07759	MdeltaG(Max): -69.96	?	>
+rxn07760	MdeltaG(Max): -69.96	?	>
 rxn07761	MdeltaG(Max): -80.78	>	>
 rxn07762	MdeltaG(Max): -80.78	>	>
 rxn07763	MdeltaG(Max): -80.73	>	>
@@ -7907,7 +7907,7 @@ rxn08174	Incomplete (GCC)	=	=
 rxn08175	Incomplete (GCC)	=	=
 rxn08178	Incomplete	?	?
 rxn08179	Incomplete	?	?
-rxn08180	default	=	=
+rxn08180	default	?	=
 rxn08181	lowE: -10.25:-1.0	>	>
 rxn08182	Incomplete (GCC)	=	=
 rxn08183	Incomplete (GCC)	=	=
@@ -8945,9 +8945,9 @@ rxn09372	Incomplete (GCC)	=	=
 rxn09373	lowE: -10.25:-1.0	>	>
 rxn09374	Incomplete (GCC)	=	=
 rxn09375	Incomplete (GCC)	=	=
-rxn09377	Incomplete (GCC)	=	=
-rxn09378	Incomplete (GCC)	=	=
-rxn09379	Incomplete (GCC)	=	=
+rxn09377	Incomplete	?	?
+rxn09378	Incomplete	?	?
+rxn09379	Incomplete	?	?
 rxn09380	Incomplete (GCC)	=	=
 rxn09381	Incomplete (GCC)	=	=
 rxn09382	Incomplete (GCC)	=	=
@@ -9059,7 +9059,7 @@ rxn09527	Incomplete	?	?
 rxn09528	ATPS	=	=
 rxn09529	ATPS	=	=
 rxn09530	ATPS	=	=
-rxn09531	default	=	=
+rxn09531	default	?	=
 rxn09532	MdeltaG(Max): -3.27	>	>
 rxn09535	Incomplete	?	?
 rxn09536	Incomplete	?	?
@@ -9162,7 +9162,7 @@ rxn09648	Incomplete (GCC)	=	=
 rxn09649	Incomplete (GCC)	=	=
 rxn09650	Incomplete (GCC)	=	=
 rxn09651	Incomplete (GCC)	=	=
-rxn09652	Incomplete (GCC)	=	=
+rxn09652	Incomplete	?	?
 rxn09653	Incomplete (GCC)	=	=
 rxn09654	Incomplete (GCC)	=	=
 rxn09655	Incomplete (GCC)	=	=
@@ -9974,7 +9974,7 @@ rxn10601	Incomplete	?	?
 rxn10602	Incomplete	?	?
 rxn10603	default	=	=
 rxn10604	Incomplete (GCC)	=	=
-rxn10605	Incomplete (GCC)	=	=
+rxn10605	Incomplete	?	?
 rxn10606	Incomplete	?	?
 rxn10607	Incomplete	?	?
 rxn10608	default	=	=
@@ -10550,7 +10550,7 @@ rxn11269	default	=	=
 rxn11274	default	=	=
 rxn11276	lowE: -11.13:-1.0	>	>
 rxn11277	default	=	=
-rxn11279	MdeltaG(Min): 64.69	<	<
+rxn11279	MdeltaG(Min): 64.69	?	<
 rxn11283	MdeltaG(Min): 4.80	<	<
 rxn11284	Incomplete	?	?
 rxn11285	MdeltaG(Max): -29.04	>	>
@@ -10678,8 +10678,8 @@ rxn11508	Incomplete	?	?
 rxn11509	MdeltaG(Max): -5.93	>	>
 rxn11510	default	=	=
 rxn11511	default	=	=
-rxn11512	MdeltaG(Max): -39.41	>	>
-rxn11513	default	=	=
+rxn11512	MdeltaG(Max): -39.41	?	>
+rxn11513	default	?	=
 rxn11514	default	=	=
 rxn11515	MdeltaG(Max): -69.75	>	>
 rxn11516	MdeltaG(Max): -14.25	>	>
@@ -11199,7 +11199,7 @@ rxn12056	MdeltaG(Max): -47.50	?	>
 rxn12057	MdeltaG(Max): -30.71	>	>
 rxn12058	lowE: -10.33:-1.0	>	>
 rxn12059	Incomplete	?	?
-rxn12060	default	=	=
+rxn12060	default	?	=
 rxn12061	MdeltaG(Max): -30.17	>	>
 rxn12062	MdeltaG(Min): 119.56	<	<
 rxn12063	MdeltaG(Min): 101.67	<	<
@@ -11561,7 +11561,7 @@ rxn12436	Incomplete (GCC)	=	=
 rxn12437	Incomplete (GCC)	=	=
 rxn12438	Incomplete (GCC)	=	=
 rxn12439	Incomplete (GCC)	=	=
-rxn12440	Incomplete (GCC)	=	=
+rxn12440	Incomplete	?	?
 rxn12441	Incomplete (GCC)	=	=
 rxn12442	Incomplete	?	?
 rxn12443	lowE: -10.25:-1.0	>	>
@@ -13542,7 +13542,7 @@ rxn15303	Incomplete	?	?
 rxn15304	MdeltaG(Min): 97.88	<	<
 rxn15305	Incomplete	?	?
 rxn15306	default	=	=
-rxn15307	default	=	=
+rxn15307	default	?	=
 rxn15310	default	=	=
 rxn15311	default	=	=
 rxn15312	Incomplete (GCC)	=	=
@@ -13567,8 +13567,8 @@ rxn15331	lowE: -4.32:-1.0	>	>
 rxn15332	lowE: -3.68:-1.0	>	>
 rxn15333	MdeltaG(Max): -1.98	>	>
 rxn15334	MdeltaG(Max): -1.98	>	>
-rxn15335	default	=	=
-rxn15336	default	=	=
+rxn15335	default	?	=
+rxn15336	default	?	=
 rxn15337	mMdeltaG: 0.27	=	=
 rxn15338	mMdeltaG: 0.27	=	=
 rxn15339	mMdeltaG: 0.63	=	=
@@ -13665,8 +13665,8 @@ rxn15442	Incomplete	?	?
 rxn15443	Incomplete	?	?
 rxn15444	Incomplete	?	?
 rxn15445	Incomplete	?	?
-rxn15446	Incomplete (GCC)	>	>
-rxn15447	Incomplete (GCC)	>	>
+rxn15446	Incomplete	?	?
+rxn15447	Incomplete	?	?
 rxn15448	Incomplete	?	?
 rxn15449	Incomplete	?	?
 rxn15450	Incomplete	?	?
@@ -13940,7 +13940,7 @@ rxn15721	default	=	=
 rxn15722	default	=	=
 rxn15723	default	=	=
 rxn15724	default	=	=
-rxn15725	default	=	=
+rxn15725	default	?	=
 rxn15726	default	=	=
 rxn15727	default	=	=
 rxn15728	Incomplete	?	?
@@ -14582,12 +14582,12 @@ rxn16366	MdeltaG(Max): -42.27	>	>
 rxn16367	MdeltaG(Max): -23.38	>	>
 rxn16368	default	=	=
 rxn16369	lowE: -2.24:-1.0	>	>
-rxn16370	default	=	=
+rxn16370	default	?	=
 rxn16371	lowE: -5.57:-1.0	>	>
 rxn16372	MdeltaG(Max): -0.72	>	>
 rxn16373	mMdeltaG: -0.90	=	=
-rxn16374	default	=	=
-rxn16375	default	=	=
+rxn16374	default	?	=
+rxn16375	default	?	=
 rxn16376	default	=	=
 rxn16377	default	=	=
 rxn16378	default	=	=
@@ -14854,8 +14854,8 @@ rxn16639	MdeltaG(Max): -54.07	>	>
 rxn16640	Incomplete	?	?
 rxn16641	mMdeltaG: -0.81	=	=
 rxn16642	default	=	=
-rxn16643	default	=	=
-rxn16644	default	=	=
+rxn16643	default	?	=
+rxn16644	default	?	=
 rxn16645	default	=	=
 rxn16646	MdeltaG(Max): -3.61	>	>
 rxn16647	Incomplete	?	?
@@ -15124,7 +15124,7 @@ rxn17047	Incomplete	?	?
 rxn17048	Incomplete	?	?
 rxn17049	Incomplete	?	?
 rxn17060	Incomplete	?	?
-rxn17061	Incomplete (GCC)	?	?
+rxn17061	Incomplete	?	?
 rxn17062	MdeltaG(Max): -110.19	>	>
 rxn17063	Incomplete	?	?
 rxn17064	MdeltaG(Max): -101.24	>	>
@@ -15321,7 +15321,7 @@ rxn17411	Incomplete	?	?
 rxn17412	Incomplete	?	?
 rxn17413	default	=	=
 rxn17414	default	=	=
-rxn17415	default	=	=
+rxn17415	default	?	=
 rxn17416	Incomplete	?	?
 rxn17417	Incomplete	?	?
 rxn17418	Incomplete	?	?
@@ -17378,7 +17378,7 @@ rxn19702	MdeltaG(Max): -42.67	>	>
 rxn19703	MdeltaG(Max): -42.67	>	>
 rxn19704	Incomplete	?	?
 rxn19705	Incomplete	?	?
-rxn19706	default	=	=
+rxn19706	default	?	=
 rxn19707	Incomplete	?	?
 rxn19708	Incomplete	?	?
 rxn19709	Incomplete	?	?
@@ -17512,8 +17512,8 @@ rxn19875	Incomplete	?	?
 rxn19876	Incomplete	?	?
 rxn19877	Incomplete	?	?
 rxn19878	default	=	=
-rxn19879	Incomplete (GCC)	?	?
-rxn19880	Incomplete (GCC)	?	?
+rxn19879	Incomplete	?	?
+rxn19880	Incomplete	?	?
 rxn19881	Incomplete	?	?
 rxn19882	Incomplete	?	?
 rxn19883	Incomplete (GCC)	>	>
@@ -17576,11 +17576,11 @@ rxn19945	MdeltaG(Max): -84.78	>	>
 rxn19946	Incomplete (GCC)	=	=
 rxn19947	Incomplete	?	?
 rxn19948	Incomplete	?	?
-rxn19949	default	=	=
+rxn19949	default	?	=
 rxn19950	MdeltaG(Max): -3.56	>	>
 rxn19951	mMdeltaG: 0.00	=	=
 rxn19952	Incomplete	?	?
-rxn19953	Incomplete (GCC)	=	=
+rxn19953	Incomplete	?	?
 rxn19954	Incomplete	?	?
 rxn19955	Incomplete	?	?
 rxn19956	MdeltaG(Min): 0.55	<	<
@@ -17970,8 +17970,8 @@ rxn20654	Incomplete	?	?
 rxn20655	default	=	=
 rxn20656	default	=	=
 rxn20657	Incomplete	?	?
-rxn20658	Incomplete (GCC)	>	>
-rxn20659	default	=	=
+rxn20658	Incomplete	?	?
+rxn20659	default	?	=
 rxn20660	Incomplete	?	?
 rxn20661	MdeltaG(Max): -48.35	>	>
 rxn20662	MdeltaG(Max): -60.63	>	>
@@ -17983,7 +17983,7 @@ rxn20667	Incomplete	?	?
 rxn20668	Incomplete	?	?
 rxn20669	Incomplete	?	?
 rxn20670	Incomplete	?	?
-rxn20671	Incomplete (GCC)	?	?
+rxn20671	Incomplete	?	?
 rxn20672	Incomplete	?	?
 rxn20673	Incomplete	?	?
 rxn20674	Incomplete	?	?
@@ -18166,7 +18166,7 @@ rxn20876	MdeltaG(Max): -0.61	>	>
 rxn20877	MdeltaG(Max): -0.61	>	>
 rxn20878	Incomplete	?	?
 rxn20879	Incomplete	?	?
-rxn20880	MdeltaG(Max): -6.13	>	>
+rxn20880	MdeltaG(Max): -6.13	?	>
 rxn20881	default	=	=
 rxn20882	Incomplete	?	?
 rxn20883	Incomplete	?	?
@@ -18363,7 +18363,7 @@ rxn21083	Incomplete	?	?
 rxn21084	MdeltaG(Min): 49.75	<	<
 rxn21085	MdeltaG(Max): -14.27	>	>
 rxn21086	lowE: -3.83:-1.0	>	>
-rxn21087	default	=	=
+rxn21087	default	?	=
 rxn21088	lowE: -23.08:-14.0	>	>
 rxn21089	lowE: -22.45:-16.0	>	>
 rxn21090	Incomplete (GCC)	>	>
@@ -18398,8 +18398,8 @@ rxn21119	default	=	=
 rxn21120	Incomplete (GCC)	=	=
 rxn21121	Incomplete	?	?
 rxn21122	mMdeltaG: -0.66	=	=
-rxn21123	default	=	=
-rxn21124	MdeltaG(Max): -3.13	>	>
+rxn21123	default	?	=
+rxn21124	MdeltaG(Max): -3.13	?	>
 rxn21125	Incomplete	?	?
 rxn21126	Incomplete	?	?
 rxn21127	Incomplete	?	?
@@ -18430,7 +18430,7 @@ rxn21153	mMdeltaG: -1.51	=	=
 rxn21154	default	=	=
 rxn21155	MdeltaG(Min): 40.16	<	<
 rxn21156	MdeltaG(Min): 23.75	?	<
-rxn21157	Incomplete (GCC)	?	?
+rxn21157	Incomplete	?	?
 rxn21158	Incomplete	?	?
 rxn21159	Incomplete	?	?
 rxn21161	mMdeltaG: 1.26	=	=
@@ -19133,7 +19133,7 @@ rxn22048	Incomplete	?	?
 rxn22049	Incomplete	?	?
 rxn22050	MdeltaG(Min): 19.25	<	<
 rxn22051	MdeltaG(Max): -0.74	>	>
-rxn22052	MdeltaG(Max): -45.27	>	>
+rxn22052	MdeltaG(Max): -45.27	?	>
 rxn22053	Incomplete	?	?
 rxn22054	Incomplete	?	?
 rxn22055	Incomplete	?	?
@@ -19201,7 +19201,7 @@ rxn22117	default	=	=
 rxn22118	Incomplete	?	?
 rxn22119	default	=	=
 rxn22120	default	=	=
-rxn22121	default	=	=
+rxn22121	default	?	=
 rxn22122	Incomplete	?	?
 rxn22123	Incomplete	?	?
 rxn22124	Incomplete	?	?
@@ -19388,7 +19388,7 @@ rxn22317	Incomplete	?	?
 rxn22318	MdeltaG(Max): -133.91	>	>
 rxn22319	Incomplete	?	?
 rxn22320	Incomplete (GCC)	=	=
-rxn22321	Incomplete (GCC)	?	?
+rxn22321	Incomplete	?	?
 rxn22322	Incomplete (GCC)	>	>
 rxn22323	Incomplete	?	?
 rxn22324	default	=	=
@@ -19860,8 +19860,8 @@ rxn22968	Incomplete	?	?
 rxn22969	Incomplete	?	?
 rxn22970	Incomplete	?	?
 rxn22971	Incomplete	?	?
-rxn22972	mMdeltaG: 0.98	=	=
-rxn22973	mMdeltaG: 0.98	=	=
+rxn22972	mMdeltaG: 0.98	?	=
+rxn22973	mMdeltaG: 0.98	?	=
 rxn22974	MdeltaG(Max): -6.38	>	>
 rxn22975	MdeltaG(Max): -6.38	>	>
 rxn22976	Incomplete	?	?
@@ -20297,7 +20297,7 @@ rxn23426	MdeltaG(Max): -51.75	>	>
 rxn23427	MdeltaG(Max): -51.75	>	>
 rxn23428	MdeltaG(Max): -6.74	>	>
 rxn23429	Incomplete	?	?
-rxn23430	Incomplete (GCC)	?	?
+rxn23430	Incomplete	?	?
 rxn23431	Incomplete	?	?
 rxn23433	default	=	=
 rxn23435	MdeltaG(Max): -16.81	>	>
@@ -20709,13 +20709,13 @@ rxn23858	Incomplete	?	?
 rxn23859	Incomplete	?	?
 rxn23860	Incomplete	?	?
 rxn23861	MdeltaG(Max): -3.36	>	>
-rxn23862	lowE: -13.45:-2.0	>	>
+rxn23862	lowE: -13.45:-2.0	?	>
 rxn23863	default	=	=
 rxn23864	lowE: -17.31:-2.0	>	>
 rxn23865	default	=	=
 rxn23866	default	=	=
 rxn23867	MdeltaG(Max): -1.29	>	>
-rxn23868	default	=	=
+rxn23868	default	?	=
 rxn23869	Incomplete (GCC)	=	=
 rxn23870	Incomplete (GCC)	>	>
 rxn23871	default	=	=
@@ -20805,10 +20805,10 @@ rxn23968	default	=	=
 rxn23969	default	=	=
 rxn23970	default	=	=
 rxn23971	default	=	=
-rxn23972	default	=	=
-rxn23973	lowE: -21.61:-2.0	>	>
-rxn23974	default	=	=
-rxn23975	default	=	=
+rxn23972	default	?	=
+rxn23973	lowE: -21.61:-2.0	?	>
+rxn23974	default	?	=
+rxn23975	default	?	=
 rxn23976	default	=	=
 rxn23977	default	=	=
 rxn23978	default	=	=
@@ -21134,7 +21134,7 @@ rxn24320	Incomplete	?	?
 rxn24321	Incomplete	?	?
 rxn24322	default	=	=
 rxn24323	default	=	=
-rxn24324	default	=	=
+rxn24324	default	?	=
 rxn24325	default	=	=
 rxn24326	Incomplete	?	?
 rxn24327	default	=	=
@@ -21491,7 +21491,7 @@ rxn24702	Incomplete	?	?
 rxn24703	Incomplete	?	?
 rxn24704	Incomplete	?	?
 rxn24705	default	=	=
-rxn24706	Incomplete (GCC)	?	?
+rxn24706	Incomplete	?	?
 rxn24707	MdeltaG(Max): -8.74	?	>
 rxn24708	MdeltaG(Max): -3.05	?	>
 rxn24709	lowE: -2.15:-1.0	?	>
@@ -21510,21 +21510,21 @@ rxn24722	Incomplete	?	?
 rxn24723	MdeltaG(Max): -39.26	?	>
 rxn24724	Incomplete	?	?
 rxn24725	Incomplete	?	?
-rxn24726	default	=	=
+rxn24726	default	?	=
 rxn24727	default	=	=
-rxn24728	default	=	=
-rxn24729	MdeltaG(Max): -5.30	>	>
-rxn24730	MdeltaG(Max): -5.26	>	>
+rxn24728	default	?	=
+rxn24729	MdeltaG(Max): -5.30	?	>
+rxn24730	MdeltaG(Max): -5.26	?	>
 rxn24731	default	=	=
 rxn24732	default	=	=
-rxn24733	default	=	=
+rxn24733	default	?	=
 rxn24734	default	=	=
 rxn24735	default	=	=
 rxn24736	Incomplete	?	?
 rxn24737	default	=	=
 rxn24738	default	=	=
-rxn24739	mMdeltaG: -0.60	=	=
-rxn24740	mMdeltaG: -0.64	=	=
+rxn24739	mMdeltaG: -0.60	?	=
+rxn24740	mMdeltaG: -0.64	?	=
 rxn24741	Incomplete	?	?
 rxn24742	Incomplete (GCC)	>	>
 rxn24743	Incomplete (GCC)	>	>
@@ -21638,7 +21638,7 @@ rxn24854	Incomplete	?	?
 rxn24855	Incomplete	?	?
 rxn24856	MdeltaG(Max): -0.81	>	>
 rxn24857	MdeltaG(Max): -0.81	>	>
-rxn24858	Incomplete (GCC)	?	?
+rxn24858	Incomplete	?	?
 rxn24859	MdeltaG(Max): -0.81	>	>
 rxn24860	MdeltaG(Max): -0.81	>	>
 rxn24861	MdeltaG(Max): -0.81	>	>
@@ -21711,7 +21711,7 @@ rxn24927	MdeltaG(Max): -2.57	>	>
 rxn24928	default	=	=
 rxn24929	MdeltaG(Max): -0.90	>	>
 rxn24930	Incomplete	?	?
-rxn24931	default	=	=
+rxn24931	default	?	=
 rxn24932	Incomplete (GCC)	=	=
 rxn24934	MdeltaG(Max): -98.70	>	>
 rxn24935	MdeltaG(Max): -98.70	>	>
@@ -22105,7 +22105,7 @@ rxn25359	Incomplete	?	?
 rxn25360	Incomplete	?	?
 rxn25361	Incomplete (GCC)	>	>
 rxn25362	Incomplete (GCC)	>	>
-rxn25363	Incomplete (GCC)	>	>
+rxn25363	Incomplete	?	?
 rxn25364	Incomplete	?	?
 rxn25365	Incomplete	?	?
 rxn25366	Incomplete	?	?
@@ -22351,14 +22351,14 @@ rxn25620	default	=	=
 rxn25621	MdeltaG(Max): -3.23	>	>
 rxn25622	MdeltaG(Max): -37.64	>	>
 rxn25623	MdeltaG(Max): -37.64	>	>
-rxn25624	MdeltaG(Min): 16.03	<	<
+rxn25624	MdeltaG(Min): 16.03	?	<
 rxn25625	MdeltaG(Max): -150.39	>	>
 rxn25626	MdeltaG(Max): -150.39	>	>
 rxn25627	MdeltaG(Max): -37.69	>	>
-rxn25628	MdeltaG(Min): 24.80	<	<
+rxn25628	MdeltaG(Min): 24.80	?	<
 rxn25629	MdeltaG(Max): -3.18	>	>
 rxn25630	MdeltaG(Max): -3.14	>	>
-rxn25631	default	=	=
+rxn25631	default	?	=
 rxn25632	default	=	=
 rxn25633	MdeltaG(Max): -150.38	>	>
 rxn25634	MdeltaG(Max): -150.38	>	>
@@ -22504,10 +22504,10 @@ rxn25774	Incomplete	?	?
 rxn25776	Incomplete	?	?
 rxn25779	MdeltaG(Max): -0.06	>	>
 rxn25780	MdeltaG(Max): -0.06	>	>
-rxn25781	Incomplete (GCC)	=	=
-rxn25782	mMdeltaG: -0.28	=	=
+rxn25781	Incomplete	?	?
+rxn25782	mMdeltaG: -0.28	?	=
 rxn25784	Incomplete (GCC)	=	=
-rxn25785	default	=	=
+rxn25785	default	?	=
 rxn25787	default	=	=
 rxn25788	Incomplete	?	?
 rxn25789	Incomplete	?	?
@@ -22573,8 +22573,8 @@ rxn25850	Incomplete	?	?
 rxn25851	MdeltaG(Max): -73.06	>	>
 rxn25852	MdeltaG(Min): 3.45	<	<
 rxn25853	MdeltaG(Max): -73.06	>	>
-rxn25854	default	=	=
-rxn25855	default	=	=
+rxn25854	default	?	=
+rxn25855	default	?	=
 rxn25856	MdeltaG(Max): -9.88	>	>
 rxn25857	MdeltaG(Max): -86.05	>	>
 rxn25858	Incomplete	?	?
@@ -22771,7 +22771,7 @@ rxn26053	Incomplete	?	?
 rxn26054	Incomplete	?	?
 rxn26064	default	=	=
 rxn26065	default	=	=
-rxn26066	default	=	=
+rxn26066	default	?	=
 rxn26067	default	=	=
 rxn26068	Incomplete	?	?
 rxn26069	Incomplete	?	?
@@ -22997,7 +22997,7 @@ rxn26442	Incomplete	?	?
 rxn26443	Incomplete	?	?
 rxn26444	Incomplete	?	?
 rxn26445	Incomplete	?	?
-rxn26446	MdeltaG(Max): -7.51	>	>
+rxn26446	MdeltaG(Max): -7.51	?	>
 rxn26447	default	=	=
 rxn26448	Incomplete (GCC)	<	<
 rxn26449	Incomplete	?	?
@@ -23076,7 +23076,7 @@ rxn26521	default	=	=
 rxn26522	Incomplete (GCC)	=	=
 rxn26523	Incomplete (GCC)	=	=
 rxn26524	mMdeltaG: -1.70	=	=
-rxn26525	mMdeltaG: -1.70	=	=
+rxn26525	mMdeltaG: -1.70	?	=
 rxn26526	mMdeltaG: -1.70	=	=
 rxn26527	default	=	=
 rxn26528	Incomplete	?	?
@@ -23477,7 +23477,7 @@ rxn27007	Incomplete	?	?
 rxn27008	Incomplete	?	?
 rxn27009	mMdeltaG: 0.38	=	=
 rxn27010	lowE: -5.50:-1.0	>	>
-rxn27011	mMdeltaG: -0.60	=	=
+rxn27011	mMdeltaG: -0.60	?	=
 rxn27012	default	=	=
 rxn27013	lowE: -5.96:-1.0	>	>
 rxn27014	MdeltaG(Max): -14.50	>	>
@@ -23760,7 +23760,7 @@ rxn27438	Incomplete	?	?
 rxn27439	Incomplete	?	?
 rxn27440	Incomplete	?	?
 rxn27441	Incomplete (GCC)	=	=
-rxn27442	default	=	=
+rxn27442	default	?	=
 rxn27443	mMdeltaG: 0.35	=	=
 rxn27444	Incomplete	?	?
 rxn27445	mMdeltaG: 0.87	=	=
@@ -24439,7 +24439,7 @@ rxn28304	Incomplete	?	?
 rxn28305	MdeltaG(Max): -6.22	>	>
 rxn28306	MdeltaG(Max): -96.99	>	>
 rxn28307	MdeltaG(Max): -84.74	>	>
-rxn28308	MdeltaG(Max): -105.45	>	>
+rxn28308	MdeltaG(Max): -105.45	?	>
 rxn28309	Incomplete	?	?
 rxn28310	Incomplete	?	?
 rxn28311	Incomplete (GCC)	=	=
@@ -24869,7 +24869,7 @@ rxn28793	Incomplete	?	?
 rxn28794	Incomplete	?	?
 rxn28795	Incomplete	?	?
 rxn28796	Incomplete	?	?
-rxn28797	MdeltaG(Max): -3.82	>	>
+rxn28797	MdeltaG(Max): -3.82	?	>
 rxn28798	Incomplete	?	?
 rxn28799	Incomplete	?	?
 rxn28800	MdeltaG(Max): -21.37	>	>
@@ -25789,7 +25789,7 @@ rxn30024	lowE: -2.82:-1.0	>	>
 rxn30025	mMdeltaG: 0.27	=	=
 rxn30028	Incomplete	?	?
 rxn30029	lowE: -6.37:-1.0	>	>
-rxn30031	lowE: -4.79:-1.0	>	>
+rxn30031	lowE: -4.79:-1.0	?	>
 rxn30032	MdeltaG(Max): -8.15	>	>
 rxn30033	Incomplete	?	?
 rxn30034	Incomplete	?	?
@@ -26418,7 +26418,7 @@ rxn30688	MdeltaG(Max): -34.19	>	>
 rxn30689	lowE: -7.41:-1.0	>	>
 rxn30690	MdeltaG(Max): -51.93	>	>
 rxn30691	MdeltaG(Max): -128.15	>	>
-rxn30692	MdeltaG(Max): -69.22	>	>
+rxn30692	MdeltaG(Max): -69.22	?	>
 rxn30693	MdeltaG(Max): -68.97	>	>
 rxn30694	MdeltaG(Max): -44.36	>	>
 rxn30695	Incomplete	?	?
@@ -26452,7 +26452,7 @@ rxn30723	Incomplete	?	?
 rxn30724	MdeltaG(Max): -38.71	>	>
 rxn30725	Incomplete	?	?
 rxn30726	MdeltaG(Max): -40.54	>	>
-rxn30727	MdeltaG(Min): 9.97	<	<
+rxn30727	MdeltaG(Min): 9.97	?	<
 rxn30728	MdeltaG(Max): -36.12	>	>
 rxn30729	Incomplete	?	?
 rxn30730	MdeltaG(Max): -34.05	>	>
@@ -26587,7 +26587,7 @@ rxn30859	lowE: -2.17:-1.0	>	>
 rxn30860	mMdeltaG: 1.52	=	=
 rxn30861	MdeltaG(Max): -43.05	>	>
 rxn30862	MdeltaG(Max): -43.05	>	>
-rxn30863	Incomplete (GCC)	<	<
+rxn30863	Incomplete	?	?
 rxn30864	Incomplete	?	?
 rxn30865	MdeltaG(Max): -6.47	>	>
 rxn30866	MdeltaG(Max): -19.46	>	>
@@ -26643,7 +26643,7 @@ rxn30915	Incomplete	?	?
 rxn30916	Incomplete	?	?
 rxn30917	Incomplete	?	?
 rxn30918	Incomplete	?	?
-rxn30919	MdeltaG(Max): -23.82	>	>
+rxn30919	MdeltaG(Max): -23.82	?	>
 rxn30920	Incomplete	?	?
 rxn30921	MdeltaG(Max): -109.42	>	>
 rxn30922	lowE: -3.02:-1.0	>	>
@@ -26705,7 +26705,7 @@ rxn30977	MdeltaG(Max): -2.61	?	>
 rxn30978	Incomplete	?	?
 rxn30979	MdeltaG(Max): -2.61	>	>
 rxn30980	Incomplete	?	?
-rxn30981	default	=	=
+rxn30981	default	?	=
 rxn30982	default	=	=
 rxn30983	lowE: -2.46:-1.0	>	>
 rxn30984	Incomplete	?	?
@@ -26719,7 +26719,7 @@ rxn30991	MdeltaG(Min): 34.92	<	<
 rxn30992	MdeltaG(Min): 37.03	<	<
 rxn30993	MdeltaG(Min): 12.44	<	<
 rxn30994	MdeltaG(Min): 12.43	<	<
-rxn30995	MdeltaG(Max): -32.74	>	>
+rxn30995	MdeltaG(Max): -32.74	?	>
 rxn30996	Incomplete	?	?
 rxn30997	Incomplete	?	?
 rxn30998	MdeltaG(Max): -75.84	>	>
@@ -27454,7 +27454,7 @@ rxn31742	Incomplete	?	?
 rxn31743	Incomplete	?	?
 rxn31744	Incomplete	?	?
 rxn31745	default	=	=
-rxn31746	default	=	=
+rxn31746	default	?	=
 rxn31747	default	=	=
 rxn31748	default	=	=
 rxn31749	Incomplete (GCC)	=	=
@@ -27474,8 +27474,8 @@ rxn31762	Incomplete	?	?
 rxn31763	MdeltaG(Max): -26.30	>	>
 rxn31764	Incomplete (GCC)	=	=
 rxn31765	MdeltaG(Max): -26.30	>	>
-rxn31766	default	=	=
-rxn31767	default	=	=
+rxn31766	default	?	=
+rxn31767	default	?	=
 rxn31768	MdeltaG(Max): -10.74	>	>
 rxn31769	MdeltaG(Max): -10.74	>	>
 rxn31770	Incomplete (GCC)	=	=
@@ -27484,10 +27484,10 @@ rxn31772	mMdeltaG: -1.98	=	=
 rxn31773	MdeltaG(Max): -7.96	>	>
 rxn31774	MdeltaG(Max): -205.40	>	>
 rxn31775	MdeltaG(Max): -19.29	>	>
-rxn31776	default	=	=
+rxn31776	default	?	=
 rxn31777	mMdeltaG: 0.79	=	=
 rxn31778	mMdeltaG: 0.00	=	=
-rxn31779	default	=	=
+rxn31779	default	?	=
 rxn31780	Incomplete (GCC)	=	=
 rxn31781	default	=	=
 rxn31782	Incomplete	?	?
@@ -27589,7 +27589,7 @@ rxn31878	default	=	=
 rxn31879	Incomplete (GCC)	=	=
 rxn31880	default	=	=
 rxn31881	Incomplete	?	?
-rxn31882	MdeltaG(Max): -10.71	>	>
+rxn31882	MdeltaG(Max): -10.71	?	>
 rxn31883	Incomplete	?	?
 rxn31884	Incomplete (GCC)	=	=
 rxn31885	mMdeltaG: -0.14	=	=
@@ -27728,7 +27728,7 @@ rxn32017	Incomplete (GCC)	=	=
 rxn32018	default	=	=
 rxn32019	default	=	=
 rxn32020	Incomplete (GCC)	=	=
-rxn32021	MdeltaG(Max): -17.51	>	>
+rxn32021	MdeltaG(Max): -17.51	?	>
 rxn32022	MdeltaG(Min): 15.32	<	<
 rxn32023	MdeltaG(Min): 15.32	<	<
 rxn32024	MdeltaG(Max): -0.81	>	>
@@ -27952,7 +27952,7 @@ rxn32242	MdeltaG(Max): -15.78	>	>
 rxn32243	Incomplete (GCC)	=	=
 rxn32244	MdeltaG(Max): -7.53	>	>
 rxn32245	Incomplete (GCC)	=	=
-rxn32246	mMdeltaG: -0.54	=	=
+rxn32246	mMdeltaG: -0.54	?	=
 rxn32247	lowE: -3.47:-1.0	>	>
 rxn32248	MdeltaG(Max): -4.12	>	>
 rxn32249	default	=	=
@@ -27995,8 +27995,8 @@ rxn32285	Incomplete (GCC)	=	=
 rxn32286	Incomplete (GCC)	=	=
 rxn32287	MdeltaG(Max): -1.99	>	>
 rxn32288	Incomplete (GCC)	=	=
-rxn32289	MdeltaG(Max): -22.01	>	>
-rxn32290	MdeltaG(Max): -22.01	>	>
+rxn32289	MdeltaG(Max): -22.01	?	>
+rxn32290	MdeltaG(Max): -22.01	?	>
 rxn32291	MdeltaG(Max): -1.06	>	>
 rxn32292	MdeltaG(Max): -6.13	>	>
 rxn32293	default	=	=
@@ -28259,7 +28259,7 @@ rxn32550	MdeltaG(Max): -9.57	>	>
 rxn32551	Incomplete	?	?
 rxn32552	Incomplete (GCC)	=	=
 rxn32553	MdeltaG(Max): -5.92	>	>
-rxn32554	MdeltaG(Max): -3.37	>	>
+rxn32554	MdeltaG(Max): -3.37	?	>
 rxn32555	default	=	=
 rxn32556	MdeltaG(Max): -0.85	>	>
 rxn32557	mMdeltaG: -1.96	=	=
@@ -28296,7 +28296,7 @@ rxn32587	default	=	=
 rxn32588	default	=	=
 rxn32589	default	=	=
 rxn32590	MdeltaG(Max): -6.32	>	>
-rxn32591	MdeltaG(Max): -11.98	>	>
+rxn32591	MdeltaG(Max): -11.98	?	>
 rxn32592	Incomplete (GCC)	=	=
 rxn32593	MdeltaG(Max): -7.53	>	>
 rxn32594	default	=	=
@@ -28620,9 +28620,9 @@ rxn32913	Incomplete	?	?
 rxn32914	Incomplete	?	?
 rxn32915	Incomplete (GCC)	=	=
 rxn32916	Incomplete (GCC)	=	=
-rxn32917	default	=	=
+rxn32917	default	?	=
 rxn32918	Incomplete (GCC)	=	=
-rxn32919	Incomplete (GCC)	=	=
+rxn32919	Incomplete	?	?
 rxn32920	lowE: 10.20:1.0	<	<
 rxn32921	lowE: 10.20:1.0	<	<
 rxn32922	Incomplete (GCC)	=	=
@@ -28721,7 +28721,7 @@ rxn33015	default	=	=
 rxn33016	mMdeltaG: -1.51	=	=
 rxn33017	Incomplete (GCC)	=	=
 rxn33018	Incomplete (GCC)	=	=
-rxn33019	MdeltaG(Max): -6.14	>	>
+rxn33019	MdeltaG(Max): -6.14	?	>
 rxn33020	Incomplete (GCC)	=	=
 rxn33021	Incomplete (GCC)	=	=
 rxn33022	Incomplete (GCC)	=	=
@@ -28944,19 +28944,19 @@ rxn33239	MdeltaG(Max): -9.32	>	>
 rxn33240	Incomplete	?	?
 rxn33241	Incomplete	?	?
 rxn33242	lowE: -11.13:-1.0	>	>
-rxn33243	lowE: -4.79:-1.0	>	>
+rxn33243	lowE: -4.79:-1.0	?	>
 rxn33244	mMdeltaG: -0.26	=	=
-rxn33245	lowE: -4.79:-1.0	>	>
+rxn33245	lowE: -4.79:-1.0	?	>
 rxn33247	Incomplete (GCC)	=	=
 rxn33248	Incomplete (GCC)	=	=
 rxn33249	Incomplete (GCC)	=	=
-rxn33250	lowE: -4.79:-1.0	>	>
-rxn33251	lowE: -4.79:-1.0	>	>
+rxn33250	lowE: -4.79:-1.0	?	>
+rxn33251	lowE: -4.79:-1.0	?	>
 rxn33252	MdeltaG(Max): -67.81	>	>
 rxn33253	mMdeltaG: -0.26	=	=
 rxn33254	Incomplete (GCC)	=	=
 rxn33255	mMdeltaG: -0.26	=	=
-rxn33256	lowE: -4.79:-1.0	>	>
+rxn33256	lowE: -4.79:-1.0	?	>
 rxn33257	Incomplete (GCC)	=	=
 rxn33258	mMdeltaG: 0.08	=	=
 rxn33259	mMdeltaG: 0.08	=	=
@@ -29065,7 +29065,7 @@ rxn33361	default	=	=
 rxn33362	Incomplete	?	?
 rxn33363	default	=	=
 rxn33364	Incomplete (GCC)	=	=
-rxn33365	lowE: -9.26:-1.0	>	>
+rxn33365	lowE: -9.26:-1.0	?	>
 rxn33366	Incomplete (GCC)	=	=
 rxn33367	default	=	=
 rxn33368	Incomplete (GCC)	=	=
@@ -29082,7 +29082,7 @@ rxn33378	Incomplete	?	?
 rxn33379	Incomplete (GCC)	=	=
 rxn33380	Incomplete	?	?
 rxn33381	Incomplete	?	?
-rxn33382	lowE: 2.57:1.0	<	<
+rxn33382	lowE: 2.57:1.0	?	<
 rxn33383	mMdeltaG: 0.61	=	=
 rxn33384	Incomplete (GCC)	=	=
 rxn33385	mMdeltaG: -1.49	=	=
@@ -29175,7 +29175,7 @@ rxn33472	lowE: -10.86:-1.0	>	>
 rxn33473	Incomplete (GCC)	=	=
 rxn33474	lowE: -3.81:-1.0	>	>
 rxn33475	Incomplete (GCC)	=	=
-rxn33476	default	=	=
+rxn33476	default	?	=
 rxn33477	Incomplete	?	?
 rxn33478	Incomplete (GCC)	=	=
 rxn33479	Incomplete	?	?
@@ -30992,7 +30992,7 @@ rxn35508	Incomplete	?	?
 rxn35509	Incomplete	?	?
 rxn35510	Incomplete	?	?
 rxn35511	Incomplete	?	?
-rxn35517	Incomplete (GCC)	<	<
+rxn35517	Incomplete	?	?
 rxn35518	mMdeltaG: 1.82	=	=
 rxn35519	mMdeltaG: -1.52	=	=
 rxn35520	Incomplete	?	?
@@ -32175,8 +32175,8 @@ rxn36713	MdeltaG(Max): -15.63	>	>
 rxn36714	default	=	=
 rxn36715	default	=	=
 rxn36716	MdeltaG(Max): -2.43	>	>
-rxn36717	MdeltaG(Max): -4.31	>	>
-rxn36718	mMdeltaG: -1.70	=	=
+rxn36717	MdeltaG(Max): -4.31	?	>
+rxn36718	mMdeltaG: -1.70	?	=
 rxn36719	lowE: -10.92:-1.0	>	>
 rxn36720	lowE: -11.30:-1.0	>	>
 rxn36721	lowE: -10.92:-1.0	>	>
@@ -32488,7 +32488,7 @@ rxn37026	Incomplete (GCC)	=	=
 rxn37027	Incomplete (GCC)	=	=
 rxn37028	default	=	=
 rxn37029	Incomplete	?	?
-rxn37030	MdeltaG(Max): -3.09	>	>
+rxn37030	MdeltaG(Max): -3.09	?	>
 rxn37031	default	=	=
 rxn37032	default	=	=
 rxn37033	mMdeltaG: 1.26	=	=
@@ -32634,8 +32634,8 @@ rxn37172	default	?	=
 rxn37173	default	?	=
 rxn37174	mMdeltaG: 0.94	=	=
 rxn37175	mMdeltaG: 0.94	=	=
-rxn37176	MdeltaG(Min): 5.21	<	<
-rxn37177	MdeltaG(Min): 5.21	<	<
+rxn37176	MdeltaG(Min): 5.21	?	<
+rxn37177	MdeltaG(Min): 5.21	?	<
 rxn37178	mMdeltaG: 0.80	=	=
 rxn37179	mMdeltaG: -0.35	=	=
 rxn37180	mMdeltaG: -0.35	=	=
@@ -32882,7 +32882,7 @@ rxn37425	Incomplete (GCC)	=	=
 rxn37426	MdeltaG(Max): -81.16	>	>
 rxn37427	MdeltaG(Max): -81.16	>	>
 rxn37428	MdeltaG(Max): -81.16	>	>
-rxn37429	mMdeltaG: -0.32	=	=
+rxn37429	mMdeltaG: -0.32	?	=
 rxn37430	MdeltaG(Max): -0.98	?	>
 rxn37431	Incomplete (GCC)	=	=
 rxn37432	Incomplete (GCC)	=	=
@@ -33382,7 +33382,7 @@ rxn37925	Incomplete	?	?
 rxn37926	Incomplete	?	?
 rxn37927	Incomplete	?	?
 rxn37928	Incomplete	?	?
-rxn37929	default	=	=
+rxn37929	default	?	=
 rxn37930	mMdeltaG: -0.83	=	=
 rxn37931	Incomplete	?	?
 rxn37932	Incomplete	?	?
@@ -33555,8 +33555,8 @@ rxn38098	Incomplete	?	?
 rxn38099	MdeltaG(Max): -10.74	>	>
 rxn38100	Incomplete	?	?
 rxn38101	Incomplete	?	?
-rxn38102	MdeltaG(Max): -4.31	>	>
-rxn38103	mMdeltaG: -1.70	=	=
+rxn38102	MdeltaG(Max): -4.31	?	>
+rxn38103	mMdeltaG: -1.70	?	=
 rxn38104	MdeltaG(Max): -10.74	>	>
 rxn38105	MdeltaG(Max): -9.32	>	>
 rxn38106	MdeltaG(Max): -9.32	>	>
@@ -33907,7 +33907,7 @@ rxn38450	Incomplete	?	?
 rxn38451	Incomplete	?	?
 rxn38452	default	=	=
 rxn38453	default	=	=
-rxn38454	default	=	=
+rxn38454	default	?	=
 rxn38455	Incomplete	?	?
 rxn38456	Incomplete	?	?
 rxn38457	Incomplete	?	?
@@ -33995,7 +33995,7 @@ rxn38538	Incomplete	?	?
 rxn38539	Incomplete	?	?
 rxn38540	mMdeltaG: -1.70	=	=
 rxn38541	mMdeltaG: -1.70	=	=
-rxn38542	mMdeltaG: -1.70	=	=
+rxn38542	mMdeltaG: -1.70	?	=
 rxn38543	Incomplete	?	?
 rxn38544	Incomplete	?	?
 rxn38545	Incomplete	?	?
@@ -34917,7 +34917,7 @@ rxn39471	Incomplete	?	?
 rxn39472	lowE: -11.04:-1.0	>	>
 rxn39473	Incomplete	?	?
 rxn39476	Incomplete	?	?
-rxn39477	mMdeltaG: -0.27	=	=
+rxn39477	mMdeltaG: -0.27	?	=
 rxn39478	mMdeltaG: 1.69	=	=
 rxn39479	Incomplete	?	?
 rxn39480	lowE: -9.90:-1.0	>	>
@@ -35170,7 +35170,7 @@ rxn39727	default	?	=
 rxn39728	MdeltaG(Max): -28.55	>	>
 rxn39729	Incomplete	?	?
 rxn39730	Incomplete	?	?
-rxn39731	MdeltaG(Max): -71.11	>	>
+rxn39731	MdeltaG(Max): -71.11	?	>
 rxn39732	MdeltaG(Max): -8.96	?	>
 rxn39733	default	=	=
 rxn39734	default	=	=
@@ -35457,8 +35457,8 @@ rxn40021	Incomplete	?	?
 rxn40022	Incomplete	?	?
 rxn40023	mMdeltaG: 0.80	?	=
 rxn40024	default	=	=
-rxn40025	default	=	=
-rxn40026	default	=	=
+rxn40025	default	?	=
+rxn40026	default	?	=
 rxn40027	Incomplete	?	?
 rxn40028	default	=	=
 rxn40029	mMdeltaG: 0.71	=	=
@@ -35539,7 +35539,7 @@ rxn40103	MdeltaG(Max): -13.90	>	>
 rxn40104	mMdeltaG: -0.90	=	=
 rxn40105	Incomplete	?	?
 rxn40106	default	?	=
-rxn40107	MdeltaG(Max): -91.65	>	>
+rxn40107	MdeltaG(Max): -91.65	?	>
 rxn40108	MdeltaG(Max): -10.07	?	>
 rxn40109	MdeltaG(Max): -100.19	>	>
 rxn40110	MdeltaG(Max): -11.66	?	>
@@ -35655,7 +35655,7 @@ rxn40219	MdeltaG(Max): -150.74	>	>
 rxn40220	MdeltaG(Max): -92.14	>	>
 rxn40221	default	=	=
 rxn40222	default	=	=
-rxn40223	default	=	=
+rxn40223	default	?	=
 rxn40224	default	=	=
 rxn40225	default	=	=
 rxn40226	Incomplete	?	?
@@ -35667,7 +35667,7 @@ rxn40231	default	=	=
 rxn40232	default	=	=
 rxn40233	default	=	=
 rxn40234	default	=	=
-rxn40235	default	=	=
+rxn40235	default	?	=
 rxn40236	default	=	=
 rxn40237	default	=	=
 rxn40238	MdeltaG(Max): -2.31	>	>
@@ -35989,7 +35989,7 @@ rxn40556	Incomplete	?	?
 rxn40558	mMdeltaG: 0.00	=	=
 rxn40559	Incomplete	?	?
 rxn40560	default	=	=
-rxn40561	MdeltaG(Max): -105.98	>	>
+rxn40561	MdeltaG(Max): -105.98	?	>
 rxn40562	Incomplete	?	?
 rxn40563	Incomplete	?	?
 rxn40564	Incomplete	?	?
@@ -36038,7 +36038,7 @@ rxn40607	Incomplete	?	?
 rxn40608	Incomplete	?	?
 rxn40609	Incomplete	?	?
 rxn40610	mMdeltaG: -0.75	=	=
-rxn40611	MdeltaG(Max): -114.66	>	>
+rxn40611	MdeltaG(Max): -114.66	?	>
 rxn40612	Incomplete	?	?
 rxn40613	default	=	=
 rxn40614	Incomplete (GCC)	<	<
@@ -36172,7 +36172,7 @@ rxn40747	Incomplete	?	?
 rxn40748	MdeltaG(Max): -16.78	>	>
 rxn40749	Incomplete	?	?
 rxn40750	Incomplete	?	?
-rxn40751	default	=	=
+rxn40751	default	?	=
 rxn40752	Incomplete	?	?
 rxn40753	mMdeltaG: -0.63	=	=
 rxn40754	Incomplete	?	?
@@ -36275,7 +36275,7 @@ rxn40853	Incomplete	?	?
 rxn40854	mMdeltaG: -0.04	=	=
 rxn40856	Incomplete	?	?
 rxn40857	Incomplete	?	?
-rxn40858	default	=	=
+rxn40858	default	?	=
 rxn40859	Incomplete	?	?
 rxn40860	Incomplete	?	?
 rxn40861	Incomplete	?	?
@@ -36292,7 +36292,7 @@ rxn40871	MdeltaG(Max): -3.63	>	>
 rxn40872	default	=	=
 rxn40873	Incomplete	?	?
 rxn40874	Incomplete	?	?
-rxn40875	default	=	=
+rxn40875	default	?	=
 rxn40876	Incomplete	?	?
 rxn40877	Incomplete	?	?
 rxn40878	Incomplete	?	?
@@ -36438,7 +36438,7 @@ rxn41019	Incomplete	?	?
 rxn41020	Incomplete	?	?
 rxn41021	MdeltaG(Max): -2.20	>	>
 rxn41022	Incomplete	?	?
-rxn41023	Incomplete (GCC)	?	?
+rxn41023	Incomplete	?	?
 rxn41024	mMdeltaG: -1.66	=	=
 rxn41025	Incomplete	?	?
 rxn41026	Incomplete	?	?
@@ -36546,7 +36546,7 @@ rxn41129	Incomplete	?	?
 rxn41130	default	=	=
 rxn41131	Incomplete	?	?
 rxn41132	MdeltaG(Max): -37.57	>	>
-rxn41133	default	=	=
+rxn41133	default	?	=
 rxn41135	mMdeltaG: 0.00	=	=
 rxn41136	MdeltaG(Max): -2.76	>	>
 rxn41137	Incomplete	?	?
@@ -36831,7 +36831,7 @@ rxn41422	MdeltaG(Max): -2162.34	>	>
 rxn41423	Incomplete	?	?
 rxn41424	MdeltaG(Max): -5.51	>	>
 rxn41425	Incomplete	?	?
-rxn41426	default	=	=
+rxn41426	default	?	=
 rxn41427	Incomplete	?	?
 rxn41428	Incomplete	?	?
 rxn41429	Incomplete	?	?
@@ -36840,7 +36840,7 @@ rxn41431	Incomplete (GCC)	=	=
 rxn41432	Incomplete (GCC)	>	>
 rxn41433	MdeltaG(Min): 22.72	<	<
 rxn41434	Incomplete	?	?
-rxn41435	default	=	=
+rxn41435	default	?	=
 rxn41436	Incomplete	?	?
 rxn41437	default	=	=
 rxn41438	Incomplete	?	?
@@ -36900,7 +36900,7 @@ rxn41492	MdeltaG(Max): -22.22	>	>
 rxn41493	default	=	=
 rxn41494	Incomplete (GCC)	=	=
 rxn41495	Incomplete	?	?
-rxn41496	MdeltaG(Max): -68.20	>	>
+rxn41496	MdeltaG(Max): -68.20	?	>
 rxn41497	MdeltaG(Max): -104.54	>	>
 rxn41498	MdeltaG(Max): -8.79	>	>
 rxn41499	MdeltaG(Max): -11.00	>	>
@@ -36963,7 +36963,7 @@ rxn41558	Incomplete	?	?
 rxn41559	mMdeltaG: -0.06	=	=
 rxn41561	Incomplete	?	?
 rxn41562	Incomplete	?	?
-rxn41563	default	=	=
+rxn41563	default	?	=
 rxn41564	default	=	=
 rxn41565	Incomplete	?	?
 rxn41566	Incomplete (GCC)	>	>
@@ -36986,7 +36986,7 @@ rxn41582	Incomplete	?	?
 rxn41583	default	=	=
 rxn41585	Incomplete (GCC)	=	=
 rxn41586	Incomplete	?	?
-rxn41587	MdeltaG(Max): -103.66	>	>
+rxn41587	MdeltaG(Max): -103.66	?	>
 rxn41588	Incomplete	?	?
 rxn41589	Incomplete	?	?
 rxn41590	Incomplete (GCC)	>	>
@@ -37056,7 +37056,7 @@ rxn41655	Incomplete	?	?
 rxn41656	mMdeltaG: -1.80	=	=
 rxn41657	Incomplete	?	?
 rxn41658	Incomplete	?	?
-rxn41659	MdeltaG(Max): -7.85	>	>
+rxn41659	MdeltaG(Max): -7.85	?	>
 rxn41660	Incomplete	?	?
 rxn41661	Incomplete	?	?
 rxn41662	lowE: -5.92:-1.0	>	>
@@ -37203,7 +37203,7 @@ rxn41807	Incomplete	?	?
 rxn41808	Incomplete	?	?
 rxn41810	MdeltaG(Min): 6.87	?	<
 rxn41811	Incomplete	?	?
-rxn41812	Incomplete (GCC)	>	>
+rxn41812	Incomplete	?	?
 rxn41813	mMdeltaG: 0.53	=	=
 rxn41814	Incomplete	?	?
 rxn41815	default	=	=
@@ -37214,7 +37214,7 @@ rxn41819	Incomplete	?	?
 rxn41820	Incomplete	?	?
 rxn41821	Incomplete	?	?
 rxn41822	default	=	=
-rxn41823	default	=	=
+rxn41823	default	?	=
 rxn41824	MdeltaG(Max): -62.26	>	>
 rxn41825	default	=	=
 rxn41826	default	=	=
@@ -37433,7 +37433,7 @@ rxn42048	Incomplete	?	?
 rxn42049	Incomplete (GCC)	=	=
 rxn42050	default	=	=
 rxn42051	default	=	=
-rxn42052	default	=	=
+rxn42052	default	?	=
 rxn42053	default	=	=
 rxn42054	Incomplete	?	?
 rxn42055	MdeltaG(Max): -32.49	>	>
@@ -37715,7 +37715,7 @@ rxn42340	Incomplete	?	?
 rxn42341	Incomplete	?	?
 rxn42342	MdeltaG(Max): -105.86	>	>
 rxn42343	MdeltaG(Max): -45.12	>	>
-rxn42344	MdeltaG(Max): -1.58	>	>
+rxn42344	MdeltaG(Max): -1.58	?	>
 rxn42345	Incomplete	?	?
 rxn42346	Incomplete (GCC)	>	>
 rxn42347	mMdeltaG: -0.90	=	=
@@ -37816,7 +37816,7 @@ rxn42444	Incomplete	?	?
 rxn42445	Incomplete	?	?
 rxn42446	Incomplete	?	?
 rxn42447	Incomplete	?	?
-rxn42448	mMdeltaG: 0.98	=	=
+rxn42448	mMdeltaG: 0.98	?	=
 rxn42449	MdeltaG(Max): -73.84	>	>
 rxn42450	Incomplete	?	?
 rxn42451	Incomplete	?	?
@@ -37988,7 +37988,7 @@ rxn42620	Incomplete	?	?
 rxn42621	Incomplete (GCC)	=	=
 rxn42622	Incomplete (GCC)	>	>
 rxn42623	default	=	=
-rxn42624	default	=	=
+rxn42624	default	?	=
 rxn42625	Incomplete	?	?
 rxn42626	Incomplete	?	?
 rxn42627	Incomplete	?	?
@@ -38057,7 +38057,7 @@ rxn42692	Incomplete	?	?
 rxn42693	Incomplete	?	?
 rxn42694	Incomplete	?	?
 rxn42695	Incomplete (GCC)	>	>
-rxn42696	default	=	=
+rxn42696	default	?	=
 rxn42697	Incomplete	?	?
 rxn42698	Incomplete	?	?
 rxn42699	Incomplete	?	?
@@ -38074,7 +38074,7 @@ rxn42709	MdeltaG(Max): -23.71	>	>
 rxn42710	Incomplete	?	?
 rxn42711	Incomplete	?	?
 rxn42712	Incomplete	?	?
-rxn42713	default	=	=
+rxn42713	default	?	=
 rxn42714	mMdeltaG: 0.00	=	=
 rxn42715	Incomplete (GCC)	=	=
 rxn42716	default	=	=
@@ -38336,7 +38336,7 @@ rxn42979	Incomplete	?	?
 rxn42980	mMdeltaG: -1.19	=	=
 rxn42981	Incomplete	?	?
 rxn42982	Incomplete	?	?
-rxn42983	default	=	=
+rxn42983	default	?	=
 rxn42984	mMdeltaG: 0.00	=	=
 rxn42985	MdeltaG(Max): -3.13	>	>
 rxn42986	MdeltaG(Max): -3.19	>	>
@@ -38387,7 +38387,7 @@ rxn43032	Incomplete (GCC)	=	=
 rxn43033	MdeltaG(Max): -34.38	>	>
 rxn43034	Incomplete (GCC)	>	>
 rxn43035	Incomplete	?	?
-rxn43036	default	=	=
+rxn43036	default	?	=
 rxn43037	default	=	=
 rxn43038	Incomplete	?	?
 rxn43039	default	=	=
@@ -38624,11 +38624,11 @@ rxn43278	MdeltaG(Max): -16.81	>	>
 rxn43280	Incomplete	?	?
 rxn43281	Incomplete	?	?
 rxn43282	Incomplete	?	?
-rxn43283	Incomplete (GCC)	?	?
+rxn43283	Incomplete	?	?
 rxn43284	Incomplete	?	?
 rxn43285	Incomplete	?	?
 rxn43286	MdeltaG(Max): -92.73	>	>
-rxn43287	default	=	=
+rxn43287	default	?	=
 rxn43288	Incomplete	?	?
 rxn43289	Incomplete	?	?
 rxn43290	Incomplete	?	?
@@ -38733,7 +38733,7 @@ rxn43390	MdeltaG(Max): -71.18	>	>
 rxn43391	Incomplete	?	?
 rxn43392	mMdeltaG: -0.52	=	=
 rxn43393	Incomplete	?	?
-rxn43394	default	=	=
+rxn43394	default	?	=
 rxn43395	mMdeltaG: 0.80	?	=
 rxn43396	Incomplete	?	?
 rxn43397	Incomplete	?	?
@@ -38801,7 +38801,7 @@ rxn43459	default	=	=
 rxn43460	Incomplete	?	?
 rxn43461	Incomplete	?	?
 rxn43462	default	=	=
-rxn43464	default	=	=
+rxn43464	default	?	=
 rxn43465	Incomplete	?	?
 rxn43466	Incomplete	?	?
 rxn43467	Incomplete	?	?
@@ -38832,7 +38832,7 @@ rxn43492	Incomplete (GCC)	=	=
 rxn43493	Incomplete	?	?
 rxn43494	Incomplete	?	?
 rxn43495	Incomplete	?	?
-rxn43496	default	=	=
+rxn43496	default	?	=
 rxn43497	Incomplete	?	?
 rxn43498	Incomplete	?	?
 rxn43499	Incomplete	?	?
@@ -38845,7 +38845,7 @@ rxn43505	MdeltaG(Min): 563.14	<	<
 rxn43506	Incomplete	?	?
 rxn43507	Incomplete	?	?
 rxn43508	Incomplete	?	?
-rxn43509	lowE: -4.14:-1.0	>	>
+rxn43509	lowE: -4.14:-1.0	?	>
 rxn43510	Incomplete	?	?
 rxn43511	Incomplete (GCC)	<	<
 rxn43512	Incomplete	?	?
@@ -38902,7 +38902,7 @@ rxn43565	Incomplete	?	?
 rxn43566	Incomplete	?	?
 rxn43567	Incomplete	?	?
 rxn43568	mMdeltaG: 0.80	=	=
-rxn43570	mMdeltaG: -0.41	=	=
+rxn43570	mMdeltaG: -0.41	?	=
 rxn43571	lowE: -4.70:-1.0	>	>
 rxn43572	Incomplete	?	?
 rxn43573	default	=	=
@@ -39144,7 +39144,7 @@ rxn43814	MdeltaG(Min): 5.52	<	<
 rxn43815	Incomplete	?	?
 rxn43816	Incomplete	?	?
 rxn43817	Incomplete	?	?
-rxn43818	default	=	=
+rxn43818	default	?	=
 rxn43819	mMdeltaG: 0.78	=	=
 rxn43820	Incomplete	?	?
 rxn43821	Incomplete	?	?
@@ -39152,7 +39152,7 @@ rxn43822	Incomplete	?	?
 rxn43823	Incomplete	?	?
 rxn43824	Incomplete	?	?
 rxn43825	Incomplete (GCC)	=	=
-rxn43826	MdeltaG(Max): -3.14	>	>
+rxn43826	MdeltaG(Max): -3.14	?	>
 rxn43827	default	=	=
 rxn43828	Incomplete	?	?
 rxn43830	Incomplete	?	?
@@ -39292,7 +39292,7 @@ rxn43966	Incomplete	?	?
 rxn43967	Incomplete	?	?
 rxn43968	default	=	=
 rxn43969	default	=	=
-rxn43970	MdeltaG(Max): -5.40	>	>
+rxn43970	MdeltaG(Max): -5.40	?	>
 rxn43971	MdeltaG(Max): -13.26	>	>
 rxn43972	Incomplete	?	?
 rxn43973	Incomplete	?	?
@@ -39370,7 +39370,7 @@ rxn44046	default	=	=
 rxn44047	default	=	=
 rxn44049	Incomplete	?	?
 rxn44050	Incomplete	?	?
-rxn44051	lowE: -6.30:-1.0	>	>
+rxn44051	lowE: -6.30:-1.0	?	>
 rxn44052	Incomplete	?	?
 rxn44053	Incomplete	?	?
 rxn44054	Incomplete	?	?
@@ -39384,12 +39384,12 @@ rxn44061	Incomplete	?	?
 rxn44062	default	=	=
 rxn44063	default	=	=
 rxn44064	Incomplete	?	?
-rxn44065	default	=	=
+rxn44065	default	?	=
 rxn44066	Incomplete	?	?
 rxn44067	default	=	=
 rxn44068	Incomplete	?	?
 rxn44069	Incomplete	?	?
-rxn44071	default	=	=
+rxn44071	default	?	=
 rxn44072	Incomplete	?	?
 rxn44073	lowE: -11.13:-1.0	>	>
 rxn44074	Incomplete	?	?
@@ -39445,7 +39445,7 @@ rxn44124	Incomplete	?	?
 rxn44125	mMdeltaG: -0.39	=	=
 rxn44126	Incomplete (GCC)	>	>
 rxn44127	Incomplete	?	?
-rxn44128	default	=	=
+rxn44128	default	?	=
 rxn44129	Incomplete	?	?
 rxn44130	Incomplete	?	?
 rxn44131	Incomplete (GCC)	<	<
@@ -39475,7 +39475,7 @@ rxn44154	default	=	=
 rxn44155	MdeltaG(Max): -75.82	>	>
 rxn44156	Incomplete	?	?
 rxn44157	Incomplete	?	?
-rxn44158	default	=	=
+rxn44158	default	?	=
 rxn44159	Incomplete	?	?
 rxn44160	Incomplete (GCC)	>	>
 rxn44161	Incomplete	?	?
@@ -39700,7 +39700,7 @@ rxn44391	default	=	=
 rxn44393	mMdeltaG: 0.00	=	=
 rxn44394	Incomplete	?	?
 rxn44395	Incomplete	?	?
-rxn44397	Incomplete (GCC)	?	?
+rxn44397	Incomplete	?	?
 rxn44398	Incomplete	?	?
 rxn44399	Incomplete (GCC)	=	=
 rxn44400	Incomplete	?	?
@@ -39768,7 +39768,7 @@ rxn44463	MdeltaG(Max): -47.07	>	>
 rxn44464	Incomplete	?	?
 rxn44465	mMdeltaG: 0.95	=	=
 rxn44466	mMdeltaG: -0.58	=	=
-rxn44467	MdeltaG(Max): -84.82	>	>
+rxn44467	MdeltaG(Max): -84.82	?	>
 rxn44468	default	=	=
 rxn44469	default	=	=
 rxn44470	Incomplete	?	?
@@ -39858,7 +39858,7 @@ rxn44557	Incomplete	?	?
 rxn44558	Incomplete	?	?
 rxn44559	Incomplete	?	?
 rxn44560	mMdeltaG: -0.88	=	=
-rxn44561	default	=	=
+rxn44561	default	?	=
 rxn44562	Incomplete	?	?
 rxn44563	mMdeltaG: -1.25	=	=
 rxn44564	Incomplete	?	?
@@ -40087,7 +40087,7 @@ rxn44794	default	=	=
 rxn44796	MdeltaG(Min): 3.45	<	<
 rxn44797	Incomplete	?	?
 rxn44798	default	=	=
-rxn44799	Incomplete (GCC)	=	=
+rxn44799	Incomplete	?	?
 rxn44800	Incomplete	?	?
 rxn44801	mMdeltaG: 0.00	=	=
 rxn44802	Incomplete	?	?
@@ -40274,8 +40274,8 @@ rxn44986	Incomplete (GCC)	>	>
 rxn44987	default	=	=
 rxn44988	Incomplete	?	?
 rxn44989	Incomplete	?	?
-rxn44990	default	=	=
-rxn44991	default	=	=
+rxn44990	default	?	=
+rxn44991	default	?	=
 rxn44992	default	=	=
 rxn44993	Incomplete	?	?
 rxn44994	MdeltaG(Max): -2.01	>	>
@@ -40396,7 +40396,7 @@ rxn45111	Incomplete	?	?
 rxn45112	Incomplete	?	?
 rxn45113	Incomplete	?	?
 rxn45114	Incomplete	?	?
-rxn45115	Incomplete (GCC)	?	?
+rxn45115	Incomplete	?	?
 rxn45116	Incomplete	?	?
 rxn45117	Incomplete	?	?
 rxn45118	Incomplete	?	?
@@ -40602,7 +40602,7 @@ rxn45322	Incomplete	?	?
 rxn45324	Incomplete	?	?
 rxn45325	Incomplete (GCC)	>	>
 rxn45326	Incomplete (GCC)	=	=
-rxn45327	MdeltaG(Max): -15.85	>	>
+rxn45327	MdeltaG(Max): -15.85	?	>
 rxn45328	Incomplete	?	?
 rxn45329	Incomplete (GCC)	>	>
 rxn45330	Incomplete	?	?
@@ -40614,7 +40614,7 @@ rxn45336	Incomplete	?	?
 rxn45337	Incomplete	?	?
 rxn45338	MdeltaG(Max): -8.26	>	>
 rxn45339	default	=	=
-rxn45340	default	=	=
+rxn45340	default	?	=
 rxn45341	Incomplete (GCC)	=	=
 rxn45342	mMdeltaG: -0.05	=	=
 rxn45343	mMdeltaG: -0.05	=	=
@@ -40677,7 +40677,7 @@ rxn45405	MdeltaG(Min): 77.35	<	<
 rxn45406	Incomplete	?	?
 rxn45407	Incomplete	?	?
 rxn45408	Incomplete	?	?
-rxn45409	MdeltaG(Max): -2.71	>	>
+rxn45409	MdeltaG(Max): -2.71	?	>
 rxn45410	MdeltaG(Max): -7.00	>	>
 rxn45411	Incomplete	?	?
 rxn45412	mMdeltaG: -0.46	=	=
@@ -40742,7 +40742,7 @@ rxn45471	Incomplete	?	?
 rxn45472	Incomplete	?	?
 rxn45473	lowE: -3.30:-1.0	>	>
 rxn45474	Incomplete	?	?
-rxn45475	default	=	=
+rxn45475	default	?	=
 rxn45476	default	=	=
 rxn45477	mMdeltaG: 0.35	=	=
 rxn45478	Incomplete	?	?
@@ -40852,7 +40852,7 @@ rxn45583	Incomplete	?	?
 rxn45584	Incomplete	?	?
 rxn45585	Incomplete	?	?
 rxn45586	Incomplete	?	?
-rxn45587	default	=	=
+rxn45587	default	?	=
 rxn45588	Incomplete	?	?
 rxn45589	MdeltaG(Max): -46.43	>	>
 rxn45590	Incomplete (GCC)	=	=
@@ -41139,7 +41139,7 @@ rxn45875	MdeltaG(Max): -50.81	>	>
 rxn45876	Incomplete	?	?
 rxn45877	Incomplete	?	?
 rxn45878	Incomplete	?	?
-rxn45879	MdeltaG(Max): -111.51	>	>
+rxn45879	MdeltaG(Max): -111.51	?	>
 rxn45880	Incomplete	?	?
 rxn45881	MdeltaG(Min): 119.83	<	<
 rxn45882	MdeltaG(Max): -2.48	>	>
@@ -41365,7 +41365,7 @@ rxn46105	Incomplete	?	?
 rxn46107	Incomplete	?	?
 rxn46108	Incomplete	?	?
 rxn46109	lowE: -12.87:-1.0	>	>
-rxn46110	mMdeltaG: -0.32	=	=
+rxn46110	mMdeltaG: -0.32	?	=
 rxn46111	Incomplete	?	?
 rxn46112	Incomplete	?	?
 rxn46114	Incomplete (GCC)	>	>
@@ -41433,7 +41433,7 @@ rxn46178	Incomplete	?	?
 rxn46179	Incomplete (GCC)	=	=
 rxn46180	MdeltaG(Max): -3.09	>	>
 rxn46181	MdeltaG(Max): -2.49	>	>
-rxn46182	default	=	=
+rxn46182	default	?	=
 rxn46183	Incomplete (GCC)	=	=
 rxn46184	Incomplete	?	?
 rxn46185	Incomplete	?	?
@@ -41534,7 +41534,7 @@ rxn46284	Incomplete	?	?
 rxn46285	default	=	=
 rxn46286	Incomplete	?	?
 rxn46287	Incomplete (GCC)	=	=
-rxn46288	lowE: -4.14:-1.0	>	>
+rxn46288	lowE: -4.14:-1.0	?	>
 rxn46289	Incomplete	?	?
 rxn46290	Incomplete	?	?
 rxn46291	Incomplete	?	?
@@ -41566,7 +41566,7 @@ rxn46317	Incomplete	?	?
 rxn46318	Incomplete (GCC)	>	>
 rxn46319	Incomplete	?	?
 rxn46320	Incomplete (GCC)	=	=
-rxn46321	default	=	=
+rxn46321	default	?	=
 rxn46322	Incomplete	?	?
 rxn46323	Incomplete	?	?
 rxn46324	mMdeltaG: -1.87	=	=
@@ -41985,7 +41985,7 @@ rxn46750	MdeltaG(Max): -103.93	>	>
 rxn46751	Incomplete	?	?
 rxn46752	Incomplete (GCC)	=	=
 rxn46753	Incomplete (GCC)	=	=
-rxn46754	default	=	=
+rxn46754	default	?	=
 rxn46755	default	=	=
 rxn46756	Incomplete	?	?
 rxn46757	Incomplete	?	?
@@ -42031,7 +42031,7 @@ rxn46796	Incomplete	?	?
 rxn46797	Incomplete	?	?
 rxn46798	Incomplete	?	?
 rxn46799	Incomplete	?	?
-rxn46800	default	=	=
+rxn46800	default	?	=
 rxn46801	default	=	=
 rxn46802	Incomplete (GCC)	=	=
 rxn46803	Incomplete (GCC)	>	>
@@ -42130,10 +42130,10 @@ rxn46898	Incomplete	?	?
 rxn46899	Incomplete	?	?
 rxn46900	Incomplete	?	?
 rxn46901	Incomplete	?	?
-rxn46902	default	=	=
+rxn46902	default	?	=
 rxn46903	Incomplete (GCC)	=	=
 rxn46904	Incomplete	?	?
-rxn46905	mMdeltaG: -1.91	=	=
+rxn46905	mMdeltaG: -1.91	?	=
 rxn46907	MdeltaG(Max): -26.79	>	>
 rxn46908	Incomplete	?	?
 rxn46909	Incomplete	?	?
@@ -42147,7 +42147,7 @@ rxn46916	Incomplete (GCC)	<	<
 rxn46917	Incomplete	?	?
 rxn46918	Incomplete	?	?
 rxn46919	mMdeltaG: 0.35	=	=
-rxn46920	default	=	=
+rxn46920	default	?	=
 rxn46921	Incomplete	?	?
 rxn46922	Incomplete	?	?
 rxn46923	Incomplete	?	?
@@ -42185,7 +42185,7 @@ rxn46957	Incomplete	?	?
 rxn46958	Incomplete (GCC)	>	>
 rxn46959	Incomplete	?	?
 rxn46960	Incomplete	?	?
-rxn46961	default	=	=
+rxn46961	default	?	=
 rxn46962	Incomplete (GCC)	=	=
 rxn46963	Incomplete (GCC)	=	=
 rxn46964	Incomplete (GCC)	>	>
@@ -42196,7 +42196,7 @@ rxn46968	Incomplete	?	?
 rxn46969	Incomplete (GCC)	>	>
 rxn46970	Incomplete (GCC)	>	>
 rxn46971	Incomplete	?	?
-rxn46972	default	=	=
+rxn46972	default	?	=
 rxn46973	mMdeltaG: -1.09	=	=
 rxn46974	Incomplete	?	?
 rxn46975	Incomplete	?	?
@@ -42328,7 +42328,7 @@ rxn47103	MdeltaG(Max): -99.62	>	>
 rxn47104	Incomplete	?	?
 rxn47105	Incomplete (GCC)	>	>
 rxn47107	lowE: 3.92:1.0	<	<
-rxn47108	lowE: -6.28:-1.0	>	>
+rxn47108	lowE: -6.28:-1.0	?	>
 rxn47109	Incomplete	?	?
 rxn47110	Incomplete (GCC)	<	<
 rxn47111	MdeltaG(Max): -101.34	>	>
@@ -42356,7 +42356,7 @@ rxn47132	Incomplete	?	?
 rxn47133	Incomplete	?	?
 rxn47134	Incomplete (GCC)	=	=
 rxn47135	Incomplete	?	?
-rxn47136	Incomplete (GCC)	>	>
+rxn47136	Incomplete	?	?
 rxn47137	Incomplete (GCC)	=	=
 rxn47138	Incomplete (GCC)	=	=
 rxn47139	Incomplete	?	?
@@ -42421,7 +42421,7 @@ rxn47200	Incomplete	?	?
 rxn47201	Incomplete	?	?
 rxn47202	Incomplete	?	?
 rxn47203	Incomplete	?	?
-rxn47204	Incomplete (GCC)	=	=
+rxn47204	Incomplete	?	?
 rxn47205	Incomplete	?	?
 rxn47206	MdeltaG(Max): -7.40	>	>
 rxn47207	Incomplete	?	?
@@ -42539,14 +42539,14 @@ rxn47322	Incomplete	?	?
 rxn47323	Incomplete	?	?
 rxn47324	MdeltaG(Max): -3.11	>	>
 rxn47326	MdeltaG(Min): 281.27	<	<
-rxn47327	mMdeltaG: -1.70	=	=
+rxn47327	mMdeltaG: -1.70	?	=
 rxn47328	Incomplete	?	?
 rxn47329	Incomplete	?	?
 rxn47331	default	=	=
 rxn47332	Incomplete	?	?
 rxn47333	default	=	=
 rxn47334	MdeltaG(Max): -42.20	?	>
-rxn47335	mMdeltaG: -1.70	=	=
+rxn47335	mMdeltaG: -1.70	?	=
 rxn47336	default	=	=
 rxn47337	Incomplete	?	?
 rxn47338	Incomplete (GCC)	>	>
@@ -42592,7 +42592,7 @@ rxn47378	Incomplete	?	?
 rxn47379	Incomplete	?	?
 rxn47380	Incomplete	?	?
 rxn47381	Incomplete	?	?
-rxn47382	MdeltaG(Max): -1.09	>	>
+rxn47382	MdeltaG(Max): -1.09	?	>
 rxn47383	default	=	=
 rxn47384	default	=	=
 rxn47385	Incomplete	?	?
@@ -42804,7 +42804,7 @@ rxn47595	Incomplete	?	?
 rxn47596	mMdeltaG: -0.08	=	=
 rxn47598	mMdeltaG: -0.43	=	=
 rxn47599	Incomplete	?	?
-rxn47600	default	=	=
+rxn47600	default	?	=
 rxn47601	Incomplete (GCC)	>	>
 rxn47602	mMdeltaG: 0.44	=	=
 rxn47603	Incomplete	?	?
@@ -42916,7 +42916,7 @@ rxn47711	Incomplete	?	?
 rxn47712	Incomplete	?	?
 rxn47713	Incomplete	?	?
 rxn47714	MdeltaG(Max): -84.78	>	>
-rxn47715	default	=	=
+rxn47715	default	?	=
 rxn47716	mMdeltaG: -1.82	=	=
 rxn47717	default	=	=
 rxn47718	Incomplete	?	?
@@ -42945,7 +42945,7 @@ rxn47740	mMdeltaG: -0.49	=	=
 rxn47741	Incomplete	?	?
 rxn47742	MdeltaG(Max): -102.05	>	>
 rxn47743	Incomplete	?	?
-rxn47744	Incomplete (GCC)	>	>
+rxn47744	Incomplete	?	?
 rxn47745	Incomplete	?	?
 rxn47746	default	=	=
 rxn47747	Incomplete	?	?
@@ -43053,7 +43053,7 @@ rxn47851	Incomplete	?	?
 rxn47852	lowE: -11.99:-2.0	>	>
 rxn47853	Incomplete	?	?
 rxn47854	Incomplete	?	?
-rxn47855	Incomplete (GCC)	?	?
+rxn47855	Incomplete	?	?
 rxn47856	Incomplete	?	?
 rxn47857	lowE: -5.79:-1.0	>	>
 rxn47858	Incomplete	?	?
@@ -43158,7 +43158,7 @@ rxn47964	Incomplete (GCC)	>	>
 rxn47965	Incomplete	?	?
 rxn47966	Incomplete	?	?
 rxn47968	Incomplete	?	?
-rxn47969	MdeltaG(Max): -2.36	>	>
+rxn47969	MdeltaG(Max): -2.36	?	>
 rxn47970	Incomplete	?	?
 rxn47971	Incomplete (GCC)	>	>
 rxn47972	Incomplete	?	?
@@ -43405,7 +43405,7 @@ rxn48221	Incomplete	?	?
 rxn48222	MdeltaG(Max): -191.99	>	>
 rxn48223	Incomplete	?	?
 rxn48224	MdeltaG(Min): 2.50	<	<
-rxn48225	default	=	=
+rxn48225	default	?	=
 rxn48226	default	=	=
 rxn48227	Incomplete	?	?
 rxn48228	default	=	=
@@ -43472,7 +43472,7 @@ rxn48291	Incomplete	?	?
 rxn48292	Incomplete	?	?
 rxn48293	mMdeltaG: -0.09	=	=
 rxn48294	Incomplete	?	?
-rxn48295	default	=	=
+rxn48295	default	?	=
 rxn48296	default	=	=
 rxn48297	Incomplete	?	?
 rxn48298	Incomplete	?	?
@@ -43648,7 +43648,7 @@ rxn48468	Incomplete	?	?
 rxn48469	Incomplete (GCC)	=	=
 rxn48470	Incomplete	?	?
 rxn48471	Incomplete	?	?
-rxn48472	default	=	=
+rxn48472	default	?	=
 rxn48473	Incomplete	?	?
 rxn48474	Incomplete	?	?
 rxn48475	Incomplete	?	?
@@ -50164,7 +50164,7 @@ rxn54991	Incomplete	?	?
 rxn54992	Incomplete	?	?
 rxn54993	Incomplete	?	?
 rxn54994	Incomplete	?	?
-rxn54995	Incomplete (GCC)	?	?
+rxn54995	Incomplete	?	?
 rxn54996	Incomplete	?	?
 rxn54997	Incomplete	?	?
 rxn54998	Incomplete (GCC)	?	?
@@ -51462,7 +51462,7 @@ rxn56289	Incomplete	?	?
 rxn56290	Incomplete	?	?
 rxn56291	Incomplete (GCC)	?	?
 rxn56292	Incomplete	?	?
-rxn56293	Incomplete (GCC)	?	?
+rxn56293	Incomplete	?	?
 rxn56294	Incomplete	?	?
 rxn56295	Incomplete	?	?
 rxn56296	Incomplete	?	?
@@ -51723,7 +51723,7 @@ rxn56550	Incomplete (GCC)	?	?
 rxn56551	Incomplete	?	?
 rxn56552	Incomplete	?	?
 rxn56553	Incomplete	?	?
-rxn56554	Incomplete (GCC)	?	?
+rxn56554	Incomplete	?	?
 rxn56555	Incomplete (GCC)	?	?
 rxn56556	Incomplete	?	?
 rxn56557	Incomplete (GCC)	?	?
@@ -51925,16 +51925,16 @@ rxn56752	Incomplete	?	?
 rxn56753	Incomplete	?	?
 rxn56754	Incomplete (GCC)	?	?
 rxn56755	Incomplete	?	?
-rxn56756	Incomplete (GCC)	?	?
+rxn56756	Incomplete	?	?
 rxn56757	Incomplete (GCC)	?	?
-rxn56758	Incomplete (GCC)	?	?
+rxn56758	Incomplete	?	?
 rxn56759	Incomplete (GCC)	?	?
-rxn56760	Incomplete (GCC)	?	?
+rxn56760	Incomplete	?	?
 rxn56761	Incomplete	?	?
 rxn56762	Incomplete (GCC)	?	?
 rxn56763	Incomplete	?	?
 rxn56764	Incomplete	?	?
-rxn56765	Incomplete (GCC)	?	?
+rxn56765	Incomplete	?	?
 rxn56766	Incomplete	?	?
 rxn56767	Incomplete	?	?
 rxn56768	Incomplete	?	?
@@ -52465,7 +52465,7 @@ rxn57293	Incomplete	?	?
 rxn57294	Incomplete	?	?
 rxn57295	Incomplete	?	?
 rxn57296	Incomplete (GCC)	?	?
-rxn57297	Incomplete (GCC)	?	?
+rxn57297	Incomplete	?	?
 rxn57298	Incomplete (GCC)	?	?
 rxn57299	Incomplete	?	?
 rxn57300	Incomplete	?	?
@@ -53663,7 +53663,7 @@ rxn58497	Incomplete	?	?
 rxn58498	Incomplete	?	?
 rxn58499	Incomplete	?	?
 rxn58500	Incomplete (GCC)	?	?
-rxn58501	Incomplete (GCC)	?	?
+rxn58501	Incomplete	?	?
 rxn58502	Incomplete	?	?
 rxn58503	Incomplete	?	?
 rxn58505	Incomplete	?	?
@@ -55783,7 +55783,7 @@ rxn60629	Incomplete	?	?
 rxn60630	Incomplete	?	?
 rxn60631	Incomplete	?	?
 rxn60632	Incomplete	?	?
-rxn60633	Incomplete (GCC)	?	?
+rxn60633	Incomplete	?	?
 rxn60634	Incomplete	?	?
 rxn60635	Incomplete	?	?
 rxn60636	Incomplete	?	?
