@@ -59,10 +59,21 @@ LOW_ENERGY_CPDS = ("cpd00011",  # CO2
                    "cpd00242")  # HCO3
 
 # Mapping from the ``GC``/``EQ`` CLI flag to the per-source subkey under
-# ``rxn_entry['thermodynamics']``. Adding a source means adding one entry.
+# ``rxn_entry['thermodynamics']``. Adding a source means adding one entry
+# here (and the matching legacy note in ``DB_LEVEL_NOTE`` below).
 DB_LEVEL_LABEL = {
     "GC": "Group contribution",
     "EQ": "eQuilibrator",
+}
+# Legacy per-source completeness flag in ``rxn_entry['notes']``. A reaction
+# is eligible under a CLI flag when EITHER its ``thermodynamics`` sublist
+# carries a non-sentinel energy OR the legacy note is present. The OR
+# preserves dev-branch behavior for the 54 reactions whose pre-existing
+# ``GCC`` note is the only completeness signal (the structured sublist
+# holds the sentinel because group-contribution coverage was partial).
+DB_LEVEL_NOTE = {
+    "GC": "GCC",
+    "EQ": "EQU",
 }
 # Order matters for the no-filter fallback: prefer the eQuilibrator energy
 # over the Group-contribution one when both are present, mirroring the
@@ -90,20 +101,33 @@ def _thermo_pair(rxn_entry, label):
     return [dg, float(pair[1])]
 
 
+def _is_source_eligible(rxn_entry, level):
+    """A reaction is eligible under ``level`` (``"GC"`` / ``"EQ"``) when
+    EITHER ``thermodynamics[DB_LEVEL_LABEL[level]]`` carries a non-sentinel
+    pair OR the legacy ``DB_LEVEL_NOTE[level]`` flag is present in
+    ``notes``. Two source-of-truth fields, OR-ed together — adding a new
+    source means adding both keys."""
+    if _thermo_pair(rxn_entry, DB_LEVEL_LABEL[level]) is not None:
+        return True
+    return DB_LEVEL_NOTE[level] in rxn_entry["notes"]
+
+
 def _energy_for(rxn_entry, db_level):
     """Resolve ``(dg, dge, source_label)`` for the reaction under ``db_level``.
 
     The energy *values* always come from the top-level ``deltag``/``deltagerr``
     so the reversibility-report numbers stay byte-identical to the dev-branch
-    pre-refactor pipeline. The Thermodynamics key drives only two things:
+    pre-refactor pipeline. The Thermodynamics key + legacy notes drive two
+    things:
 
-    - *eligibility*: under ``GC``/``EQ`` the reaction is only processed when
-      the matching sublist (``Group contribution`` / ``eQuilibrator``) is
-      present with a non-sentinel energy. This replaces the legacy
-      ``GCC``/``EQU`` notes check.
+    - *eligibility*: under ``GC``/``EQ`` the reaction is only processed
+      when ``_is_source_eligible`` says so (structured sublist OR legacy
+      note — see that helper).
     - *source label*: the matching sublist's key, returned for the caller's
       direction-appender so the computed reversibility is restamped back
-      into the correct sublist.
+      into the correct sublist. ``None`` when the only eligibility signal
+      was the legacy note and the structured sublist is absent or sentinel
+      — no append target exists in that case.
 
     For the unfiltered run, ``source_label`` is the sublist whose first
     entry matches the top-level ``deltag`` exactly, with
@@ -122,10 +146,14 @@ def _energy_for(rxn_entry, db_level):
         return None, None, None
 
     if db_level:
-        label = DB_LEVEL_LABEL[db_level]
-        if _thermo_pair(rxn_entry, label) is None:
+        if not _is_source_eligible(rxn_entry, db_level):
             return None, None, None
-        return rxn_dg, rxn_dge, label
+        label = DB_LEVEL_LABEL[db_level]
+        # Only point the append target at the sublist when it actually
+        # carries the energy that drove eligibility. Notes-only eligibility
+        # leaves the structured sublist untouched (label=None).
+        append_label = label if _thermo_pair(rxn_entry, label) is not None else None
+        return rxn_dg, rxn_dge, append_label
 
     chosen_label = None
     for level in DB_LEVEL_PRIORITY:
@@ -138,10 +166,11 @@ def _energy_for(rxn_entry, db_level):
 
 
 def _has_gc_data(rxn_entry):
-    """True iff the reaction carries non-sentinel Group-contribution energy.
-    Used by EQ runs to decide whether to fall back to the reversibility a
-    prior GC run already wrote."""
-    return _thermo_pair(rxn_entry, DB_LEVEL_LABEL["GC"]) is not None
+    """True iff the reaction has Group-contribution coverage — either via
+    a non-sentinel ``thermodynamics['Group contribution']`` sublist or the
+    legacy ``GCC`` note. Used by EQ runs to decide whether to fall back to
+    the reversibility a prior GC run already wrote."""
+    return _is_source_eligible(rxn_entry, "GC")
 
 
 def _incomplete_decision(rxn_entry, db_level):

@@ -128,5 +128,56 @@ run and recover to dev's value after the unfiltered no-arg run.
 - `Rerun_Thermodynamics.sh` — untouched. Existing operators get the
   same flow.
 - Notes (`GCC`/`EQU`/`GCP`/`EQP`/etc.) — left in place for backward
-  compatibility with other readers; the Estimate script just no longer
-  consults them.
+  compatibility with other readers. The Estimate script still consults
+  the per-source completeness flags (`GCC` and `EQU`) as a fallback —
+  see the "Notes-as-fallback fix" section below.
+
+## Notes-as-fallback fix
+
+The original migration claim that "the stored `reversibility` field in
+the JSON matches the dev-branch baseline for all 56,012 reactions" was
+incorrect for 54 reactions. Those reactions carry the legacy `GCC`
+completeness flag in `notes` but their structured
+`thermodynamics['Group contribution']` sublist holds the sentinel
+`[10000000.0, 10000000.0]` — the Update_Reaction_GroupContribution
+script writes the sentinel for reactions with incomplete per-compound
+GC coverage, and the legacy `GCC` flag was already set on dev for some
+of those.
+
+dev's notes-based eligibility check accepted these reactions and
+produced a real direction (`=`, `>`, or `<`); the migrated
+thermo-sublist-only check rejected them and assigned `?`. The
+`Scripts/Tests/test_reaction_direction.py` regression test caught all
+54 mismatches.
+
+### Fix
+
+Eligibility is now the OR of the two completeness signals:
+
+```python
+DB_LEVEL_NOTE = {"GC": "GCC", "EQ": "EQU"}
+
+def _is_source_eligible(rxn_entry, level):
+    if _thermo_pair(rxn_entry, DB_LEVEL_LABEL[level]) is not None:
+        return True
+    return DB_LEVEL_NOTE[level] in rxn_entry["notes"]
+```
+
+Adding a new source still requires only adding entries to
+`DB_LEVEL_LABEL` (the structured sublist key) and `DB_LEVEL_NOTE`
+(the legacy notes flag) — and optionally to `DB_LEVEL_PRIORITY` for
+the unfiltered-run tie-break. The modular-extension story from the
+original migration is preserved; the OR just makes the legacy notes
+load-bearing again for reactions whose source-completeness predates
+the structured Thermodynamics block.
+
+When eligibility comes from the notes alone (structured sublist
+absent or sentinel), the post-estimate direction-append target is set
+to `None` so the structured sublist is left untouched — there's no
+`[dg, dge]` pair to extend into `[dg, dge, direction]`.
+
+### Verification
+
+After the fix, `Scripts/Tests/test_reaction_direction.py` reports
+**0 direction mismatches across 56,012 reactions** against the dev
+baseline (commit `33d5d84`).
