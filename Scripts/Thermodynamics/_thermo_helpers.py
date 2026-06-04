@@ -34,6 +34,11 @@ import os
 DEFAULT_DG = 10000000.0
 DEFAULT_DG_DGE = [DEFAULT_DG, DEFAULT_DG]
 
+# Placeholder operator written into reaction-energy triples before the
+# Estimate_Reaction_Reversibility / Add_Reaction_Thermodynamics_Operators
+# steps replace it with the source-specific direction ('>'/'<'/'=').
+DEFAULT_OP = '?'
+
 # Preferred structure types in priority order. First match wins.
 STRUCTURE_PREFERENCE = ('InChIKey', 'SMILE')
 
@@ -65,6 +70,17 @@ def fmt2(value):
 
 def fmt_dg_dge(dg, dge):
     return [fmt2(dg), fmt2(dge)]
+
+
+def fmt_dg_dge_op(dg, dge, op=DEFAULT_OP):
+    """Reaction-side variant of :func:`fmt_dg_dge`. Returns a 3-element
+    ``[dg, dge, operator]`` list. The operator defaults to the ``'?'``
+    placeholder; the actual ``'>'`` / ``'<'`` / ``'='`` direction is
+    stamped in later by Estimate_Reaction_Reversibility (for the cascade
+    winner) and by Add_Reaction_Thermodynamics_Operators (comprehensive
+    backfill). Compound-side writes continue to use
+    :func:`fmt_dg_dge` — operators are reaction-only."""
+    return [fmt2(dg), fmt2(dge), op]
 
 
 def pick_structure(structures_dict, cpd, preference=STRUCTURE_PREFERENCE):
@@ -311,7 +327,9 @@ def sum_reaction_energy(stoichiometry, compounds_dict, label, rxn_id_for_warn):
         dg, dge = thermo[label]
         dg_sum += dg * rgt['coefficient']
         dge_sq_sum += (dge * rgt['coefficient']) ** 2
-    return fmt_dg_dge(dg_sum, dge_sq_sum ** 0.5)
+    # 3-element ``[dg, dge, '?']``; the operator slot is filled in later
+    # by Estimate_Reaction_Reversibility / Add_Reaction_Thermodynamics_Operators.
+    return fmt_dg_dge_op(dg_sum, dge_sq_sum ** 0.5)
 
 
 def run_reaction_aggregation_update(reactions_helper, compounds_helper, label):
@@ -330,7 +348,10 @@ def run_reaction_aggregation_update(reactions_helper, compounds_helper, label):
         if all(rgt['compound'] in eligible for rgt in rgts):
             energy = sum_reaction_energy(rgts, compounds_dict, label, rxn)
         else:
-            energy = list(DEFAULT_DG_DGE)
+            # Sentinel triple ``[DEFAULT_DG, DEFAULT_DG, '?']``: reactions
+            # remain 3-element even when no energy was computable, so
+            # downstream operator backfill sees a consistent shape.
+            energy = [DEFAULT_DG, DEFAULT_DG, DEFAULT_OP]
         set_thermo(rxn_entry, label, energy)
 
     print("Saving reactions")
@@ -340,12 +361,19 @@ def run_reaction_aggregation_update(reactions_helper, compounds_helper, label):
 def run_reaction_lookup_update(reactions_helper, label, energy_table):
     """Overwrite ``thermodynamics[label]`` from a precomputed ``{rxn: [dg, dge]}``
     table. Reactions absent from the table are left untouched — matching the
-    original eQuilibrator reaction-updater behavior."""
+    original eQuilibrator reaction-updater behavior.
+
+    The 2-element pairs coming out of :func:`parse_two_col_energy_table` are
+    upgraded to 3-element ``[dg, dge, '?']`` triples at write time, so the
+    reaction-side stored shape is consistent with the aggregation updater.
+    The parser itself is left 2-element because it is also used by the
+    compound-side resolvers, which stay 2-element."""
     reactions_dict = reactions_helper.loadReactions()
     for rxn in sorted(reactions_dict.keys()):
         if rxn not in energy_table:
             continue
-        set_thermo(reactions_dict[rxn], label, energy_table[rxn])
+        set_thermo(reactions_dict[rxn], label,
+                   list(energy_table[rxn]) + [DEFAULT_OP])
 
     print("Saving reactions")
     reactions_helper.saveReactions(reactions_dict)

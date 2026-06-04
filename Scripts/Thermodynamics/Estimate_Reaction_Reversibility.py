@@ -58,19 +58,24 @@ LOW_ENERGY_CPDS = ("cpd00011",  # CO2
                    "cpd00449",  # Dihydrolipoamide
                    "cpd00242")  # HCO3
 
-# Mapping from the ``GC``/``EQ`` CLI flag to the per-source subkey under
-# ``rxn_entry['thermodynamics']``. Adding a source means adding one entry
-# here (and the matching legacy note in ``DB_LEVEL_NOTE`` below).
+# Mapping from the ``GC``/``EQ``/``DGP`` CLI flag to the per-source subkey
+# under ``rxn_entry['thermodynamics']``. Adding a source means adding one
+# entry here (and, when a matching legacy note exists, in ``DB_LEVEL_NOTE``
+# below — dGPredictor has no legacy note so it is intentionally absent).
 DB_LEVEL_LABEL = {
     "GC": "Group contribution",
     "EQ": "eQuilibrator",
+    "DGP": "dGPredictor",
 }
 # Legacy per-source completeness flag in ``rxn_entry['notes']``. A reaction
 # is eligible under a CLI flag when EITHER its ``thermodynamics`` sublist
 # carries a non-sentinel energy OR the legacy note is present. The OR
-# preserves dev-branch behavior for the 54 reactions whose pre-existing
+# preserves the upstream behavior for the 54 reactions whose pre-existing
 # ``GCC`` note is the only completeness signal (the structured sublist
 # holds the sentinel because group-contribution coverage was partial).
+# dGPredictor has no legacy note: its only completeness signal is the
+# structured sublist, so it is intentionally absent from this map and
+# ``_is_source_eligible`` falls through to the sublist-only check.
 DB_LEVEL_NOTE = {
     "GC": "GCC",
     "EQ": "EQU",
@@ -78,8 +83,12 @@ DB_LEVEL_NOTE = {
 # Order matters for the no-filter fallback: prefer the eQuilibrator energy
 # over the Group-contribution one when both are present, mirroring the
 # Update_*_eQuilibrator_Energies.py "EQ overwrites GC" precedence that drives
-# the top-level ``deltag``/``deltagerr`` values.
-DB_LEVEL_PRIORITY = ("EQ", "GC")
+# the top-level ``deltag``/``deltagerr`` values. ``DGP`` is appended last
+# (additive-only; never overrides the canonical top-level deltag), so it
+# is only picked up when its energy happens to match the top-level value
+# exactly — a no-op in practice but it keeps the iteration covering all
+# sources.
+DB_LEVEL_PRIORITY = ("EQ", "GC", "DGP")
 
 
 # ---------------------------------------------------------------------------
@@ -102,21 +111,24 @@ def _thermo_pair(rxn_entry, label):
 
 
 def _is_source_eligible(rxn_entry, level):
-    """A reaction is eligible under ``level`` (``"GC"`` / ``"EQ"``) when
-    EITHER ``thermodynamics[DB_LEVEL_LABEL[level]]`` carries a non-sentinel
-    pair OR the legacy ``DB_LEVEL_NOTE[level]`` flag is present in
-    ``notes``. Two source-of-truth fields, OR-ed together — adding a new
-    source means adding both keys."""
+    """A reaction is eligible under ``level`` (``"GC"`` / ``"EQ"`` /
+    ``"DGP"``) when EITHER ``thermodynamics[DB_LEVEL_LABEL[level]]`` carries
+    a non-sentinel pair OR the legacy ``DB_LEVEL_NOTE[level]`` flag (if one
+    exists for this source) is present in ``notes``. Sources without a
+    legacy note (e.g. ``DGP``) fall through to the sublist-only check —
+    ``DB_LEVEL_NOTE.get`` returns ``None`` and the second clause short-
+    circuits."""
     if _thermo_pair(rxn_entry, DB_LEVEL_LABEL[level]) is not None:
         return True
-    return DB_LEVEL_NOTE[level] in rxn_entry["notes"]
+    note = DB_LEVEL_NOTE.get(level)
+    return note is not None and note in rxn_entry["notes"]
 
 
 def _energy_for(rxn_entry, db_level):
     """Resolve ``(dg, dge, source_label)`` for the reaction under ``db_level``.
 
     The energy *values* always come from the top-level ``deltag``/``deltagerr``
-    so the reversibility-report numbers stay byte-identical to the dev-branch
+    so the reversibility-report numbers stay byte-identical to the
     pre-refactor pipeline. The Thermodynamics key + legacy notes drive two
     things:
 
@@ -318,6 +330,49 @@ def _low_energy_points(stoichiometry, phosphates):
     return points
 
 
+def _cascade(rxn_entry, rxn_dg, rxn_dge):
+    """Run the heuristic cascade against an explicit ``(rxn_dg, rxn_dge)``
+    pair and return ``(status_label, operator)``.
+
+    Factored out of :func:`estimate_one` so the ``reversibility_from_energy``
+    shim can reuse the same logic with per-source (rather than top-level)
+    energy values. The eligibility check and the top-level deltag pick are
+    intentionally NOT replayed here — callers supply the energies directly,
+    matching the upstream ``_estimate_core`` semantics.
+
+    Adding a heuristic still means inserting one ``if`` branch — and removing
+    one means deleting it. Each branch's helper is independently testable."""
+    terms = _walk_stoichiometry(rxn_entry['stoichiometry'])
+    stored_max, stored_min = _stored_bounds(rxn_dg, rxn_dge, terms)
+
+    if stored_max < 0:
+        return "MdeltaG(Max): {0:.2f}".format(stored_max), ">"
+    if stored_min > 0:
+        return "MdeltaG(Min): {0:.2f}".format(stored_min), "<"
+
+    if _is_atp_synthase(rxn_entry, terms['proton_cpts']):
+        return "ATPS", "="
+
+    abct = _abc_transporter_decision(rxn_entry, terms['phosphates'])
+    if abct is not None:
+        return abct
+
+    mMdeltaG = rxn_dg + RT_CONST * terms['rgt_sum']
+    if -2.0 <= mMdeltaG <= 2.0:
+        return "mMdeltaG: {0:.2f}".format(mMdeltaG), "="
+
+    points = _low_energy_points(rxn_entry['stoichiometry'], terms['phosphates'])
+    if points * mMdeltaG > 2:
+        if mMdeltaG < 0:
+            return ("lowE: {0:.2f}".format(mMdeltaG) + ":" + str(points),
+                    ">")
+        if mMdeltaG > 0:
+            return ("lowE: {0:.2f}".format(mMdeltaG) + ":" + str(points),
+                    "<")
+
+    return "default", "="
+
+
 def estimate_one(rxn_entry, db_level):
     """Returns ``(status_label, thermoreversibility, source_label)`` for one
     reaction.
@@ -326,11 +381,7 @@ def estimate_one(rxn_entry, db_level):
     estimate (``'Group contribution'`` or ``'eQuilibrator'``), or ``None``
     when no estimate ran (empty/incomplete) or when the unfiltered run's
     top-level energy did not match any sublist exactly. The caller uses it
-    to append the direction back into the matching sublist.
-
-    The heuristic cascade is intentionally explicit so that adding a new
-    rule means inserting one ``if`` branch — and removing one means deleting
-    it. Each branch's helper is independently testable."""
+    to append the direction back into the matching sublist."""
     if rxn_entry['status'] == "EMPTY":
         return "Empty", "?", None
 
@@ -339,36 +390,55 @@ def estimate_one(rxn_entry, db_level):
         status, thermoreversibility = _incomplete_decision(rxn_entry, db_level)
         return status, thermoreversibility, None
 
-    terms = _walk_stoichiometry(rxn_entry['stoichiometry'])
-    stored_max, stored_min = _stored_bounds(rxn_dg, rxn_dge, terms)
+    status, thermoreversibility = _cascade(rxn_entry, rxn_dg, rxn_dge)
+    return status, thermoreversibility, source_label
 
-    if stored_max < 0:
-        return "MdeltaG(Max): {0:.2f}".format(stored_max), ">", source_label
-    if stored_min > 0:
-        return "MdeltaG(Min): {0:.2f}".format(stored_min), "<", source_label
 
-    if _is_atp_synthase(rxn_entry, terms['proton_cpts']):
-        return "ATPS", "=", source_label
+def reversibility_from_energy(rxn_entry, rxn_dg, rxn_dge):
+    """Compute the thermodynamic direction operator for a single per-source
+    ``(dg, dge)`` pair without consulting the source-eligibility filter or
+    the top-level deltag pick.
 
-    abct = _abc_transporter_decision(rxn_entry, terms['phosphates'])
-    if abct is not None:
-        status, thermoreversibility = abct
-        return status, thermoreversibility, source_label
+    Returns one of ``'>'`` / ``'<'`` / ``'='`` / ``'?'``. Used by the
+    per-source updaters (``Update_Reaction_dGPredictor_Energies.py``) and by
+    the operator backfill (``Add_Reaction_Thermodynamics_Operators.py``) to
+    stamp each sublist's own direction.
 
-    mMdeltaG = rxn_dg + RT_CONST * terms['rgt_sum']
-    if -2.0 <= mMdeltaG <= 2.0:
-        return "mMdeltaG: {0:.2f}".format(mMdeltaG), "=", source_label
+    Input coercion mirrors the upstream per-source updater:
+      * ``rxn_entry['status'] == 'EMPTY'`` -> ``'?'``
+      * ``rxn_dg`` that cannot be ``float()``-coerced (``None``, bools,
+        ``'nan'``-strings, etc.) -> ``'?'``
+      * ``rxn_dg == SENTINEL_DG`` -> ``'?'``
+      * ``rxn_dge`` that cannot be coerced -> treated as ``0.0``
+    Otherwise the cascade runs and its operator is returned."""
+    if isinstance(rxn_entry, dict) and rxn_entry.get('status') == 'EMPTY':
+        return '?'
 
-    points = _low_energy_points(rxn_entry['stoichiometry'], terms['phosphates'])
-    if points * mMdeltaG > 2:
-        if mMdeltaG < 0:
-            return ("lowE: {0:.2f}".format(mMdeltaG) + ":" + str(points),
-                    ">", source_label)
-        if mMdeltaG > 0:
-            return ("lowE: {0:.2f}".format(mMdeltaG) + ":" + str(points),
-                    "<", source_label)
+    # Reject bools explicitly: ``float(True) == 1.0`` would otherwise sneak
+    # in. Same defensive treatment for ``None`` / non-numeric strings.
+    if isinstance(rxn_dg, bool) or rxn_dg is None:
+        return '?'
+    try:
+        dg = float(rxn_dg)
+    except (TypeError, ValueError):
+        return '?'
+    if dg != dg:  # NaN
+        return '?'
+    if dg == SENTINEL_DG:
+        return '?'
 
-    return "default", "=", source_label
+    if isinstance(rxn_dge, bool) or rxn_dge is None:
+        dge = 0.0
+    else:
+        try:
+            dge = float(rxn_dge)
+        except (TypeError, ValueError):
+            dge = 0.0
+        if dge != dge:  # NaN
+            dge = 0.0
+
+    _status, operator = _cascade(rxn_entry, dg, dge)
+    return operator
 
 
 # ---------------------------------------------------------------------------
@@ -393,7 +463,7 @@ def _write_report(db_level, report):
 # Main
 # ---------------------------------------------------------------------------
 def _parse_db_level(argv):
-    if len(argv) > 1 and argv[1] in ('EQ', 'GC'):
+    if len(argv) > 1 and argv[1] in ('EQ', 'GC', 'DGP'):
         return argv[1]
     return ''
 

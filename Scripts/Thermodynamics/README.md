@@ -15,6 +15,35 @@ The general order is that the energies from the application of the Group Contrib
 are stored in the database first, and then the energies from eQuilibrator (EQ), which, in most
 cases, take precedence, are used to overwrite the energies in the database
 
+### Additive per-method thermodynamics
+
+Each reaction keeps every method's estimate **additively** in its
+`thermodynamics` dict rather than collapsing them into a single value. Each
+method holds an `[energy, error, operator]` triple, where the operator (`>`,
+`<`, `=`, or `?`) is that estimate's own thermodynamic direction — computed with
+the same heuristic as the canonical reversibility, but applied to that method's
+own dG:
+
+```json
+"thermodynamics": {
+    "Group contribution": [4.15, 1.22, "="],
+    "eQuilibrator":       [-3.46, 0.05, ">"],
+    "dGPredictor":        [-3.82, 0.02, ">"]
+}
+```
+
+`dGPredictor` (Wang et al. 2021; predictions staged under
+`../../Biochemistry/Thermodynamics/dGPredictor/json_files/`, kJ→kcal `/4.184`)
+is recorded for **every** reaction it predicts, alongside the GC/eQ records.
+These per-method records sit **next to**, and never replace, the canonical
+top-level `deltag` / `deltagerr` / `reversibility` fields — recording
+dGPredictor does not alter the canonical free-energy value. The shared heuristic
+lives in `Estimate_Reaction_Reversibility.py` (`reversibility_from_energy`); the
+`Update_Reaction_*_Energies.py` scripts attach the operator when they write each
+method, and `Add_Reaction_Thermodynamics_Operators.py` can (re)generate the
+operators for all stored energies at any time without needing the upstream
+GC / eQuilibrator / dGPredictor inputs.
+
 The underlying thermodynamics data is kept in
 `../../Biochemistry/Thermodynamics`. The decomposition of molecular
 structures and their resulting energies for both the older group
@@ -39,88 +68,13 @@ then running these six commands should not cause any changes to appear in the da
 ./Update_Compound_eQuilibrator_Energies.py
 ./Update_Reaction_eQuilibrator_Energies.py
 ./Estimate_Reaction_Reversibility.py EQ
+# Record dGPredictor additively for every predicted reaction (no canonical change)
+./Update_Reaction_dGPredictor_Energies.py
+# Backfill/refresh the per-method [energy, error, operator] triples
+./Add_Reaction_Thermodynamics_Operators.py
 ```
 
 These easily run together by running:
 ```
 ./Rerun_Thermodynamics.sh
 ```
-
-## Adding a new energy source
-
-The six update scripts above share a single helper module,
-`_thermo_helpers.py`, that encapsulates the bits every source repeats:
-path resolution, structure picking, sentinel handling, the `[dg, dge]`
-formatter, the iterate-and-save scaffolding, and the two
-reaction-aggregation patterns (sum-from-compounds vs. direct lookup).
-A new source typically reuses these directly — the per-source script
-just supplies a parser, a resolver, and a label.
-
-### A compound source (per-structure)
-
-```python
-import _thermo_helpers as th
-from BiochemPy import Compounds
-
-LABEL = 'My new source'
-
-# 1. Parse the energy table. parse_two_col_energy_table handles
-#    'id<TAB>dg<TAB>dge' extracts; parse_gc_compound_table handles
-#    MFAToolkit-style 'MolAnalysis.tbl' files; write your own if neither
-#    fits.
-energies = th.parse_two_col_energy_table(
-    th.thermo_path('MyNewSource', 'Compound_Energies.tbl'))
-
-# 2. Per-compound resolver. Called ONLY when the compound has a
-#    structure. Return [dg, dge] to write, or None to skip this compound.
-def resolve(cpd, stype, structure, aliases):
-    return energies.get(structure)  # or whatever lookup makes sense
-
-# 3. Pick on_no_structure='default' to write the sentinel for
-#    structure-less compounds (GC behavior), or 'skip' to leave them
-#    untouched.
-th.run_compound_update(Compounds(), LABEL, resolve, on_no_structure='default')
-```
-
-### A reaction source (sum from compound energies)
-
-```python
-import _thermo_helpers as th
-from BiochemPy import Compounds, Reactions
-
-LABEL = 'My new source'   # must match the label used on the compounds
-th.run_reaction_aggregation_update(Reactions(), Compounds(), LABEL)
-```
-
-### A reaction source (precomputed reaction-id table)
-
-```python
-import _thermo_helpers as th
-from BiochemPy import Reactions
-
-LABEL = 'My new source'
-rxn_energies = th.parse_two_col_energy_table(
-    th.thermo_path('MyNewSource', 'Reaction_Energies.tbl'))
-th.run_reaction_lookup_update(Reactions(), LABEL, rxn_energies)
-```
-
-That's it — no scaffolding to copy. Add the new script's invocation to
-`Rerun_Thermodynamics.sh` in the order it should run (typically the
-compound update before the reaction update, both before
-`Estimate_Reaction_Reversibility.py`).
-
-### Reversibility heuristics
-
-`Estimate_Reaction_Reversibility.py` runs after the energies are stored.
-The heuristic cascade lives in `estimate_one()`; each rule is a small
-helper (`_is_atp_synthase`, `_low_energy_points`, etc.) that can be
-imported or replaced without touching the others. The per-reaction
-stoichiometry walk is a single helper (`_walk_stoichiometry`) that
-returns every accumulator the cascade consumes.
-
-> Two latent bugs in the original stoichiometry walk are preserved
-> verbatim in `_walk_stoichiometry` (`cpd` is shadowed by the inner
-> phosphate loop; `cpd in rgt` checks the row's dict keys rather than
-> its compound id). They are flagged with `NB:` comments. Removing
-> either changes the pipeline's reversibility output. See the commit
-> message for the refactor that established byte-equivalence.
