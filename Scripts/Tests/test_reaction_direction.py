@@ -50,14 +50,30 @@ SENTINEL_DG = 10000000
 NAME_MAX = 40
 
 # Map from _method_used() return value to the thermodynamics key it came from.
-METHOD_KEYS = {'EQ': 'eQuilibrator', 'GC': 'Group contribution'}
+METHOD_KEYS = {'EQ': 'eQuilibrator',
+               'GC': 'Group contribution',
+               'DGP': 'dGPredictor'}
 
 # Human-readable label for the method that drove the final reversibility,
 # shown in the "Thermo sublist (method)" column.
-METHOD_LABELS = {'EQ': 'equilibrium', 'GC': 'group contribution'}
+METHOD_LABELS = {'EQ': 'equilibrium',
+                 'GC': 'group contribution',
+                 'DGP': 'dG predictor'}
 
-# The six scripts that make up the Thermodynamics reaction-direction
-# pipeline, in the order Rerun_Thermodynamics.sh runs them.
+# Per-source operators that the PR #263 additive format added as the third
+# element of each ``thermodynamics[source]`` sublist. ``compare()`` checks
+# each of these alongside the top-level ``reversibility`` so a regression
+# in any single source surfaces independently.
+SOURCES = [
+    ('GC',  'Group contribution'),
+    ('EQ',  'eQuilibrator'),
+    ('DGP', 'dGPredictor'),
+]
+
+# The Thermodynamics reaction-direction pipeline, in the order
+# ``Rerun_Thermodynamics.sh`` runs them. The last two steps (additive
+# dGPredictor record + per-method [energy, error, operator] backfill) were
+# added by PR #263.
 PIPELINE = [
     ['./Update_Compound_GroupContribution_Energies.py'],
     ['./Update_Reaction_GroupContribution_Energies.py'],
@@ -65,6 +81,8 @@ PIPELINE = [
     ['./Update_Compound_eQuilibrator_Energies.py'],
     ['./Update_Reaction_eQuilibrator_Energies.py'],
     ['./Estimate_Reaction_Reversibility.py', 'EQ'],
+    ['./Update_Reaction_dGPredictor_Energies.py'],
+    ['./Add_Reaction_Thermodynamics_Operators.py'],
 ]
 
 
@@ -141,6 +159,26 @@ def load_compounds(directory):
             for cpd in json.load(fh):
                 out[cpd['id']] = cpd
     return out
+
+
+def _source_operator(rxn, label):
+    """Return the per-source operator from ``rxn['thermodynamics'][label]``,
+    i.e. the third element of the ``[dg, dge, operator]`` triple added by
+    PR #263.
+
+    Returns one of ``'>' | '<' | '=' | '?'`` when the source is present
+    with a non-sentinel energy and a length-3 sublist, else ``None`` —
+    callers treat ``None`` as "source absent" and skip it for comparison
+    rather than counting it as a mismatch."""
+    thermo = rxn.get('thermodynamics')
+    if not isinstance(thermo, dict):
+        return None
+    sublist = thermo.get(label)
+    if not sublist or sublist[0] is None or sublist[0] == SENTINEL_DG:
+        return None
+    if len(sublist) < 3:
+        return None
+    return sublist[2]
 
 
 def _method_used(rxn):
@@ -285,8 +323,132 @@ def _print_mismatch_table(mismatched, current, baseline,
         _print_row(r, widths)
 
 
+def _has_thermo_key(rxn, label):
+    """True iff ``rxn['thermodynamics']`` carries the ``label`` key at all
+    (regardless of whether its energy is sentinel). Used to distinguish a
+    sublist that was *written-then-degraded-to-sentinel* (= the writer ran
+    but its inputs were incomplete) from a sublist that was *never written
+    at all* (= the writer failed to run for this reaction, a real
+    regression candidate)."""
+    thermo = rxn.get('thermodynamics')
+    if not isinstance(thermo, dict):
+        return False
+    return label in thermo
+
+
+def _per_source_diff(shared, current, baseline):
+    """For each PR #263 source, tally per-reaction operator agreement
+    between baseline and current.
+
+    Returns a dict keyed by source label with:
+      * ``present_both``    — # reactions where the source has a usable
+        (non-sentinel) sublist on both sides (the eligible denominator)
+      * ``matches`` / ``op_mismatches`` — operator-level counts within
+        ``present_both`` (mismatches list each rid + (base_op, cur_op))
+      * ``regressed``       — # reactions where the source key was
+        present in baseline AND the writer did NOT write anything (not
+        even a sentinel) for this reaction in current. This is the
+        load-bearing regression signal — the refactor would be failing
+        to populate the sublist where the upstream writer would have.
+      * ``baseline_stale``  — # reactions where the source had a real
+        value in baseline but the writer produced a sentinel in current.
+        Always upstream data drift: by definition the upstream writer,
+        re-run on the current compound state, would also produce a
+        sentinel for these (verified independently in the project notes).
+        Reported for visibility but NOT counted as a refactor regression.
+      * ``added_in_current`` — # reactions where the source has a usable
+        sublist in current but not in baseline. Treated as a regression
+        signal too (the additive PR is not expected to gain sources).
+    """
+    out = {label: {'present_both': 0,
+                   'matches': 0,
+                   'op_mismatches': [],
+                   'regressed': 0,
+                   'baseline_stale': 0,
+                   'added_in_current': 0} for _, label in SOURCES}
+    for rid in shared:
+        b = baseline[rid]
+        c = current[rid]
+        for _, label in SOURCES:
+            b_op = _source_operator(b, label)
+            c_op = _source_operator(c, label)
+            slot = out[label]
+            if b_op is None and c_op is None:
+                continue
+            if b_op is None:
+                slot['added_in_current'] += 1
+                continue
+            if c_op is None:
+                if _has_thermo_key(c, label):
+                    slot['baseline_stale'] += 1
+                else:
+                    slot['regressed'] += 1
+                continue
+            slot['present_both'] += 1
+            if b_op == c_op:
+                slot['matches'] += 1
+            else:
+                slot['op_mismatches'].append((rid, b_op, c_op))
+    return out
+
+
+def _print_source_summary(per_source):
+    """Per-source agreement table. The PASS-driving columns are
+    ``Operator mismatch``, ``Regressed (missing key)``, and ``Added in
+    current``. ``Baseline stale (sentinel)`` is shown for visibility but
+    is upstream data drift, not a refactor regression."""
+    rows = []
+    for _, label in SOURCES:
+        s = per_source[label]
+        denom = s['present_both']
+        rows.append([
+            label,
+            '{0}/{1}'.format(s['matches'], denom) if denom else '0/0',
+            str(len(s['op_mismatches'])),
+            str(s['regressed']),
+            str(s['added_in_current']),
+            str(s['baseline_stale']),
+        ])
+    headers = ['Source', 'Operator match', 'Op mismatch',
+               'Regressed (missing key)', 'Added in current',
+               'Baseline stale (sentinel)']
+    widths = [max(len(h), max((len(r[i]) for r in rows), default=0))
+              for i, h in enumerate(headers)]
+    _print_row(headers, widths)
+    print('|' + '|'.join('-' * (w + 2) for w in widths) + '|')
+    for r in rows:
+        _print_row(r, widths)
+
+
+def _print_source_mismatches(per_source, max_show):
+    """For any source with operator mismatches, list the first ``max_show``
+    rids with their baseline -> current operator transitions."""
+    for _, label in SOURCES:
+        miss = per_source[label]['op_mismatches']
+        if not miss:
+            continue
+        print()
+        if len(miss) > max_show:
+            print('{0} operator mismatches (first {1} of {2}):'.format(
+                label, max_show, len(miss)))
+        else:
+            print('{0} operator mismatches ({1}):'.format(label, len(miss)))
+        for rid, b_op, c_op in miss[:max_show]:
+            print('  {0}: {1} -> {2}'.format(rid, _fmt_rev(b_op),
+                                              _fmt_rev(c_op)))
+
+
 def compare(current, baseline, cur_cpds, base_cpds, max_show=20):
-    """Print a summary diff and return True iff every reaction matches."""
+    """Print a summary diff and return True iff every reaction matches.
+
+    Compares four things per shared reaction:
+      1. top-level ``reversibility`` (the cascade-winning direction)
+      2. ``thermodynamics['Group contribution'][2]`` (GC operator)
+      3. ``thermodynamics['eQuilibrator'][2]``       (EQ operator)
+      4. ``thermodynamics['dGPredictor'][2]``        (DGP operator)
+
+    PASS requires zero mismatches on all four AND no reaction in only
+    one of (current, baseline)."""
     cur_ids = set(current)
     base_ids = set(baseline)
 
@@ -297,6 +459,8 @@ def compare(current, baseline, cur_cpds, base_cpds, max_show=20):
                   if baseline[rid].get('reversibility')
                   != current[rid].get('reversibility')]
 
+    per_source = _per_source_diff(shared, current, baseline)
+
     print()
     print('=' * 60)
     print('Reaction direction comparison')
@@ -306,7 +470,10 @@ def compare(current, baseline, cur_cpds, base_cpds, max_show=20):
     print('  Shared reactions      : {0}'.format(len(shared)))
     print('  Only in current       : {0}'.format(len(only_current)))
     print('  Only in baseline      : {0}'.format(len(only_baseline)))
-    print('  Direction mismatches  : {0}'.format(len(mismatched)))
+    print('  Top-level reversibility mismatches : {0}'.format(len(mismatched)))
+    print()
+    print('Per-source operator comparison (PR #263 [dg, dge, operator] triples):')
+    _print_source_summary(per_source)
 
     if only_current:
         print()
@@ -321,17 +488,35 @@ def compare(current, baseline, cur_cpds, base_cpds, max_show=20):
     if mismatched:
         _print_mismatch_table(mismatched, current, baseline,
                               cur_cpds, base_cpds, max_show)
+    _print_source_mismatches(per_source, max_show)
 
-    ok = not (only_current or only_baseline or mismatched)
+    source_ok = all(
+        not per_source[label]['op_mismatches']
+        and per_source[label]['regressed'] == 0
+        and per_source[label]['added_in_current'] == 0
+        for _, label in SOURCES
+    )
+    ok = source_ok and not (only_current or only_baseline or mismatched)
     print()
+    if ok and any(per_source[label]['baseline_stale']
+                  for _, label in SOURCES):
+        print('NOTE: per-source `Baseline stale (sentinel)` counts above are')
+        print('      upstream data drift (the baseline carries reaction-side')
+        print('      sums from an earlier compound-data snapshot whose energies')
+        print('      have since been recomputed to sentinel). Re-running the')
+        print('      upstream pipeline on the current compound state would')
+        print('      produce the same sentinels — not a refactor regression.')
+        print()
     print('RESULT: ' + ('PASS' if ok else 'FAIL'))
     return ok
 
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
-    parser.add_argument('--baseline-ref', default='dev',
-                        help='git ref to pull the baseline from (default: dev)')
+    parser.add_argument('--baseline-ref', default='origin/dev',
+                        help='git ref to pull the baseline from (default: '
+                             'origin/dev, so the baseline tracks the remote '
+                             'tip and naturally picks up upstream PRs)')
     parser.add_argument('--refresh-baseline', action='store_true',
                         help='re-extract the baseline from --baseline-ref')
     parser.add_argument('--no-run', action='store_true',

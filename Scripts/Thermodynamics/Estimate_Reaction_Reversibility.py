@@ -468,22 +468,6 @@ def _parse_db_level(argv):
     return ''
 
 
-def _append_direction(rxn_entry, source_label, direction):
-    """Re-stamp the picked sublist as ``[dg, dge, direction]``. Truncates
-    any prior direction so re-running stays idempotent. No-ops when no
-    source label was returned (empty/incomplete reactions, or unfiltered
-    runs whose top-level energy did not match a sublist)."""
-    if source_label is None:
-        return
-    thermo = rxn_entry.get('thermodynamics')
-    if not isinstance(thermo, dict) or source_label not in thermo:
-        return
-    pair = thermo[source_label]
-    if not pair:
-        return
-    thermo[source_label] = [pair[0], pair[1], direction]
-
-
 def main():
     db_level = _parse_db_level(sys.argv)
     helper = Reactions()
@@ -492,11 +476,15 @@ def main():
     report = {}
     for rxn in sorted(reactions_dict.keys()):
         rxn_entry = reactions_dict[rxn]
-        status, thermoreversibility, source_label = estimate_one(
-            rxn_entry, db_level)
+        # The third element returned by ``estimate_one`` (the source label
+        # of the cascade winner) is intentionally ignored: per-source
+        # operators are written at energy-table time by ``_thermo_helpers``
+        # (and backfilled by ``Add_Reaction_Thermodynamics_Operators`` for
+        # any legacy 2-element entries), each using THAT source's own dG.
+        # This step only updates the canonical top-level reversibility.
+        status, thermoreversibility, _ = estimate_one(rxn_entry, db_level)
         report[rxn] = [status, rxn_entry["reversibility"], thermoreversibility]
         rxn_entry['reversibility'] = thermoreversibility
-        _append_direction(rxn_entry, source_label, thermoreversibility)
 
     _write_report(db_level, report)
     print("Saving reactions")
