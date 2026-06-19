@@ -1,5 +1,17 @@
 # Thermodynamics-key refactor — reversibility-change report
 
+> **Update (Heuristics-Review H2 + H3 adopted):** the "byte-for-byte vs the
+> dev baseline" claim below describes the *notes→thermodynamics-key refactor
+> only*. `_walk_stoichiometry` has since been repaired for two coupled latent
+> bugs (a `phosphates` accumulator that tested the wrong field, and a `cpd`
+> variable shadow that disabled the per-reagent proton/water skip and the
+> CO₂/O₂/H₂ concentration overrides). This repair is intentional and changes
+> **1,992 of 56,012** EQ reaction directions vs the dev baseline (dominant
+> `=`→`>` as ATP-driven ABC uptake is correctly forced forward). The reports
+> and stored `reversibility` in this branch reflect the fixed cascade. See
+> `core_models_analysis/reports/REVERSIBILITY_DEFAULTS_DECISION.md` for the
+> rationale and impact analysis.
+
 After migrating `Estimate_Reaction_Reversibility.py` from the legacy
 `GCC`/`EQU` notes check to the structured `thermodynamics` block (see
 `CHANGES_thermodynamics_key.md`), the per-mode reversibility-report

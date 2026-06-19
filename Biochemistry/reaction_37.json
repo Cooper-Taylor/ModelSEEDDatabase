@@ -320,7 +320,7 @@
         "pathways": [
             "MetaCyc: Cardiolipin-Biosynthesis (Cardiolipin Biosynthesis); Lipid-Biosynthesis (Fatty Acid and Lipid Biosynthesis); PHOSLIPSYN-PWY (superpathway of phospholipid biosynthesis I (bacteria)); PHOSLIPSYN2-PWY (superpathway of phospholipid biosynthesis II (plants)); PWY-5669 (phosphatidylethanolamine biosynthesis I); PWY-7509 (cardiolipin and phosphatidylethanolamine biosynthesis (<i>Xanthomonas</i>)); PhosphatidylethanolamineBiosynthesis (Phosphatidylethanolamine Biosynthesis); Phospholipid-Biosynthesis (Phospholipid Biosynthesis)"
         ],
-        "reversibility": ">",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -369,7 +369,7 @@
             "Group contribution": [
                 -14.03,
                 5.33,
-                ">"
+                "="
             ],
             "eQuilibrator": [
                 52.59,
@@ -494,7 +494,7 @@
         "pathways": [
             "MetaCyc: Cardiolipin-Biosynthesis (Cardiolipin Biosynthesis); Lipid-Biosynthesis (Fatty Acid and Lipid Biosynthesis); PHOSLIPSYN-PWY (superpathway of phospholipid biosynthesis I (bacteria)); PHOSLIPSYN2-PWY (superpathway of phospholipid biosynthesis II (plants)); PWY-5669 (phosphatidylethanolamine biosynthesis I); PWY-7509 (cardiolipin and phosphatidylethanolamine biosynthesis (<i>Xanthomonas</i>)); PhosphatidylethanolamineBiosynthesis (Phosphatidylethanolamine Biosynthesis); Phospholipid-Biosynthesis (Phospholipid Biosynthesis)"
         ],
-        "reversibility": ">",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -543,7 +543,7 @@
             "Group contribution": [
                 -14.03,
                 5.33,
-                ">"
+                "="
             ],
             "eQuilibrator": [
                 52.59,
@@ -1060,7 +1060,7 @@
             "Group contribution": [
                 -11.76,
                 6.33,
-                ">"
+                "="
             ],
             "dGPredictor": [
                 5.72,
@@ -1156,7 +1156,7 @@
             "Group contribution": [
                 -11.76,
                 6.34,
-                ">"
+                "="
             ],
             "dGPredictor": [
                 6.3,
@@ -1975,7 +1975,7 @@
             "dGPredictor": [
                 2.0,
                 0.07,
-                ">"
+                "="
             ],
             "eQuilibrator": [
                 -8.73,
@@ -2086,7 +2086,7 @@
             "dGPredictor": [
                 2.0,
                 0.07,
-                ">"
+                "="
             ],
             "eQuilibrator": [
                 -8.73,
@@ -2570,7 +2570,7 @@
             "dGPredictor": [
                 2.0,
                 0.07,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 47.52,
@@ -3572,7 +3572,7 @@
             "dGPredictor": [
                 7.98,
                 0.32,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 0.28,
@@ -4341,7 +4341,7 @@
             "dGPredictor": [
                 7.98,
                 0.32,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 -9.51,
@@ -4431,7 +4431,7 @@
             "dGPredictor": [
                 7.98,
                 0.32,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 -15.08,
@@ -4521,7 +4521,7 @@
             "dGPredictor": [
                 7.98,
                 0.32,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 -35.4,
@@ -4611,7 +4611,7 @@
             "dGPredictor": [
                 7.98,
                 0.32,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 -35.4,
@@ -4701,7 +4701,7 @@
             "dGPredictor": [
                 7.98,
                 0.32,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 -35.4,
@@ -5643,7 +5643,7 @@
             "dGPredictor": [
                 7.98,
                 0.32,
-                "="
+                "<"
             ]
         }
     },
@@ -5748,7 +5748,7 @@
             "dGPredictor": [
                 7.98,
                 0.32,
-                "="
+                "<"
             ]
         }
     },
@@ -5853,7 +5853,7 @@
             "dGPredictor": [
                 7.98,
                 0.32,
-                "="
+                "<"
             ]
         }
     },
@@ -5958,7 +5958,7 @@
             "dGPredictor": [
                 7.98,
                 0.32,
-                "="
+                "<"
             ]
         }
     },
@@ -6063,7 +6063,7 @@
             "dGPredictor": [
                 7.98,
                 0.32,
-                "="
+                "<"
             ]
         }
     },
@@ -6168,7 +6168,7 @@
             "dGPredictor": [
                 7.98,
                 0.32,
-                "="
+                "<"
             ]
         }
     },
@@ -6273,7 +6273,7 @@
             "dGPredictor": [
                 7.98,
                 0.32,
-                "="
+                "<"
             ]
         }
     },
@@ -6378,7 +6378,7 @@
             "dGPredictor": [
                 7.98,
                 0.32,
-                "="
+                "<"
             ]
         }
     },
@@ -6483,7 +6483,7 @@
             "dGPredictor": [
                 7.98,
                 0.32,
-                "="
+                "<"
             ]
         }
     },
@@ -6588,7 +6588,7 @@
             "dGPredictor": [
                 7.98,
                 0.32,
-                "="
+                "<"
             ]
         }
     },
@@ -6693,7 +6693,7 @@
             "dGPredictor": [
                 7.98,
                 0.32,
-                "="
+                "<"
             ]
         }
     },
@@ -6798,7 +6798,7 @@
             "dGPredictor": [
                 7.98,
                 0.32,
-                "="
+                "<"
             ]
         }
     },
@@ -7569,7 +7569,7 @@
             "dGPredictor": [
                 7.98,
                 0.32,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 -28.32,
@@ -7661,7 +7661,7 @@
             "dGPredictor": [
                 7.98,
                 0.32,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 -28.32,
@@ -7753,7 +7753,7 @@
             "dGPredictor": [
                 7.98,
                 0.32,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 -28.32,
@@ -7848,7 +7848,7 @@
             "dGPredictor": [
                 7.98,
                 0.32,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 -0.78,
@@ -8034,7 +8034,7 @@
             "dGPredictor": [
                 7.98,
                 0.32,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 -0.79,
@@ -8129,7 +8129,7 @@
             "dGPredictor": [
                 7.98,
                 0.32,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 -0.78,
@@ -8168,7 +8168,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "=",
+        "reversibility": "<",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -8217,7 +8217,7 @@
             "Group contribution": [
                 16.55,
                 6.13,
-                "="
+                "<"
             ],
             "dGPredictor": [
                 7.98,
@@ -8227,7 +8227,7 @@
             "eQuilibrator": [
                 14.27,
                 0.34,
-                "="
+                "<"
             ]
         }
     },
@@ -8260,7 +8260,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "=",
+        "reversibility": "<",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -8309,7 +8309,7 @@
             "Group contribution": [
                 16.55,
                 6.15,
-                "="
+                "<"
             ],
             "dGPredictor": [
                 7.98,
@@ -8319,7 +8319,7 @@
             "eQuilibrator": [
                 14.27,
                 0.33,
-                "="
+                "<"
             ]
         }
     },
@@ -8495,7 +8495,7 @@
             "dGPredictor": [
                 7.98,
                 0.32,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 -6.15,
@@ -8924,7 +8924,7 @@
             "dGPredictor": [
                 7.98,
                 0.32,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 -0.78,
@@ -9232,7 +9232,7 @@
             "dGPredictor": [
                 7.98,
                 0.32,
-                "="
+                "<"
             ],
             "eQuilibrator": [
                 -124.03,
@@ -9338,7 +9338,7 @@
             "dGPredictor": [
                 7.98,
                 0.32,
-                "="
+                "<"
             ],
             "eQuilibrator": [
                 -124.03,
@@ -9516,7 +9516,7 @@
             "dGPredictor": [
                 7.98,
                 0.32,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 -7.22,
@@ -10387,7 +10387,7 @@
             "dGPredictor": [
                 7.98,
                 0.32,
-                "="
+                "<"
             ],
             "eQuilibrator": [
                 -84.41,
@@ -10495,7 +10495,7 @@
             "dGPredictor": [
                 7.98,
                 0.32,
-                "="
+                "<"
             ],
             "eQuilibrator": [
                 -69.41,
@@ -10595,7 +10595,7 @@
             "dGPredictor": [
                 7.98,
                 0.32,
-                "="
+                "<"
             ],
             "eQuilibrator": [
                 -78.84,
@@ -10696,7 +10696,7 @@
             "dGPredictor": [
                 7.98,
                 0.32,
-                "="
+                "<"
             ],
             "eQuilibrator": [
                 -78.84,
@@ -10796,7 +10796,7 @@
             "dGPredictor": [
                 7.98,
                 0.32,
-                "="
+                "<"
             ],
             "eQuilibrator": [
                 -58.52,
@@ -10896,7 +10896,7 @@
             "dGPredictor": [
                 7.98,
                 0.32,
-                "="
+                "<"
             ],
             "eQuilibrator": [
                 -58.52,
@@ -10996,7 +10996,7 @@
             "dGPredictor": [
                 7.98,
                 0.32,
-                "="
+                "<"
             ],
             "eQuilibrator": [
                 -58.52,
@@ -11096,7 +11096,7 @@
             "dGPredictor": [
                 7.98,
                 0.32,
-                "="
+                "<"
             ],
             "eQuilibrator": [
                 -84.41,
@@ -11204,7 +11204,7 @@
             "dGPredictor": [
                 7.98,
                 0.32,
-                "="
+                "<"
             ],
             "eQuilibrator": [
                 -69.41,
@@ -11304,7 +11304,7 @@
             "dGPredictor": [
                 7.98,
                 0.32,
-                "="
+                "<"
             ],
             "eQuilibrator": [
                 -78.84,
@@ -11405,7 +11405,7 @@
             "dGPredictor": [
                 7.98,
                 0.32,
-                "="
+                "<"
             ],
             "eQuilibrator": [
                 -78.84,
@@ -11505,7 +11505,7 @@
             "dGPredictor": [
                 7.98,
                 0.32,
-                "="
+                "<"
             ],
             "eQuilibrator": [
                 -58.52,
@@ -11605,7 +11605,7 @@
             "dGPredictor": [
                 7.98,
                 0.32,
-                "="
+                "<"
             ],
             "eQuilibrator": [
                 -58.52,
@@ -11705,7 +11705,7 @@
             "dGPredictor": [
                 7.98,
                 0.32,
-                "="
+                "<"
             ],
             "eQuilibrator": [
                 -58.52,
@@ -16032,7 +16032,7 @@
             "dGPredictor": [
                 -18.4,
                 0.72,
-                "="
+                ">"
             ],
             "eQuilibrator": [
                 17.69,
@@ -16125,7 +16125,7 @@
             "dGPredictor": [
                 -18.4,
                 0.72,
-                "="
+                ">"
             ],
             "eQuilibrator": [
                 17.68,
@@ -20410,7 +20410,7 @@
         "pathways": [
             "MetaCyc: Carbohydrates-Degradation (Carbohydrate Degradation); Degradation (Degradation/Utilization/Assimilation); Glycan-Pathways (Glycan Pathways); POLYSACCHARIDES-DEG (Polysaccharide Degradation); PWY-862 (fructan degradation); Polymer-Degradation (Polymeric Compound Degradation)"
         ],
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -20461,7 +20461,7 @@
             "eQuilibrator": [
                 -4.36,
                 1.12,
-                "="
+                ">"
             ]
         }
     },
@@ -20498,7 +20498,7 @@
         "pathways": [
             "MetaCyc: Carbohydrates-Degradation (Carbohydrate Degradation); Degradation (Degradation/Utilization/Assimilation); Glycan-Pathways (Glycan Pathways); POLYSACCHARIDES-DEG (Polysaccharide Degradation); PWY-862 (fructan degradation); Polymer-Degradation (Polymeric Compound Degradation)"
         ],
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -20549,7 +20549,7 @@
             "eQuilibrator": [
                 -4.36,
                 1.12,
-                "="
+                ">"
             ]
         }
     },
@@ -22325,7 +22325,7 @@
         "pathways": [
             "MetaCyc: Choline-Biosynthesis (Choline Biosynthesis); Degradation (Degradation/Utilization/Assimilation); Fatty-Acid-and-Lipid-Degradation (Fatty Acid and Lipid Degradation); Lipid-Biosynthesis (Fatty Acid and Lipid Biosynthesis); PHOSLIPSYN2-PWY (superpathway of phospholipid biosynthesis II (plants)); PWY-3561 (choline biosynthesis III); PWY-4762 (superpathway of choline biosynthesis); PWY-6804 (diacylglycerol biosynthesis (PUFA enrichment in oilseed)); PWY-7367 (phosphatidylcholine resynthesis via glycerophosphocholine); PWY3O-450 (phosphatidylcholine biosynthesis I); PWY4FS-2 (phosphatidylcholine biosynthesis II); PWY4FS-5 (superpathway of phosphatidylcholine biosynthesis); PhosphatidylcholineBiosynthesis (Phosphatidylcholine Biosynthesis); Phospholipid-Biosynthesis (Phospholipid Biosynthesis); Polyamine-Biosynthesis (Amine and Polyamine Biosynthesis)"
         ],
-        "reversibility": ">",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -22374,7 +22374,7 @@
             "Group contribution": [
                 -14.03,
                 5.65,
-                ">"
+                "="
             ],
             "dGPredictor": [
                 -160.62,
@@ -22417,7 +22417,7 @@
         "pathways": [
             "MetaCyc: Choline-Biosynthesis (Choline Biosynthesis); Degradation (Degradation/Utilization/Assimilation); Fatty-Acid-and-Lipid-Degradation (Fatty Acid and Lipid Degradation); Lipid-Biosynthesis (Fatty Acid and Lipid Biosynthesis); PHOSLIPSYN2-PWY (superpathway of phospholipid biosynthesis II (plants)); PWY-3561 (choline biosynthesis III); PWY-4762 (superpathway of choline biosynthesis); PWY-6804 (diacylglycerol biosynthesis (PUFA enrichment in oilseed)); PWY-7367 (phosphatidylcholine resynthesis via glycerophosphocholine); PWY3O-450 (phosphatidylcholine biosynthesis I); PWY4FS-2 (phosphatidylcholine biosynthesis II); PWY4FS-5 (superpathway of phosphatidylcholine biosynthesis); PhosphatidylcholineBiosynthesis (Phosphatidylcholine Biosynthesis); Phospholipid-Biosynthesis (Phospholipid Biosynthesis); Polyamine-Biosynthesis (Amine and Polyamine Biosynthesis)"
         ],
-        "reversibility": ">",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -22466,7 +22466,7 @@
             "Group contribution": [
                 -14.03,
                 5.65,
-                ">"
+                "="
             ],
             "dGPredictor": [
                 -160.62,
@@ -22964,7 +22964,7 @@
         "pathways": [
             "MetaCyc: AMINE-DEG (Amine and Polyamine Degradation); CARN-DEG (Carnitine Degradation); Degradation (Degradation/Utilization/Assimilation); PWY-3641 (L-carnitine degradation III)"
         ],
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -23031,7 +23031,7 @@
             "eQuilibrator": [
                 -10.02,
                 0.37,
-                "="
+                ">"
             ]
         }
     },
@@ -23067,7 +23067,7 @@
         "pathways": [
             "MetaCyc: AMINE-DEG (Amine and Polyamine Degradation); CARN-DEG (Carnitine Degradation); Degradation (Degradation/Utilization/Assimilation); PWY-3641 (L-carnitine degradation III)"
         ],
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -23134,7 +23134,7 @@
             "eQuilibrator": [
                 -10.02,
                 0.37,
-                "="
+                ">"
             ]
         }
     },
@@ -28689,7 +28689,7 @@
         "pathways": [
             "MetaCyc: Activation (Activation); Activation-Inactivation-Interconversion (Activation/Inactivation/Interconversion); Alkanes-Biosynthesis (Alkane Biosynthesis); Carbohydrates-Biosynthesis (Carbohydrate Biosynthesis); Energy-Metabolism (Generation of Precursor Metabolite and Energy); Lipid-Biosynthesis (Fatty Acid and Lipid Biosynthesis); PWY-5143 (long-chain fatty acid activation); PWY-5885 (wax esters biosynthesis II); PWY-6803 (phosphatidylcholine acyl editing); PWY-6873 (long chain fatty acid ester synthesis (engineered)); PWY-7033 (alkane biosynthesis II)"
         ],
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -28764,7 +28764,7 @@
             "eQuilibrator": [
                 -2.62,
                 0.35,
-                "="
+                ">"
             ]
         }
     },
@@ -28799,7 +28799,7 @@
         "pathways": [
             "MetaCyc: Activation (Activation); Activation-Inactivation-Interconversion (Activation/Inactivation/Interconversion); Alkanes-Biosynthesis (Alkane Biosynthesis); Carbohydrates-Biosynthesis (Carbohydrate Biosynthesis); Energy-Metabolism (Generation of Precursor Metabolite and Energy); Lipid-Biosynthesis (Fatty Acid and Lipid Biosynthesis); PWY-5143 (long-chain fatty acid activation); PWY-5885 (wax esters biosynthesis II); PWY-6803 (phosphatidylcholine acyl editing); PWY-6873 (long chain fatty acid ester synthesis (engineered)); PWY-7033 (alkane biosynthesis II)"
         ],
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -28874,7 +28874,7 @@
             "eQuilibrator": [
                 -2.62,
                 0.35,
-                "="
+                ">"
             ]
         }
     },
@@ -28909,7 +28909,7 @@
         "pathways": [
             "MetaCyc: Activation (Activation); Activation-Inactivation-Interconversion (Activation/Inactivation/Interconversion); Alkanes-Biosynthesis (Alkane Biosynthesis); Carbohydrates-Biosynthesis (Carbohydrate Biosynthesis); Energy-Metabolism (Generation of Precursor Metabolite and Energy); Lipid-Biosynthesis (Fatty Acid and Lipid Biosynthesis); PWY-5143 (long-chain fatty acid activation); PWY-5885 (wax esters biosynthesis II); PWY-6803 (phosphatidylcholine acyl editing); PWY-6873 (long chain fatty acid ester synthesis (engineered)); PWY-7033 (alkane biosynthesis II)"
         ],
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -28984,7 +28984,7 @@
             "eQuilibrator": [
                 -2.62,
                 0.35,
-                "="
+                ">"
             ]
         }
     },
@@ -29019,7 +29019,7 @@
         "pathways": [
             "MetaCyc: Activation (Activation); Activation-Inactivation-Interconversion (Activation/Inactivation/Interconversion); Alkanes-Biosynthesis (Alkane Biosynthesis); Carbohydrates-Biosynthesis (Carbohydrate Biosynthesis); Energy-Metabolism (Generation of Precursor Metabolite and Energy); Lipid-Biosynthesis (Fatty Acid and Lipid Biosynthesis); PWY-5143 (long-chain fatty acid activation); PWY-5885 (wax esters biosynthesis II); PWY-6803 (phosphatidylcholine acyl editing); PWY-6873 (long chain fatty acid ester synthesis (engineered)); PWY-7033 (alkane biosynthesis II)"
         ],
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -29094,7 +29094,7 @@
             "eQuilibrator": [
                 -2.62,
                 0.35,
-                "="
+                ">"
             ]
         }
     },
@@ -29131,7 +29131,7 @@
         "pathways": [
             "MetaCyc: Activation (Activation); Activation-Inactivation-Interconversion (Activation/Inactivation/Interconversion); Alkanes-Biosynthesis (Alkane Biosynthesis); Carbohydrates-Biosynthesis (Carbohydrate Biosynthesis); Energy-Metabolism (Generation of Precursor Metabolite and Energy); Lipid-Biosynthesis (Fatty Acid and Lipid Biosynthesis); PWY-5143 (long-chain fatty acid activation); PWY-5885 (wax esters biosynthesis II); PWY-6803 (phosphatidylcholine acyl editing); PWY-6873 (long chain fatty acid ester synthesis (engineered)); PWY-7033 (alkane biosynthesis II)"
         ],
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -29206,7 +29206,7 @@
             "eQuilibrator": [
                 -2.62,
                 0.35,
-                "="
+                ">"
             ]
         }
     },
@@ -29243,7 +29243,7 @@
         "pathways": [
             "MetaCyc: Activation (Activation); Activation-Inactivation-Interconversion (Activation/Inactivation/Interconversion); Alkanes-Biosynthesis (Alkane Biosynthesis); Carbohydrates-Biosynthesis (Carbohydrate Biosynthesis); Energy-Metabolism (Generation of Precursor Metabolite and Energy); Lipid-Biosynthesis (Fatty Acid and Lipid Biosynthesis); PWY-5143 (long-chain fatty acid activation); PWY-5885 (wax esters biosynthesis II); PWY-6803 (phosphatidylcholine acyl editing); PWY-6873 (long chain fatty acid ester synthesis (engineered)); PWY-7033 (alkane biosynthesis II)"
         ],
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -29318,7 +29318,7 @@
             "eQuilibrator": [
                 -2.62,
                 0.35,
-                "="
+                ">"
             ]
         }
     },
@@ -29353,7 +29353,7 @@
         "pathways": [
             "MetaCyc: Activation (Activation); Activation-Inactivation-Interconversion (Activation/Inactivation/Interconversion); Alkanes-Biosynthesis (Alkane Biosynthesis); Carbohydrates-Biosynthesis (Carbohydrate Biosynthesis); Energy-Metabolism (Generation of Precursor Metabolite and Energy); Lipid-Biosynthesis (Fatty Acid and Lipid Biosynthesis); PWY-5143 (long-chain fatty acid activation); PWY-5885 (wax esters biosynthesis II); PWY-6803 (phosphatidylcholine acyl editing); PWY-6873 (long chain fatty acid ester synthesis (engineered)); PWY-7033 (alkane biosynthesis II)"
         ],
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -29428,7 +29428,7 @@
             "eQuilibrator": [
                 -2.62,
                 0.35,
-                "="
+                ">"
             ]
         }
     },
@@ -29463,7 +29463,7 @@
         "pathways": [
             "MetaCyc: Activation (Activation); Activation-Inactivation-Interconversion (Activation/Inactivation/Interconversion); Alkanes-Biosynthesis (Alkane Biosynthesis); Carbohydrates-Biosynthesis (Carbohydrate Biosynthesis); Energy-Metabolism (Generation of Precursor Metabolite and Energy); Lipid-Biosynthesis (Fatty Acid and Lipid Biosynthesis); PWY-5143 (long-chain fatty acid activation); PWY-5885 (wax esters biosynthesis II); PWY-6803 (phosphatidylcholine acyl editing); PWY-6873 (long chain fatty acid ester synthesis (engineered)); PWY-7033 (alkane biosynthesis II)"
         ],
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -29538,7 +29538,7 @@
             "eQuilibrator": [
                 -2.62,
                 0.35,
-                "="
+                ">"
             ]
         }
     },
@@ -29575,7 +29575,7 @@
         "pathways": [
             "MetaCyc: Activation (Activation); Activation-Inactivation-Interconversion (Activation/Inactivation/Interconversion); Alkanes-Biosynthesis (Alkane Biosynthesis); Carbohydrates-Biosynthesis (Carbohydrate Biosynthesis); Energy-Metabolism (Generation of Precursor Metabolite and Energy); Lipid-Biosynthesis (Fatty Acid and Lipid Biosynthesis); PWY-5143 (long-chain fatty acid activation); PWY-5885 (wax esters biosynthesis II); PWY-6803 (phosphatidylcholine acyl editing); PWY-6873 (long chain fatty acid ester synthesis (engineered)); PWY-7033 (alkane biosynthesis II)"
         ],
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -29650,7 +29650,7 @@
             "eQuilibrator": [
                 -2.62,
                 0.35,
-                "="
+                ">"
             ]
         }
     },
@@ -29688,7 +29688,7 @@
             "MetaCyc: Activation (Activation); Activation-Inactivation-Interconversion (Activation/Inactivation/Interconversion); Alkanes-Biosynthesis (Alkane Biosynthesis); Carbohydrates-Biosynthesis (Carbohydrate Biosynthesis); Energy-Metabolism (Generation of Precursor Metabolite and Energy); Fatty-acid-biosynthesis (Fatty Acid Biosynthesis); Lipid-Biosynthesis (Fatty Acid and Lipid Biosynthesis); PWY-5143 (long-chain fatty acid activation); PWY-5156 (superpathway of fatty acid biosynthesis II (plant)); PWY-5885 (wax esters biosynthesis II); PWY-5971 (palmitate biosynthesis II (bacteria and plants)); PWY-5972 (stearate biosynthesis I (animals and fungi)); PWY-6113 (superpathway of mycolate biosynthesis); PWY-6285 (superpathway of fatty acids biosynthesis (<i>E. coli</i>)); PWY-6803 (phosphatidylcholine acyl editing); PWY-6873 (long chain fatty acid ester synthesis (engineered)); PWY-7033 (alkane biosynthesis II); Palmitate-Biosynthesis (Palmitate Biosynthesis); Stearate-Biosynthesis (Stearate Biosynthesis)",
             "KEGG: rn00061 (Fatty acid biosynthesis); rn00071 (Fatty acid degradation); rn01212 (Fatty acid metabolism)"
         ],
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -29763,7 +29763,7 @@
             "eQuilibrator": [
                 -2.63,
                 1.54,
-                "="
+                ">"
             ]
         }
     },
@@ -29800,7 +29800,7 @@
         "pathways": [
             "MetaCyc: Activation (Activation); Activation-Inactivation-Interconversion (Activation/Inactivation/Interconversion); Alkanes-Biosynthesis (Alkane Biosynthesis); Carbohydrates-Biosynthesis (Carbohydrate Biosynthesis); Energy-Metabolism (Generation of Precursor Metabolite and Energy); Lipid-Biosynthesis (Fatty Acid and Lipid Biosynthesis); PWY-5143 (long-chain fatty acid activation); PWY-5885 (wax esters biosynthesis II); PWY-6803 (phosphatidylcholine acyl editing); PWY-6873 (long chain fatty acid ester synthesis (engineered)); PWY-7033 (alkane biosynthesis II)"
         ],
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -29875,7 +29875,7 @@
             "eQuilibrator": [
                 -2.62,
                 0.35,
-                "="
+                ">"
             ]
         }
     },
@@ -29910,7 +29910,7 @@
         "pathways": [
             "MetaCyc: Activation (Activation); Activation-Inactivation-Interconversion (Activation/Inactivation/Interconversion); Alkanes-Biosynthesis (Alkane Biosynthesis); Carbohydrates-Biosynthesis (Carbohydrate Biosynthesis); Energy-Metabolism (Generation of Precursor Metabolite and Energy); Lipid-Biosynthesis (Fatty Acid and Lipid Biosynthesis); PWY-5143 (long-chain fatty acid activation); PWY-5885 (wax esters biosynthesis II); PWY-6803 (phosphatidylcholine acyl editing); PWY-6873 (long chain fatty acid ester synthesis (engineered)); PWY-7033 (alkane biosynthesis II)"
         ],
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -29985,7 +29985,7 @@
             "eQuilibrator": [
                 -2.62,
                 0.35,
-                "="
+                ">"
             ]
         }
     },
@@ -30020,7 +30020,7 @@
         "pathways": [
             "MetaCyc: Activation (Activation); Activation-Inactivation-Interconversion (Activation/Inactivation/Interconversion); Alkanes-Biosynthesis (Alkane Biosynthesis); Carbohydrates-Biosynthesis (Carbohydrate Biosynthesis); Energy-Metabolism (Generation of Precursor Metabolite and Energy); Lipid-Biosynthesis (Fatty Acid and Lipid Biosynthesis); PWY-5143 (long-chain fatty acid activation); PWY-5885 (wax esters biosynthesis II); PWY-6803 (phosphatidylcholine acyl editing); PWY-6873 (long chain fatty acid ester synthesis (engineered)); PWY-7033 (alkane biosynthesis II)"
         ],
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -30095,7 +30095,7 @@
             "eQuilibrator": [
                 -2.62,
                 0.35,
-                "="
+                ">"
             ]
         }
     },
@@ -30132,7 +30132,7 @@
         "pathways": [
             "MetaCyc: Activation (Activation); Activation-Inactivation-Interconversion (Activation/Inactivation/Interconversion); Alkanes-Biosynthesis (Alkane Biosynthesis); Carbohydrates-Biosynthesis (Carbohydrate Biosynthesis); Energy-Metabolism (Generation of Precursor Metabolite and Energy); Lipid-Biosynthesis (Fatty Acid and Lipid Biosynthesis); PWY-5143 (long-chain fatty acid activation); PWY-5885 (wax esters biosynthesis II); PWY-6803 (phosphatidylcholine acyl editing); PWY-6873 (long chain fatty acid ester synthesis (engineered)); PWY-7033 (alkane biosynthesis II)"
         ],
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -30207,7 +30207,7 @@
             "eQuilibrator": [
                 -2.62,
                 0.35,
-                "="
+                ">"
             ]
         }
     },
@@ -30245,7 +30245,7 @@
             "MetaCyc: Activation (Activation); Activation-Inactivation-Interconversion (Activation/Inactivation/Interconversion); Alkanes-Biosynthesis (Alkane Biosynthesis); Carbohydrates-Biosynthesis (Carbohydrate Biosynthesis); Energy-Metabolism (Generation of Precursor Metabolite and Energy); Fatty-acid-biosynthesis (Fatty Acid Biosynthesis); Lipid-Biosynthesis (Fatty Acid and Lipid Biosynthesis); PWY-5143 (long-chain fatty acid activation); PWY-5156 (superpathway of fatty acid biosynthesis II (plant)); PWY-5885 (wax esters biosynthesis II); PWY-5971 (palmitate biosynthesis II (bacteria and plants)); PWY-5972 (stearate biosynthesis I (animals and fungi)); PWY-6113 (superpathway of mycolate biosynthesis); PWY-6285 (superpathway of fatty acids biosynthesis (<i>E. coli</i>)); PWY-6803 (phosphatidylcholine acyl editing); PWY-6873 (long chain fatty acid ester synthesis (engineered)); PWY-7033 (alkane biosynthesis II); Palmitate-Biosynthesis (Palmitate Biosynthesis); Stearate-Biosynthesis (Stearate Biosynthesis)",
             "KEGG: rn00061 (Fatty acid biosynthesis); rn00071 (Fatty acid degradation); rn01212 (Fatty acid metabolism)"
         ],
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -30320,7 +30320,7 @@
             "eQuilibrator": [
                 -2.63,
                 1.54,
-                "="
+                ">"
             ]
         }
     },
@@ -30357,7 +30357,7 @@
         "pathways": [
             "MetaCyc: Activation (Activation); Activation-Inactivation-Interconversion (Activation/Inactivation/Interconversion); Alkanes-Biosynthesis (Alkane Biosynthesis); Carbohydrates-Biosynthesis (Carbohydrate Biosynthesis); Energy-Metabolism (Generation of Precursor Metabolite and Energy); Lipid-Biosynthesis (Fatty Acid and Lipid Biosynthesis); PWY-5143 (long-chain fatty acid activation); PWY-5885 (wax esters biosynthesis II); PWY-6803 (phosphatidylcholine acyl editing); PWY-6873 (long chain fatty acid ester synthesis (engineered)); PWY-7033 (alkane biosynthesis II)"
         ],
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -30432,7 +30432,7 @@
             "eQuilibrator": [
                 -2.62,
                 0.35,
-                "="
+                ">"
             ]
         }
     },
@@ -30467,7 +30467,7 @@
         "pathways": [
             "MetaCyc: Activation (Activation); Activation-Inactivation-Interconversion (Activation/Inactivation/Interconversion); Alkanes-Biosynthesis (Alkane Biosynthesis); Carbohydrates-Biosynthesis (Carbohydrate Biosynthesis); Energy-Metabolism (Generation of Precursor Metabolite and Energy); Lipid-Biosynthesis (Fatty Acid and Lipid Biosynthesis); PWY-5143 (long-chain fatty acid activation); PWY-5885 (wax esters biosynthesis II); PWY-6803 (phosphatidylcholine acyl editing); PWY-6873 (long chain fatty acid ester synthesis (engineered)); PWY-7033 (alkane biosynthesis II)"
         ],
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -30542,7 +30542,7 @@
             "eQuilibrator": [
                 -2.62,
                 0.35,
-                "="
+                ">"
             ]
         }
     },
@@ -30577,7 +30577,7 @@
         "pathways": [
             "MetaCyc: Activation (Activation); Activation-Inactivation-Interconversion (Activation/Inactivation/Interconversion); Alkanes-Biosynthesis (Alkane Biosynthesis); Carbohydrates-Biosynthesis (Carbohydrate Biosynthesis); Energy-Metabolism (Generation of Precursor Metabolite and Energy); Lipid-Biosynthesis (Fatty Acid and Lipid Biosynthesis); PWY-5143 (long-chain fatty acid activation); PWY-5885 (wax esters biosynthesis II); PWY-6803 (phosphatidylcholine acyl editing); PWY-6873 (long chain fatty acid ester synthesis (engineered)); PWY-7033 (alkane biosynthesis II)"
         ],
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -30652,7 +30652,7 @@
             "eQuilibrator": [
                 -2.62,
                 0.35,
-                "="
+                ">"
             ]
         }
     },
@@ -30689,7 +30689,7 @@
         "pathways": [
             "MetaCyc: Activation (Activation); Activation-Inactivation-Interconversion (Activation/Inactivation/Interconversion); Alkanes-Biosynthesis (Alkane Biosynthesis); Carbohydrates-Biosynthesis (Carbohydrate Biosynthesis); Energy-Metabolism (Generation of Precursor Metabolite and Energy); Lipid-Biosynthesis (Fatty Acid and Lipid Biosynthesis); PWY-5143 (long-chain fatty acid activation); PWY-5885 (wax esters biosynthesis II); PWY-6803 (phosphatidylcholine acyl editing); PWY-6873 (long chain fatty acid ester synthesis (engineered)); PWY-7033 (alkane biosynthesis II)"
         ],
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -30764,7 +30764,7 @@
             "eQuilibrator": [
                 -2.62,
                 0.35,
-                "="
+                ">"
             ]
         }
     },
@@ -31305,7 +31305,7 @@
             "dGPredictor": [
                 -0.98,
                 0.02,
-                "="
+                ">"
             ],
             "eQuilibrator": [
                 3.25,
@@ -31417,7 +31417,7 @@
             "dGPredictor": [
                 -0.98,
                 0.02,
-                "="
+                ">"
             ],
             "eQuilibrator": [
                 3.25,
@@ -33698,7 +33698,7 @@
         "pathways": [
             "MetaCyc: 2-Nirobenzoate-Degradation (2-Nitrobenzoate Degradation); AROMATIC-COMPOUNDS-DEGRADATION (Aromatic Compound Degradation); Degradation (Degradation/Utilization/Assimilation); Nitroaromatic-Degradation (Nitroaromatic Compound Degradation); Nitrobenzoate-Degradation (Nitrobenzoate Degradation); PWY-5648 (2-nitrobenzoate degradation II)"
         ],
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -33755,7 +33755,7 @@
             "Group contribution": [
                 -19.39,
                 6.27,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 -0.98,
@@ -33795,7 +33795,7 @@
         "pathways": [
             "MetaCyc: 2-Nirobenzoate-Degradation (2-Nitrobenzoate Degradation); AROMATIC-COMPOUNDS-DEGRADATION (Aromatic Compound Degradation); Degradation (Degradation/Utilization/Assimilation); Nitroaromatic-Degradation (Nitroaromatic Compound Degradation); Nitrobenzoate-Degradation (Nitrobenzoate Degradation); PWY-5648 (2-nitrobenzoate degradation II)"
         ],
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -33852,7 +33852,7 @@
             "Group contribution": [
                 -19.39,
                 6.28,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 -0.98,
@@ -53080,7 +53080,7 @@
         "pathways": [
             "MetaCyc: Degradation (Degradation/Utilization/Assimilation); Fatty-Acid-and-Lipid-Degradation (Fatty Acid and Lipid Degradation); LIPAS-PWY (triacylglycerol degradation)"
         ],
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -53139,7 +53139,7 @@
             "eQuilibrator": [
                 -4.04,
                 1.58,
-                "="
+                ">"
             ]
         }
     },
@@ -53262,7 +53262,7 @@
         "pathways": [
             "MetaCyc: Degradation (Degradation/Utilization/Assimilation); Fatty-Acid-and-Lipid-Degradation (Fatty Acid and Lipid Degradation); LIPAS-PWY (triacylglycerol degradation)"
         ],
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -53321,7 +53321,7 @@
             "eQuilibrator": [
                 -4.04,
                 1.58,
-                "="
+                ">"
             ]
         }
     },
@@ -54234,7 +54234,7 @@
             "MetaCyc: Adenine-Adenosine-Salvage (Adenine and Adenosine Salvage); Nucleotide-Biosynthesis (Nucleoside and Nucleotide Biosynthesis); PUR-NUC-SYN (Purine Nucleotide Biosynthesis); PWY-6605 (adenine and adenosine salvage II); Purine-Nucleotides-Salvage (Purine Nucleotide Salvage)",
             "KEGG: rn00230 (Purine metabolism)"
         ],
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -54280,12 +54280,12 @@
             "dGPredictor": [
                 -3.04,
                 0.03,
-                "="
+                ">"
             ],
             "eQuilibrator": [
                 -4.76,
                 0.5,
-                "="
+                ">"
             ]
         }
     },
@@ -54324,7 +54324,7 @@
             "MetaCyc: Adenine-Adenosine-Salvage (Adenine and Adenosine Salvage); Nucleotide-Biosynthesis (Nucleoside and Nucleotide Biosynthesis); PUR-NUC-SYN (Purine Nucleotide Biosynthesis); PWY-6605 (adenine and adenosine salvage II); Purine-Nucleotides-Salvage (Purine Nucleotide Salvage)",
             "KEGG: rn00230 (Purine metabolism)"
         ],
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -54370,12 +54370,12 @@
             "dGPredictor": [
                 -3.04,
                 0.03,
-                "="
+                ">"
             ],
             "eQuilibrator": [
                 -4.76,
                 0.5,
-                "="
+                ">"
             ]
         }
     },
@@ -55398,7 +55398,7 @@
             "MetaCyc: AROMATIC-COMPOUNDS-DEGRADATION (Aromatic Compound Degradation); Adenosine-Nucleotides-Degradation (Adenosine Nucleotide Degradation); Degradation (Degradation/Utilization/Assimilation); NUCLEO-DEG (Nucleoside and Nucleotide Degradation); P165-PWY (superpathway of purines degradation in plants); PWY-5044 (purine nucleotides degradation I (plants)); PWY-6596 (adenosine nucleotides degradation I); Purine-Degradation (Purine Nucleotide Degradation); Urate-Degradation (Urate Degradation)",
             "KEGG: rn00230 (Purine metabolism)"
         ],
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -55444,12 +55444,12 @@
             "dGPredictor": [
                 -2.38,
                 0.03,
-                "="
+                ">"
             ],
             "eQuilibrator": [
                 -4.57,
                 0.51,
-                "="
+                ">"
             ]
         }
     },
@@ -55488,7 +55488,7 @@
             "MetaCyc: AROMATIC-COMPOUNDS-DEGRADATION (Aromatic Compound Degradation); Adenosine-Nucleotides-Degradation (Adenosine Nucleotide Degradation); Degradation (Degradation/Utilization/Assimilation); NUCLEO-DEG (Nucleoside and Nucleotide Degradation); P165-PWY (superpathway of purines degradation in plants); PWY-5044 (purine nucleotides degradation I (plants)); PWY-6596 (adenosine nucleotides degradation I); Purine-Degradation (Purine Nucleotide Degradation); Urate-Degradation (Urate Degradation)",
             "KEGG: rn00230 (Purine metabolism)"
         ],
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -55534,12 +55534,12 @@
             "dGPredictor": [
                 -2.38,
                 0.03,
-                "="
+                ">"
             ],
             "eQuilibrator": [
                 -4.57,
                 0.51,
-                "="
+                ">"
             ]
         }
     },
@@ -56973,7 +56973,7 @@
             "dGPredictor": [
                 -22.44,
                 0.76,
-                "="
+                ">"
             ]
         }
     },
@@ -57057,7 +57057,7 @@
             "dGPredictor": [
                 -22.44,
                 0.76,
-                "="
+                ">"
             ]
         }
     },
@@ -57217,7 +57217,7 @@
             "dGPredictor": [
                 -22.44,
                 0.76,
-                "="
+                ">"
             ]
         }
     },
@@ -57377,7 +57377,7 @@
             "dGPredictor": [
                 -22.44,
                 0.76,
-                "="
+                ">"
             ]
         }
     },
@@ -57461,7 +57461,7 @@
             "dGPredictor": [
                 -22.44,
                 0.76,
-                "="
+                ">"
             ]
         }
     },
@@ -57545,7 +57545,7 @@
             "dGPredictor": [
                 -22.44,
                 0.76,
-                "="
+                ">"
             ]
         }
     },
@@ -57629,7 +57629,7 @@
             "dGPredictor": [
                 -22.44,
                 0.76,
-                "="
+                ">"
             ]
         }
     },
@@ -58197,7 +58197,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Secondary Database",
         "status": "OK",
         "stoichiometry": [
@@ -58256,7 +58256,7 @@
             "eQuilibrator": [
                 -13.86,
                 0.31,
-                "="
+                ">"
             ]
         }
     },
@@ -58423,7 +58423,7 @@
             "dGPredictor": [
                 -22.44,
                 0.76,
-                "="
+                ">"
             ]
         }
     },
@@ -58839,7 +58839,7 @@
             "dGPredictor": [
                 -22.44,
                 0.76,
-                "="
+                ">"
             ]
         }
     },
@@ -60577,7 +60577,7 @@
         "pathways": [
             "MetaCyc: Carbohydrates-Degradation (Carbohydrate Degradation); Degradation (Degradation/Utilization/Assimilation); SUCROSE-DEG (Sucrose Degradation); SUCUTIL-PWY (sucrose degradation I (sucrose phosphotransferase)); Sugars-And-Polysaccharides-Degradation (Sugar Degradation)"
         ],
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -60623,12 +60623,12 @@
             "dGPredictor": [
                 -5.69,
                 0.16,
-                "="
+                ">"
             ],
             "eQuilibrator": [
                 -6.06,
                 0.67,
-                "="
+                ">"
             ]
         }
     },
@@ -60665,7 +60665,7 @@
         "pathways": [
             "MetaCyc: Carbohydrates-Degradation (Carbohydrate Degradation); Degradation (Degradation/Utilization/Assimilation); SUCROSE-DEG (Sucrose Degradation); SUCUTIL-PWY (sucrose degradation I (sucrose phosphotransferase)); Sugars-And-Polysaccharides-Degradation (Sugar Degradation)"
         ],
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -60711,12 +60711,12 @@
             "dGPredictor": [
                 -5.69,
                 0.16,
-                "="
+                ">"
             ],
             "eQuilibrator": [
                 -6.06,
                 0.67,
-                "="
+                ">"
             ]
         }
     },
@@ -61900,7 +61900,7 @@
             "dGPredictor": [
                 8.94,
                 0.03,
-                "<"
+                "="
             ]
         }
     },
@@ -62356,7 +62356,7 @@
             "dGPredictor": [
                 5.02,
                 0.03,
-                "="
+                "<"
             ]
         }
     },
@@ -62917,7 +62917,7 @@
             "MetaCyc: CARBOXYLATES-DEG (Carboxylate Degradation); Degradation (Degradation/Utilization/Assimilation); PWY-5074 (mevalonate degradation)",
             "KEGG: rn00900 (Terpenoid backbone biosynthesis); rn01110 (Biosynthesis of secondary metabolites)"
         ],
-        "reversibility": "=",
+        "reversibility": "<",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -62974,17 +62974,17 @@
             "Group contribution": [
                 1.17,
                 13.2,
-                "="
+                "<"
             ],
             "dGPredictor": [
                 5.68,
                 0.3,
-                "="
+                "<"
             ],
             "eQuilibrator": [
                 0.48,
                 0.41,
-                "="
+                "<"
             ]
         }
     },
@@ -63296,7 +63296,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -63363,7 +63363,7 @@
             "eQuilibrator": [
                 -31.87,
                 1.48,
-                "="
+                ">"
             ]
         }
     },
@@ -63494,7 +63494,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -63561,7 +63561,7 @@
             "eQuilibrator": [
                 -31.87,
                 1.48,
-                "="
+                ">"
             ]
         }
     },
@@ -63598,7 +63598,7 @@
         "pathways": [
             "MetaCyc: Cofactor-Biosynthesis (Cofactor, Prosthetic Group, Electron Carrier, and Vitamin Biosynthesis); Menaquinone-Biosynthesis (Menaquinol Biosynthesis); PWY-7998 (menaquinol-4 biosynthesis II); Quinone-Biosynthesis (Quinol and Quinone Biosynthesis)"
         ],
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -63647,7 +63647,7 @@
             "Group contribution": [
                 -20.31,
                 6.74,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 -7.35,
@@ -63657,7 +63657,7 @@
             "eQuilibrator": [
                 -11.55,
                 1.46,
-                "="
+                ">"
             ]
         }
     },
@@ -63740,7 +63740,7 @@
             "dGPredictor": [
                 -7.35,
                 0.02,
-                "="
+                ">"
             ]
         }
     },
@@ -66480,7 +66480,7 @@
             "dGPredictor": [
                 -10.19,
                 0.42,
-                "="
+                ">"
             ],
             "eQuilibrator": [
                 -4.44,
@@ -66571,7 +66571,7 @@
             "dGPredictor": [
                 -10.19,
                 0.42,
-                "="
+                ">"
             ],
             "eQuilibrator": [
                 -4.44,
@@ -71787,7 +71787,7 @@
             "dGPredictor": [
                 -8.59,
                 0.42,
-                ">"
+                "="
             ]
         }
     },
@@ -71881,7 +71881,7 @@
             "dGPredictor": [
                 -8.59,
                 0.42,
-                "="
+                ">"
             ]
         }
     },
@@ -71975,7 +71975,7 @@
             "dGPredictor": [
                 -8.59,
                 0.42,
-                "="
+                ">"
             ]
         }
     },
@@ -72069,7 +72069,7 @@
             "dGPredictor": [
                 -8.59,
                 0.42,
-                "="
+                ">"
             ]
         }
     },
@@ -72163,7 +72163,7 @@
             "dGPredictor": [
                 -8.59,
                 0.42,
-                "="
+                ">"
             ]
         }
     },
@@ -72671,7 +72671,7 @@
             "dGPredictor": [
                 -8.59,
                 0.42,
-                ">"
+                "="
             ]
         }
     },
@@ -72762,7 +72762,7 @@
             "dGPredictor": [
                 -8.59,
                 0.42,
-                ">"
+                "="
             ],
             "eQuilibrator": [
                 4.89,
@@ -72859,7 +72859,7 @@
             "dGPredictor": [
                 9.61,
                 0.28,
-                "="
+                "<"
             ],
             "eQuilibrator": [
                 4.57,
@@ -72899,7 +72899,7 @@
         "pathways": [
             "KEGG: rn00240 (Pyrimidine metabolism); rn00670 (One carbon pool by folate)"
         ],
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -72969,12 +72969,12 @@
             "dGPredictor": [
                 -14.13,
                 0.4,
-                "="
+                ">"
             ],
             "eQuilibrator": [
                 -15.74,
                 0.78,
-                "="
+                ">"
             ]
         }
     },
@@ -73999,7 +73999,7 @@
             "dGPredictor": [
                 -5.64,
                 0.05,
-                "="
+                ">"
             ]
         }
     },
@@ -77471,7 +77471,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "<",
+        "reversibility": "=",
         "source": "Secondary Database",
         "status": "CI:-2",
         "stoichiometry": [
@@ -77533,12 +77533,12 @@
             "dGPredictor": [
                 1.67,
                 0.21,
-                "="
+                ">"
             ],
             "eQuilibrator": [
                 13.23,
                 0.36,
-                "<"
+                "="
             ]
         }
     },
@@ -78765,7 +78765,7 @@
             "MetaCyc: Cofactor-Biosynthesis (Cofactor, Prosthetic Group, Electron Carrier, and Vitamin Biosynthesis); DITERPENOID-SYN (Diterpenoid Biosynthesis); ERGOSTEROL-SYN-PWY (superpathway of ergosterol biosynthesis I); Ergosterol-Biosynthesis (Ergosterol Biosynthesis); GGPP-Biosynthesis (Geranylgeranyl Diphosphate Biosynthesis); ISOPRENOIDS (Hemiterpene Biosynthesis); Isopentenyl-Diphosphate-Biosynthesis (Isopentenyl Diphosphate Biosynthesis); Lipid-Biosynthesis (Fatty Acid and Lipid Biosynthesis); Mevalonate-Pathways (Mevalonate Pathways); PWY-5910 (superpathway of geranylgeranyldiphosphate biosynthesis I (via mevalonate)); PWY-6146 (<i>Methanobacterium thermoautotrophicum</i> biosynthetic metabolism); PWY-6174 (mevalonate pathway II (archaea)); PWY-7391 (isoprene biosynthesis II (engineered)); PWY-7524 (mevalonate pathway III (archaea)); PWY-922 (mevalonate pathway I); PWY66-5 (superpathway of cholesterol biosynthesis); Polyprenyl-Biosynthesis (Polyprenyl Biosynthesis); SECONDARY-METABOLITE-BIOSYNTHESIS (Secondary Metabolite Biosynthesis); Sterol-Biosynthesis (Sterol Biosynthesis); Terpenoid-Biosynthesis (Terpenoid Biosynthesis)",
             "KEGG: rn00900 (Terpenoid backbone biosynthesis); rn01110 (Biosynthesis of secondary metabolites)"
         ],
-        "reversibility": "=",
+        "reversibility": "<",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -78822,17 +78822,17 @@
             "Group contribution": [
                 1.17,
                 13.17,
-                "="
+                "<"
             ],
             "dGPredictor": [
                 4.51,
                 0.3,
-                "="
+                "<"
             ],
             "eQuilibrator": [
                 0.48,
                 0.43,
-                "="
+                "<"
             ]
         }
     },
@@ -78870,7 +78870,7 @@
             "MetaCyc: Cofactor-Biosynthesis (Cofactor, Prosthetic Group, Electron Carrier, and Vitamin Biosynthesis); DITERPENOID-SYN (Diterpenoid Biosynthesis); ERGOSTEROL-SYN-PWY (superpathway of ergosterol biosynthesis I); Ergosterol-Biosynthesis (Ergosterol Biosynthesis); GGPP-Biosynthesis (Geranylgeranyl Diphosphate Biosynthesis); ISOPRENOIDS (Hemiterpene Biosynthesis); Isopentenyl-Diphosphate-Biosynthesis (Isopentenyl Diphosphate Biosynthesis); Lipid-Biosynthesis (Fatty Acid and Lipid Biosynthesis); Mevalonate-Pathways (Mevalonate Pathways); PWY-5910 (superpathway of geranylgeranyldiphosphate biosynthesis I (via mevalonate)); PWY-6146 (<i>Methanobacterium thermoautotrophicum</i> biosynthetic metabolism); PWY-6174 (mevalonate pathway II (archaea)); PWY-7391 (isoprene biosynthesis II (engineered)); PWY-7524 (mevalonate pathway III (archaea)); PWY-922 (mevalonate pathway I); PWY66-5 (superpathway of cholesterol biosynthesis); Polyprenyl-Biosynthesis (Polyprenyl Biosynthesis); SECONDARY-METABOLITE-BIOSYNTHESIS (Secondary Metabolite Biosynthesis); Sterol-Biosynthesis (Sterol Biosynthesis); Terpenoid-Biosynthesis (Terpenoid Biosynthesis)",
             "KEGG: rn00900 (Terpenoid backbone biosynthesis); rn01110 (Biosynthesis of secondary metabolites)"
         ],
-        "reversibility": "=",
+        "reversibility": "<",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -78927,17 +78927,17 @@
             "Group contribution": [
                 1.17,
                 13.17,
-                "="
+                "<"
             ],
             "dGPredictor": [
                 4.51,
                 0.3,
-                "="
+                "<"
             ],
             "eQuilibrator": [
                 0.48,
                 0.43,
-                "="
+                "<"
             ]
         }
     },
@@ -78975,7 +78975,7 @@
             "MetaCyc: Cofactor-Biosynthesis (Cofactor, Prosthetic Group, Electron Carrier, and Vitamin Biosynthesis); DITERPENOID-SYN (Diterpenoid Biosynthesis); ERGOSTEROL-SYN-PWY (superpathway of ergosterol biosynthesis I); Ergosterol-Biosynthesis (Ergosterol Biosynthesis); GGPP-Biosynthesis (Geranylgeranyl Diphosphate Biosynthesis); ISOPRENOIDS (Hemiterpene Biosynthesis); Isopentenyl-Diphosphate-Biosynthesis (Isopentenyl Diphosphate Biosynthesis); Lipid-Biosynthesis (Fatty Acid and Lipid Biosynthesis); Mevalonate-Pathways (Mevalonate Pathways); PWY-5910 (superpathway of geranylgeranyldiphosphate biosynthesis I (via mevalonate)); PWY-6146 (<i>Methanobacterium thermoautotrophicum</i> biosynthetic metabolism); PWY-6174 (mevalonate pathway II (archaea)); PWY-7391 (isoprene biosynthesis II (engineered)); PWY-7524 (mevalonate pathway III (archaea)); PWY-922 (mevalonate pathway I); PWY66-5 (superpathway of cholesterol biosynthesis); Polyprenyl-Biosynthesis (Polyprenyl Biosynthesis); SECONDARY-METABOLITE-BIOSYNTHESIS (Secondary Metabolite Biosynthesis); Sterol-Biosynthesis (Sterol Biosynthesis); Terpenoid-Biosynthesis (Terpenoid Biosynthesis)",
             "KEGG: rn00900 (Terpenoid backbone biosynthesis); rn01110 (Biosynthesis of secondary metabolites)"
         ],
-        "reversibility": "=",
+        "reversibility": "<",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -79032,17 +79032,17 @@
             "Group contribution": [
                 1.17,
                 13.17,
-                "="
+                "<"
             ],
             "dGPredictor": [
                 4.51,
                 0.3,
-                "="
+                "<"
             ],
             "eQuilibrator": [
                 0.48,
                 0.43,
-                "="
+                "<"
             ]
         }
     },
@@ -79081,7 +79081,7 @@
             "MetaCyc: AMINE-DEG (Amine and Polyamine Degradation); CARBO-BIOSYNTHESIS (Sugar Biosynthesis); CARBOXYLATES-DEG (Carboxylate Degradation); CARN-DEG (Carnitine Degradation); Carbohydrates-Biosynthesis (Carbohydrate Biosynthesis); Degradation (Degradation/Utilization/Assimilation); Energy-Metabolism (Generation of Precursor Metabolite and Energy); Fermentation (); Fermentation-to-Acids (Fermentation to Short-Chain Fatty Acids); GLUCONEO-PWY (gluconeogenesis I); Gluconeogenesis (Gluconeogenesis); L-Malate-Degradation ((<i>S</i>)-Malate Degradation); PWY-3641 (L-carnitine degradation III); PWY-7115 (C4 photosynthetic carbon assimilation cycle, NAD-ME type); PWY-7118 (chitin degradation to ethanol); PWY-7384 (anaerobic energy metabolism (invertebrates, mitochondrial)); PWY-7389 (superpathway of anaerobic energy metabolism (invertebrates)); PWY-7686 (L-malate degradation II); Photosynthesis ()",
             "KEGG: rn00620 (Pyruvate metabolism); rn00710 (Carbon fixation in photosynthetic organisms); rn01200 (Carbon metabolism)"
         ],
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -79135,12 +79135,12 @@
             "dGPredictor": [
                 3.3,
                 0.04,
-                "="
+                ">"
             ],
             "eQuilibrator": [
                 3.13,
                 0.76,
-                "="
+                ">"
             ]
         }
     },
@@ -80666,7 +80666,7 @@
             "MetaCyc: Alcohol-Biosynthesis (Fermentation to Alcohols); Autotrophic-CO2-Fixation (Autotrophic CO<sub>2</sub> Fixation); C1-COMPOUNDS (C1 Compound Utilization and Assimilation); CALVIN-PWY (Calvin-Benson-Bassham cycle); CARBO-BIOSYNTHESIS (Sugar Biosynthesis); CO2-Fixation (CO<sub>2</sub> Fixation); Carbohydrates-Biosynthesis (Carbohydrate Biosynthesis); Degradation (Degradation/Utilization/Assimilation); Energy-Metabolism (Generation of Precursor Metabolite and Energy); Ethylene-Biosynthesis (Ethylene Biosynthesis); Fermentation (); HORMONE-SYN (Hormone Biosynthesis); PHOTOALL-PWY (oxygenic photosynthesis); PWY-6886 (1-butanol autotrophic biosynthesis (engineered)); PWY-7124 (ethylene biosynthesis V (engineered)); PWY-7218 (photosynthetic 3-hydroxybutanoate biosynthesis (engineered)); Photosynthesis (); Plant-Hormone-Biosynthesis (Plant Hormone Biosynthesis); Storage-Compounds-Biosynthesis (Storage Compound Biosynthesis)",
             "KEGG: rn00010 (Glycolysis / Gluconeogenesis); rn00710 (Carbon fixation in photosynthetic organisms); rn01110 (Biosynthesis of secondary metabolites); rn01200 (Carbon metabolism); rn01230 (Biosynthesis of amino acids)"
         ],
-        "reversibility": "=",
+        "reversibility": "<",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -80728,12 +80728,12 @@
             "dGPredictor": [
                 1.27,
                 0.02,
-                "="
+                "<"
             ],
             "eQuilibrator": [
                 1.25,
                 0.13,
-                "="
+                "<"
             ]
         }
     },
@@ -84725,7 +84725,7 @@
             "Group contribution": [
                 -24.55,
                 14.54,
-                ">"
+                "="
             ],
             "dGPredictor": [
                 -17.63,
@@ -87835,7 +87835,7 @@
         "pathways": [
             "MetaCyc: Carbohydrates-Degradation (Carbohydrate Degradation); Degradation (Degradation/Utilization/Assimilation); SUCROSE-DEG (Sucrose Degradation); SUCUTIL-PWY (sucrose degradation I (sucrose phosphotransferase)); Sugars-And-Polysaccharides-Degradation (Sugar Degradation)"
         ],
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -87881,7 +87881,7 @@
             "eQuilibrator": [
                 -6.06,
                 0.67,
-                "="
+                ">"
             ]
         }
     },
@@ -88599,7 +88599,7 @@
             "dGPredictor": [
                 16.76,
                 0.58,
-                "="
+                "<"
             ],
             "eQuilibrator": [
                 -6.16,
@@ -88705,7 +88705,7 @@
             "dGPredictor": [
                 16.76,
                 0.58,
-                "="
+                "<"
             ],
             "eQuilibrator": [
                 -6.16,
@@ -88811,7 +88811,7 @@
             "dGPredictor": [
                 16.76,
                 0.58,
-                "="
+                "<"
             ],
             "eQuilibrator": [
                 -6.16,
@@ -88917,7 +88917,7 @@
             "dGPredictor": [
                 16.76,
                 0.58,
-                "="
+                "<"
             ],
             "eQuilibrator": [
                 -6.16,
@@ -89023,7 +89023,7 @@
             "dGPredictor": [
                 16.76,
                 0.58,
-                "="
+                "<"
             ],
             "eQuilibrator": [
                 -6.16,
@@ -89129,7 +89129,7 @@
             "dGPredictor": [
                 16.76,
                 0.58,
-                "="
+                "<"
             ],
             "eQuilibrator": [
                 -6.16,
@@ -89235,7 +89235,7 @@
             "dGPredictor": [
                 16.76,
                 0.58,
-                "="
+                "<"
             ],
             "eQuilibrator": [
                 -6.16,
@@ -89341,7 +89341,7 @@
             "dGPredictor": [
                 16.76,
                 0.58,
-                "="
+                "<"
             ],
             "eQuilibrator": [
                 -6.16,
@@ -89447,7 +89447,7 @@
             "dGPredictor": [
                 16.76,
                 0.58,
-                "="
+                "<"
             ],
             "eQuilibrator": [
                 -6.16,
@@ -89553,7 +89553,7 @@
             "dGPredictor": [
                 16.76,
                 0.58,
-                "="
+                "<"
             ],
             "eQuilibrator": [
                 -6.16,
@@ -89663,7 +89663,7 @@
             "dGPredictor": [
                 16.76,
                 0.58,
-                "="
+                "<"
             ]
         }
     },

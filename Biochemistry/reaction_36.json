@@ -1593,7 +1593,7 @@
             "Group contribution": [
                 16.14,
                 6.22,
-                "="
+                "<"
             ],
             "eQuilibrator": [
                 23.13,
@@ -1678,7 +1678,7 @@
             "Group contribution": [
                 16.14,
                 6.23,
-                "="
+                "<"
             ],
             "eQuilibrator": [
                 23.13,
@@ -1885,7 +1885,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "=",
+        "reversibility": "<",
         "source": "Primary Database",
         "status": "CI:2",
         "stoichiometry": [
@@ -1934,12 +1934,12 @@
             "Group contribution": [
                 17.33,
                 6.27,
-                "="
+                "<"
             ],
             "eQuilibrator": [
                 21.14,
                 1.76,
-                "="
+                "<"
             ]
         }
     },
@@ -1971,7 +1971,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "=",
+        "reversibility": "<",
         "source": "Primary Database",
         "status": "CI:2",
         "stoichiometry": [
@@ -2020,12 +2020,12 @@
             "Group contribution": [
                 17.33,
                 6.28,
-                "="
+                "<"
             ],
             "eQuilibrator": [
                 21.14,
                 1.76,
-                "="
+                "<"
             ]
         }
     },
@@ -5247,7 +5247,7 @@
             "Group contribution": [
                 16.14,
                 6.22,
-                "="
+                "<"
             ],
             "eQuilibrator": [
                 23.13,
@@ -5332,7 +5332,7 @@
             "Group contribution": [
                 16.14,
                 6.23,
-                "="
+                "<"
             ],
             "eQuilibrator": [
                 23.13,
@@ -5538,7 +5538,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "=",
+        "reversibility": "<",
         "source": "Primary Database",
         "status": "CI:2",
         "stoichiometry": [
@@ -5587,12 +5587,12 @@
             "Group contribution": [
                 17.33,
                 6.27,
-                "="
+                "<"
             ],
             "eQuilibrator": [
                 21.14,
                 1.76,
-                "="
+                "<"
             ]
         }
     },
@@ -5623,7 +5623,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "=",
+        "reversibility": "<",
         "source": "Primary Database",
         "status": "CI:2",
         "stoichiometry": [
@@ -5672,12 +5672,12 @@
             "Group contribution": [
                 17.33,
                 6.28,
-                "="
+                "<"
             ],
             "eQuilibrator": [
                 21.14,
                 1.76,
-                "="
+                "<"
             ]
         }
     },
@@ -5757,7 +5757,7 @@
             "Group contribution": [
                 16.14,
                 6.22,
-                "="
+                "<"
             ],
             "eQuilibrator": [
                 23.13,
@@ -5842,7 +5842,7 @@
             "Group contribution": [
                 16.14,
                 6.23,
-                "="
+                "<"
             ],
             "eQuilibrator": [
                 23.13,
@@ -6048,7 +6048,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "=",
+        "reversibility": "<",
         "source": "Primary Database",
         "status": "CI:2",
         "stoichiometry": [
@@ -6097,12 +6097,12 @@
             "Group contribution": [
                 17.33,
                 6.27,
-                "="
+                "<"
             ],
             "eQuilibrator": [
                 21.14,
                 1.76,
-                "="
+                "<"
             ]
         }
     },
@@ -6133,7 +6133,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "=",
+        "reversibility": "<",
         "source": "Primary Database",
         "status": "CI:2",
         "stoichiometry": [
@@ -6182,12 +6182,12 @@
             "Group contribution": [
                 17.33,
                 6.28,
-                "="
+                "<"
             ],
             "eQuilibrator": [
                 21.14,
                 1.76,
-                "="
+                "<"
             ]
         }
     },
@@ -8330,7 +8330,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": ">",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "CI:2",
         "stoichiometry": [
@@ -8384,7 +8384,7 @@
             "eQuilibrator": [
                 -5.48,
                 0.42,
-                ">"
+                "="
             ]
         }
     },
@@ -13813,7 +13813,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "<",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "CI:-4",
         "stoichiometry": [
@@ -13867,7 +13867,7 @@
             "eQuilibrator": [
                 7.81,
                 0.93,
-                "<"
+                "="
             ]
         }
     },
@@ -13898,7 +13898,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "<",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "CI:-4",
         "stoichiometry": [
@@ -13952,7 +13952,7 @@
             "eQuilibrator": [
                 7.8,
                 0.93,
-                "<"
+                "="
             ]
         }
     },
@@ -14153,7 +14153,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": ">",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "CI:2",
         "stoichiometry": [
@@ -14207,7 +14207,7 @@
             "eQuilibrator": [
                 -5.48,
                 0.43,
-                ">"
+                "="
             ]
         }
     },
@@ -14238,7 +14238,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": ">",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "CI:2",
         "stoichiometry": [
@@ -14292,7 +14292,7 @@
             "eQuilibrator": [
                 -5.48,
                 0.42,
-                ">"
+                "="
             ]
         }
     },
@@ -14778,7 +14778,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "<",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "CI:-4",
         "stoichiometry": [
@@ -14832,12 +14832,12 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 8.17,
                 0.76,
-                "<"
+                "="
             ]
         }
     },
@@ -14868,7 +14868,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "<",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "CI:-4",
         "stoichiometry": [
@@ -14922,12 +14922,12 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 8.17,
                 0.76,
-                "<"
+                "="
             ]
         }
     },
@@ -14958,7 +14958,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "<",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "CI:-6",
         "stoichiometry": [
@@ -15007,17 +15007,17 @@
             "Group contribution": [
                 8.87,
                 6.25,
-                "<"
+                "="
             ],
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 9.1,
                 0.95,
-                "<"
+                "="
             ]
         }
     },
@@ -15048,7 +15048,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "<",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "CI:-6",
         "stoichiometry": [
@@ -15097,17 +15097,17 @@
             "Group contribution": [
                 8.87,
                 6.26,
-                "<"
+                "="
             ],
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 9.1,
                 0.95,
-                "<"
+                "="
             ]
         }
     },
@@ -15371,7 +15371,7 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 149.03,
@@ -15460,7 +15460,7 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 149.03,
@@ -15549,7 +15549,7 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 149.03,
@@ -15638,7 +15638,7 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 149.03,
@@ -15674,7 +15674,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "<",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "CI:-4",
         "stoichiometry": [
@@ -15728,12 +15728,12 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 7.61,
                 0.54,
-                "<"
+                "="
             ]
         }
     },
@@ -15764,7 +15764,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "<",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "CI:-4",
         "stoichiometry": [
@@ -15818,12 +15818,12 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 7.61,
                 0.54,
-                "<"
+                "="
             ]
         }
     },
@@ -15854,7 +15854,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "<",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "CI:-4",
         "stoichiometry": [
@@ -15908,12 +15908,12 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 7.61,
                 0.54,
-                "<"
+                "="
             ]
         }
     },
@@ -15944,7 +15944,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "<",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "CI:-4",
         "stoichiometry": [
@@ -15998,12 +15998,12 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 7.61,
                 0.54,
-                "<"
+                "="
             ]
         }
     },
@@ -16034,7 +16034,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "<",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "CI:-2",
         "stoichiometry": [
@@ -16093,7 +16093,7 @@
             "eQuilibrator": [
                 7.78,
                 0.43,
-                "<"
+                "="
             ]
         }
     },
@@ -16124,7 +16124,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "<",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "CI:-2",
         "stoichiometry": [
@@ -16183,7 +16183,7 @@
             "eQuilibrator": [
                 7.78,
                 0.43,
-                "<"
+                "="
             ]
         }
     },
@@ -16214,7 +16214,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "<",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "CI:-2",
         "stoichiometry": [
@@ -16273,7 +16273,7 @@
             "eQuilibrator": [
                 7.78,
                 0.43,
-                "<"
+                "="
             ]
         }
     },
@@ -16304,7 +16304,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "<",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "CI:-2",
         "stoichiometry": [
@@ -16363,7 +16363,7 @@
             "eQuilibrator": [
                 7.78,
                 0.43,
-                "<"
+                "="
             ]
         }
     },
@@ -16443,12 +16443,12 @@
             "Group contribution": [
                 13.61,
                 6.21,
-                "<"
+                "="
             ],
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 17.25,
@@ -16533,12 +16533,12 @@
             "Group contribution": [
                 13.61,
                 6.23,
-                "<"
+                "="
             ],
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 17.24,
@@ -16807,7 +16807,7 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 149.96,
@@ -16896,7 +16896,7 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 149.96,
@@ -16985,7 +16985,7 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 149.96,
@@ -17074,7 +17074,7 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 149.96,
@@ -17110,7 +17110,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "<",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "CI:-6",
         "stoichiometry": [
@@ -17159,17 +17159,17 @@
             "Group contribution": [
                 8.01,
                 6.25,
-                "<"
+                "="
             ],
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 8.54,
                 0.86,
-                "<"
+                "="
             ]
         }
     },
@@ -17200,7 +17200,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "<",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "CI:-6",
         "stoichiometry": [
@@ -17249,17 +17249,17 @@
             "Group contribution": [
                 8.01,
                 6.27,
-                "<"
+                "="
             ],
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 8.54,
                 0.86,
-                "<"
+                "="
             ]
         }
     },
@@ -17290,7 +17290,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "<",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "CI:-6",
         "stoichiometry": [
@@ -17339,17 +17339,17 @@
             "Group contribution": [
                 8.01,
                 6.25,
-                "<"
+                "="
             ],
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 8.54,
                 0.86,
-                "<"
+                "="
             ]
         }
     },
@@ -17380,7 +17380,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "<",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "CI:-6",
         "stoichiometry": [
@@ -17429,17 +17429,17 @@
             "Group contribution": [
                 8.01,
                 6.27,
-                "<"
+                "="
             ],
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 8.54,
                 0.86,
-                "<"
+                "="
             ]
         }
     },
@@ -17470,7 +17470,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "<",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "CI:-4",
         "stoichiometry": [
@@ -17524,12 +17524,12 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 8.71,
                 0.78,
-                "<"
+                "="
             ]
         }
     },
@@ -17560,7 +17560,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "<",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "CI:-4",
         "stoichiometry": [
@@ -17614,12 +17614,12 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 8.71,
                 0.78,
-                "<"
+                "="
             ]
         }
     },
@@ -17650,7 +17650,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "<",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "CI:-4",
         "stoichiometry": [
@@ -17704,12 +17704,12 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 8.71,
                 0.78,
-                "<"
+                "="
             ]
         }
     },
@@ -17740,7 +17740,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "<",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "CI:-4",
         "stoichiometry": [
@@ -17794,12 +17794,12 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 8.71,
                 0.78,
-                "<"
+                "="
             ]
         }
     },
@@ -17879,12 +17879,12 @@
             "Group contribution": [
                 14.49,
                 6.22,
-                "<"
+                "="
             ],
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 18.18,
@@ -17969,12 +17969,12 @@
             "Group contribution": [
                 14.49,
                 6.23,
-                "<"
+                "="
             ],
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 18.17,
@@ -18010,7 +18010,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "<",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "CI:-4",
         "stoichiometry": [
@@ -18064,12 +18064,12 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 7.81,
                 0.93,
-                "<"
+                "="
             ]
         }
     },
@@ -18100,7 +18100,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "<",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "CI:-4",
         "stoichiometry": [
@@ -18154,12 +18154,12 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 7.8,
                 0.93,
-                "<"
+                "="
             ]
         }
     },
@@ -18190,7 +18190,7 @@
             "EQP"
         ],
         "pathways": null,
-        "reversibility": "=",
+        "reversibility": "<",
         "source": "Primary Database",
         "status": "CI:6",
         "stoichiometry": [
@@ -18239,12 +18239,12 @@
             "Group contribution": [
                 41.32,
                 8.25,
-                "="
+                "<"
             ],
             "dGPredictor": [
                 5.23,
                 0.36,
-                ">"
+                "="
             ]
         }
     },
@@ -18275,7 +18275,7 @@
             "EQP"
         ],
         "pathways": null,
-        "reversibility": "=",
+        "reversibility": "<",
         "source": "Primary Database",
         "status": "CI:6",
         "stoichiometry": [
@@ -18324,12 +18324,12 @@
             "Group contribution": [
                 41.32,
                 8.26,
-                "="
+                "<"
             ],
             "dGPredictor": [
                 5.23,
                 0.36,
-                ">"
+                "="
             ]
         }
     },
@@ -18359,7 +18359,7 @@
             "EQP"
         ],
         "pathways": null,
-        "reversibility": "=",
+        "reversibility": "<",
         "source": "Primary Database",
         "status": "CI:6",
         "stoichiometry": [
@@ -18408,12 +18408,12 @@
             "Group contribution": [
                 41.32,
                 8.25,
-                "="
+                "<"
             ],
             "dGPredictor": [
                 5.23,
                 0.36,
-                ">"
+                "="
             ]
         }
     },
@@ -18443,7 +18443,7 @@
             "EQP"
         ],
         "pathways": null,
-        "reversibility": "=",
+        "reversibility": "<",
         "source": "Primary Database",
         "status": "CI:6",
         "stoichiometry": [
@@ -18492,12 +18492,12 @@
             "Group contribution": [
                 41.32,
                 8.26,
-                "="
+                "<"
             ],
             "dGPredictor": [
                 5.23,
                 0.36,
-                ">"
+                "="
             ]
         }
     },
@@ -18581,7 +18581,7 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                ">"
+                "="
             ]
         }
     },
@@ -18665,7 +18665,7 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                ">"
+                "="
             ]
         }
     },
@@ -18695,7 +18695,7 @@
             "EQP"
         ],
         "pathways": null,
-        "reversibility": "=",
+        "reversibility": "<",
         "source": "Primary Database",
         "status": "CI:6",
         "stoichiometry": [
@@ -18744,12 +18744,12 @@
             "Group contribution": [
                 32.5,
                 8.32,
-                "="
+                "<"
             ],
             "dGPredictor": [
                 5.23,
                 0.36,
-                ">"
+                "="
             ]
         }
     },
@@ -18779,7 +18779,7 @@
             "EQP"
         ],
         "pathways": null,
-        "reversibility": "=",
+        "reversibility": "<",
         "source": "Primary Database",
         "status": "CI:6",
         "stoichiometry": [
@@ -18828,12 +18828,12 @@
             "Group contribution": [
                 32.5,
                 8.33,
-                "="
+                "<"
             ],
             "dGPredictor": [
                 5.23,
                 0.36,
-                ">"
+                "="
             ]
         }
     },
@@ -19031,7 +19031,7 @@
             "EQP"
         ],
         "pathways": null,
-        "reversibility": "=",
+        "reversibility": "<",
         "source": "Primary Database",
         "status": "CI:6",
         "stoichiometry": [
@@ -19080,12 +19080,12 @@
             "Group contribution": [
                 28.07,
                 8.3,
-                "="
+                "<"
             ],
             "dGPredictor": [
                 5.23,
                 0.36,
-                ">"
+                "="
             ]
         }
     },
@@ -19115,7 +19115,7 @@
             "EQP"
         ],
         "pathways": null,
-        "reversibility": "=",
+        "reversibility": "<",
         "source": "Primary Database",
         "status": "CI:6",
         "stoichiometry": [
@@ -19164,12 +19164,12 @@
             "Group contribution": [
                 28.07,
                 8.31,
-                "="
+                "<"
             ],
             "dGPredictor": [
                 5.23,
                 0.36,
-                ">"
+                "="
             ]
         }
     },
@@ -20139,7 +20139,7 @@
             "Group contribution": [
                 18.47,
                 8.32,
-                "="
+                "<"
             ],
             "dGPredictor": [
                 5.23,
@@ -20229,7 +20229,7 @@
             "Group contribution": [
                 18.47,
                 8.33,
-                "="
+                "<"
             ],
             "dGPredictor": [
                 5.23,
@@ -21915,7 +21915,7 @@
             "Group contribution": [
                 18.47,
                 8.32,
-                "="
+                "<"
             ],
             "dGPredictor": [
                 5.23,
@@ -22005,7 +22005,7 @@
             "Group contribution": [
                 18.47,
                 8.33,
-                "="
+                "<"
             ],
             "dGPredictor": [
                 5.23,
@@ -23511,7 +23511,7 @@
             "Group contribution": [
                 22.14,
                 8.64,
-                "="
+                "<"
             ],
             "dGPredictor": [
                 5.23,
@@ -23601,7 +23601,7 @@
             "Group contribution": [
                 22.14,
                 8.65,
-                "="
+                "<"
             ],
             "dGPredictor": [
                 5.23,
@@ -23810,7 +23810,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": ">",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -23859,7 +23859,7 @@
             "Group contribution": [
                 17.71,
                 8.62,
-                "="
+                "<"
             ],
             "dGPredictor": [
                 5.23,
@@ -23869,7 +23869,7 @@
             "eQuilibrator": [
                 -7.87,
                 1.09,
-                ">"
+                "="
             ]
         }
     },
@@ -23900,7 +23900,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": ">",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -23949,7 +23949,7 @@
             "Group contribution": [
                 17.71,
                 8.63,
-                "="
+                "<"
             ],
             "dGPredictor": [
                 5.23,
@@ -23959,7 +23959,7 @@
             "eQuilibrator": [
                 -7.87,
                 1.09,
-                ">"
+                "="
             ]
         }
     },
@@ -26446,7 +26446,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": ">",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "CI:2",
         "stoichiometry": [
@@ -26505,7 +26505,7 @@
             "eQuilibrator": [
                 -6.41,
                 0.51,
-                ">"
+                "="
             ]
         }
     },
@@ -26536,7 +26536,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": ">",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "CI:2",
         "stoichiometry": [
@@ -26595,7 +26595,7 @@
             "eQuilibrator": [
                 -6.41,
                 0.51,
-                ">"
+                "="
             ]
         }
     },
@@ -27220,7 +27220,7 @@
             "Group contribution": [
                 14.8,
                 6.26,
-                "<"
+                "="
             ],
             "dGPredictor": [
                 5.23,
@@ -27311,7 +27311,7 @@
             "Group contribution": [
                 14.8,
                 6.28,
-                "<"
+                "="
             ],
             "dGPredictor": [
                 5.23,
@@ -27588,7 +27588,7 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 66.0,
@@ -27678,7 +27678,7 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 66.0,
@@ -28259,7 +28259,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": ">",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "CI:2",
         "stoichiometry": [
@@ -28318,7 +28318,7 @@
             "eQuilibrator": [
                 -6.41,
                 0.51,
-                ">"
+                "="
             ]
         }
     },
@@ -28350,7 +28350,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": ">",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "CI:2",
         "stoichiometry": [
@@ -28409,7 +28409,7 @@
             "eQuilibrator": [
                 -6.41,
                 0.51,
-                ">"
+                "="
             ]
         }
     },
@@ -28494,7 +28494,7 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                ">"
+                "="
             ],
             "eQuilibrator": [
                 -46.51,
@@ -28584,7 +28584,7 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                ">"
+                "="
             ],
             "eQuilibrator": [
                 -46.51,
@@ -28782,7 +28782,7 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 -4.3,
@@ -28880,7 +28880,7 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 -4.3,
@@ -28973,12 +28973,12 @@
             "Group contribution": [
                 -2.94,
                 6.85,
-                ">"
+                "="
             ],
             "dGPredictor": [
                 5.23,
                 0.36,
-                ">"
+                "="
             ],
             "eQuilibrator": [
                 -13.62,
@@ -29071,12 +29071,12 @@
             "Group contribution": [
                 -2.94,
                 6.86,
-                ">"
+                "="
             ],
             "dGPredictor": [
                 5.23,
                 0.36,
-                ">"
+                "="
             ],
             "eQuilibrator": [
                 -13.62,
@@ -30312,7 +30312,7 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                ">"
+                "="
             ],
             "eQuilibrator": [
                 -13.62,
@@ -30410,7 +30410,7 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                ">"
+                "="
             ],
             "eQuilibrator": [
                 -13.62,
@@ -31844,7 +31844,7 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 195.53,
@@ -31941,7 +31941,7 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 195.53,
@@ -32038,7 +32038,7 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 195.53,
@@ -32135,7 +32135,7 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 195.53,
@@ -32232,7 +32232,7 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 192.47,
@@ -32329,7 +32329,7 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 192.47,
@@ -32426,7 +32426,7 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 197.16,
@@ -32523,7 +32523,7 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 197.16,
@@ -32620,7 +32620,7 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ]
         }
     },
@@ -32712,7 +32712,7 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ]
         }
     },
@@ -32804,7 +32804,7 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 179.71,
@@ -32901,7 +32901,7 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 179.71,
@@ -32999,7 +32999,7 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                ">"
+                "="
             ],
             "eQuilibrator": [
                 -12.74,
@@ -33097,7 +33097,7 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                ">"
+                "="
             ],
             "eQuilibrator": [
                 -12.74,
@@ -33906,7 +33906,7 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ]
         }
     },
@@ -33998,7 +33998,7 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ]
         }
     },
@@ -34208,7 +34208,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -34275,7 +34275,7 @@
             "eQuilibrator": [
                 -10.29,
                 0.94,
-                "="
+                ">"
             ]
         }
     },
@@ -34503,7 +34503,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -34570,7 +34570,7 @@
             "eQuilibrator": [
                 -11.76,
                 0.81,
-                "="
+                ">"
             ]
         }
     },
@@ -34602,7 +34602,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -34669,7 +34669,7 @@
             "eQuilibrator": [
                 -11.76,
                 0.81,
-                "="
+                ">"
             ]
         }
     },
@@ -34700,7 +34700,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "CI:-2",
         "stoichiometry": [
@@ -34759,7 +34759,7 @@
             "eQuilibrator": [
                 -10.24,
                 0.84,
-                "="
+                ">"
             ]
         }
     },
@@ -34790,7 +34790,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "CI:-2",
         "stoichiometry": [
@@ -34849,7 +34849,7 @@
             "eQuilibrator": [
                 -10.24,
                 0.84,
-                "="
+                ">"
             ]
         }
     },
@@ -35050,7 +35050,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "<",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "CI:-4",
         "stoichiometry": [
@@ -35112,12 +35112,12 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 3.34,
                 0.86,
-                "<"
+                "="
             ]
         }
     },
@@ -35148,7 +35148,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "<",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "CI:-4",
         "stoichiometry": [
@@ -35210,12 +35210,12 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 3.33,
                 0.86,
-                "<"
+                "="
             ]
         }
     },
@@ -35606,7 +35606,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "<",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "CI:-4",
         "stoichiometry": [
@@ -35668,12 +35668,12 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 3.34,
                 0.86,
-                "<"
+                "="
             ]
         }
     },
@@ -35704,7 +35704,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "<",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "CI:-4",
         "stoichiometry": [
@@ -35766,12 +35766,12 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 3.33,
                 0.86,
-                "<"
+                "="
             ]
         }
     },
@@ -35864,7 +35864,7 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                ">"
+                "="
             ],
             "eQuilibrator": [
                 -14.6,
@@ -35962,7 +35962,7 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                ">"
+                "="
             ],
             "eQuilibrator": [
                 -14.61,
@@ -36239,12 +36239,12 @@
             "Group contribution": [
                 -14.13,
                 7.07,
-                ">"
+                "="
             ],
             "dGPredictor": [
                 5.23,
                 0.36,
-                ">"
+                "="
             ],
             "eQuilibrator": [
                 -13.61,
@@ -36337,12 +36337,12 @@
             "Group contribution": [
                 -14.13,
                 7.08,
-                ">"
+                "="
             ],
             "dGPredictor": [
                 5.23,
                 0.36,
-                ">"
+                "="
             ],
             "eQuilibrator": [
                 -13.62,
@@ -36378,7 +36378,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "<",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "CI:-14",
         "stoichiometry": [
@@ -36440,12 +36440,12 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 8.56,
                 2.5,
-                "<"
+                "="
             ]
         }
     },
@@ -36476,7 +36476,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "<",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "CI:-14",
         "stoichiometry": [
@@ -36538,12 +36538,12 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 8.56,
                 2.5,
-                "<"
+                "="
             ]
         }
     },
@@ -36831,7 +36831,7 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 194.55,
@@ -36928,7 +36928,7 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 194.54,
@@ -37025,7 +37025,7 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 194.55,
@@ -37122,7 +37122,7 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 194.54,
@@ -37219,7 +37219,7 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 191.48,
@@ -37316,7 +37316,7 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 191.48,
@@ -37413,7 +37413,7 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 196.17,
@@ -37510,7 +37510,7 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 196.17,
@@ -37607,7 +37607,7 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ]
         }
     },
@@ -37699,7 +37699,7 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ]
         }
     },
@@ -37791,7 +37791,7 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 178.72,
@@ -37888,7 +37888,7 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 178.72,
@@ -38904,7 +38904,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "CI:-2",
         "stoichiometry": [
@@ -38963,7 +38963,7 @@
             "eQuilibrator": [
                 -15.95,
                 1.74,
-                "="
+                ">"
             ]
         }
     },
@@ -38994,7 +38994,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "CI:-2",
         "stoichiometry": [
@@ -39053,7 +39053,7 @@
             "eQuilibrator": [
                 -15.95,
                 1.74,
-                "="
+                ">"
             ]
         }
     },
@@ -39146,7 +39146,7 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 22.67,
@@ -39244,7 +39244,7 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 22.67,
@@ -39457,7 +39457,7 @@
             "EQC"
         ],
         "pathways": null,
-        "reversibility": "=",
+        "reversibility": "<",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -39514,7 +39514,7 @@
             "Group contribution": [
                 24.14,
                 6.6,
-                "="
+                "<"
             ],
             "dGPredictor": [
                 5.23,
@@ -39554,7 +39554,7 @@
             "EQC"
         ],
         "pathways": null,
-        "reversibility": "=",
+        "reversibility": "<",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -39611,7 +39611,7 @@
             "Group contribution": [
                 24.14,
                 6.62,
-                "="
+                "<"
             ],
             "dGPredictor": [
                 5.23,
@@ -39651,7 +39651,7 @@
             "EQP"
         ],
         "pathways": null,
-        "reversibility": "=",
+        "reversibility": "<",
         "source": "Primary Database",
         "status": "CI:6",
         "stoichiometry": [
@@ -39708,7 +39708,7 @@
             "Group contribution": [
                 35.34,
                 7.9,
-                "="
+                "<"
             ],
             "dGPredictor": [
                 5.23,
@@ -39743,7 +39743,7 @@
             "EQP"
         ],
         "pathways": null,
-        "reversibility": "=",
+        "reversibility": "<",
         "source": "Primary Database",
         "status": "CI:6",
         "stoichiometry": [
@@ -39800,7 +39800,7 @@
             "Group contribution": [
                 35.34,
                 7.91,
-                "="
+                "<"
             ],
             "dGPredictor": [
                 5.23,
@@ -40019,7 +40019,7 @@
             "EQP"
         ],
         "pathways": null,
-        "reversibility": "=",
+        "reversibility": "<",
         "source": "Primary Database",
         "status": "CI:8",
         "stoichiometry": [
@@ -40076,12 +40076,12 @@
             "Group contribution": [
                 38.64,
                 7.95,
-                "="
+                "<"
             ],
             "dGPredictor": [
                 5.23,
                 0.36,
-                ">"
+                "="
             ]
         }
     },
@@ -40111,7 +40111,7 @@
             "EQP"
         ],
         "pathways": null,
-        "reversibility": "=",
+        "reversibility": "<",
         "source": "Primary Database",
         "status": "CI:8",
         "stoichiometry": [
@@ -40168,12 +40168,12 @@
             "Group contribution": [
                 38.64,
                 7.96,
-                "="
+                "<"
             ],
             "dGPredictor": [
                 5.23,
                 0.36,
-                ">"
+                "="
             ]
         }
     },
@@ -40755,7 +40755,7 @@
             "EQP"
         ],
         "pathways": null,
-        "reversibility": ">",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "CI:4",
         "stoichiometry": [
@@ -40812,7 +40812,7 @@
             "Group contribution": [
                 -12.84,
                 6.54,
-                ">"
+                "="
             ],
             "dGPredictor": [
                 5.23,
@@ -40847,7 +40847,7 @@
             "EQP"
         ],
         "pathways": null,
-        "reversibility": ">",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "CI:4",
         "stoichiometry": [
@@ -40904,7 +40904,7 @@
             "Group contribution": [
                 -12.84,
                 6.55,
-                ">"
+                "="
             ],
             "dGPredictor": [
                 5.23,
@@ -40939,7 +40939,7 @@
             "EQP"
         ],
         "pathways": null,
-        "reversibility": ">",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "CI:4",
         "stoichiometry": [
@@ -40996,7 +40996,7 @@
             "Group contribution": [
                 -12.84,
                 6.54,
-                ">"
+                "="
             ],
             "dGPredictor": [
                 5.23,
@@ -41031,7 +41031,7 @@
             "EQP"
         ],
         "pathways": null,
-        "reversibility": ">",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "CI:4",
         "stoichiometry": [
@@ -41088,7 +41088,7 @@
             "Group contribution": [
                 -12.84,
                 6.55,
-                ">"
+                "="
             ],
             "dGPredictor": [
                 5.23,
@@ -41123,7 +41123,7 @@
             "EQP"
         ],
         "pathways": null,
-        "reversibility": ">",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "CI:4",
         "stoichiometry": [
@@ -41180,7 +41180,7 @@
             "Group contribution": [
                 -12.84,
                 6.54,
-                ">"
+                "="
             ],
             "dGPredictor": [
                 5.23,
@@ -41215,7 +41215,7 @@
             "EQP"
         ],
         "pathways": null,
-        "reversibility": ">",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "CI:4",
         "stoichiometry": [
@@ -41272,7 +41272,7 @@
             "Group contribution": [
                 -12.84,
                 6.55,
-                ">"
+                "="
             ],
             "dGPredictor": [
                 5.23,
@@ -42496,7 +42496,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "<",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "CI:-12",
         "stoichiometry": [
@@ -42553,17 +42553,17 @@
             "Group contribution": [
                 8.59,
                 6.77,
-                "<"
+                "="
             ],
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 6.63,
                 1.86,
-                "<"
+                "="
             ]
         }
     },
@@ -42594,7 +42594,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "<",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "CI:-12",
         "stoichiometry": [
@@ -42651,17 +42651,17 @@
             "Group contribution": [
                 8.59,
                 6.79,
-                "<"
+                "="
             ],
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 6.63,
                 1.86,
-                "<"
+                "="
             ]
         }
     },
@@ -43113,7 +43113,7 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 152.03,
@@ -43210,7 +43210,7 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 152.02,
@@ -43308,7 +43308,7 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 -5.24,
@@ -43406,7 +43406,7 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 -5.24,
@@ -44373,7 +44373,7 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 43.22,
@@ -44474,7 +44474,7 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 43.21,
@@ -45347,7 +45347,7 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 -5.76,
@@ -45447,7 +45447,7 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 -5.76,
@@ -45483,7 +45483,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "<",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "CI:-12",
         "stoichiometry": [
@@ -45540,17 +45540,17 @@
             "Group contribution": [
                 8.59,
                 6.77,
-                "<"
+                "="
             ],
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 6.63,
                 1.86,
-                "<"
+                "="
             ]
         }
     },
@@ -45581,7 +45581,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "<",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "CI:-12",
         "stoichiometry": [
@@ -45638,17 +45638,17 @@
             "Group contribution": [
                 8.59,
                 6.79,
-                "<"
+                "="
             ],
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 6.63,
                 1.86,
-                "<"
+                "="
             ]
         }
     },
@@ -45740,7 +45740,7 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 128.9,
@@ -45837,7 +45837,7 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 128.9,
@@ -45934,7 +45934,7 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 127.51,
@@ -46031,7 +46031,7 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 127.51,
@@ -46683,12 +46683,12 @@
             "Group contribution": [
                 -16.4,
                 6.77,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 -6.7,
@@ -46781,12 +46781,12 @@
             "Group contribution": [
                 -16.4,
                 6.78,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 -6.7,
@@ -47337,12 +47337,12 @@
             "Group contribution": [
                 -16.4,
                 6.88,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 -6.7,
@@ -47435,12 +47435,12 @@
             "Group contribution": [
                 -16.4,
                 6.89,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 -6.7,
@@ -47533,12 +47533,12 @@
             "Group contribution": [
                 -16.4,
                 6.88,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 -6.7,
@@ -47631,12 +47631,12 @@
             "Group contribution": [
                 -16.4,
                 6.89,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 -6.7,
@@ -47925,12 +47925,12 @@
             "Group contribution": [
                 -16.4,
                 6.99,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 -6.7,
@@ -48023,12 +48023,12 @@
             "Group contribution": [
                 -16.4,
                 7.0,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 -6.7,
@@ -49177,7 +49177,7 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                ">"
+                "="
             ],
             "eQuilibrator": [
                 -12.63,
@@ -49275,7 +49275,7 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                ">"
+                "="
             ],
             "eQuilibrator": [
                 -12.63,
@@ -50688,7 +50688,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "<",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "CI:-20",
         "stoichiometry": [
@@ -50750,12 +50750,12 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 11.53,
                 3.28,
-                "<"
+                "="
             ]
         }
     },
@@ -50786,7 +50786,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "<",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "CI:-20",
         "stoichiometry": [
@@ -50848,12 +50848,12 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 11.53,
                 3.28,
-                "<"
+                "="
             ]
         }
     },
@@ -50945,7 +50945,7 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 192.57,
@@ -51042,7 +51042,7 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 192.57,
@@ -51139,7 +51139,7 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 192.57,
@@ -51236,7 +51236,7 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 192.57,
@@ -51333,7 +51333,7 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 189.51,
@@ -51430,7 +51430,7 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 189.51,
@@ -51527,7 +51527,7 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 194.19,
@@ -51624,7 +51624,7 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 194.19,
@@ -51721,7 +51721,7 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ]
         }
     },
@@ -51813,7 +51813,7 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ]
         }
     },
@@ -51905,7 +51905,7 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 176.75,
@@ -52002,7 +52002,7 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 176.74,
@@ -52811,7 +52811,7 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ]
         }
     },
@@ -52903,7 +52903,7 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ]
         }
     },
@@ -53447,12 +53447,12 @@
             "Group contribution": [
                 -16.4,
                 6.23,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 -6.7,
@@ -53545,12 +53545,12 @@
             "Group contribution": [
                 -16.4,
                 6.24,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 -6.7,
@@ -53647,7 +53647,7 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 193.56,
@@ -53744,7 +53744,7 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 193.55,
@@ -53841,7 +53841,7 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 193.56,
@@ -53938,7 +53938,7 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 193.55,
@@ -54035,7 +54035,7 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 193.56,
@@ -54132,7 +54132,7 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 193.55,
@@ -54229,7 +54229,7 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 193.56,
@@ -54326,7 +54326,7 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 193.55,
@@ -54423,7 +54423,7 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 193.56,
@@ -54520,7 +54520,7 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 193.55,
@@ -54617,7 +54617,7 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 193.56,
@@ -54714,7 +54714,7 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 193.55,
@@ -54811,7 +54811,7 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 193.56,
@@ -54908,7 +54908,7 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 193.55,
@@ -55005,7 +55005,7 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 193.56,
@@ -55102,7 +55102,7 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 193.55,
@@ -55199,7 +55199,7 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 190.5,
@@ -55296,7 +55296,7 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 190.49,
@@ -55393,7 +55393,7 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 190.5,
@@ -55490,7 +55490,7 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 190.49,
@@ -55587,7 +55587,7 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 190.5,
@@ -55684,7 +55684,7 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 190.49,
@@ -55781,7 +55781,7 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 190.5,
@@ -55878,7 +55878,7 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 190.49,
@@ -55975,7 +55975,7 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 195.18,
@@ -56072,7 +56072,7 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 195.18,
@@ -56169,7 +56169,7 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 195.18,
@@ -56266,7 +56266,7 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 195.18,
@@ -56363,7 +56363,7 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 195.18,
@@ -56460,7 +56460,7 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 195.18,
@@ -56557,7 +56557,7 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 195.18,
@@ -56654,7 +56654,7 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 195.18,
@@ -56751,7 +56751,7 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ]
         }
     },
@@ -56843,7 +56843,7 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ]
         }
     },
@@ -56935,7 +56935,7 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ]
         }
     },
@@ -57027,7 +57027,7 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ]
         }
     },
@@ -57119,7 +57119,7 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ]
         }
     },
@@ -57211,7 +57211,7 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ]
         }
     },
@@ -57303,7 +57303,7 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ]
         }
     },
@@ -57395,7 +57395,7 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ]
         }
     },
@@ -57487,7 +57487,7 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 177.73,
@@ -57584,7 +57584,7 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 177.73,
@@ -57681,7 +57681,7 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 177.73,
@@ -57778,7 +57778,7 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 177.73,
@@ -57875,7 +57875,7 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 177.73,
@@ -57972,7 +57972,7 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 177.73,
@@ -58069,7 +58069,7 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 177.73,
@@ -58166,7 +58166,7 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 177.73,
@@ -58300,7 +58300,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "<",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "CI:-4",
         "stoichiometry": [
@@ -58362,12 +58362,12 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 8.83,
                 1.02,
-                "<"
+                "="
             ]
         }
     },
@@ -58398,7 +58398,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "<",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "CI:-4",
         "stoichiometry": [
@@ -58460,12 +58460,12 @@
             "dGPredictor": [
                 5.23,
                 0.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 8.82,
                 1.02,
-                "<"
+                "="
             ]
         }
     },
@@ -58497,7 +58497,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -58564,7 +58564,7 @@
             "eQuilibrator": [
                 -9.9,
                 0.69,
-                "="
+                ">"
             ]
         }
     },
@@ -58596,7 +58596,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -58663,7 +58663,7 @@
             "eQuilibrator": [
                 -9.9,
                 0.69,
-                "="
+                ">"
             ]
         }
     },
@@ -60733,7 +60733,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "=",
+        "reversibility": "<",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -60792,7 +60792,7 @@
             "eQuilibrator": [
                 14.27,
                 0.34,
-                "="
+                "<"
             ]
         }
     },
@@ -60823,7 +60823,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "=",
+        "reversibility": "<",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -60882,7 +60882,7 @@
             "eQuilibrator": [
                 14.27,
                 0.33,
-                "="
+                "<"
             ]
         }
     },
@@ -63164,7 +63164,7 @@
             "Group contribution": [
                 -14.03,
                 5.83,
-                ">"
+                "="
             ],
             "dGPredictor": [
                 5.23,
@@ -63259,7 +63259,7 @@
             "Group contribution": [
                 -14.03,
                 5.83,
-                ">"
+                "="
             ],
             "dGPredictor": [
                 5.23,
@@ -65129,7 +65129,7 @@
             "HB"
         ],
         "pathways": null,
-        "reversibility": ">",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "CI:1",
         "stoichiometry": [
@@ -65379,7 +65379,7 @@
             "dGPredictor": [
                 0.85,
                 0.03,
-                ">"
+                "="
             ],
             "eQuilibrator": [
                 -6.83,
@@ -65487,7 +65487,7 @@
             "dGPredictor": [
                 0.85,
                 0.03,
-                ">"
+                "="
             ],
             "eQuilibrator": [
                 -7.21,
@@ -65595,7 +65595,7 @@
             "dGPredictor": [
                 0.85,
                 0.03,
-                ">"
+                "="
             ],
             "eQuilibrator": [
                 -6.83,
@@ -65703,7 +65703,7 @@
             "dGPredictor": [
                 0.85,
                 0.03,
-                ">"
+                "="
             ],
             "eQuilibrator": [
                 -7.21,
@@ -65811,7 +65811,7 @@
             "dGPredictor": [
                 0.85,
                 0.03,
-                ">"
+                "="
             ],
             "eQuilibrator": [
                 -6.83,
@@ -65919,7 +65919,7 @@
             "dGPredictor": [
                 0.85,
                 0.03,
-                ">"
+                "="
             ],
             "eQuilibrator": [
                 -7.21,
@@ -66959,7 +66959,7 @@
             "Group contribution": [
                 -13.14,
                 4.76,
-                ">"
+                "="
             ],
             "dGPredictor": [
                 0.85,
@@ -67611,7 +67611,7 @@
             "Group contribution": [
                 -13.14,
                 4.76,
-                ">"
+                "="
             ],
             "dGPredictor": [
                 0.85,
@@ -68697,7 +68697,7 @@
             "dGPredictor": [
                 -3.54,
                 0.24,
-                "="
+                ">"
             ]
         }
     },
@@ -68783,7 +68783,7 @@
             "dGPredictor": [
                 -3.54,
                 0.24,
-                "="
+                ">"
             ]
         }
     },
@@ -71203,7 +71203,7 @@
             "Group contribution": [
                 -21.53,
                 7.02,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 -3.54,
@@ -72137,7 +72137,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": ">",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "CI:8",
         "stoichiometry": [
@@ -72191,12 +72191,12 @@
             "dGPredictor": [
                 -3.54,
                 0.24,
-                ">"
+                "="
             ],
             "eQuilibrator": [
                 -6.3,
                 2.12,
-                ">"
+                "="
             ]
         }
     },
@@ -72228,7 +72228,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": ">",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "CI:8",
         "stoichiometry": [
@@ -72282,12 +72282,12 @@
             "dGPredictor": [
                 -3.54,
                 0.24,
-                ">"
+                "="
             ],
             "eQuilibrator": [
                 -6.3,
                 2.12,
-                ">"
+                "="
             ]
         }
     },
@@ -72318,7 +72318,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -72367,7 +72367,7 @@
             "Group contribution": [
                 -20.31,
                 7.97,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 -3.54,
@@ -72377,7 +72377,7 @@
             "eQuilibrator": [
                 -11.56,
                 1.46,
-                "="
+                ">"
             ]
         }
     },
@@ -72408,7 +72408,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -72457,7 +72457,7 @@
             "Group contribution": [
                 -20.31,
                 7.99,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 -3.54,
@@ -72467,7 +72467,7 @@
             "eQuilibrator": [
                 -11.55,
                 1.46,
-                "="
+                ">"
             ]
         }
     },
@@ -72499,7 +72499,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -72548,7 +72548,7 @@
             "Group contribution": [
                 -20.31,
                 8.38,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 -3.54,
@@ -72558,7 +72558,7 @@
             "eQuilibrator": [
                 -11.56,
                 1.46,
-                "="
+                ">"
             ]
         }
     },
@@ -72590,7 +72590,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -72639,7 +72639,7 @@
             "Group contribution": [
                 -20.31,
                 8.39,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 -3.54,
@@ -72649,7 +72649,7 @@
             "eQuilibrator": [
                 -11.55,
                 1.46,
-                "="
+                ">"
             ]
         }
     },
@@ -72680,7 +72680,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -72729,7 +72729,7 @@
             "Group contribution": [
                 -20.31,
                 9.31,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 -3.54,
@@ -72739,7 +72739,7 @@
             "eQuilibrator": [
                 -11.56,
                 1.46,
-                "="
+                ">"
             ]
         }
     },
@@ -72770,7 +72770,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -72819,7 +72819,7 @@
             "Group contribution": [
                 -20.31,
                 9.32,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 -3.54,
@@ -72829,7 +72829,7 @@
             "eQuilibrator": [
                 -11.55,
                 1.46,
-                "="
+                ">"
             ]
         }
     },
@@ -72860,7 +72860,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -72909,7 +72909,7 @@
             "Group contribution": [
                 -20.31,
                 9.82,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 -3.54,
@@ -72919,7 +72919,7 @@
             "eQuilibrator": [
                 -11.56,
                 1.46,
-                "="
+                ">"
             ]
         }
     },
@@ -72950,7 +72950,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -72999,7 +72999,7 @@
             "Group contribution": [
                 -20.31,
                 9.83,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 -3.54,
@@ -73009,7 +73009,7 @@
             "eQuilibrator": [
                 -11.55,
                 1.46,
-                "="
+                ">"
             ]
         }
     },
@@ -73040,7 +73040,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -73089,7 +73089,7 @@
             "Group contribution": [
                 -20.31,
                 10.35,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 -3.54,
@@ -73099,7 +73099,7 @@
             "eQuilibrator": [
                 -11.56,
                 1.46,
-                "="
+                ">"
             ]
         }
     },
@@ -73130,7 +73130,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -73179,7 +73179,7 @@
             "Group contribution": [
                 -20.31,
                 10.36,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 -3.54,
@@ -73189,7 +73189,7 @@
             "eQuilibrator": [
                 -11.55,
                 1.46,
-                "="
+                ">"
             ]
         }
     },
@@ -73220,7 +73220,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -73269,7 +73269,7 @@
             "Group contribution": [
                 -20.31,
                 10.91,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 -3.54,
@@ -73279,7 +73279,7 @@
             "eQuilibrator": [
                 -11.56,
                 1.46,
-                "="
+                ">"
             ]
         }
     },
@@ -73310,7 +73310,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -73359,7 +73359,7 @@
             "Group contribution": [
                 -20.31,
                 10.92,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 -3.54,
@@ -73369,7 +73369,7 @@
             "eQuilibrator": [
                 -11.55,
                 1.46,
-                "="
+                ">"
             ]
         }
     },
@@ -73400,7 +73400,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -73459,7 +73459,7 @@
             "eQuilibrator": [
                 -11.56,
                 1.46,
-                "="
+                ">"
             ]
         }
     },
@@ -73490,7 +73490,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -73549,7 +73549,7 @@
             "eQuilibrator": [
                 -11.55,
                 1.46,
-                "="
+                ">"
             ]
         }
     },
@@ -73629,7 +73629,7 @@
             "Group contribution": [
                 -21.53,
                 8.06,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 -3.54,
@@ -73720,7 +73720,7 @@
             "Group contribution": [
                 -21.53,
                 8.46,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 -3.54,
@@ -73810,7 +73810,7 @@
             "Group contribution": [
                 -21.53,
                 9.39,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 -3.54,
@@ -73900,7 +73900,7 @@
             "Group contribution": [
                 -21.53,
                 9.39,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 -3.54,
@@ -73941,7 +73941,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": ">",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "CI:2",
         "stoichiometry": [
@@ -74000,7 +74000,7 @@
             "eQuilibrator": [
                 -7.97,
                 1.22,
-                ">"
+                "="
             ]
         }
     },
@@ -74031,7 +74031,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": ">",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "CI:2",
         "stoichiometry": [
@@ -74090,7 +74090,7 @@
             "eQuilibrator": [
                 -7.97,
                 1.22,
-                ">"
+                "="
             ]
         }
     },
@@ -74170,7 +74170,7 @@
             "Group contribution": [
                 -21.53,
                 9.89,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 -3.54,
@@ -74260,7 +74260,7 @@
             "Group contribution": [
                 -21.53,
                 9.9,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 -3.54,
@@ -74350,7 +74350,7 @@
             "Group contribution": [
                 -21.53,
                 10.42,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 -3.54,
@@ -74440,7 +74440,7 @@
             "Group contribution": [
                 -21.53,
                 10.43,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 -3.54,
@@ -74530,7 +74530,7 @@
             "Group contribution": [
                 -21.53,
                 10.98,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 -3.54,
@@ -74620,7 +74620,7 @@
             "Group contribution": [
                 -21.53,
                 10.99,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 -3.54,
@@ -74710,7 +74710,7 @@
             "Group contribution": [
                 -21.53,
                 11.54,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 -3.54,
@@ -74800,7 +74800,7 @@
             "Group contribution": [
                 -21.53,
                 11.55,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 -3.54,
@@ -75033,7 +75033,7 @@
         "pathways": [
             "MetaCyc: Cofactor-Biosynthesis (Cofactor, Prosthetic Group, Electron Carrier, and Vitamin Biosynthesis); PWY-5027 (phylloquinol biosynthesis); PWY-5863 (superpathway of phylloquinol biosynthesis); Phylloquinone-Biosynthesis (Phylloquinol Biosynthesis); Quinone-Biosynthesis (Quinol and Quinone Biosynthesis); Vitamin-Biosynthesis (Vitamin Biosynthesis)"
         ],
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -75082,7 +75082,7 @@
             "Group contribution": [
                 -20.31,
                 6.94,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 -3.54,
@@ -75092,7 +75092,7 @@
             "eQuilibrator": [
                 -11.56,
                 1.46,
-                "="
+                ">"
             ]
         }
     },
@@ -75124,7 +75124,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -75173,7 +75173,7 @@
             "Group contribution": [
                 -20.31,
                 6.96,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 -3.54,
@@ -75183,7 +75183,7 @@
             "eQuilibrator": [
                 -11.55,
                 1.46,
-                "="
+                ">"
             ]
         }
     },
@@ -75263,7 +75263,7 @@
             "Group contribution": [
                 -17.44,
                 6.85,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 -3.54,
@@ -75353,7 +75353,7 @@
             "Group contribution": [
                 -17.44,
                 6.87,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 -3.54,
@@ -75443,12 +75443,12 @@
             "Group contribution": [
                 -15.58,
                 6.89,
-                ">"
+                "="
             ],
             "dGPredictor": [
                 -3.54,
                 0.24,
-                ">"
+                "="
             ],
             "eQuilibrator": [
                 -34.79,
@@ -75533,12 +75533,12 @@
             "Group contribution": [
                 -15.58,
                 6.91,
-                ">"
+                "="
             ],
             "dGPredictor": [
                 -3.54,
                 0.24,
-                ">"
+                "="
             ],
             "eQuilibrator": [
                 -34.79,
@@ -75574,7 +75574,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "CI:-4",
         "stoichiometry": [
@@ -75623,7 +75623,7 @@
             "Group contribution": [
                 -19.3,
                 6.89,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 -3.54,
@@ -75633,7 +75633,7 @@
             "eQuilibrator": [
                 -28.96,
                 1.78,
-                "="
+                ">"
             ]
         }
     },
@@ -75664,7 +75664,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "CI:-4",
         "stoichiometry": [
@@ -75713,7 +75713,7 @@
             "Group contribution": [
                 -19.3,
                 6.91,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 -3.54,
@@ -75723,7 +75723,7 @@
             "eQuilibrator": [
                 -28.95,
                 1.78,
-                "="
+                ">"
             ]
         }
     },
@@ -75988,7 +75988,7 @@
             "dGPredictor": [
                 -3.54,
                 0.24,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 41.09,
@@ -76078,7 +76078,7 @@
             "dGPredictor": [
                 -3.54,
                 0.24,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 41.1,
@@ -76527,7 +76527,7 @@
             "Group contribution": [
                 -17.44,
                 6.81,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 -3.54,
@@ -76618,7 +76618,7 @@
             "Group contribution": [
                 -17.44,
                 6.82,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 -3.54,
@@ -77084,7 +77084,7 @@
             "Group contribution": [
                 -17.44,
                 6.93,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 -3.54,
@@ -77259,7 +77259,7 @@
             "Group contribution": [
                 -17.44,
                 6.95,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 -3.54,
@@ -77355,7 +77355,7 @@
             "Group contribution": [
                 -17.44,
                 8.07,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 -3.54,
@@ -77805,7 +77805,7 @@
             "Group contribution": [
                 -21.53,
                 7.02,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 -3.54,
@@ -77898,12 +77898,12 @@
             "Group contribution": [
                 -21.53,
                 7.03,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 -12.39,
                 0.71,
-                "="
+                ">"
             ],
             "eQuilibrator": [
                 -5.98,
@@ -78345,7 +78345,7 @@
             "dGPredictor": [
                 -12.39,
                 0.71,
-                "="
+                ">"
             ],
             "eQuilibrator": [
                 -25.5,
@@ -78435,7 +78435,7 @@
             "dGPredictor": [
                 -12.39,
                 0.71,
-                "="
+                ">"
             ],
             "eQuilibrator": [
                 -25.5,
@@ -78525,7 +78525,7 @@
             "dGPredictor": [
                 -12.39,
                 0.71,
-                "="
+                ">"
             ],
             "eQuilibrator": [
                 -25.5,
@@ -78615,7 +78615,7 @@
             "dGPredictor": [
                 -12.39,
                 0.71,
-                "="
+                ">"
             ],
             "eQuilibrator": [
                 -25.5,
@@ -78705,7 +78705,7 @@
             "dGPredictor": [
                 -12.39,
                 0.71,
-                "="
+                ">"
             ],
             "eQuilibrator": [
                 -19.93,
@@ -78795,7 +78795,7 @@
             "dGPredictor": [
                 -12.39,
                 0.71,
-                "="
+                ">"
             ],
             "eQuilibrator": [
                 -19.92,
@@ -78832,7 +78832,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": ">",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "CI:8",
         "stoichiometry": [
@@ -78891,7 +78891,7 @@
             "eQuilibrator": [
                 -6.3,
                 2.12,
-                ">"
+                "="
             ]
         }
     },
@@ -78923,7 +78923,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": ">",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "CI:8",
         "stoichiometry": [
@@ -78982,7 +78982,7 @@
             "eQuilibrator": [
                 -6.3,
                 2.12,
-                ">"
+                "="
             ]
         }
     },
@@ -79018,7 +79018,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -79067,17 +79067,17 @@
             "Group contribution": [
                 -20.31,
                 8.83,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 -12.39,
                 0.71,
-                "="
+                ">"
             ],
             "eQuilibrator": [
                 -11.56,
                 1.46,
-                "="
+                ">"
             ]
         }
     },
@@ -79113,7 +79113,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -79162,17 +79162,17 @@
             "Group contribution": [
                 -20.31,
                 8.84,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 -12.39,
                 0.71,
-                "="
+                ">"
             ],
             "eQuilibrator": [
                 -11.55,
                 1.46,
-                "="
+                ">"
             ]
         }
     },
@@ -79203,7 +79203,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -79252,17 +79252,17 @@
             "Group contribution": [
                 -20.31,
                 7.97,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 -12.39,
                 0.71,
-                "="
+                ">"
             ],
             "eQuilibrator": [
                 -11.56,
                 1.46,
-                "="
+                ">"
             ]
         }
     },
@@ -79293,7 +79293,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -79342,17 +79342,17 @@
             "Group contribution": [
                 -20.31,
                 7.99,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 -12.39,
                 0.71,
-                "="
+                ">"
             ],
             "eQuilibrator": [
                 -11.55,
                 1.46,
-                "="
+                ">"
             ]
         }
     },
@@ -79384,7 +79384,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -79433,17 +79433,17 @@
             "Group contribution": [
                 -20.31,
                 8.38,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 -12.39,
                 0.71,
-                "="
+                ">"
             ],
             "eQuilibrator": [
                 -11.56,
                 1.46,
-                "="
+                ">"
             ]
         }
     },
@@ -79475,7 +79475,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -79524,17 +79524,17 @@
             "Group contribution": [
                 -20.31,
                 8.39,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 -12.39,
                 0.71,
-                "="
+                ">"
             ],
             "eQuilibrator": [
                 -11.55,
                 1.46,
-                "="
+                ">"
             ]
         }
     },
@@ -79565,7 +79565,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -79614,17 +79614,17 @@
             "Group contribution": [
                 -20.31,
                 9.31,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 -12.39,
                 0.71,
-                "="
+                ">"
             ],
             "eQuilibrator": [
                 -11.56,
                 1.46,
-                "="
+                ">"
             ]
         }
     },
@@ -79655,7 +79655,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -79704,17 +79704,17 @@
             "Group contribution": [
                 -20.31,
                 9.32,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 -12.39,
                 0.71,
-                "="
+                ">"
             ],
             "eQuilibrator": [
                 -11.55,
                 1.46,
-                "="
+                ">"
             ]
         }
     },
@@ -79745,7 +79745,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -79794,17 +79794,17 @@
             "Group contribution": [
                 -20.31,
                 9.82,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 -12.39,
                 0.71,
-                "="
+                ">"
             ],
             "eQuilibrator": [
                 -11.56,
                 1.46,
-                "="
+                ">"
             ]
         }
     },
@@ -79835,7 +79835,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -79884,17 +79884,17 @@
             "Group contribution": [
                 -20.31,
                 9.83,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 -12.39,
                 0.71,
-                "="
+                ">"
             ],
             "eQuilibrator": [
                 -11.55,
                 1.46,
-                "="
+                ">"
             ]
         }
     },
@@ -79925,7 +79925,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -79974,17 +79974,17 @@
             "Group contribution": [
                 -20.31,
                 10.35,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 -12.39,
                 0.71,
-                "="
+                ">"
             ],
             "eQuilibrator": [
                 -11.56,
                 1.46,
-                "="
+                ">"
             ]
         }
     },
@@ -80015,7 +80015,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -80064,17 +80064,17 @@
             "Group contribution": [
                 -20.31,
                 10.36,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 -12.39,
                 0.71,
-                "="
+                ">"
             ],
             "eQuilibrator": [
                 -11.55,
                 1.46,
-                "="
+                ">"
             ]
         }
     },
@@ -80105,7 +80105,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -80154,17 +80154,17 @@
             "Group contribution": [
                 -20.31,
                 10.91,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 -12.39,
                 0.71,
-                "="
+                ">"
             ],
             "eQuilibrator": [
                 -11.56,
                 1.46,
-                "="
+                ">"
             ]
         }
     },
@@ -80195,7 +80195,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -80244,17 +80244,17 @@
             "Group contribution": [
                 -20.31,
                 10.92,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 -12.39,
                 0.71,
-                "="
+                ">"
             ],
             "eQuilibrator": [
                 -11.55,
                 1.46,
-                "="
+                ">"
             ]
         }
     },
@@ -80285,7 +80285,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -80339,12 +80339,12 @@
             "dGPredictor": [
                 -12.39,
                 0.71,
-                "="
+                ">"
             ],
             "eQuilibrator": [
                 -11.56,
                 1.46,
-                "="
+                ">"
             ]
         }
     },
@@ -80375,7 +80375,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -80429,12 +80429,12 @@
             "dGPredictor": [
                 -12.39,
                 0.71,
-                "="
+                ">"
             ],
             "eQuilibrator": [
                 -11.55,
                 1.46,
-                "="
+                ">"
             ]
         }
     },
@@ -80516,12 +80516,12 @@
             "Group contribution": [
                 -21.53,
                 8.05,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 -12.39,
                 0.71,
-                "="
+                ">"
             ],
             "eQuilibrator": [
                 -5.98,
@@ -80606,12 +80606,12 @@
             "Group contribution": [
                 -21.53,
                 8.06,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 -12.39,
                 0.71,
-                "="
+                ">"
             ],
             "eQuilibrator": [
                 -5.98,
@@ -80697,12 +80697,12 @@
             "Group contribution": [
                 -21.53,
                 8.46,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 -12.39,
                 0.71,
-                "="
+                ">"
             ],
             "eQuilibrator": [
                 -5.98,
@@ -80788,12 +80788,12 @@
             "Group contribution": [
                 -21.53,
                 8.47,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 -12.39,
                 0.71,
-                "="
+                ">"
             ],
             "eQuilibrator": [
                 -5.98,
@@ -80878,12 +80878,12 @@
             "Group contribution": [
                 -21.53,
                 9.39,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 -12.39,
                 0.71,
-                "="
+                ">"
             ],
             "eQuilibrator": [
                 -5.98,
@@ -80968,12 +80968,12 @@
             "Group contribution": [
                 -21.53,
                 9.39,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 -12.39,
                 0.71,
-                "="
+                ">"
             ],
             "eQuilibrator": [
                 -5.98,
@@ -81009,7 +81009,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": ">",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "CI:2",
         "stoichiometry": [
@@ -81068,7 +81068,7 @@
             "eQuilibrator": [
                 -7.97,
                 1.22,
-                ">"
+                "="
             ]
         }
     },
@@ -81099,7 +81099,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": ">",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "CI:2",
         "stoichiometry": [
@@ -81158,7 +81158,7 @@
             "eQuilibrator": [
                 -7.97,
                 1.22,
-                ">"
+                "="
             ]
         }
     },
@@ -81238,12 +81238,12 @@
             "Group contribution": [
                 -21.53,
                 9.89,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 -12.39,
                 0.71,
-                "="
+                ">"
             ],
             "eQuilibrator": [
                 -5.98,
@@ -81328,12 +81328,12 @@
             "Group contribution": [
                 -21.53,
                 9.9,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 -12.39,
                 0.71,
-                "="
+                ">"
             ],
             "eQuilibrator": [
                 -5.98,
@@ -81418,12 +81418,12 @@
             "Group contribution": [
                 -21.53,
                 10.42,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 -12.39,
                 0.71,
-                "="
+                ">"
             ],
             "eQuilibrator": [
                 -5.98,
@@ -81508,12 +81508,12 @@
             "Group contribution": [
                 -21.53,
                 10.43,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 -12.39,
                 0.71,
-                "="
+                ">"
             ],
             "eQuilibrator": [
                 -5.98,
@@ -81598,12 +81598,12 @@
             "Group contribution": [
                 -21.53,
                 10.98,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 -12.39,
                 0.71,
-                "="
+                ">"
             ],
             "eQuilibrator": [
                 -5.98,
@@ -81688,12 +81688,12 @@
             "Group contribution": [
                 -21.53,
                 10.99,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 -12.39,
                 0.71,
-                "="
+                ">"
             ],
             "eQuilibrator": [
                 -5.98,
@@ -81778,12 +81778,12 @@
             "Group contribution": [
                 -21.53,
                 11.54,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 -12.39,
                 0.71,
-                "="
+                ">"
             ],
             "eQuilibrator": [
                 -5.98,
@@ -81868,12 +81868,12 @@
             "Group contribution": [
                 -21.53,
                 11.55,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 -12.39,
                 0.71,
-                "="
+                ">"
             ],
             "eQuilibrator": [
                 -5.98,
@@ -81966,7 +81966,7 @@
             "dGPredictor": [
                 -12.39,
                 0.71,
-                "="
+                ">"
             ],
             "eQuilibrator": [
                 -2.4,
@@ -82059,7 +82059,7 @@
             "dGPredictor": [
                 -12.39,
                 0.71,
-                "="
+                ">"
             ],
             "eQuilibrator": [
                 -2.4,
@@ -82099,7 +82099,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -82148,17 +82148,17 @@
             "Group contribution": [
                 -20.31,
                 6.94,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 -12.39,
                 0.71,
-                "="
+                ">"
             ],
             "eQuilibrator": [
                 -11.56,
                 1.46,
-                "="
+                ">"
             ]
         }
     },
@@ -82190,7 +82190,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -82239,17 +82239,17 @@
             "Group contribution": [
                 -20.31,
                 6.96,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 -12.39,
                 0.71,
-                "="
+                ">"
             ],
             "eQuilibrator": [
                 -11.55,
                 1.46,
-                "="
+                ">"
             ]
         }
     },
@@ -82329,12 +82329,12 @@
             "Group contribution": [
                 -17.44,
                 6.85,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 -12.39,
                 0.71,
-                "="
+                ">"
             ],
             "eQuilibrator": [
                 -31.87,
@@ -82419,12 +82419,12 @@
             "Group contribution": [
                 -17.44,
                 6.87,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 -12.39,
                 0.71,
-                "="
+                ">"
             ],
             "eQuilibrator": [
                 -31.87,
@@ -82509,7 +82509,7 @@
             "Group contribution": [
                 -15.58,
                 6.89,
-                ">"
+                "="
             ],
             "dGPredictor": [
                 -12.39,
@@ -82599,7 +82599,7 @@
             "Group contribution": [
                 -15.58,
                 6.91,
-                ">"
+                "="
             ],
             "dGPredictor": [
                 -12.39,
@@ -82640,7 +82640,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "CI:-4",
         "stoichiometry": [
@@ -82689,17 +82689,17 @@
             "Group contribution": [
                 -19.3,
                 6.89,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 -12.39,
                 0.71,
-                "="
+                ">"
             ],
             "eQuilibrator": [
                 -28.96,
                 1.78,
-                "="
+                ">"
             ]
         }
     },
@@ -82730,7 +82730,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "CI:-4",
         "stoichiometry": [
@@ -82779,17 +82779,17 @@
             "Group contribution": [
                 -19.3,
                 6.91,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 -12.39,
                 0.71,
-                "="
+                ">"
             ],
             "eQuilibrator": [
                 -28.95,
                 1.78,
-                "="
+                ">"
             ]
         }
     },
@@ -82874,7 +82874,7 @@
             "dGPredictor": [
                 -12.39,
                 0.71,
-                "="
+                ">"
             ],
             "eQuilibrator": [
                 39.01,
@@ -82964,7 +82964,7 @@
             "dGPredictor": [
                 -12.39,
                 0.71,
-                "="
+                ">"
             ],
             "eQuilibrator": [
                 39.01,
@@ -83054,7 +83054,7 @@
             "dGPredictor": [
                 -12.39,
                 0.71,
-                "="
+                ">"
             ],
             "eQuilibrator": [
                 41.09,
@@ -83144,7 +83144,7 @@
             "dGPredictor": [
                 -12.39,
                 0.71,
-                "="
+                ">"
             ],
             "eQuilibrator": [
                 41.1,
@@ -83234,7 +83234,7 @@
             "dGPredictor": [
                 -12.39,
                 0.71,
-                "="
+                ">"
             ],
             "eQuilibrator": [
                 -31.88,
@@ -83326,7 +83326,7 @@
             "dGPredictor": [
                 -12.39,
                 0.71,
-                "="
+                ">"
             ],
             "eQuilibrator": [
                 -31.87,
@@ -83421,7 +83421,7 @@
             "dGPredictor": [
                 -12.39,
                 0.71,
-                "="
+                ">"
             ],
             "eQuilibrator": [
                 -31.88,
@@ -83519,7 +83519,7 @@
             "dGPredictor": [
                 -12.39,
                 0.71,
-                "="
+                ">"
             ],
             "eQuilibrator": [
                 -31.87,
@@ -83609,7 +83609,7 @@
             "dGPredictor": [
                 -12.39,
                 0.71,
-                "="
+                ">"
             ],
             "eQuilibrator": [
                 -31.88,
@@ -83705,7 +83705,7 @@
             "dGPredictor": [
                 -12.39,
                 0.71,
-                "="
+                ">"
             ],
             "eQuilibrator": [
                 -31.87,
@@ -83796,7 +83796,7 @@
             "dGPredictor": [
                 -12.39,
                 0.71,
-                "="
+                ">"
             ],
             "eQuilibrator": [
                 -31.88,
@@ -83892,7 +83892,7 @@
             "dGPredictor": [
                 -12.39,
                 0.71,
-                "="
+                ">"
             ],
             "eQuilibrator": [
                 -31.87,
@@ -83978,12 +83978,12 @@
             "Group contribution": [
                 -17.44,
                 6.81,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 -12.39,
                 0.71,
-                "="
+                ">"
             ],
             "eQuilibrator": [
                 -31.88,
@@ -84069,12 +84069,12 @@
             "Group contribution": [
                 -17.44,
                 6.82,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 -12.39,
                 0.71,
-                "="
+                ">"
             ],
             "eQuilibrator": [
                 -31.87,
@@ -84535,12 +84535,12 @@
             "Group contribution": [
                 -17.44,
                 6.93,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 -12.39,
                 0.71,
-                "="
+                ">"
             ],
             "eQuilibrator": [
                 -31.88,
@@ -84630,7 +84630,7 @@
             "dGPredictor": [
                 -12.39,
                 0.71,
-                "="
+                ">"
             ]
         }
     },
@@ -84710,12 +84710,12 @@
             "Group contribution": [
                 -17.44,
                 6.95,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 -12.39,
                 0.71,
-                "="
+                ">"
             ],
             "eQuilibrator": [
                 -31.87,
@@ -84807,7 +84807,7 @@
             "dGPredictor": [
                 -12.39,
                 0.71,
-                "="
+                ">"
             ]
         }
     },
@@ -86283,7 +86283,7 @@
         "pathways": [
             "MetaCyc: Cardiolipin-Biosynthesis (Cardiolipin Biosynthesis); Cell-Structure-Biosynthesis (Cell Structure Biosynthesis); Cell-Wall-Biosynthesis (Cell Wall Biosynthesis); Lipid-Biosynthesis (Fatty Acid and Lipid Biosynthesis); PHOSLIPSYN-PWY (superpathway of phospholipid biosynthesis I (bacteria)); PHOSLIPSYN2-PWY (superpathway of phospholipid biosynthesis II (plants)); PWY-5269 (cardiolipin biosynthesis II); PWY-5668 (cardiolipin biosynthesis I); PWY-7817 (type I lipoteichoic acid biosynthesis (<i>S. aureus</i>)); PWY0-1545 (cardiolipin biosynthesis III); PWY4FS-7 (phosphatidylglycerol biosynthesis I (plastidic)); PWY4FS-8 (phosphatidylglycerol biosynthesis II (non-plastidic)); PhosphatidylglycerolBiosynthesis (Phosphatidylglycerol Biosynthesis); Phospholipid-Biosynthesis (Phospholipid Biosynthesis); Teichoic-Acids-Biosynthesis (Teichoic Acid Biosynthesis)"
         ],
-        "reversibility": ">",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -86332,7 +86332,7 @@
             "Group contribution": [
                 -14.03,
                 5.38,
-                ">"
+                "="
             ],
             "dGPredictor": [
                 -12.39,
@@ -86468,7 +86468,7 @@
         "pathways": [
             "MetaCyc: Cardiolipin-Biosynthesis (Cardiolipin Biosynthesis); Cell-Structure-Biosynthesis (Cell Structure Biosynthesis); Cell-Wall-Biosynthesis (Cell Wall Biosynthesis); Lipid-Biosynthesis (Fatty Acid and Lipid Biosynthesis); PHOSLIPSYN-PWY (superpathway of phospholipid biosynthesis I (bacteria)); PHOSLIPSYN2-PWY (superpathway of phospholipid biosynthesis II (plants)); PWY-5269 (cardiolipin biosynthesis II); PWY-5668 (cardiolipin biosynthesis I); PWY-7817 (type I lipoteichoic acid biosynthesis (<i>S. aureus</i>)); PWY0-1545 (cardiolipin biosynthesis III); PWY4FS-7 (phosphatidylglycerol biosynthesis I (plastidic)); PWY4FS-8 (phosphatidylglycerol biosynthesis II (non-plastidic)); PhosphatidylglycerolBiosynthesis (Phosphatidylglycerol Biosynthesis); Phospholipid-Biosynthesis (Phospholipid Biosynthesis); Teichoic-Acids-Biosynthesis (Teichoic Acid Biosynthesis)"
         ],
-        "reversibility": ">",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -86517,7 +86517,7 @@
             "Group contribution": [
                 -14.03,
                 5.38,
-                ">"
+                "="
             ],
             "dGPredictor": [
                 -12.39,
@@ -86560,7 +86560,7 @@
         "pathways": [
             "MetaCyc: Cardiolipin-Biosynthesis (Cardiolipin Biosynthesis); Cell-Structure-Biosynthesis (Cell Structure Biosynthesis); Cell-Wall-Biosynthesis (Cell Wall Biosynthesis); Lipid-Biosynthesis (Fatty Acid and Lipid Biosynthesis); PHOSLIPSYN-PWY (superpathway of phospholipid biosynthesis I (bacteria)); PHOSLIPSYN2-PWY (superpathway of phospholipid biosynthesis II (plants)); PWY-5269 (cardiolipin biosynthesis II); PWY-5668 (cardiolipin biosynthesis I); PWY-7817 (type I lipoteichoic acid biosynthesis (<i>S. aureus</i>)); PWY0-1545 (cardiolipin biosynthesis III); PWY4FS-7 (phosphatidylglycerol biosynthesis I (plastidic)); PWY4FS-8 (phosphatidylglycerol biosynthesis II (non-plastidic)); PhosphatidylglycerolBiosynthesis (Phosphatidylglycerol Biosynthesis); Phospholipid-Biosynthesis (Phospholipid Biosynthesis); Teichoic-Acids-Biosynthesis (Teichoic Acid Biosynthesis)"
         ],
-        "reversibility": ">",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -86609,7 +86609,7 @@
             "Group contribution": [
                 -14.03,
                 5.38,
-                ">"
+                "="
             ],
             "dGPredictor": [
                 -12.39,
@@ -86652,7 +86652,7 @@
         "pathways": [
             "MetaCyc: Cardiolipin-Biosynthesis (Cardiolipin Biosynthesis); Cell-Structure-Biosynthesis (Cell Structure Biosynthesis); Cell-Wall-Biosynthesis (Cell Wall Biosynthesis); Lipid-Biosynthesis (Fatty Acid and Lipid Biosynthesis); PHOSLIPSYN-PWY (superpathway of phospholipid biosynthesis I (bacteria)); PHOSLIPSYN2-PWY (superpathway of phospholipid biosynthesis II (plants)); PWY-5269 (cardiolipin biosynthesis II); PWY-5668 (cardiolipin biosynthesis I); PWY-7817 (type I lipoteichoic acid biosynthesis (<i>S. aureus</i>)); PWY0-1545 (cardiolipin biosynthesis III); PWY4FS-7 (phosphatidylglycerol biosynthesis I (plastidic)); PWY4FS-8 (phosphatidylglycerol biosynthesis II (non-plastidic)); PhosphatidylglycerolBiosynthesis (Phosphatidylglycerol Biosynthesis); Phospholipid-Biosynthesis (Phospholipid Biosynthesis); Teichoic-Acids-Biosynthesis (Teichoic Acid Biosynthesis)"
         ],
-        "reversibility": ">",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -86701,7 +86701,7 @@
             "Group contribution": [
                 -14.03,
                 5.38,
-                ">"
+                "="
             ],
             "dGPredictor": [
                 -12.39,
@@ -86837,7 +86837,7 @@
         "pathways": [
             "MetaCyc: Cardiolipin-Biosynthesis (Cardiolipin Biosynthesis); Cell-Structure-Biosynthesis (Cell Structure Biosynthesis); Cell-Wall-Biosynthesis (Cell Wall Biosynthesis); Lipid-Biosynthesis (Fatty Acid and Lipid Biosynthesis); PHOSLIPSYN-PWY (superpathway of phospholipid biosynthesis I (bacteria)); PHOSLIPSYN2-PWY (superpathway of phospholipid biosynthesis II (plants)); PWY-5269 (cardiolipin biosynthesis II); PWY-5668 (cardiolipin biosynthesis I); PWY-7817 (type I lipoteichoic acid biosynthesis (<i>S. aureus</i>)); PWY0-1545 (cardiolipin biosynthesis III); PWY4FS-7 (phosphatidylglycerol biosynthesis I (plastidic)); PWY4FS-8 (phosphatidylglycerol biosynthesis II (non-plastidic)); PhosphatidylglycerolBiosynthesis (Phosphatidylglycerol Biosynthesis); Phospholipid-Biosynthesis (Phospholipid Biosynthesis); Teichoic-Acids-Biosynthesis (Teichoic Acid Biosynthesis)"
         ],
-        "reversibility": ">",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -86886,7 +86886,7 @@
             "Group contribution": [
                 -14.03,
                 5.38,
-                ">"
+                "="
             ],
             "dGPredictor": [
                 -12.39,

@@ -2172,7 +2172,7 @@
             "Group contribution": [
                 28.5,
                 13.97,
-                "="
+                "<"
             ],
             "dGPredictor": [
                 -24.09,
@@ -2315,7 +2315,7 @@
         "pathways": [
             "KEGG: rn00966 (Glucosinolate biosynthesis); rn01110 (Biosynthesis of secondary metabolites); rn01210 (2-Oxocarboxylic acid metabolism)"
         ],
-        "reversibility": ">",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -2364,7 +2364,7 @@
             "Group contribution": [
                 -14.03,
                 6.87,
-                ">"
+                "="
             ],
             "dGPredictor": [
                 -20.13,
@@ -4605,7 +4605,7 @@
             "MetaCyc: POLYKETIDE-SYN (Polyketide Biosynthesis); PWY-6432 (curcuminoid biosynthesis); SECONDARY-METABOLITE-BIOSYNTHESIS (Secondary Metabolite Biosynthesis)",
             "KEGG: rn00945 (Stilbenoid, diarylheptanoid and gingerol biosynthesis); rn01110 (Biosynthesis of secondary metabolites)"
         ],
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -4662,7 +4662,7 @@
             "Group contribution": [
                 5.37,
                 9.07,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 -14.68,
@@ -5868,7 +5868,7 @@
             "MetaCyc: POLYKETIDE-SYN (Polyketide Biosynthesis); PWY-6432 (curcuminoid biosynthesis); SECONDARY-METABOLITE-BIOSYNTHESIS (Secondary Metabolite Biosynthesis)",
             "KEGG: rn00945 (Stilbenoid, diarylheptanoid and gingerol biosynthesis); rn01110 (Biosynthesis of secondary metabolites)"
         ],
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -5925,7 +5925,7 @@
             "Group contribution": [
                 5.37,
                 9.25,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 -14.73,
@@ -8482,7 +8482,7 @@
         "pathways": [
             "MetaCyc: Cofactor-Biosynthesis (Cofactor, Prosthetic Group, Electron Carrier, and Vitamin Biosynthesis); DITERPENOID-SYN (Diterpenoid Biosynthesis); PWY-5063 (phytyl diphosphate biosynthesis); PWY-5863 (superpathway of phylloquinol biosynthesis); Phylloquinone-Biosynthesis (Phylloquinol Biosynthesis); Phytyl-Diphosphate-Biosynthesis (Phytyl Diphosphate Biosynthesis); Quinone-Biosynthesis (Quinol and Quinone Biosynthesis); SECONDARY-METABOLITE-BIOSYNTHESIS (Secondary Metabolite Biosynthesis); Terpenoid-Biosynthesis (Terpenoid Biosynthesis)"
         ],
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -8531,7 +8531,7 @@
             "Group contribution": [
                 -17.54,
                 6.46,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 -0.71,
@@ -8541,7 +8541,7 @@
             "eQuilibrator": [
                 -13.27,
                 0.43,
-                "="
+                ">"
             ]
         }
     },
@@ -9526,7 +9526,7 @@
             "EQP"
         ],
         "pathways": null,
-        "reversibility": "=",
+        "reversibility": "<",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -9567,12 +9567,12 @@
             "Group contribution": [
                 -1.81,
                 5.06,
-                "="
+                "<"
             ],
             "dGPredictor": [
                 -1.77,
                 0.35,
-                "="
+                "<"
             ]
         }
     },
@@ -11771,7 +11771,7 @@
             "MetaCyc: GLUCOSINOLATE-SYN (Glucosinolate Biosynthesis); N-CONTAINING-GLUCOSIDE-SYN (Nitrogen-Containing Glucoside Biosynthesis); N-CONTAINING-SECONDARY-CMPD-SYN (Nitrogen-Containing Secondary Compound Biosynthesis); PWY-1187 (glucosinolate biosynthesis from homomethionine); SECONDARY-METABOLITE-BIOSYNTHESIS (Secondary Metabolite Biosynthesis)",
             "KEGG: rn00966 (Glucosinolate biosynthesis); rn01110 (Biosynthesis of secondary metabolites); rn01210 (2-Oxocarboxylic acid metabolism)"
         ],
-        "reversibility": ">",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -11820,7 +11820,7 @@
             "Group contribution": [
                 -14.03,
                 7.0,
-                ">"
+                "="
             ],
             "dGPredictor": [
                 -20.14,
@@ -12096,7 +12096,7 @@
             "dGPredictor": [
                 -5.81,
                 0.26,
-                "="
+                ">"
             ],
             "eQuilibrator": [
                 -10.55,
@@ -12527,7 +12527,7 @@
         "pathways": [
             "MetaCyc: Cofactor-Biosynthesis (Cofactor, Prosthetic Group, Electron Carrier, and Vitamin Biosynthesis); DITERPENOID-SYN (Diterpenoid Biosynthesis); PWY-5063 (phytyl diphosphate biosynthesis); PWY-5863 (superpathway of phylloquinol biosynthesis); Phylloquinone-Biosynthesis (Phylloquinol Biosynthesis); Phytyl-Diphosphate-Biosynthesis (Phytyl Diphosphate Biosynthesis); Quinone-Biosynthesis (Quinol and Quinone Biosynthesis); SECONDARY-METABOLITE-BIOSYNTHESIS (Secondary Metabolite Biosynthesis); Terpenoid-Biosynthesis (Terpenoid Biosynthesis)"
         ],
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -12576,7 +12576,7 @@
             "Group contribution": [
                 -17.54,
                 6.63,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 3.89,
@@ -12586,7 +12586,7 @@
             "eQuilibrator": [
                 -13.27,
                 0.43,
-                "="
+                ">"
             ]
         }
     },
@@ -12707,7 +12707,7 @@
             "MetaCyc: Ascorbate-Biosynthesis (Ascorbate Biosynthesis); Cofactor-Biosynthesis (Cofactor, Prosthetic Group, Electron Carrier, and Vitamin Biosynthesis); PWY3DJ-35471 (L-ascorbate biosynthesis IV); Vitamin-Biosynthesis (Vitamin Biosynthesis)",
             "KEGG: rn00053 (Ascorbate and aldarate metabolism)"
         ],
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -12753,12 +12753,12 @@
             "dGPredictor": [
                 -4.33,
                 0.18,
-                "="
+                ">"
             ],
             "eQuilibrator": [
                 -6.19,
                 0.6,
-                "="
+                ">"
             ]
         }
     },
@@ -13846,7 +13846,7 @@
             "Group contribution": [
                 -2.88,
                 6.66,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 -1.71,
@@ -15842,7 +15842,7 @@
         "pathways": [
             "KEGG: rn00140 (Steroid hormone biosynthesis)"
         ],
-        "reversibility": "=",
+        "reversibility": "<",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -15891,7 +15891,7 @@
             "Group contribution": [
                 16.31,
                 9.81,
-                "="
+                "<"
             ],
             "dGPredictor": [
                 28.58,
@@ -18632,7 +18632,7 @@
             "MetaCyc: Lipid-Biosynthesis (Fatty Acid and Lipid Biosynthesis); PWY-6061 (bile acid biosynthesis, neutral pathway); Sterol-Biosynthesis (Sterol Biosynthesis)",
             "KEGG: rn00120 (Primary bile acid biosynthesis)"
         ],
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -18697,17 +18697,17 @@
             "Group contribution": [
                 -21.55,
                 12.13,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 -11.34,
                 1.27,
-                "="
+                ">"
             ],
             "eQuilibrator": [
                 -2.62,
                 0.35,
-                "="
+                ">"
             ]
         }
     },
@@ -20852,7 +20852,7 @@
         "pathways": [
             "KEGG: rn00140 (Steroid hormone biosynthesis)"
         ],
-        "reversibility": "=",
+        "reversibility": "<",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -20901,7 +20901,7 @@
             "Group contribution": [
                 16.31,
                 9.78,
-                "="
+                "<"
             ],
             "dGPredictor": [
                 28.58,
@@ -21263,7 +21263,7 @@
             "MetaCyc: POLYKETIDE-SYN (Polyketide Biosynthesis); PWY-6432 (curcuminoid biosynthesis); PWY-6438 (phenylphenalenone biosynthesis); SECONDARY-METABOLITE-BIOSYNTHESIS (Secondary Metabolite Biosynthesis)",
             "KEGG: rn00945 (Stilbenoid, diarylheptanoid and gingerol biosynthesis); rn01110 (Biosynthesis of secondary metabolites)"
         ],
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -21320,7 +21320,7 @@
             "Group contribution": [
                 2.16,
                 7.24,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 -2.29,
@@ -21330,7 +21330,7 @@
             "eQuilibrator": [
                 3.17,
                 0.82,
-                "="
+                ">"
             ]
         }
     },
@@ -21502,7 +21502,7 @@
             "dGPredictor": [
                 0.14,
                 0.55,
-                "="
+                ">"
             ],
             "eQuilibrator": [
                 -5.49,
@@ -22849,7 +22849,7 @@
         "pathways": [
             "MetaCyc: Cofactor-Biosynthesis (Cofactor, Prosthetic Group, Electron Carrier, and Vitamin Biosynthesis); DITERPENOID-SYN (Diterpenoid Biosynthesis); PWY-5063 (phytyl diphosphate biosynthesis); PWY-5863 (superpathway of phylloquinol biosynthesis); Phylloquinone-Biosynthesis (Phylloquinol Biosynthesis); Phytyl-Diphosphate-Biosynthesis (Phytyl Diphosphate Biosynthesis); Quinone-Biosynthesis (Quinol and Quinone Biosynthesis); SECONDARY-METABOLITE-BIOSYNTHESIS (Secondary Metabolite Biosynthesis); Terpenoid-Biosynthesis (Terpenoid Biosynthesis)"
         ],
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -22898,7 +22898,7 @@
             "Group contribution": [
                 -17.54,
                 6.36,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 4.7,
@@ -22908,7 +22908,7 @@
             "eQuilibrator": [
                 -13.27,
                 0.43,
-                "="
+                ">"
             ]
         }
     },
@@ -23041,7 +23041,7 @@
             "MetaCyc: 14-Dihydroxy-6-Naphthoate-Biosynthesis (1,4-dihydroxy-6-naphthoate biosynthesis); Cofactor-Biosynthesis (Cofactor, Prosthetic Group, Electron Carrier, and Vitamin Biosynthesis); Menaquinone-Biosynthesis (Menaquinol Biosynthesis); PWY-6263 (superpathway of menaquinol-8 biosynthesis II); PWY-7374 (1,4-dihydroxy-6-naphthoate biosynthesis I); Quinone-Biosynthesis (Quinol and Quinone Biosynthesis)",
             "KEGG: rn00130 (Ubiquinone and other terpenoid-quinone biosynthesis); rn01110 (Biosynthesis of secondary metabolites)"
         ],
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -23087,12 +23087,12 @@
             "dGPredictor": [
                 -2.38,
                 0.03,
-                "="
+                ">"
             ],
             "eQuilibrator": [
                 -3.7,
                 0.77,
-                "="
+                ">"
             ]
         }
     },
@@ -24780,7 +24780,7 @@
             "MetaCyc: POLYKETIDE-SYN (Polyketide Biosynthesis); PWY-6432 (curcuminoid biosynthesis); SECONDARY-METABOLITE-BIOSYNTHESIS (Secondary Metabolite Biosynthesis)",
             "KEGG: rn00945 (Stilbenoid, diarylheptanoid and gingerol biosynthesis); rn01110 (Biosynthesis of secondary metabolites)"
         ],
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -24837,7 +24837,7 @@
             "Group contribution": [
                 5.37,
                 9.14,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 -14.69,
@@ -25858,7 +25858,7 @@
             "MetaCyc: Lipid-Biosynthesis (Fatty Acid and Lipid Biosynthesis); PWY-6061 (bile acid biosynthesis, neutral pathway); Sterol-Biosynthesis (Sterol Biosynthesis)",
             "KEGG: rn00120 (Primary bile acid biosynthesis)"
         ],
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -25923,7 +25923,7 @@
             "Group contribution": [
                 -21.55,
                 12.11,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 -13.21,
@@ -25933,7 +25933,7 @@
             "eQuilibrator": [
                 -2.62,
                 0.35,
-                "="
+                ">"
             ]
         }
     },
@@ -26894,7 +26894,7 @@
             "dGPredictor": [
                 -4.33,
                 0.25,
-                "="
+                ">"
             ],
             "eQuilibrator": [
                 -8.85,
@@ -27684,7 +27684,7 @@
         "pathways": [
             "KEGG: rn00640 (Propanoate metabolism)"
         ],
-        "reversibility": "=",
+        "reversibility": "<",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -27751,7 +27751,7 @@
             "eQuilibrator": [
                 10.17,
                 0.27,
-                "="
+                "<"
             ]
         }
     },
@@ -28717,7 +28717,7 @@
             "dGPredictor": [
                 2.66,
                 0.25,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 100.09,
@@ -29753,7 +29753,7 @@
             "EQP"
         ],
         "pathways": null,
-        "reversibility": "=",
+        "reversibility": "<",
         "source": "Primary Database",
         "status": "CI:-1",
         "stoichiometry": [
@@ -31570,7 +31570,7 @@
             "MetaCyc: GLUCOSINOLATE-SYN (Glucosinolate Biosynthesis); N-CONTAINING-GLUCOSIDE-SYN (Nitrogen-Containing Glucoside Biosynthesis); N-CONTAINING-SECONDARY-CMPD-SYN (Nitrogen-Containing Secondary Compound Biosynthesis); PWYQT-4471 (glucosinolate biosynthesis from dihomomethionine); SECONDARY-METABOLITE-BIOSYNTHESIS (Secondary Metabolite Biosynthesis)",
             "KEGG: rn00966 (Glucosinolate biosynthesis); rn01210 (2-Oxocarboxylic acid metabolism)"
         ],
-        "reversibility": ">",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -31619,7 +31619,7 @@
             "Group contribution": [
                 -14.03,
                 7.01,
-                ">"
+                "="
             ],
             "dGPredictor": [
                 -20.14,
@@ -32464,7 +32464,7 @@
         "pathways": [
             "KEGG: rn00330 (Arginine and proline metabolism)"
         ],
-        "reversibility": ">",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -32513,7 +32513,7 @@
             "Group contribution": [
                 0.55,
                 1.98,
-                ">"
+                "="
             ],
             "dGPredictor": [
                 -7.47,
@@ -32523,7 +32523,7 @@
             "eQuilibrator": [
                 -0.91,
                 1.08,
-                ">"
+                "="
             ]
         }
     },
@@ -34600,7 +34600,7 @@
             "dGPredictor": [
                 -6.42,
                 0.25,
-                "="
+                ">"
             ],
             "eQuilibrator": [
                 -10.55,
@@ -34799,7 +34799,7 @@
             "MetaCyc: POLYKETIDE-SYN (Polyketide Biosynthesis); PWY-6432 (curcuminoid biosynthesis); SECONDARY-METABOLITE-BIOSYNTHESIS (Secondary Metabolite Biosynthesis)",
             "KEGG: rn00945 (Stilbenoid, diarylheptanoid and gingerol biosynthesis); rn01110 (Biosynthesis of secondary metabolites)"
         ],
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -34856,7 +34856,7 @@
             "Group contribution": [
                 5.37,
                 9.14,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 -14.71,

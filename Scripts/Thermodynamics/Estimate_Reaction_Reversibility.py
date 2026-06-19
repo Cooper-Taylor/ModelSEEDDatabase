@@ -199,7 +199,11 @@ def _incomplete_decision(rxn_entry, db_level):
 
 def _walk_stoichiometry(stoichiometry):
     """Single pass that produces every accumulator the downstream heuristics
-    need. Keeps the original ordering and per-compound special cases."""
+    need. Keeps the original ordering and per-compound special cases.
+
+    The phosphate accumulator and the CO2 / O2 / H2 concentration overrides
+    were both unreachable in the historical code (see the inline note below);
+    Heuristics-Review fixes H2 and H3 restore them."""
     rct_min = rct_max = 0.0
     pdt_min = pdt_max = 0.0
     rgt_sum = 0.0
@@ -214,27 +218,26 @@ def _walk_stoichiometry(stoichiometry):
         if cpd == PROTON:
             proton_cpts[cpt] = 1
 
-        # NB: two latent bugs preserved verbatim from the original for
-        # output equivalence — DO NOT "clean up" either:
-        #   1. ``cpd in rgt`` tests the dict keys of the stoichiometry row
-        #      (``compound``, ``coefficient``, ``compartment``, ...), not
-        #      its compound id. The condition is therefore always False,
-        #      so ``phosphates`` is always empty, making the ABCT and
-        #      low-energy-points branches unreachable in practice.
-        #   2. The loop variable name is ``cpd``, deliberately shadowing
-        #      the outer ``cpd``. After the loop, ``cpd`` is the LAST
-        #      value of ``PHOSPHATE_IDS`` (cpd00012, PPi) regardless of
-        #      the reagent. This makes the PROTON_WATER skip below a
-        #      no-op and the CO2 / LOW_LOCAL_CONC special-concentration
-        #      branches unreachable. Renaming this variable changes the
-        #      output of the entire pipeline.
-        for cpd in PHOSPHATE_IDS:
-            if cpd in rgt:
-                phosphates.setdefault(cpd, 0.0)
-                phosphates[cpd] += coeff
+        # Accumulate phosphate-bearing reagents (ATP/ADP/AMP/Pi/PPi) by
+        # compound id; this feeds the ABC-transporter rule and the
+        # phosphate-spread term of the low-energy-points heuristic.
+        #
+        # Heuristics-Review H2 + H3 (repaired here): the original code had two
+        # coupled typos in this block. (1) the accumulator looped over
+        # PHOSPHATE_IDS and tested ``cpd in rgt`` — the stoichiometry row's
+        # dict keys (``compound``/``coefficient``/``compartment``), never a
+        # compound id — so the condition was always False and ``phosphates``
+        # stayed empty, leaving the ABCT and phosphate-spread branches dead
+        # (H3). (2) that loop reused the name ``cpd``, shadowing the reagent's
+        # compound id with PHOSPHATE_IDS[-1] (PPi) for the rest of the
+        # iteration, which silently disabled the per-reagent PROTON_WATER skip
+        # and made the CO2 / LOW_LOCAL_CONC concentration overrides below
+        # unreachable (the O2/H2 override is H2). Testing the real compound id
+        # against PHOSPHATE_IDS repairs all of them at once.
+        if cpd in PHOSPHATE_IDS:
+            phosphates.setdefault(cpd, 0.0)
+            phosphates[cpd] += coeff
 
-        # (cpd is now PHOSPHATE_IDS[-1], not the reagent's compound id;
-        # see the note above.)
         if cpd in PROTON_WATER:
             continue
 
@@ -246,7 +249,8 @@ def _walk_stoichiometry(stoichiometry):
             pdt_min += coeff * log(CELL_MIN)
             pdt_max += coeff * log(CELL_MAX)
 
-        # mMdeltaG under fixed local concentration
+        # mMdeltaG under fixed local concentration. CO2 sits near 0.1 mM and
+        # dissolved O2/H2 near 1 µM, rather than the 1 mM cytoplasmic default.
         local_conc = CELL_CONC
         if cpd == CO2:
             local_conc = 0.0001
@@ -298,8 +302,9 @@ def _is_atp_synthase(rxn_entry, proton_cpts):
 
 def _abc_transporter_decision(rxn_entry, phosphates):
     """Transport reactions with an ATP coefficient: direction follows the
-    sign. (Latent today because ``phosphates`` is always empty — preserved
-    for parity with the original.)"""
+    sign. ATP consumed (negative coeff) drives uptake forward (``>``); ATP
+    produced drives it reverse (``<``). Reachable again now that the
+    ``phosphates`` accumulator is repaired (Heuristics-Review H3)."""
     if rxn_entry['is_transport'] != 1 or ATP not in phosphates:
         return None
     coeff = phosphates[ATP]
