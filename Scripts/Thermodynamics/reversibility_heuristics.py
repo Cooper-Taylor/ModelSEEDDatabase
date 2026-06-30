@@ -356,6 +356,15 @@ DEFAULT_HEURISTICS = [
     default_heuristic,
 ]
 
+# Heuristics that need only stoichiometry/structure (no ΔG). These can still be
+# evaluated for reactions that carry no stored energy; the rest require a ΔG and
+# are reported as "no-energy" by ``evaluate_all_heuristics`` in that case.
+ENERGY_FREE_HEURISTICS = (
+    atp_synthase_heuristic,
+    abc_transporter_heuristic,
+    default_heuristic,
+)
+
 
 def make_ln_reversibility_index_heuristic(ln_ri_by_rxn, threshold=LN_RI_THRESHOLD):
     """OPTIONAL heuristic (not in DEFAULT_HEURISTICS): eQuilibrator's reversibility
@@ -418,3 +427,38 @@ def run_reversibility(rxn_entry, energy_source, heuristics=DEFAULT_HEURISTICS):
         if result is not None:
             return result[0], result[1], source_label
     return "default", "=", source_label
+
+
+def evaluate_all_heuristics(rxn_entry, energy_source, heuristics=DEFAULT_HEURISTICS):
+    """Run EVERY heuristic on one reaction WITHOUT the cascade short-circuit.
+
+    Unlike :func:`run_reversibility` (first non-``None`` wins), this records what
+    *every* heuristic would say for the reaction -- for diagnostics and for
+    auditing the cascade order (which rules agree, which disagree, which the
+    cascade picks).
+
+    Returns ``(source_label, has_energy, results)`` where ``results`` maps each
+    heuristic's ``__name__`` to one of:
+      * ``(status, operator)`` -- the heuristic fired,
+      * ``None``               -- it ran but abstained,
+      * ``"no-energy"``        -- it needs a ΔG and the reaction has none,
+      * ``"empty"``            -- the reaction is EMPTY (no chemistry).
+    """
+    if rxn_entry.get("status") == "EMPTY":
+        return None, False, {h.__name__: "empty" for h in heuristics}
+
+    dg, dge, source_label = energy_source(rxn_entry)
+    has_energy = dg is not None
+    results = {}
+    if has_energy:
+        ctx = Context(rxn_entry, float(dg), float(dge))
+        for h in heuristics:
+            results[h.__name__] = h(ctx)
+    else:
+        # No ΔG available: only the structure-only heuristics can be evaluated;
+        # the energy-dependent ones are reported as "no-energy" rather than run
+        # against a bogus ΔG of 0.
+        ctx = Context(rxn_entry, 0.0, 0.0)
+        for h in heuristics:
+            results[h.__name__] = h(ctx) if h in ENERGY_FREE_HEURISTICS else "no-energy"
+    return source_label, has_energy, results
