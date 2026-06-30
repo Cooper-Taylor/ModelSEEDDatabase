@@ -51623,7 +51623,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "<",
+        "reversibility": "=",
         "source": "Secondary Database",
         "status": "OK",
         "stoichiometry": [
@@ -51680,17 +51680,17 @@
             "Group contribution": [
                 6.81,
                 4.36,
-                "<"
+                "="
             ],
             "dGPredictor": [
                 -67.33,
                 2.29,
-                ">"
+                "="
             ],
             "eQuilibrator": [
                 6.16,
                 0.07,
-                "<"
+                "="
             ]
         }
     },
@@ -56324,7 +56324,7 @@
             "dGPredictor": [
                 96.12,
                 0.04,
-                "<"
+                ">"
             ],
             "eQuilibrator": [
                 -2.62,
@@ -56429,7 +56429,7 @@
             "dGPredictor": [
                 96.12,
                 0.04,
-                "<"
+                ">"
             ],
             "eQuilibrator": [
                 -2.63,
@@ -56624,7 +56624,7 @@
             "dGPredictor": [
                 96.12,
                 0.04,
-                "<"
+                ">"
             ],
             "eQuilibrator": [
                 -6.16,
@@ -56729,7 +56729,7 @@
             "dGPredictor": [
                 96.12,
                 0.04,
-                "<"
+                ">"
             ],
             "eQuilibrator": [
                 -6.16,
@@ -57618,7 +57618,7 @@
             "dGPredictor": [
                 96.12,
                 0.04,
-                "<"
+                ">"
             ]
         }
     },
@@ -58166,7 +58166,7 @@
             "dGPredictor": [
                 96.12,
                 0.04,
-                "<"
+                ">"
             ],
             "eQuilibrator": [
                 -6.16,
@@ -58528,7 +58528,7 @@
             "dGPredictor": [
                 96.12,
                 0.04,
-                "<"
+                ">"
             ],
             "eQuilibrator": [
                 -6.16,

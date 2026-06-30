@@ -12230,7 +12230,7 @@
         "pathways": [
             "MetaCyc: Electron-Transfer (Electron Transfer); Energy-Metabolism (Generation of Precursor Metabolite and Energy); PWY-7980 (ATP biosynthesis); Transport-Pathways (Transport)"
         ],
-        "reversibility": "<",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -12287,7 +12287,7 @@
             "Group contribution": [
                 6.81,
                 4.36,
-                "<"
+                "="
             ],
             "dGPredictor": [
                 -9.06,
@@ -12297,7 +12297,7 @@
             "eQuilibrator": [
                 6.16,
                 0.07,
-                "<"
+                "="
             ]
         }
     },

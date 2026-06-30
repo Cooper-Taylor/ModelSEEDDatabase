@@ -348,9 +348,9 @@ def default_heuristic(ctx):
 # The historical fixed cascade, as a composable list. Order + status strings are
 # load-bearing (the reversibility report is byte-compared in the regression test).
 DEFAULT_HEURISTICS = [
-    stored_bounds_heuristic,
     atp_synthase_heuristic,
     abc_transporter_heuristic,
+    stored_bounds_heuristic,
     mmdeltag_band_heuristic,
     low_energy_heuristic,
     default_heuristic,

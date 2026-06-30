@@ -4912,7 +4912,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": ">",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -4969,17 +4969,17 @@
             "Group contribution": [
                 -6.81,
                 4.36,
-                ">"
+                "="
             ],
             "dGPredictor": [
                 -7.17,
                 0.04,
-                ">"
+                "="
             ],
             "eQuilibrator": [
                 -6.16,
                 0.07,
-                ">"
+                "="
             ]
         }
     },
@@ -5015,7 +5015,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": ">",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -5072,17 +5072,17 @@
             "Group contribution": [
                 -6.81,
                 4.36,
-                ">"
+                "="
             ],
             "dGPredictor": [
                 -7.17,
                 0.04,
-                ">"
+                "="
             ],
             "eQuilibrator": [
                 -6.16,
                 0.07,
-                ">"
+                "="
             ]
         }
     },
@@ -5118,7 +5118,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": ">",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -5175,17 +5175,17 @@
             "Group contribution": [
                 -6.81,
                 4.36,
-                ">"
+                "="
             ],
             "dGPredictor": [
                 -7.17,
                 0.04,
-                ">"
+                "="
             ],
             "eQuilibrator": [
                 -6.16,
                 0.07,
-                ">"
+                "="
             ]
         }
     },

@@ -52993,7 +52993,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "<",
+        "reversibility": "=",
         "source": "Published Model",
         "status": "OK",
         "stoichiometry": [
@@ -53050,12 +53050,12 @@
             "Group contribution": [
                 6.81,
                 4.36,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 6.16,
                 0.07,
-                "<"
+                "="
             ]
         }
     },
