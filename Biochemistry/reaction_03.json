@@ -349,7 +349,7 @@
             "Group contribution": [
                 -0.98,
                 1.76,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 -2.21,
@@ -642,7 +642,7 @@
             "dGPredictor": [
                 5.87,
                 0.39,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 1769.48,
@@ -684,7 +684,7 @@
         "pathways": [
             "KEGG: rn00100 (Steroid biosynthesis)"
         ],
-        "reversibility": "=",
+        "reversibility": "<",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -743,7 +743,7 @@
             "eQuilibrator": [
                 13.27,
                 1.0,
-                "="
+                "<"
             ]
         }
     },
@@ -1335,12 +1335,12 @@
             "Group contribution": [
                 -11.96,
                 6.36,
-                ">"
+                "="
             ],
             "dGPredictor": [
                 -7.86,
                 0.56,
-                ">"
+                "="
             ],
             "eQuilibrator": [
                 5.81,
@@ -1428,12 +1428,12 @@
             "Group contribution": [
                 -11.96,
                 6.35,
-                ">"
+                "="
             ],
             "dGPredictor": [
                 -8.44,
                 0.56,
-                ">"
+                "="
             ],
             "eQuilibrator": [
                 5.81,
@@ -1934,7 +1934,7 @@
         "pathways": [
             "KEGG: rn00364 (Fluorobenzoate degradation)"
         ],
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -1975,12 +1975,12 @@
             "Group contribution": [
                 0.26,
                 6.58,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 0.36,
                 0.36,
-                "="
+                ">"
             ]
         }
     },
@@ -2867,7 +2867,7 @@
             "dGPredictor": [
                 9.19,
                 0.5,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 7.3,
@@ -3714,12 +3714,12 @@
             "Group contribution": [
                 3.41,
                 1.32,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 -1.04,
                 0.23,
-                "="
+                ">"
             ],
             "eQuilibrator": [
                 -2.92,
@@ -4337,7 +4337,7 @@
             "dGPredictor": [
                 -0.35,
                 0.47,
-                "="
+                ">"
             ],
             "eQuilibrator": [
                 -10.83,
@@ -4507,12 +4507,12 @@
             "Group contribution": [
                 6.42,
                 1.49,
-                "="
+                "<"
             ],
             "dGPredictor": [
                 -2.89,
                 0.39,
-                ">"
+                "="
             ],
             "eQuilibrator": [
                 0.38,
@@ -4802,7 +4802,7 @@
             "dGPredictor": [
                 -8.42,
                 0.56,
-                ">"
+                "="
             ],
             "eQuilibrator": [
                 4.44,
@@ -5606,7 +5606,7 @@
             "MetaCyc: ERGOSTEROL-SYN-PWY (superpathway of ergosterol biosynthesis I); Ergosterol-Biosynthesis (Ergosterol Biosynthesis); Lipid-Biosynthesis (Fatty Acid and Lipid Biosynthesis); PWY-6075 (ergosterol biosynthesis I); Sterol-Biosynthesis (Sterol Biosynthesis)",
             "KEGG: rn00100 (Steroid biosynthesis)"
         ],
-        "reversibility": ">",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -5655,7 +5655,7 @@
             "Group contribution": [
                 -19.86,
                 10.94,
-                ">"
+                "="
             ],
             "dGPredictor": [
                 7.1,
@@ -5752,7 +5752,7 @@
             "Group contribution": [
                 2.97,
                 2.39,
-                "="
+                "<"
             ],
             "dGPredictor": [
                 15.22,
@@ -6786,7 +6786,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -6853,7 +6853,7 @@
             "eQuilibrator": [
                 -9.45,
                 0.27,
-                "="
+                ">"
             ]
         }
     },
@@ -7744,7 +7744,7 @@
             "EQC"
         ],
         "pathways": null,
-        "reversibility": ">",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -7793,7 +7793,7 @@
             "Group contribution": [
                 -14.03,
                 6.47,
-                ">"
+                "="
             ],
             "dGPredictor": [
                 8.33,
@@ -7875,7 +7875,7 @@
             "dGPredictor": [
                 -2.89,
                 0.39,
-                ">"
+                "="
             ],
             "eQuilibrator": [
                 0.38,
@@ -8365,7 +8365,7 @@
             "dGPredictor": [
                 -6.11,
                 1.48,
-                "="
+                ">"
             ],
             "eQuilibrator": [
                 0.83,
@@ -8453,7 +8453,7 @@
             "dGPredictor": [
                 -6.11,
                 1.48,
-                "="
+                ">"
             ]
         }
     },
@@ -8611,7 +8611,7 @@
             "dGPredictor": [
                 -3.49,
                 0.17,
-                "="
+                ">"
             ]
         }
     },
@@ -9341,7 +9341,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -9406,17 +9406,17 @@
             "Group contribution": [
                 -21.55,
                 12.13,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 -4.92,
                 0.38,
-                "="
+                ">"
             ],
             "eQuilibrator": [
                 -2.62,
                 0.35,
-                "="
+                ">"
             ]
         }
     },
@@ -10443,7 +10443,7 @@
             "dGPredictor": [
                 -6.13,
                 0.4,
-                "="
+                ">"
             ]
         }
     },
@@ -11587,7 +11587,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "=",
+        "reversibility": "<",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -11636,7 +11636,7 @@
             "Group contribution": [
                 16.55,
                 6.4,
-                "="
+                "<"
             ],
             "dGPredictor": [
                 5.1,
@@ -11646,7 +11646,7 @@
             "eQuilibrator": [
                 14.27,
                 0.33,
-                "="
+                "<"
             ]
         }
     },
@@ -11681,7 +11681,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "=",
+        "reversibility": "<",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -11730,7 +11730,7 @@
             "Group contribution": [
                 16.55,
                 6.39,
-                "="
+                "<"
             ],
             "dGPredictor": [
                 4.51,
@@ -11740,7 +11740,7 @@
             "eQuilibrator": [
                 14.27,
                 0.34,
-                "="
+                "<"
             ]
         }
     },
@@ -12668,7 +12668,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -12733,17 +12733,17 @@
             "Group contribution": [
                 -21.55,
                 12.11,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 -6.45,
                 0.26,
-                "="
+                ">"
             ],
             "eQuilibrator": [
                 -2.62,
                 0.35,
-                "="
+                ">"
             ]
         }
     },
@@ -13066,7 +13066,7 @@
         "pathways": [
             "KEGG: rn00750 (Vitamin B6 metabolism)"
         ],
-        "reversibility": "=",
+        "reversibility": "<",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -13117,7 +13117,7 @@
             "eQuilibrator": [
                 6.25,
                 1.74,
-                "="
+                "<"
             ]
         }
     },
@@ -14711,7 +14711,7 @@
             "MetaCyc: 6-HM-Dihydropterin-PP-Biosynthesis (6-Hydroxymethyl-Dihydropterin Diphosphate Biosynthesis); ALL-CHORISMATE-PWY (superpathway of chorismate metabolism); Cofactor-Biosynthesis (Cofactor, Prosthetic Group, Electron Carrier, and Vitamin Biosynthesis); FOLSYN-PWY (superpathway of tetrahydrofolate biosynthesis and salvage); Folate-Biosynthesis (Folate Biosynthesis); PWY-6147 (6-hydroxymethyl-dihydropterin diphosphate biosynthesis I); PWY-6612 (superpathway of tetrahydrofolate biosynthesis); PWY-6797 (6-hydroxymethyl-dihydropterin diphosphate biosynthesis II (<i>Methanocaldococcus</i>)); PWY-7539 (6-hydroxymethyl-dihydropterin diphosphate biosynthesis III (Chlamydia)); Vitamin-Biosynthesis (Vitamin Biosynthesis)",
             "KEGG: rn00790 (Folate biosynthesis)"
         ],
-        "reversibility": "=",
+        "reversibility": "<",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -14762,7 +14762,7 @@
             "eQuilibrator": [
                 1.82,
                 0.63,
-                "="
+                "<"
             ]
         }
     },
@@ -15211,7 +15211,7 @@
         "pathways": [
             "KEGG: rn00790 (Folate biosynthesis)"
         ],
-        "reversibility": "<",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -15244,7 +15244,7 @@
             "Group contribution": [
                 7.22,
                 3.18,
-                "<"
+                "="
             ],
             "dGPredictor": [
                 31.61,
@@ -15356,7 +15356,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -15415,7 +15415,7 @@
             "eQuilibrator": [
                 -4.97,
                 0.47,
-                "="
+                ">"
             ]
         }
     },
@@ -16393,12 +16393,12 @@
             "Group contribution": [
                 2.73,
                 1.34,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 -3.61,
                 0.24,
-                "="
+                ">"
             ],
             "eQuilibrator": [
                 -11.92,
@@ -18660,7 +18660,7 @@
             "dGPredictor": [
                 11.35,
                 0.58,
-                "="
+                "<"
             ]
         }
     },
@@ -19657,7 +19657,7 @@
             "Group contribution": [
                 8.92,
                 18.01,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 28.9,
@@ -20608,7 +20608,7 @@
             "dGPredictor": [
                 9.87,
                 0.63,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 -16.25,
@@ -20690,7 +20690,7 @@
             "dGPredictor": [
                 -2.22,
                 0.35,
-                "="
+                "<"
             ],
             "eQuilibrator": [
                 2.79,
@@ -22116,7 +22116,7 @@
         "pathways": [
             "KEGG: rn00062 (Fatty acid elongation); rn01212 (Fatty acid metabolism)"
         ],
-        "reversibility": "=",
+        "reversibility": "<",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -22170,12 +22170,12 @@
             "dGPredictor": [
                 9.37,
                 0.19,
-                "="
+                "<"
             ],
             "eQuilibrator": [
                 14.27,
                 0.34,
-                "="
+                "<"
             ]
         }
     },
@@ -22785,7 +22785,7 @@
             "dGPredictor": [
                 -0.7,
                 1.62,
-                ">"
+                "="
             ],
             "eQuilibrator": [
                 -14.59,
@@ -23720,7 +23720,7 @@
             "dGPredictor": [
                 -2.89,
                 0.39,
-                ">"
+                "="
             ],
             "eQuilibrator": [
                 0.38,
@@ -24009,7 +24009,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": ">",
+        "reversibility": "=",
         "source": "Secondary Database",
         "status": "CI:2",
         "stoichiometry": [
@@ -24052,7 +24052,7 @@
             "eQuilibrator": [
                 -0.99,
                 0.31,
-                ">"
+                "="
             ]
         }
     },
@@ -28335,7 +28335,7 @@
             "MetaCyc: Degradation (Degradation/Utilization/Assimilation); Energy-Metabolism (Generation of Precursor Metabolite and Energy); Fermentation (); NUCLEO-DEG (Nucleoside and Nucleotide Degradation); P164-PWY (purine nucleobases degradation I (anaerobic)); PWY-5497 (purine nucleobases degradation II (anaerobic)); Purine-Degradation (Purine Nucleotide Degradation)",
             "KEGG: rn00230 (Purine metabolism)"
         ],
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -28402,7 +28402,7 @@
             "eQuilibrator": [
                 -1.23,
                 1.41,
-                "="
+                ">"
             ]
         }
     },
@@ -30681,7 +30681,7 @@
             "Group contribution": [
                 -8.66,
                 1.2,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 8.38,
@@ -30847,7 +30847,7 @@
             "dGPredictor": [
                 8.38,
                 0.38,
-                "<"
+                "="
             ]
         }
     },
@@ -31902,9 +31902,9 @@
         ],
         "thermodynamics": {
             "Group contribution": [
-                10000000.0,
-                10000000.0,
-                "?"
+                -38.27,
+                6.55,
+                ">"
             ],
             "dGPredictor": [
                 -0.9,
@@ -32436,9 +32436,9 @@
         ],
         "thermodynamics": {
             "Group contribution": [
-                10000000.0,
-                10000000.0,
-                "?"
+                4.09,
+                2.19,
+                "<"
             ],
             "dGPredictor": [
                 4.71,
@@ -33986,7 +33986,7 @@
             "dGPredictor": [
                 20.5,
                 1.0,
-                "="
+                "<"
             ]
         }
     },
@@ -34016,7 +34016,7 @@
             "EQP"
         ],
         "pathways": null,
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Secondary Database",
         "status": "CI:-6",
         "stoichiometry": [
@@ -34065,7 +34065,7 @@
             "Group contribution": [
                 -21.58,
                 9.84,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 20.5,
@@ -34626,7 +34626,7 @@
             "Group contribution": [
                 -0.1,
                 5.91,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 4.31,
@@ -35796,7 +35796,7 @@
         "pathways": [
             "KEGG: rn00550 (Peptidoglycan biosynthesis)"
         ],
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -35861,17 +35861,17 @@
             "Group contribution": [
                 -2.09,
                 12.44,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 -2.89,
                 0.28,
-                "="
+                ">"
             ],
             "eQuilibrator": [
                 -2.54,
                 0.55,
-                "="
+                ">"
             ]
         }
     },
@@ -36064,7 +36064,7 @@
             "dGPredictor": [
                 -4.69,
                 0.34,
-                "="
+                ">"
             ]
         }
     },
@@ -37082,7 +37082,7 @@
             "MetaCyc: ARGININE-DEG (L-arginine Degradation); AST-PWY (L-arginine degradation II (AST pathway)); Amino-Acid-Degradation (Amino Acid Degradation); Degradation (Degradation/Utilization/Assimilation); Proteinogenic-Amino-Acids-Degradation (Proteinogenic Amino Acid Degradation)",
             "KEGG: rn00330 (Arginine and proline metabolism)"
         ],
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -37149,7 +37149,7 @@
             "eQuilibrator": [
                 -9.45,
                 0.26,
-                "="
+                ">"
             ]
         }
     },
@@ -38423,7 +38423,7 @@
             "dGPredictor": [
                 -4.03,
                 0.51,
-                ">"
+                "="
             ]
         }
     },
@@ -39670,7 +39670,7 @@
         "pathways": [
             "KEGG: rn00930 (Caprolactam degradation)"
         ],
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -39721,7 +39721,7 @@
             "eQuilibrator": [
                 -7.31,
                 1.71,
-                "="
+                ">"
             ]
         }
     },
@@ -39751,7 +39751,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "=",
+        "reversibility": "<",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -39808,12 +39808,12 @@
             "Group contribution": [
                 -2.16,
                 5.38,
-                "="
+                "<"
             ],
             "eQuilibrator": [
                 -1.24,
                 0.88,
-                "="
+                "<"
             ]
         }
     },
@@ -41837,7 +41837,7 @@
             "dGPredictor": [
                 10.96,
                 0.47,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 6.54,
@@ -41880,7 +41880,7 @@
         "pathways": [
             "KEGG: rn00230 (Purine metabolism)"
         ],
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -41931,7 +41931,7 @@
             "eQuilibrator": [
                 -7.69,
                 0.72,
-                "="
+                ">"
             ]
         }
     },
@@ -42439,7 +42439,7 @@
             "dGPredictor": [
                 10.8,
                 0.3,
-                "="
+                "<"
             ],
             "eQuilibrator": [
                 3.75,
@@ -43959,7 +43959,7 @@
             "Group contribution": [
                 5.2,
                 2.6,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 13.04,
@@ -44088,7 +44088,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -44134,12 +44134,12 @@
             "dGPredictor": [
                 -4.35,
                 0.42,
-                "="
+                ">"
             ],
             "eQuilibrator": [
                 -4.6,
                 1.24,
-                "="
+                ">"
             ]
         }
     },
@@ -44219,7 +44219,7 @@
             "dGPredictor": [
                 10.81,
                 0.38,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 4.32,
@@ -45003,7 +45003,7 @@
             "MetaCyc: Cyclitols-Biosynthesis (Cyclitol Biosynthesis); Lipid-Biosynthesis (Fatty Acid and Lipid Biosynthesis); PWY-4661 (1D-<i>myo</i>-inositol hexakisphosphate biosynthesis III (<i>Spirodela polyrrhiza</i>)); PWY-6361 (1D-<i>myo</i>-inositol hexakisphosphate biosynthesis I (from Ins(1,4,5)P3)); PWY-6362 (1D-<i>myo</i>-inositol hexakisphosphate biosynthesis II (mammalian)); PWY-6369 (inositol diphosphates biosynthesis); PWY-6371 (superpathway of inositol phosphate compounds); PWY-6372 (1D-<i>myo</i>-inositol hexakisphosphate biosynthesis IV (<i>Dictyostelium</i>)); PWY-6554 (1D-<i>myo</i>-inositol hexakisphosphate biosynthesis V (from Ins(1,3,4)P3)); PWY-6555 (superpathway of 1D-<i>myo</i>-inositol hexakisphosphate biosynthesis (plants)); Phospholipid-Biosynthesis (Phospholipid Biosynthesis); Phytate-Biosynthesis (Phytate Biosynthesis); SECONDARY-METABOLITE-BIOSYNTHESIS (Secondary Metabolite Biosynthesis); SUGAR-DERIVS (Sugar Derivative Biosynthesis); Sugar-Alcohols-Biosynthesis (Sugar Alcohol Biosynthesis)",
             "KEGG: rn00562 (Inositol phosphate metabolism)"
         ],
-        "reversibility": "<",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -45062,7 +45062,7 @@
             "eQuilibrator": [
                 8.38,
                 0.33,
-                "<"
+                "="
             ]
         }
     },
@@ -47712,7 +47712,7 @@
             "dGPredictor": [
                 4.98,
                 0.03,
-                "="
+                "<"
             ],
             "eQuilibrator": [
                 -10.37,
@@ -47785,7 +47785,7 @@
             "dGPredictor": [
                 4.98,
                 0.03,
-                "="
+                "<"
             ],
             "eQuilibrator": [
                 -10.37,
@@ -47890,7 +47890,7 @@
             "dGPredictor": [
                 -11.1,
                 0.32,
-                "="
+                ">"
             ],
             "eQuilibrator": [
                 -8.68,
@@ -48300,7 +48300,7 @@
             "MetaCyc: AROMATIC-COMPOUNDS-DEGRADATION (Aromatic Compound Degradation); Degradation (Degradation/Utilization/Assimilation); PWY-5163 (<I>p</I>-cumate degradation to 2-hydroxypentadienoate); PWY-5266 (<I>p</I>-cymene degradation); PWY-5273 (<i>p</i>-cumate degradation)",
             "KEGG: rn00622 (Xylene degradation); rn01220 (Degradation of aromatic compounds)"
         ],
-        "reversibility": ">",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -48354,12 +48354,12 @@
             "dGPredictor": [
                 16.14,
                 0.77,
-                "="
+                "<"
             ],
             "eQuilibrator": [
                 -8.53,
                 1.22,
-                ">"
+                "="
             ]
         }
     },
@@ -51103,7 +51103,7 @@
             "dGPredictor": [
                 -11.39,
                 0.32,
-                "="
+                ">"
             ],
             "eQuilibrator": [
                 -9.06,
@@ -51364,7 +51364,7 @@
         "pathways": [
             "KEGG: rn00624 (Polycyclic aromatic hydrocarbon degradation); rn01220 (Degradation of aromatic compounds)"
         ],
-        "reversibility": ">",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -51423,7 +51423,7 @@
             "eQuilibrator": [
                 -8.55,
                 1.22,
-                ">"
+                "="
             ]
         }
     },
@@ -51547,7 +51547,7 @@
         "pathways": [
             "KEGG: rn00627 (Aminobenzoate degradation)"
         ],
-        "reversibility": ">",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "CI:4",
         "stoichiometry": [
@@ -51588,7 +51588,7 @@
             "Group contribution": [
                 -10.0,
                 6.76,
-                ">"
+                "="
             ],
             "dGPredictor": [
                 -50.26,
@@ -53413,7 +53413,7 @@
             "dGPredictor": [
                 -5.79,
                 0.34,
-                "="
+                ">"
             ],
             "eQuilibrator": [
                 -8.84,
@@ -53700,7 +53700,7 @@
             "MetaCyc: AROMATIC-COMPOUNDS-DEGRADATION (Aromatic Compound Degradation); Degradation (Degradation/Utilization/Assimilation); PWY-6185 (4-methylcatechol degradation (<i>ortho</i> cleavage))",
             "KEGG: rn00623 (Toluene degradation)"
         ],
-        "reversibility": ">",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -53738,12 +53738,12 @@
             "dGPredictor": [
                 -4.24,
                 0.56,
-                ">"
+                "="
             ],
             "eQuilibrator": [
                 -3.4,
                 0.86,
-                ">"
+                "="
             ]
         }
     },
@@ -54041,7 +54041,7 @@
             "dGPredictor": [
                 12.54,
                 0.71,
-                "="
+                "<"
             ],
             "eQuilibrator": [
                 10.77,
@@ -54617,7 +54617,7 @@
             "MetaCyc: AROMATIC-COMPOUNDS-DEGRADATION (Aromatic Compound Degradation); Benzoyl-CoA-Degradation (Benzoyl-CoA Degradation); Degradation (Degradation/Utilization/Assimilation); P321-PWY (benzoyl-CoA degradation III (anaerobic))",
             "KEGG: rn00362 (Benzoate degradation)"
         ],
-        "reversibility": "=",
+        "reversibility": "<",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -54671,12 +54671,12 @@
             "dGPredictor": [
                 9.95,
                 0.19,
-                "="
+                "<"
             ],
             "eQuilibrator": [
                 14.27,
                 0.33,
-                "="
+                "<"
             ]
         }
     },
@@ -55706,7 +55706,7 @@
             "Group contribution": [
                 -13.06,
                 6.16,
-                ">"
+                "="
             ],
             "dGPredictor": [
                 -26.63,
@@ -56348,7 +56348,7 @@
             "Group contribution": [
                 -5.6,
                 1.51,
-                ">"
+                "="
             ],
             "dGPredictor": [
                 -20.49,
@@ -57431,7 +57431,7 @@
             "Group contribution": [
                 -22.26,
                 8.07,
-                ">"
+                "="
             ],
             "dGPredictor": [
                 -8.13,
@@ -57874,7 +57874,7 @@
             "dGPredictor": [
                 -5.17,
                 0.18,
-                "="
+                ">"
             ],
             "eQuilibrator": [
                 -13.43,
@@ -57916,7 +57916,7 @@
             "MetaCyc: Acrylonitrile-Degradation (Acrylonitrile Degradation); Degradation (Degradation/Utilization/Assimilation); Other-Degradation (Degradation/Utilization/Assimilation-Other); P344-PWY (superpathway of acrylonitrile degradation); PWY-7309 (acrylonitrile degradation II)",
             "KEGG: rn00643 (Styrene degradation)"
         ],
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -57957,12 +57957,12 @@
             "Group contribution": [
                 0.26,
                 5.09,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 10.68,
                 0.66,
-                "<"
+                "="
             ]
         }
     },
@@ -58695,7 +58695,7 @@
             "dGPredictor": [
                 -6.43,
                 0.44,
-                "="
+                ">"
             ],
             "eQuilibrator": [
                 -14.98,
@@ -59054,7 +59054,7 @@
             "dGPredictor": [
                 15.77,
                 0.44,
-                "="
+                "<"
             ]
         }
     },
@@ -59363,7 +59363,7 @@
             "Group contribution": [
                 3.41,
                 1.29,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 -5.64,
@@ -59448,12 +59448,12 @@
             "Group contribution": [
                 -0.1,
                 1.55,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 2.25,
                 0.26,
-                "="
+                ">"
             ],
             "eQuilibrator": [
                 -2.27,
@@ -59623,12 +59623,12 @@
             "Group contribution": [
                 -0.98,
                 1.78,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 -0.43,
                 0.45,
-                "="
+                ">"
             ],
             "eQuilibrator": [
                 -4.31,
@@ -60801,7 +60801,7 @@
             "MetaCyc: AROMATIC-COMPOUNDS-DEGRADATION (Aromatic Compound Degradation); Degradation (Degradation/Utilization/Assimilation); PWY-6041 (4-sulfocatechol degradation); Sulfoaromatics-Degradation (Sulfoaromatic Compound Degradation)",
             "KEGG: rn00627 (Aminobenzoate degradation)"
         ],
-        "reversibility": "<",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -60844,7 +60844,7 @@
             "eQuilibrator": [
                 3.79,
                 0.86,
-                "<"
+                "="
             ]
         }
     },
@@ -63265,7 +63265,7 @@
         "pathways": [
             "KEGG: rn00642 (Ethylbenzene degradation)"
         ],
-        "reversibility": ">",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "CI:2",
         "stoichiometry": [
@@ -63298,7 +63298,7 @@
             "Group contribution": [
                 -2.18,
                 1.75,
-                ">"
+                "="
             ],
             "dGPredictor": [
                 -8.22,
@@ -63308,7 +63308,7 @@
             "eQuilibrator": [
                 -0.39,
                 0.41,
-                ">"
+                "="
             ]
         }
     },
@@ -65397,7 +65397,7 @@
             "dGPredictor": [
                 13.23,
                 0.69,
-                "="
+                "<"
             ]
         }
     },
@@ -66103,7 +66103,7 @@
             "MetaCyc: AROMATIC-COMPOUNDS-DEGRADATION (Aromatic Compound Degradation); Degradation (Degradation/Utilization/Assimilation); PWY-481 (ethylbenzene degradation (anaerobic))",
             "KEGG: rn00642 (Ethylbenzene degradation); rn01220 (Degradation of aromatic compounds)"
         ],
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -66178,7 +66178,7 @@
             "eQuilibrator": [
                 -2.62,
                 0.35,
-                "="
+                ">"
             ]
         }
     },
@@ -67884,7 +67884,7 @@
             "dGPredictor": [
                 10.41,
                 0.28,
-                "<"
+                "="
             ]
         }
     },
@@ -67969,7 +67969,7 @@
             "dGPredictor": [
                 15.38,
                 0.28,
-                "="
+                "<"
             ]
         }
     },
@@ -68959,7 +68959,7 @@
             "dGPredictor": [
                 9.07,
                 0.35,
-                "="
+                "<"
             ],
             "eQuilibrator": [
                 -0.81,
@@ -69202,7 +69202,7 @@
             "dGPredictor": [
                 11.11,
                 0.25,
-                "<"
+                "="
             ]
         }
     },
@@ -69281,7 +69281,7 @@
             "dGPredictor": [
                 10.11,
                 0.25,
-                "<"
+                "="
             ]
         }
     },
@@ -70147,7 +70147,7 @@
             "dGPredictor": [
                 -13.8,
                 0.55,
-                ">"
+                "="
             ],
             "eQuilibrator": [
                 3.56,
@@ -70525,7 +70525,7 @@
             "Group contribution": [
                 -7.83,
                 4.03,
-                ">"
+                "="
             ],
             "dGPredictor": [
                 -13.06,
@@ -70707,7 +70707,7 @@
             "dGPredictor": [
                 -10.02,
                 0.71,
-                "="
+                ">"
             ],
             "eQuilibrator": [
                 -10.77,
@@ -71014,7 +71014,7 @@
         "pathways": [
             "KEGG: rn00523 (Polyketide sugar unit biosynthesis)"
         ],
-        "reversibility": ">",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -71063,7 +71063,7 @@
             "Group contribution": [
                 -23.57,
                 10.53,
-                ">"
+                "="
             ],
             "dGPredictor": [
                 7.62,
@@ -71357,7 +71357,7 @@
             "dGPredictor": [
                 1.39,
                 0.25,
-                "<"
+                "="
             ]
         }
     },
@@ -71626,7 +71626,7 @@
             "dGPredictor": [
                 -10.02,
                 0.71,
-                "="
+                ">"
             ],
             "eQuilibrator": [
                 -10.77,
@@ -71846,7 +71846,7 @@
             "dGPredictor": [
                 14.22,
                 0.83,
-                "="
+                "<"
             ]
         }
     },
@@ -71945,7 +71945,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Secondary Database",
         "status": "OK",
         "stoichiometry": [
@@ -72058,17 +72058,17 @@
             "Group contribution": [
                 -36.61,
                 11.74,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 30.86,
                 0.93,
-                "="
+                "<"
             ],
             "eQuilibrator": [
                 -0.33,
                 0.82,
-                "="
+                ">"
             ]
         }
     },
@@ -72735,7 +72735,7 @@
         "pathways": [
             "KEGG: rn00627 (Aminobenzoate degradation)"
         ],
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -72805,12 +72805,12 @@
             "dGPredictor": [
                 8.51,
                 0.56,
-                "="
+                ">"
             ],
             "eQuilibrator": [
                 2.12,
                 1.92,
-                "="
+                ">"
             ]
         }
     },
@@ -72898,7 +72898,7 @@
             "dGPredictor": [
                 -7.64,
                 0.49,
-                ">"
+                "="
             ]
         }
     },
@@ -73155,7 +73155,7 @@
             "dGPredictor": [
                 -1.6,
                 0.58,
-                "="
+                "<"
             ],
             "eQuilibrator": [
                 2.84,
@@ -73193,7 +73193,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "=",
+        "reversibility": "<",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -73239,12 +73239,12 @@
             "dGPredictor": [
                 -1.16,
                 0.03,
-                "="
+                "<"
             ],
             "eQuilibrator": [
                 -0.97,
                 0.71,
-                "="
+                "<"
             ]
         }
     },
@@ -73418,7 +73418,7 @@
             "dGPredictor": [
                 -1.41,
                 0.33,
-                "="
+                ">"
             ],
             "eQuilibrator": [
                 -8.23,
@@ -73685,7 +73685,7 @@
             "dGPredictor": [
                 11.27,
                 0.77,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 55.29,
@@ -74675,7 +74675,7 @@
             "dGPredictor": [
                 9.73,
                 0.28,
-                "="
+                "<"
             ],
             "eQuilibrator": [
                 3.75,
@@ -75348,7 +75348,7 @@
             "MetaCyc: AROMATIC-COMPOUNDS-DEGRADATION (Aromatic Compound Degradation); Benzoyl-CoA-Degradation (Benzoyl-CoA Degradation); Degradation (Degradation/Utilization/Assimilation); P321-PWY (benzoyl-CoA degradation III (anaerobic))",
             "KEGG: rn00362 (Benzoate degradation); rn01220 (Degradation of aromatic compounds)"
         ],
-        "reversibility": ">",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -75407,7 +75407,7 @@
             "eQuilibrator": [
                 -9.17,
                 0.71,
-                ">"
+                "="
             ]
         }
     },
@@ -75444,7 +75444,7 @@
             "MetaCyc: 2-Aminobenzoate-Degradation (2-Aminobenzoate Degradation); 2AMINOBENZDEG-PWY (anthranilate degradation III (anaerobic)); AROMATIC-COMPOUNDS-DEGRADATION (Aromatic Compound Degradation); BENZCOA-PWY (anaerobic aromatic compound degradation (<i>Thauera aromatica</i>)); Degradation (Degradation/Utilization/Assimilation)",
             "KEGG: rn00627 (Aminobenzoate degradation)"
         ],
-        "reversibility": "<",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "CI:-2",
         "stoichiometry": [
@@ -75490,12 +75490,12 @@
             "dGPredictor": [
                 4.72,
                 0.16,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 6.74,
                 0.68,
-                "<"
+                "="
             ]
         }
     },
@@ -75880,7 +75880,7 @@
         "pathways": [
             "KEGG: rn00627 (Aminobenzoate degradation)"
         ],
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -75921,12 +75921,12 @@
             "Group contribution": [
                 0.26,
                 5.17,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 0.82,
                 0.36,
-                "="
+                ">"
             ]
         }
     },
@@ -75963,7 +75963,7 @@
             "MetaCyc: AROMATIC-COMPOUNDS-DEGRADATION (Aromatic Compound Degradation); Benzoyl-CoA-Degradation (Benzoyl-CoA Degradation); Degradation (Degradation/Utilization/Assimilation); P321-PWY (benzoyl-CoA degradation III (anaerobic))",
             "KEGG: rn00362 (Benzoate degradation); rn01220 (Degradation of aromatic compounds)"
         ],
-        "reversibility": "=",
+        "reversibility": "<",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -76014,7 +76014,7 @@
             "eQuilibrator": [
                 7.35,
                 1.99,
-                "="
+                "<"
             ]
         }
     },
@@ -76052,7 +76052,7 @@
         "pathways": [
             "MetaCyc: AROMATIC-COMPOUNDS-DEGRADATION (Aromatic Compound Degradation); BENZCOA-PWY (anaerobic aromatic compound degradation (<i>Thauera aromatica</i>)); Benzoyl-CoA-Degradation (Benzoyl-CoA Degradation); CENTBENZCOA-PWY (benzoyl-CoA degradation II (anaerobic)); Degradation (Degradation/Utilization/Assimilation); Energy-Metabolism (Generation of Precursor Metabolite and Energy); Fermentation (); PWY-5184 (toluene degradation VI (anaerobic)); PWY-7401 (crotonate fermentation (to acetate and cyclohexane carboxylate)); PWY-7402 (benzoate fermentation (to acetate and cyclohexane carboxylate)); TOLUENE-DEG (Toluene Degradation)"
         ],
-        "reversibility": "=",
+        "reversibility": "<",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -76093,7 +76093,7 @@
             "Group contribution": [
                 -13.5,
                 5.24,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 -5.03,
@@ -76103,7 +76103,7 @@
             "eQuilibrator": [
                 9.45,
                 1.95,
-                "="
+                "<"
             ]
         }
     },
@@ -76736,7 +76736,7 @@
             "dGPredictor": [
                 2.54,
                 0.16,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 0.18,
@@ -78099,7 +78099,7 @@
         "pathways": [
             "KEGG: rn00362 (Benzoate degradation)"
         ],
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -78169,12 +78169,12 @@
             "dGPredictor": [
                 -7.33,
                 0.25,
-                "="
+                ">"
             ],
             "eQuilibrator": [
                 -2.62,
                 0.35,
-                "="
+                ">"
             ]
         }
     },
@@ -78576,7 +78576,7 @@
             "dGPredictor": [
                 -7.57,
                 0.28,
-                ">"
+                "="
             ],
             "eQuilibrator": [
                 -61.44,
@@ -79302,12 +79302,12 @@
             "Group contribution": [
                 -14.03,
                 5.21,
-                ">"
+                "="
             ],
             "dGPredictor": [
                 -6.9,
                 0.15,
-                ">"
+                "="
             ],
             "eQuilibrator": [
                 -1.09,
@@ -79744,7 +79744,7 @@
             "MetaCyc: ERGOSTEROL-SYN-PWY (superpathway of ergosterol biosynthesis I); Ergosterol-Biosynthesis (Ergosterol Biosynthesis); Lipid-Biosynthesis (Fatty Acid and Lipid Biosynthesis); PWY-6075 (ergosterol biosynthesis I); Sterol-Biosynthesis (Sterol Biosynthesis)",
             "KEGG: rn00100 (Steroid biosynthesis)"
         ],
-        "reversibility": "=",
+        "reversibility": "<",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -79798,12 +79798,12 @@
             "dGPredictor": [
                 10.77,
                 1.18,
-                "="
+                "<"
             ],
             "eQuilibrator": [
                 13.87,
                 0.31,
-                "="
+                "<"
             ]
         }
     },
@@ -79965,7 +79965,7 @@
             "dGPredictor": [
                 -10.7,
                 0.36,
-                "="
+                ">"
             ],
             "eQuilibrator": [
                 -9.07,
@@ -80267,7 +80267,7 @@
             "MetaCyc: ADP-Sugar-Biosynthesis (ADP-sugar Biosynthesis); CARBO-BIOSYNTHESIS (Sugar Biosynthesis); Carbohydrates-Biosynthesis (Carbohydrate Biosynthesis); PWY0-1241 (ADP-L-<i>glycero</i>-&beta;-D-<i>manno</i>-heptose biosynthesis); SUGAR-NUCLEOTIDES (Sugar Nucleotide Biosynthesis)",
             "KEGG: rn00540 (Lipopolysaccharide biosynthesis)"
         ],
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -80318,7 +80318,7 @@
             "eQuilibrator": [
                 -1.84,
                 0.3,
-                "="
+                ">"
             ]
         }
     },
@@ -82248,7 +82248,7 @@
         "pathways": [
             "KEGG: rn00231 (Puromycin biosynthesis); rn01110 (Biosynthesis of secondary metabolites)"
         ],
-        "reversibility": ">",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -82297,7 +82297,7 @@
             "Group contribution": [
                 -14.2,
                 6.92,
-                ">"
+                "="
             ],
             "dGPredictor": [
                 -3.92,
@@ -84136,7 +84136,7 @@
             "dGPredictor": [
                 4.57,
                 0.09,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 -106.16,
@@ -84310,7 +84310,7 @@
             "dGPredictor": [
                 -24.92,
                 0.18,
-                "="
+                ">"
             ],
             "eQuilibrator": [
                 -77.94,
@@ -84500,7 +84500,7 @@
             "dGPredictor": [
                 -10.96,
                 0.32,
-                "="
+                ">"
             ],
             "eQuilibrator": [
                 -8.52,
@@ -84749,7 +84749,7 @@
         "pathways": [
             "KEGG: rn00908 (Zeatin biosynthesis)"
         ],
-        "reversibility": "=",
+        "reversibility": "<",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -84798,7 +84798,7 @@
             "Group contribution": [
                 17.54,
                 7.26,
-                "="
+                "<"
             ],
             "dGPredictor": [
                 -2.99,
@@ -84841,7 +84841,7 @@
             "MetaCyc: Lipid-Biosynthesis (Fatty Acid and Lipid Biosynthesis); PWY66-341 (cholesterol biosynthesis I); PWY66-5 (superpathway of cholesterol biosynthesis); Sterol-Biosynthesis (Sterol Biosynthesis)",
             "KEGG: rn00100 (Steroid biosynthesis)"
         ],
-        "reversibility": "=",
+        "reversibility": "<",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -84900,7 +84900,7 @@
             "eQuilibrator": [
                 13.27,
                 1.0,
-                "="
+                "<"
             ]
         }
     },
@@ -84992,7 +84992,7 @@
             "Group contribution": [
                 18.85,
                 7.41,
-                "="
+                "<"
             ],
             "dGPredictor": [
                 5.54,
@@ -85093,7 +85093,7 @@
             "Group contribution": [
                 18.85,
                 7.39,
-                "="
+                "<"
             ],
             "dGPredictor": [
                 4.96,
@@ -85188,7 +85188,7 @@
             "Group contribution": [
                 19.11,
                 7.18,
-                "="
+                "<"
             ],
             "dGPredictor": [
                 4.43,

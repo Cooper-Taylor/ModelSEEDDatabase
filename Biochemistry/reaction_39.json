@@ -893,7 +893,7 @@
             "Group contribution": [
                 -10.21,
                 1.62,
-                ">"
+                "="
             ],
             "eQuilibrator": [
                 -14.84,
@@ -2099,7 +2099,7 @@
             "EQC"
         ],
         "pathways": null,
-        "reversibility": "=",
+        "reversibility": "<",
         "source": "Secondary Database",
         "status": "CI:2",
         "stoichiometry": [
@@ -2148,7 +2148,7 @@
             "Group contribution": [
                 36.85,
                 7.74,
-                "="
+                "<"
             ],
             "eQuilibrator": [
                 167.32,
@@ -2183,7 +2183,7 @@
             "EQC"
         ],
         "pathways": null,
-        "reversibility": "=",
+        "reversibility": "<",
         "source": "Secondary Database",
         "status": "CI:2",
         "stoichiometry": [
@@ -2232,7 +2232,7 @@
             "Group contribution": [
                 36.85,
                 7.75,
-                "="
+                "<"
             ],
             "eQuilibrator": [
                 167.32,
@@ -4756,7 +4756,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Secondary Database",
         "status": "OK",
         "stoichiometry": [
@@ -4807,7 +4807,7 @@
             "eQuilibrator": [
                 0.26,
                 0.49,
-                "="
+                ">"
             ]
         }
     },
@@ -6282,7 +6282,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -6352,7 +6352,7 @@
             "eQuilibrator": [
                 -2.62,
                 0.35,
-                "="
+                ">"
             ]
         }
     },
@@ -6387,7 +6387,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -6457,7 +6457,7 @@
             "eQuilibrator": [
                 -2.62,
                 0.35,
-                "="
+                ">"
             ]
         }
     },
@@ -6671,7 +6671,7 @@
         "pathways": [
             "MetaCyc: Degradation (Degradation/Utilization/Assimilation); Other-Degradation (Degradation/Utilization/Assimilation-Other); P221-PWY (octane oxidation); PWY-6920 (6-gingerol analog biosynthesis (engineered)); SECONDARY-METABOLITE-BIOSYNTHESIS (Secondary Metabolite Biosynthesis)"
         ],
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -6741,7 +6741,7 @@
             "eQuilibrator": [
                 -2.61,
                 0.35,
-                "="
+                ">"
             ]
         }
     },
@@ -7491,7 +7491,7 @@
             "dGPredictor": [
                 13.92,
                 0.5,
-                "="
+                "<"
             ]
         }
     },
@@ -8017,7 +8017,7 @@
             "dGPredictor": [
                 13.92,
                 0.5,
-                "="
+                "<"
             ]
         }
     },
@@ -8083,7 +8083,7 @@
             "dGPredictor": [
                 13.92,
                 0.5,
-                "="
+                "<"
             ]
         }
     },
@@ -16675,7 +16675,7 @@
             "dGPredictor": [
                 13.92,
                 0.5,
-                "="
+                "<"
             ]
         }
     },
@@ -16765,7 +16765,7 @@
             "dGPredictor": [
                 13.92,
                 0.5,
-                "="
+                "<"
             ]
         }
     },
@@ -16855,7 +16855,7 @@
             "dGPredictor": [
                 13.92,
                 0.5,
-                "="
+                "<"
             ]
         }
     },
@@ -16945,7 +16945,7 @@
             "dGPredictor": [
                 13.92,
                 0.5,
-                "="
+                "<"
             ]
         }
     },
@@ -18670,7 +18670,7 @@
         "pathways": [
             "KEGG: rn00410 (beta-Alanine metabolism)"
         ],
-        "reversibility": ">",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -18745,7 +18745,7 @@
             "eQuilibrator": [
                 -0.9,
                 1.87,
-                ">"
+                "="
             ]
         }
     },
@@ -20541,7 +20541,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "<",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -20606,7 +20606,7 @@
             "Group contribution": [
                 17.5,
                 7.56,
-                "<"
+                "="
             ],
             "dGPredictor": [
                 -3.35,
@@ -20616,7 +20616,7 @@
             "eQuilibrator": [
                 -0.23,
                 0.32,
-                "<"
+                "="
             ]
         }
     },
@@ -20897,7 +20897,7 @@
         "pathways": [
             "KEGG: rn00500 (Starch and sucrose metabolism)"
         ],
-        "reversibility": ">",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -20951,12 +20951,12 @@
             "dGPredictor": [
                 -9.0,
                 0.02,
-                ">"
+                "="
             ],
             "eQuilibrator": [
                 -9.45,
                 0.8,
-                ">"
+                "="
             ]
         }
     },
@@ -21531,7 +21531,7 @@
         "pathways": [
             "KEGG: rn00460 (Cyanoamino acid metabolism)"
         ],
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "CI:-1",
         "stoichiometry": [
@@ -21580,12 +21580,12 @@
             "Group contribution": [
                 11.34,
                 5.07,
-                "<"
+                "="
             ],
             "dGPredictor": [
                 5.61,
                 0.32,
-                "<"
+                "="
             ]
         }
     },
@@ -23900,7 +23900,7 @@
             "MetaCyc: AMINE-DEG (Amine and Polyamine Degradation); AROMATIC-COMPOUNDS-DEGRADATION (Aromatic Compound Degradation); Amino-Acid-Degradation (Amino Acid Degradation); Antibiotic-Biosynthesis (Antibiotic Biosynthesis); BENZCOA-PWY (anaerobic aromatic compound degradation (<i>Thauera aromatica</i>)); Degradation (Degradation/Utilization/Assimilation); PHENYLALANINE-DEG (L-phenylalanine Degradation); PWY-1341 (phenylacetate degradation II (anaerobic)); PWY-6071 (superpathway of phenylethylamine degradation); PWY-6318 (L-phenylalanine degradation IV (mammalian, via side chain)); PWY-7716 (penicillin G and penicillin V biosynthesis); PWY0-321 (phenylacetate degradation I (aerobic)); Phenolic-Compounds-Degradation (Phenolic Compound Degradation); Phenylacetate-Degradation (Phenylacetate Degradation); Proteinogenic-Amino-Acids-Degradation (Proteinogenic Amino Acid Degradation); SECONDARY-METABOLITE-BIOSYNTHESIS (Secondary Metabolite Biosynthesis)",
             "KEGG: rn00360 (Phenylalanine metabolism)"
         ],
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -23970,12 +23970,12 @@
             "dGPredictor": [
                 -5.57,
                 0.18,
-                "="
+                ">"
             ],
             "eQuilibrator": [
                 -2.84,
                 0.48,
-                "="
+                ">"
             ]
         }
     },
@@ -25029,7 +25029,7 @@
             "dGPredictor": [
                 -7.26,
                 0.22,
-                ">"
+                "="
             ],
             "eQuilibrator": [
                 1.1,
@@ -27742,7 +27742,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -27812,12 +27812,12 @@
             "dGPredictor": [
                 -9.68,
                 0.35,
-                "="
+                ">"
             ],
             "eQuilibrator": [
                 -2.02,
                 0.83,
-                "="
+                ">"
             ]
         }
     },
@@ -29604,7 +29604,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "=",
+        "reversibility": "<",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -29663,7 +29663,7 @@
             "eQuilibrator": [
                 14.27,
                 0.33,
-                "="
+                "<"
             ]
         }
     },
@@ -29692,7 +29692,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "=",
+        "reversibility": "<",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -29751,7 +29751,7 @@
             "eQuilibrator": [
                 14.27,
                 0.34,
-                "="
+                "<"
             ]
         }
     },
@@ -30801,7 +30801,7 @@
         "pathways": [
             "KEGG: rn00410 (beta-Alanine metabolism)"
         ],
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -30852,7 +30852,7 @@
             "eQuilibrator": [
                 -5.26,
                 1.87,
-                "="
+                ">"
             ]
         }
     },
@@ -32047,7 +32047,7 @@
         "pathways": [
             "KEGG: rn00300 (Lysine biosynthesis); rn01110 (Biosynthesis of secondary metabolites); rn01230 (Biosynthesis of amino acids)"
         ],
-        "reversibility": "=",
+        "reversibility": "<",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -32114,7 +32114,7 @@
             "eQuilibrator": [
                 12.31,
                 0.36,
-                "="
+                "<"
             ]
         }
     },
@@ -32146,7 +32146,7 @@
         "pathways": [
             "KEGG: rn00300 (Lysine biosynthesis); rn01110 (Biosynthesis of secondary metabolites); rn01230 (Biosynthesis of amino acids)"
         ],
-        "reversibility": "=",
+        "reversibility": "<",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -32213,7 +32213,7 @@
             "eQuilibrator": [
                 12.31,
                 0.36,
-                "="
+                "<"
             ]
         }
     },
@@ -33916,7 +33916,7 @@
             "Group contribution": [
                 14.7,
                 6.06,
-                "<"
+                "="
             ],
             "dGPredictor": [
                 -23.11,
@@ -36701,7 +36701,7 @@
             "dGPredictor": [
                 -7.57,
                 0.28,
-                ">"
+                "="
             ],
             "eQuilibrator": [
                 -2.87,
@@ -36946,7 +36946,7 @@
             "dGPredictor": [
                 14.19,
                 1.52,
-                "="
+                "<"
             ]
         }
     },
@@ -37036,7 +37036,7 @@
             "dGPredictor": [
                 9.38,
                 0.8,
-                "<"
+                "="
             ]
         }
     },
@@ -49599,7 +49599,7 @@
             "dGPredictor": [
                 -8.76,
                 0.39,
-                "="
+                ">"
             ],
             "eQuilibrator": [
                 -40.16,
@@ -50994,7 +50994,7 @@
             "dGPredictor": [
                 -5.81,
                 0.26,
-                "="
+                ">"
             ],
             "eQuilibrator": [
                 -10.55,
@@ -51030,7 +51030,7 @@
         "pathways": [
             "KEGG: rn00903 (Limonene and pinene degradation)"
         ],
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -51081,7 +51081,7 @@
             "eQuilibrator": [
                 -9.08,
                 1.01,
-                "="
+                ">"
             ]
         }
     },
@@ -51112,7 +51112,7 @@
         "pathways": [
             "KEGG: rn00903 (Limonene and pinene degradation)"
         ],
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -51163,7 +51163,7 @@
             "eQuilibrator": [
                 -9.08,
                 1.01,
-                "="
+                ">"
             ]
         }
     },
@@ -53022,7 +53022,7 @@
             "dGPredictor": [
                 -2.07,
                 0.48,
-                "="
+                ">"
             ],
             "eQuilibrator": [
                 -40.16,
@@ -55853,7 +55853,7 @@
         "pathways": [
             "KEGG: rn01110 (Biosynthesis of secondary metabolites)"
         ],
-        "reversibility": "=",
+        "reversibility": "<",
         "source": "Primary Database",
         "status": "CI:6",
         "stoichiometry": [
@@ -55886,7 +55886,7 @@
             "Group contribution": [
                 19.16,
                 7.97,
-                "="
+                "<"
             ],
             "dGPredictor": [
                 -106.41,
@@ -57542,7 +57542,7 @@
             "Group contribution": [
                 -3.68,
                 1.48,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 -1.49,
@@ -57886,7 +57886,7 @@
             "dGPredictor": [
                 -9.19,
                 0.93,
-                ">"
+                "="
             ]
         }
     },
@@ -59300,7 +59300,7 @@
             "dGPredictor": [
                 10.97,
                 0.54,
-                "="
+                "<"
             ],
             "eQuilibrator": [
                 -58.46,
@@ -60040,7 +60040,7 @@
             "dGPredictor": [
                 2.83,
                 1.25,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 10.74,
@@ -63017,7 +63017,7 @@
             "dGPredictor": [
                 -15.0,
                 0.72,
-                "="
+                ">"
             ]
         }
     },
@@ -63617,7 +63617,7 @@
             "dGPredictor": [
                 -6.06,
                 1.33,
-                "="
+                ">"
             ]
         }
     },
@@ -65093,7 +65093,7 @@
         "pathways": [
             "KEGG: rn00643 (Styrene degradation)"
         ],
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -65134,7 +65134,7 @@
             "Group contribution": [
                 1.81,
                 5.16,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 4.4,
@@ -65609,12 +65609,12 @@
             "Group contribution": [
                 3.13,
                 6.17,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 2.16,
                 0.09,
-                "="
+                ">"
             ],
             "eQuilibrator": [
                 0.52,
@@ -65704,12 +65704,12 @@
             "Group contribution": [
                 3.13,
                 6.18,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 2.16,
                 0.09,
-                "="
+                ">"
             ],
             "eQuilibrator": [
                 0.52,
@@ -66130,7 +66130,7 @@
             "dGPredictor": [
                 -0.07,
                 0.35,
-                ">"
+                "="
             ],
             "eQuilibrator": [
                 -5.9,
@@ -68288,7 +68288,7 @@
             "Group contribution": [
                 -14.03,
                 5.19,
-                ">"
+                "="
             ],
             "dGPredictor": [
                 -3.13,
@@ -73408,7 +73408,7 @@
             "EQC"
         ],
         "pathways": null,
-        "reversibility": "=",
+        "reversibility": "<",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -73449,7 +73449,7 @@
             "Group contribution": [
                 14.63,
                 6.24,
-                "="
+                "<"
             ],
             "dGPredictor": [
                 -3.4,
@@ -74030,7 +74030,7 @@
             "EQP"
         ],
         "pathways": null,
-        "reversibility": ">",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -74063,7 +74063,7 @@
             "Group contribution": [
                 -9.17,
                 5.63,
-                ">"
+                "="
             ],
             "dGPredictor": [
                 -11.33,

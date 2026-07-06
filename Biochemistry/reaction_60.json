@@ -4470,7 +4470,7 @@
             "Group contribution": [
                 4.05,
                 2.72,
-                "="
+                ">"
             ]
         }
     },
@@ -5597,7 +5597,7 @@
             "Group contribution": [
                 17.54,
                 6.21,
-                "="
+                "<"
             ]
         }
     },
@@ -17021,9 +17021,9 @@
         ],
         "thermodynamics": {
             "Group contribution": [
-                10000000.0,
-                10000000.0,
-                "?"
+                -8.45,
+                5.53,
+                "="
             ]
         }
     },
@@ -21023,7 +21023,7 @@
             "Group contribution": [
                 -11.8,
                 6.32,
-                ">"
+                "="
             ]
         }
     },
@@ -27917,7 +27917,7 @@
             "Group contribution": [
                 -21.55,
                 12.1,
-                "="
+                ">"
             ]
         }
     },
@@ -34682,9 +34682,9 @@
         ],
         "thermodynamics": {
             "Group contribution": [
-                10000000.0,
-                10000000.0,
-                "?"
+                -119.37,
+                5.54,
+                ">"
             ]
         }
     },
@@ -49447,7 +49447,7 @@
             "Group contribution": [
                 4.05,
                 2.32,
-                "="
+                ">"
             ]
         }
     },
@@ -52843,7 +52843,7 @@
         ],
         "thermodynamics": {
             "Group contribution": [
-                0.0,
+                -0.0,
                 4.48,
                 "="
             ]
@@ -53535,7 +53535,7 @@
         ],
         "thermodynamics": {
             "Group contribution": [
-                -0.0,
+                0.0,
                 4.7,
                 "="
             ]
@@ -54321,7 +54321,7 @@
         ],
         "thermodynamics": {
             "Group contribution": [
-                -0.0,
+                0.0,
                 6.84,
                 "="
             ]
@@ -54517,7 +54517,7 @@
         ],
         "thermodynamics": {
             "Group contribution": [
-                -0.0,
+                0.0,
                 1.4,
                 "="
             ]
@@ -60799,7 +60799,14 @@
                 "formula": "FeR",
                 "name": "OMP Cytochrome C (Red)"
             }
-        ]
+        ],
+        "thermodynamics": {
+            "Group contribution": [
+                10000000.0,
+                10000000.0,
+                "?"
+            ]
+        }
     },
     {
         "abbreviation": "MtoD",
@@ -60858,7 +60865,14 @@
                 "formula": "FeR",
                 "name": "OMP Cytochrome C (Ox)"
             }
-        ]
+        ],
+        "thermodynamics": {
+            "Group contribution": [
+                10000000.0,
+                10000000.0,
+                "?"
+            ]
+        }
     },
     {
         "abbreviation": "Cytc bb3",
@@ -60917,6 +60931,13 @@
                 "formula": "C42H42FeN8O8R4S2",
                 "name": "Cytochrome-cbb-red"
             }
-        ]
+        ],
+        "thermodynamics": {
+            "Group contribution": [
+                10000000.0,
+                10000000.0,
+                "?"
+            ]
+        }
     }
 ]

@@ -865,7 +865,7 @@
             "Group contribution": [
                 -25.19,
                 6.16,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 35.33,
@@ -2272,7 +2272,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Published Model",
         "status": "OK",
         "stoichiometry": [
@@ -2353,7 +2353,7 @@
             "Group contribution": [
                 -21.62,
                 8.73,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 -322.61,
@@ -2363,7 +2363,7 @@
             "eQuilibrator": [
                 -2.68,
                 0.99,
-                "="
+                ">"
             ]
         }
     },
@@ -2443,7 +2443,7 @@
             "Group contribution": [
                 0.55,
                 1.28,
-                ">"
+                "="
             ],
             "dGPredictor": [
                 -322.61,
@@ -5045,7 +5045,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": ">",
+        "reversibility": "=",
         "source": "Published Model",
         "status": "OK",
         "stoichiometry": [
@@ -5120,7 +5120,7 @@
             "eQuilibrator": [
                 2.34,
                 0.52,
-                ">"
+                "="
             ]
         }
     },
@@ -8030,7 +8030,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "<",
+        "reversibility": ">",
         "source": "Published Model",
         "status": "MI:O:-3/P:-1|CI:1",
         "stoichiometry": [
@@ -8071,7 +8071,7 @@
             "Group contribution": [
                 208.0,
                 4.34,
-                "<"
+                ">"
             ],
             "dGPredictor": [
                 -322.61,
@@ -8081,7 +8081,7 @@
             "eQuilibrator": [
                 208.81,
                 0.14,
-                "<"
+                ">"
             ]
         }
     },
@@ -8110,7 +8110,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "<",
+        "reversibility": ">",
         "source": "Published Model",
         "status": "MI:O:-3/P:-1|CI:1",
         "stoichiometry": [
@@ -8151,7 +8151,7 @@
             "Group contribution": [
                 208.0,
                 4.34,
-                "<"
+                ">"
             ],
             "dGPredictor": [
                 -322.61,
@@ -8161,7 +8161,7 @@
             "eQuilibrator": [
                 208.81,
                 0.14,
-                "<"
+                ">"
             ]
         }
     },
@@ -8295,7 +8295,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "<",
+        "reversibility": ">",
         "source": "Published Model",
         "status": "MI:O:-3/P:-1|CI:1",
         "stoichiometry": [
@@ -8336,7 +8336,7 @@
             "Group contribution": [
                 208.0,
                 4.32,
-                "<"
+                ">"
             ],
             "dGPredictor": [
                 -322.61,
@@ -8346,7 +8346,7 @@
             "eQuilibrator": [
                 208.81,
                 0.14,
-                "<"
+                ">"
             ]
         }
     },
@@ -8375,7 +8375,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "<",
+        "reversibility": ">",
         "source": "Published Model",
         "status": "MI:O:-3/P:-1|CI:1",
         "stoichiometry": [
@@ -8416,7 +8416,7 @@
             "Group contribution": [
                 208.0,
                 4.31,
-                "<"
+                ">"
             ],
             "dGPredictor": [
                 -322.61,
@@ -8426,7 +8426,7 @@
             "eQuilibrator": [
                 208.81,
                 0.14,
-                "<"
+                ">"
             ]
         }
     },
@@ -8455,7 +8455,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "<",
+        "reversibility": ">",
         "source": "Published Model",
         "status": "MI:O:-3/P:-1|CI:1",
         "stoichiometry": [
@@ -8496,7 +8496,7 @@
             "Group contribution": [
                 208.0,
                 4.31,
-                "<"
+                ">"
             ],
             "dGPredictor": [
                 -322.61,
@@ -8506,7 +8506,7 @@
             "eQuilibrator": [
                 208.81,
                 0.14,
-                "<"
+                ">"
             ]
         }
     },
@@ -8683,7 +8683,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "<",
+        "reversibility": ">",
         "source": "Published Model",
         "status": "MI:O:-3/P:-1|CI:1",
         "stoichiometry": [
@@ -8724,7 +8724,7 @@
             "Group contribution": [
                 208.0,
                 4.33,
-                "<"
+                ">"
             ],
             "dGPredictor": [
                 -322.61,
@@ -8734,7 +8734,7 @@
             "eQuilibrator": [
                 208.81,
                 0.14,
-                "<"
+                ">"
             ]
         }
     },
@@ -8763,7 +8763,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "<",
+        "reversibility": ">",
         "source": "Published Model",
         "status": "MI:O:-3/P:-1|CI:1",
         "stoichiometry": [
@@ -8804,7 +8804,7 @@
             "Group contribution": [
                 208.0,
                 4.33,
-                "<"
+                ">"
             ],
             "dGPredictor": [
                 -322.61,
@@ -8814,7 +8814,7 @@
             "eQuilibrator": [
                 208.81,
                 0.14,
-                "<"
+                ">"
             ]
         }
     },
@@ -8843,7 +8843,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "<",
+        "reversibility": ">",
         "source": "Published Model",
         "status": "MI:O:-3/P:-1|CI:1",
         "stoichiometry": [
@@ -8884,7 +8884,7 @@
             "Group contribution": [
                 208.0,
                 4.38,
-                "<"
+                ">"
             ],
             "dGPredictor": [
                 -322.61,
@@ -8894,7 +8894,7 @@
             "eQuilibrator": [
                 208.81,
                 0.14,
-                "<"
+                ">"
             ]
         }
     },
@@ -8923,7 +8923,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "<",
+        "reversibility": ">",
         "source": "Published Model",
         "status": "MI:O:-3/P:-1|CI:1",
         "stoichiometry": [
@@ -8964,7 +8964,7 @@
             "Group contribution": [
                 208.0,
                 4.38,
-                "<"
+                ">"
             ],
             "dGPredictor": [
                 -322.61,
@@ -8974,7 +8974,7 @@
             "eQuilibrator": [
                 208.81,
                 0.14,
-                "<"
+                ">"
             ]
         }
     },
@@ -9003,7 +9003,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "<",
+        "reversibility": ">",
         "source": "Published Model",
         "status": "MI:O:-3/P:-1|CI:1",
         "stoichiometry": [
@@ -9044,7 +9044,7 @@
             "Group contribution": [
                 208.0,
                 4.38,
-                "<"
+                ">"
             ],
             "dGPredictor": [
                 -322.61,
@@ -9054,7 +9054,7 @@
             "eQuilibrator": [
                 208.81,
                 0.14,
-                "<"
+                ">"
             ]
         }
     },
@@ -9083,7 +9083,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "<",
+        "reversibility": ">",
         "source": "Published Model",
         "status": "MI:O:-3/P:-1|CI:1",
         "stoichiometry": [
@@ -9124,7 +9124,7 @@
             "Group contribution": [
                 208.0,
                 4.38,
-                "<"
+                ">"
             ],
             "dGPredictor": [
                 -322.61,
@@ -9134,7 +9134,7 @@
             "eQuilibrator": [
                 208.81,
                 0.14,
-                "<"
+                ">"
             ]
         }
     },
@@ -9225,7 +9225,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "<",
+        "reversibility": ">",
         "source": "Published Model",
         "status": "MI:O:-3/P:-1|CI:1",
         "stoichiometry": [
@@ -9266,7 +9266,7 @@
             "Group contribution": [
                 208.0,
                 4.85,
-                "<"
+                ">"
             ],
             "dGPredictor": [
                 -322.61,
@@ -9276,7 +9276,7 @@
             "eQuilibrator": [
                 208.81,
                 0.14,
-                "<"
+                ">"
             ]
         }
     },
@@ -9305,7 +9305,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "<",
+        "reversibility": ">",
         "source": "Published Model",
         "status": "MI:O:-3/P:-1|CI:1",
         "stoichiometry": [
@@ -9346,7 +9346,7 @@
             "Group contribution": [
                 208.0,
                 4.35,
-                "<"
+                ">"
             ],
             "dGPredictor": [
                 -322.61,
@@ -9356,7 +9356,7 @@
             "eQuilibrator": [
                 208.81,
                 0.14,
-                "<"
+                ">"
             ]
         }
     },
@@ -9385,7 +9385,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "<",
+        "reversibility": ">",
         "source": "Published Model",
         "status": "MI:O:-3/P:-1|CI:1",
         "stoichiometry": [
@@ -9426,7 +9426,7 @@
             "Group contribution": [
                 208.0,
                 4.35,
-                "<"
+                ">"
             ],
             "dGPredictor": [
                 -322.61,
@@ -9436,7 +9436,7 @@
             "eQuilibrator": [
                 208.81,
                 0.14,
-                "<"
+                ">"
             ]
         }
     },
@@ -9465,7 +9465,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "<",
+        "reversibility": ">",
         "source": "Published Model",
         "status": "MI:O:-3/P:-1|CI:1",
         "stoichiometry": [
@@ -9506,7 +9506,7 @@
             "Group contribution": [
                 208.0,
                 4.34,
-                "<"
+                ">"
             ],
             "dGPredictor": [
                 -322.61,
@@ -9516,7 +9516,7 @@
             "eQuilibrator": [
                 208.81,
                 0.14,
-                "<"
+                ">"
             ]
         }
     },
@@ -9545,7 +9545,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "<",
+        "reversibility": ">",
         "source": "Published Model",
         "status": "MI:O:-3/P:-1|CI:1",
         "stoichiometry": [
@@ -9586,7 +9586,7 @@
             "Group contribution": [
                 208.0,
                 4.35,
-                "<"
+                ">"
             ],
             "dGPredictor": [
                 -322.61,
@@ -9596,7 +9596,7 @@
             "eQuilibrator": [
                 208.81,
                 0.14,
-                "<"
+                ">"
             ]
         }
     },
@@ -9625,7 +9625,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "<",
+        "reversibility": ">",
         "source": "Published Model",
         "status": "MI:O:-3/P:-1|CI:1",
         "stoichiometry": [
@@ -9666,7 +9666,7 @@
             "Group contribution": [
                 208.0,
                 4.35,
-                "<"
+                ">"
             ],
             "dGPredictor": [
                 -322.61,
@@ -9676,7 +9676,7 @@
             "eQuilibrator": [
                 208.81,
                 0.14,
-                "<"
+                ">"
             ]
         }
     },
@@ -9705,7 +9705,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "<",
+        "reversibility": ">",
         "source": "Published Model",
         "status": "MI:O:-3/P:-1|CI:1",
         "stoichiometry": [
@@ -9746,7 +9746,7 @@
             "Group contribution": [
                 208.0,
                 4.5,
-                "<"
+                ">"
             ],
             "dGPredictor": [
                 -322.61,
@@ -9756,7 +9756,7 @@
             "eQuilibrator": [
                 208.81,
                 0.14,
-                "<"
+                ">"
             ]
         }
     },
@@ -9785,7 +9785,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "<",
+        "reversibility": ">",
         "source": "Published Model",
         "status": "MI:O:-3/P:-1|CI:1",
         "stoichiometry": [
@@ -9826,7 +9826,7 @@
             "Group contribution": [
                 208.0,
                 4.5,
-                "<"
+                ">"
             ],
             "dGPredictor": [
                 -322.61,
@@ -9836,7 +9836,7 @@
             "eQuilibrator": [
                 208.81,
                 0.14,
-                "<"
+                ">"
             ]
         }
     },
@@ -9970,7 +9970,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "<",
+        "reversibility": ">",
         "source": "Published Model",
         "status": "MI:O:-3/P:-1|CI:1",
         "stoichiometry": [
@@ -10011,7 +10011,7 @@
             "Group contribution": [
                 208.0,
                 4.46,
-                "<"
+                ">"
             ],
             "dGPredictor": [
                 -322.61,
@@ -10021,7 +10021,7 @@
             "eQuilibrator": [
                 208.81,
                 0.14,
-                "<"
+                ">"
             ]
         }
     },
@@ -10050,7 +10050,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "<",
+        "reversibility": ">",
         "source": "Published Model",
         "status": "MI:O:-3/P:-1|CI:1",
         "stoichiometry": [
@@ -10091,7 +10091,7 @@
             "Group contribution": [
                 208.0,
                 4.46,
-                "<"
+                ">"
             ],
             "dGPredictor": [
                 -322.61,
@@ -10101,7 +10101,7 @@
             "eQuilibrator": [
                 208.81,
                 0.14,
-                "<"
+                ">"
             ]
         }
     },
@@ -10130,7 +10130,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "<",
+        "reversibility": ">",
         "source": "Published Model",
         "status": "MI:O:-3/P:-1|CI:1",
         "stoichiometry": [
@@ -10171,7 +10171,7 @@
             "Group contribution": [
                 208.0,
                 4.48,
-                "<"
+                ">"
             ],
             "dGPredictor": [
                 -322.61,
@@ -10181,7 +10181,7 @@
             "eQuilibrator": [
                 208.81,
                 0.14,
-                "<"
+                ">"
             ]
         }
     },
@@ -10210,7 +10210,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "<",
+        "reversibility": ">",
         "source": "Published Model",
         "status": "MI:O:-3/P:-1|CI:1",
         "stoichiometry": [
@@ -10251,7 +10251,7 @@
             "Group contribution": [
                 208.0,
                 4.48,
-                "<"
+                ">"
             ],
             "dGPredictor": [
                 -322.61,
@@ -10261,7 +10261,7 @@
             "eQuilibrator": [
                 208.81,
                 0.14,
-                "<"
+                ">"
             ]
         }
     },
@@ -10290,7 +10290,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "<",
+        "reversibility": ">",
         "source": "Published Model",
         "status": "MI:O:-3/P:-1|CI:1",
         "stoichiometry": [
@@ -10331,7 +10331,7 @@
             "Group contribution": [
                 208.0,
                 4.37,
-                "<"
+                ">"
             ],
             "dGPredictor": [
                 -322.61,
@@ -10341,7 +10341,7 @@
             "eQuilibrator": [
                 208.81,
                 0.14,
-                "<"
+                ">"
             ]
         }
     },
@@ -10370,7 +10370,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "<",
+        "reversibility": ">",
         "source": "Published Model",
         "status": "MI:O:-3/P:-1|CI:1",
         "stoichiometry": [
@@ -10411,7 +10411,7 @@
             "Group contribution": [
                 208.0,
                 4.37,
-                "<"
+                ">"
             ],
             "dGPredictor": [
                 -322.61,
@@ -10421,7 +10421,7 @@
             "eQuilibrator": [
                 208.81,
                 0.14,
-                "<"
+                ">"
             ]
         }
     },
@@ -10450,7 +10450,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "<",
+        "reversibility": ">",
         "source": "Published Model",
         "status": "MI:O:-3/P:-1|CI:1",
         "stoichiometry": [
@@ -10491,7 +10491,7 @@
             "Group contribution": [
                 208.0,
                 4.59,
-                "<"
+                ">"
             ],
             "dGPredictor": [
                 -322.61,
@@ -10501,7 +10501,7 @@
             "eQuilibrator": [
                 208.81,
                 0.14,
-                "<"
+                ">"
             ]
         }
     },
@@ -10530,7 +10530,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "<",
+        "reversibility": ">",
         "source": "Published Model",
         "status": "MI:O:-3/P:-1|CI:1",
         "stoichiometry": [
@@ -10571,7 +10571,7 @@
             "Group contribution": [
                 208.0,
                 4.59,
-                "<"
+                ">"
             ],
             "dGPredictor": [
                 -322.61,
@@ -10581,7 +10581,7 @@
             "eQuilibrator": [
                 208.81,
                 0.14,
-                "<"
+                ">"
             ]
         }
     },
@@ -10610,7 +10610,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "<",
+        "reversibility": ">",
         "source": "Published Model",
         "status": "MI:O:-3/P:-1|CI:1",
         "stoichiometry": [
@@ -10651,7 +10651,7 @@
             "Group contribution": [
                 208.0,
                 4.83,
-                "<"
+                ">"
             ],
             "dGPredictor": [
                 -322.61,
@@ -10661,7 +10661,7 @@
             "eQuilibrator": [
                 208.81,
                 0.14,
-                "<"
+                ">"
             ]
         }
     },
@@ -10690,7 +10690,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "<",
+        "reversibility": ">",
         "source": "Published Model",
         "status": "MI:O:-3/P:-1|CI:1",
         "stoichiometry": [
@@ -10731,7 +10731,7 @@
             "Group contribution": [
                 208.0,
                 4.83,
-                "<"
+                ">"
             ],
             "dGPredictor": [
                 -322.61,
@@ -10741,7 +10741,7 @@
             "eQuilibrator": [
                 208.81,
                 0.14,
-                "<"
+                ">"
             ]
         }
     },
@@ -12129,7 +12129,7 @@
             "dGPredictor": [
                 -322.61,
                 1.23,
-                ">"
+                "="
             ]
         }
     },
@@ -14088,7 +14088,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Secondary Database",
         "status": "OK",
         "stoichiometry": [
@@ -14145,17 +14145,17 @@
             "Group contribution": [
                 -1.08,
                 13.18,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 -0.32,
                 0.03,
-                "="
+                ">"
             ],
             "eQuilibrator": [
                 -0.85,
                 0.3,
-                "="
+                ">"
             ]
         }
     },
@@ -15102,7 +15102,7 @@
             "dGPredictor": [
                 -9.6,
                 0.02,
-                ">"
+                "="
             ]
         }
     },
@@ -15687,7 +15687,7 @@
         "pathways": [
             "KEGG: rn00380 (Tryptophan metabolism); rn00630 (Glyoxylate and dicarboxylate metabolism)"
         ],
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -15746,7 +15746,7 @@
             "eQuilibrator": [
                 -7.42,
                 1.34,
-                "="
+                ">"
             ]
         }
     },
@@ -19035,7 +19035,7 @@
             "dGPredictor": [
                 -6.88,
                 0.11,
-                "="
+                ">"
             ]
         }
     },
@@ -21620,7 +21620,7 @@
             "MetaCyc: Carbohydrates-Degradation (Carbohydrate Degradation); Degradation (Degradation/Utilization/Assimilation); L-Arabinose-Degradation (L-arabinose Degradation); PWY-5257 (superpathway of pentose and pentitol degradation); PWY-7294 (D-xylose degradation IV); PWY-7295 (L-arabinose degradation IV); SECONDARY-METABOLITE-DEGRADATION (Secondary Metabolite Degradation); SUGAR-ALCOHOLS-DEG (Sugar Alcohol Degradation); Sugar-Derivatives (Sugar Derivative Degradation); Sugars-And-Polysaccharides-Degradation (Sugar Degradation); Xylose-Degradation (Xylose Degradation)",
             "KEGG: rn00630 (Glyoxylate and dicarboxylate metabolism)"
         ],
-        "reversibility": "=",
+        "reversibility": "<",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -21674,12 +21674,12 @@
             "dGPredictor": [
                 10.74,
                 0.03,
-                "="
+                "<"
             ],
             "eQuilibrator": [
                 10.54,
                 0.21,
-                "="
+                "<"
             ]
         }
     },
@@ -21915,7 +21915,7 @@
             "dGPredictor": [
                 10.74,
                 0.03,
-                "<"
+                "="
             ]
         }
     },
@@ -38694,7 +38694,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -38735,17 +38735,17 @@
             "Group contribution": [
                 1.58,
                 2.1,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 0.54,
                 0.03,
-                "="
+                ">"
             ],
             "eQuilibrator": [
                 1.17,
                 0.61,
-                "="
+                ">"
             ]
         }
     },
@@ -38775,7 +38775,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Published Model",
         "status": "OK",
         "stoichiometry": [
@@ -38826,7 +38826,7 @@
             "eQuilibrator": [
                 -6.8,
                 0.45,
-                "="
+                ">"
             ]
         }
     },
@@ -39205,7 +39205,7 @@
             "Group contribution": [
                 0.55,
                 1.36,
-                ">"
+                "="
             ],
             "dGPredictor": [
                 3.58,
@@ -39300,7 +39300,7 @@
             "Group contribution": [
                 0.55,
                 1.36,
-                ">"
+                "="
             ],
             "dGPredictor": [
                 3.58,
@@ -39484,7 +39484,7 @@
             "dGPredictor": [
                 -4.5,
                 0.85,
-                "="
+                ">"
             ]
         }
     },
@@ -39791,12 +39791,12 @@
             "Group contribution": [
                 2.73,
                 1.33,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 -5.11,
                 0.29,
-                "="
+                ">"
             ],
             "eQuilibrator": [
                 -13.78,
@@ -41200,7 +41200,7 @@
             "MetaCyc: Alcohol-Biosynthesis (Fermentation to Alcohols); Energy-Metabolism (Generation of Precursor Metabolite and Energy); Fermentation (); PWY-6583 (pyruvate fermentation to butanol I); PWY-6594 (superpathway of <i>Clostridium acetobutylicum</i> solventogenic fermentation); PWY-6604 (superpathway of <i>Clostridium acetobutylicum</i> acidogenic and solventogenic fermentation); PWY-6883 (pyruvate fermentation to butanol II (engineered)); PWY-6886 (1-butanol autotrophic biosynthesis (engineered)); PWY-7003 (glycerol degradation to butanol); Pyruvate-Butanol-Fermentation (Pyruvate Fermentation to Butanol); Pyruvate-Degradation (Fermentation of Pyruvate)",
             "KEGG: rn00650 (Butanoate metabolism)"
         ],
-        "reversibility": "=",
+        "reversibility": "<",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -41267,7 +41267,7 @@
             "eQuilibrator": [
                 -1.93,
                 0.69,
-                "="
+                "<"
             ]
         }
     },
@@ -42299,7 +42299,7 @@
             "dGPredictor": [
                 -24.74,
                 0.88,
-                "="
+                ">"
             ]
         }
     },
@@ -42979,7 +42979,7 @@
             "Group contribution": [
                 9.53,
                 1.13,
-                "<"
+                "="
             ],
             "dGPredictor": [
                 -3.57,
@@ -43182,7 +43182,7 @@
             "dGPredictor": [
                 4.8,
                 0.31,
-                "="
+                ">"
             ],
             "eQuilibrator": [
                 8.74,
@@ -43276,7 +43276,7 @@
             "Group contribution": [
                 -9.53,
                 1.13,
-                ">"
+                "="
             ],
             "dGPredictor": [
                 -3.57,
@@ -44188,7 +44188,7 @@
             "dGPredictor": [
                 -3.62,
                 0.24,
-                "="
+                ">"
             ],
             "eQuilibrator": [
                 -11.93,
@@ -44453,7 +44453,7 @@
             "dGPredictor": [
                 -3.62,
                 0.24,
-                ">"
+                "="
             ]
         }
     },
@@ -44525,7 +44525,7 @@
             "dGPredictor": [
                 -3.62,
                 0.24,
-                ">"
+                "="
             ]
         }
     },
@@ -49440,7 +49440,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Published Model",
         "status": "OK",
         "stoichiometry": [
@@ -49515,7 +49515,7 @@
             "eQuilibrator": [
                 -2.62,
                 0.35,
-                "="
+                ">"
             ]
         }
     },
@@ -50147,7 +50147,7 @@
         "pathways": [
             "KEGG: rn00052 (Galactose metabolism)"
         ],
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -50198,7 +50198,7 @@
             "eQuilibrator": [
                 -3.57,
                 0.59,
-                "="
+                ">"
             ]
         }
     },
@@ -50604,7 +50604,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Published Model",
         "status": "OK",
         "stoichiometry": [
@@ -50655,7 +50655,7 @@
             "eQuilibrator": [
                 -3.82,
                 0.6,
-                "="
+                ">"
             ]
         }
     },
@@ -50684,7 +50684,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Published Model",
         "status": "OK",
         "stoichiometry": [
@@ -50735,7 +50735,7 @@
             "eQuilibrator": [
                 -3.82,
                 0.6,
-                "="
+                ">"
             ]
         }
     },
@@ -51266,7 +51266,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Published Model",
         "status": "OK",
         "stoichiometry": [
@@ -51317,7 +51317,7 @@
             "eQuilibrator": [
                 -5.31,
                 0.66,
-                "="
+                ">"
             ]
         }
     },
@@ -51916,7 +51916,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -51981,17 +51981,17 @@
             "Group contribution": [
                 -2.09,
                 4.42,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 -3.62,
                 0.03,
-                "="
+                ">"
             ],
             "eQuilibrator": [
                 -3.34,
                 0.2,
-                "="
+                ">"
             ]
         }
     },
@@ -52026,7 +52026,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -52091,17 +52091,17 @@
             "Group contribution": [
                 -2.09,
                 4.42,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 -3.62,
                 0.03,
-                "="
+                ">"
             ],
             "eQuilibrator": [
                 -3.34,
                 0.2,
-                "="
+                ">"
             ]
         }
     },

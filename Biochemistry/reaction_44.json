@@ -177,7 +177,7 @@
         "pathways": [
             "MetaCyc: Degradation (Degradation/Utilization/Assimilation); Noncarbon-Nutrients (Inorganic Nutrient Metabolism); PWY-7793 (dimethyl sulfide biosynthesis from methionine); Sulfur-Metabolism (Sulfur Compound Metabolism)"
         ],
-        "reversibility": ">",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -226,7 +226,7 @@
             "Group contribution": [
                 -13.15,
                 4.94,
-                ">"
+                "="
             ],
             "eQuilibrator": [
                 -0.88,
@@ -3499,7 +3499,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -3545,7 +3545,7 @@
             "eQuilibrator": [
                 -6.07,
                 0.85,
-                "="
+                ">"
             ]
         }
     },
@@ -3856,9 +3856,9 @@
         ],
         "thermodynamics": {
             "Group contribution": [
-                -13.14,
-                7.48,
-                ">"
+                10000000.0,
+                10000000.0,
+                "?"
             ],
             "eQuilibrator": [
                 -2.21,
@@ -4827,7 +4827,7 @@
         "pathways": [
             "MetaCyc: Amino-Acid-Degradation (Amino Acid Degradation); CARBOXYLATES-DEG (Carboxylate Degradation); Degradation (Degradation/Utilization/Assimilation); PWY-5652 (2-amino-3-carboxymuconate semialdehyde degradation to glutaryl-CoA); PWY-6309 (L-tryptophan degradation XI (mammalian, via kynurenine)); Proteinogenic-Amino-Acids-Degradation (Proteinogenic Amino Acid Degradation); TRYPTOPHAN-DEG (L-tryptophan Degradation); TRYPTOPHAN-DEGRADATION-1 (L-tryptophan degradation III (eukaryotic))"
         ],
-        "reversibility": "=",
+        "reversibility": "<",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -4876,12 +4876,12 @@
             "Group contribution": [
                 16.55,
                 6.15,
-                "="
+                "<"
             ],
             "eQuilibrator": [
                 12.92,
                 0.57,
-                "="
+                "<"
             ]
         }
     },
@@ -6774,7 +6774,7 @@
             "Group contribution": [
                 -7.83,
                 4.03,
-                ">"
+                "="
             ],
             "eQuilibrator": [
                 -12.59,
@@ -8952,7 +8952,7 @@
         "pathways": [
             "MetaCyc: COFACTOR-DEGRADATION (Cofactor, Prosthetic Group, Electron Carrier Degradation); Degradation (Degradation/Utilization/Assimilation); Heme-Degradation (Heme Degradation); PWY-7846 (heme degradation V); Tetrapyrrole-Degradation (Tetrapyrrole Degradation)"
         ],
-        "reversibility": "=",
+        "reversibility": "<",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -9001,7 +9001,7 @@
             "Group contribution": [
                 24.54,
                 13.06,
-                "="
+                "<"
             ]
         }
     },
@@ -9726,9 +9726,9 @@
         ],
         "thermodynamics": {
             "Group contribution": [
-                -4.36,
-                6.35,
-                "="
+                10000000.0,
+                10000000.0,
+                "?"
             ],
             "eQuilibrator": [
                 10.47,
@@ -11787,7 +11787,7 @@
         "pathways": [
             "MetaCyc: ALKALOIDS-SYN (Alkaloid Biosynthesis); N-CONTAINING-SECONDARY-CMPD-SYN (Nitrogen-Containing Secondary Compound Biosynthesis); PWY-7135 (emetine biosynthesis); SECONDARY-METABOLITE-BIOSYNTHESIS (Secondary Metabolite Biosynthesis)"
         ],
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -11833,7 +11833,7 @@
             "eQuilibrator": [
                 -3.04,
                 0.42,
-                "="
+                ">"
             ]
         }
     },
@@ -12184,9 +12184,9 @@
         ],
         "thermodynamics": {
             "Group contribution": [
-                -4.36,
-                6.33,
-                "="
+                10000000.0,
+                10000000.0,
+                "?"
             ],
             "eQuilibrator": [
                 -1.83,
@@ -12950,7 +12950,7 @@
         "pathways": [
             "MetaCyc: PWY-7850 (taurine biosynthesis II); S-CONTAINING-SECONDARY-CMPD-SYN (Sulfur-Containing Secondary Compound Biosynthesis); SECONDARY-METABOLITE-BIOSYNTHESIS (Secondary Metabolite Biosynthesis); Taurine-Biosynthesis (Taurine Biosynthesis)"
         ],
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "CI:-1",
         "stoichiometry": [
@@ -13007,12 +13007,12 @@
             "Group contribution": [
                 5.98,
                 2.04,
-                "="
+                ">"
             ],
             "eQuilibrator": [
                 -4.28,
                 0.86,
-                "="
+                ">"
             ]
         }
     },
@@ -13452,7 +13452,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -13525,12 +13525,12 @@
             "Group contribution": [
                 -21.55,
                 6.85,
-                "="
+                ">"
             ],
             "eQuilibrator": [
                 -2.62,
                 0.35,
-                "="
+                ">"
             ]
         }
     },
@@ -13908,7 +13908,7 @@
         "pathways": [
             "MetaCyc: Antibiotic-Biosynthesis (Antibiotic Biosynthesis); PWY-7821 (tunicamycin biosynthesis); SECONDARY-METABOLITE-BIOSYNTHESIS (Secondary Metabolite Biosynthesis)"
         ],
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -13954,7 +13954,7 @@
             "eQuilibrator": [
                 -5.86,
                 0.38,
-                "="
+                ">"
             ]
         }
     },
@@ -14073,7 +14073,7 @@
         "pathways": [
             "MetaCyc: ALKALOIDS-SYN (Alkaloid Biosynthesis); N-CONTAINING-SECONDARY-CMPD-SYN (Nitrogen-Containing Secondary Compound Biosynthesis); PWY-7138 (noscapine biosynthesis); SECONDARY-METABOLITE-BIOSYNTHESIS (Secondary Metabolite Biosynthesis)"
         ],
-        "reversibility": ">",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -14122,7 +14122,7 @@
             "Group contribution": [
                 -13.89,
                 7.22,
-                ">"
+                "="
             ]
         }
     },
@@ -17753,7 +17753,7 @@
         "pathways": [
             "MetaCyc: PWY-6407 (yersiniabactin biosynthesis); SECONDARY-METABOLITE-BIOSYNTHESIS (Secondary Metabolite Biosynthesis); Siderophores-Biosynthesis (Siderophore Biosynthesis)"
         ],
-        "reversibility": "=",
+        "reversibility": "<",
         "source": "Primary Database",
         "status": "MI:C:-43/H:-60/N:-18/O:-14/S:-3|CI:-1",
         "stoichiometry": [
@@ -17850,7 +17850,7 @@
             "Group contribution": [
                 78.7,
                 39.11,
-                "="
+                "<"
             ],
             "eQuilibrator": [
                 -749.94,
@@ -18986,7 +18986,7 @@
         "pathways": [
             "MetaCyc: Cell-Structure-Biosynthesis (Cell Structure Biosynthesis); Metabolic-Clusters (Metabolic Clusters); PLANT-CELL-STRUCTURE (Plant Cell Structures); PWY-6733 (sporopollenin precursors biosynthesis)"
         ],
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -19056,7 +19056,7 @@
             "eQuilibrator": [
                 -2.62,
                 0.35,
-                "="
+                ">"
             ]
         }
     },
@@ -19136,7 +19136,7 @@
             "Group contribution": [
                 -13.89,
                 5.27,
-                ">"
+                "="
             ],
             "eQuilibrator": [
                 7.49,
@@ -21599,7 +21599,7 @@
             "Group contribution": [
                 3.13,
                 6.29,
-                "="
+                ">"
             ],
             "eQuilibrator": [
                 0.14,
@@ -22214,7 +22214,7 @@
             "Group contribution": [
                 -14.03,
                 6.66,
-                ">"
+                "="
             ],
             "eQuilibrator": [
                 3.69,
@@ -26485,7 +26485,7 @@
             "EQC"
         ],
         "pathways": null,
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -26534,7 +26534,7 @@
             "Group contribution": [
                 -7.47,
                 4.87,
-                "="
+                ">"
             ],
             "eQuilibrator": [
                 8.55,
@@ -26752,7 +26752,7 @@
             "Group contribution": [
                 -2.97,
                 2.27,
-                "="
+                ">"
             ],
             "eQuilibrator": [
                 -14.68,
@@ -28346,7 +28346,7 @@
             "EQC"
         ],
         "pathways": null,
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -28387,7 +28387,7 @@
             "Group contribution": [
                 -14.34,
                 8.59,
-                "="
+                ">"
             ],
             "eQuilibrator": [
                 -57.56,
@@ -32074,7 +32074,7 @@
         "pathways": [
             "MetaCyc: Cell-Structure-Biosynthesis (Cell Structure Biosynthesis); Metabolic-Clusters (Metabolic Clusters); PLANT-CELL-STRUCTURE (Plant Cell Structures); PWY-1121 (suberin monomers biosynthesis)"
         ],
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -32136,7 +32136,7 @@
             "eQuilibrator": [
                 -10.22,
                 0.27,
-                "="
+                ">"
             ]
         }
     },
@@ -34836,7 +34836,7 @@
             "Group contribution": [
                 -14.03,
                 6.5,
-                ">"
+                "="
             ],
             "eQuilibrator": [
                 3.69,
@@ -35099,7 +35099,7 @@
         "pathways": [
             "MetaCyc: Lipid-Biosynthesis (Fatty Acid and Lipid Biosynthesis); PWY-7417 (phospholipid remodeling (phosphatidate, yeast)); Phospholipid-Biosynthesis (Phospholipid Biosynthesis)"
         ],
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -35153,7 +35153,7 @@
             "eQuilibrator": [
                 -5.08,
                 0.53,
-                "="
+                ">"
             ]
         }
     },
@@ -35428,7 +35428,7 @@
             "EQC"
         ],
         "pathways": null,
-        "reversibility": ">",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -35477,7 +35477,7 @@
             "Group contribution": [
                 -14.03,
                 7.16,
-                ">"
+                "="
             ],
             "eQuilibrator": [
                 -210.02,
@@ -38190,7 +38190,7 @@
             "eQuilibrator": [
                 0.38,
                 11521.82,
-                "="
+                ">"
             ]
         }
     },
@@ -38665,7 +38665,7 @@
         "pathways": [
             "MetaCyc: Cholesterol-Degradation (Cholesterol Degradation); Degradation (Degradation/Utilization/Assimilation); Fatty-Acid-and-Lipid-Degradation (Fatty Acid and Lipid Degradation); PWY-6928 (superpathway of cholesterol degradation I (cholesterol oxidase)); PWY-6937 (superpathway of testosterone and androsterone degradation); PWY-6944 (androstenedione degradation); PWY-6947 (superpathway of cholesterol degradation II (cholesterol dehydrogenase)); Steroids-Degradation (Steroid Degradation)"
         ],
-        "reversibility": "<",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -38698,7 +38698,7 @@
             "Group contribution": [
                 8.43,
                 5.36,
-                "<"
+                "="
             ]
         }
     },
@@ -40584,7 +40584,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -40638,7 +40638,7 @@
             "eQuilibrator": [
                 -3.53,
                 0.76,
-                "="
+                ">"
             ]
         }
     },
@@ -42292,7 +42292,7 @@
         "pathways": [
             "MetaCyc: AMINE-DEG (Amine and Polyamine Degradation); CARN-DEG (Carnitine Degradation); Degradation (Degradation/Utilization/Assimilation); PWY-3641 (L-carnitine degradation III)"
         ],
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -42354,7 +42354,7 @@
             "eQuilibrator": [
                 -10.02,
                 0.37,
-                "="
+                ">"
             ]
         }
     },
@@ -43172,7 +43172,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -43226,7 +43226,7 @@
             "eQuilibrator": [
                 -4.97,
                 0.47,
-                "="
+                ">"
             ]
         }
     },
@@ -43303,9 +43303,9 @@
         ],
         "thermodynamics": {
             "Group contribution": [
-                -4.36,
-                6.38,
-                "="
+                10000000.0,
+                10000000.0,
+                "?"
             ],
             "eQuilibrator": [
                 -1.81,
@@ -44471,7 +44471,7 @@
         "pathways": [
             "MetaCyc: Eicosapentaenoate-Biosynthesis (Icosapentaenoate Biosynthesis); Fatty-acid-biosynthesis (Fatty Acid Biosynthesis); Lipid-Biosynthesis (Fatty Acid and Lipid Biosynthesis); PUFA-Biosynthesis (Polyunsaturated Fatty Acid Biosynthesis); PWY-7602 (icosapentaenoate biosynthesis V (8-desaturase, lower eukaryotes)); PWY-7619 (juniperonate biosynthesis); PWY-7724 (icosapentaenoate biosynthesis III (8-desaturase, mammals)); Unsaturated-Fatty-Acids-Biosynthesis (Unsaturated Fatty Acid Biosynthesis)"
         ],
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -44528,12 +44528,12 @@
             "Group contribution": [
                 2.16,
                 7.6,
-                "="
+                ">"
             ],
             "eQuilibrator": [
                 3.24,
                 0.82,
-                "="
+                ">"
             ]
         }
     },
@@ -44804,7 +44804,7 @@
             "Group contribution": [
                 9.15,
                 5.18,
-                "="
+                "<"
             ],
             "eQuilibrator": [
                 -110.23,
@@ -47325,7 +47325,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -47371,7 +47371,7 @@
             "eQuilibrator": [
                 -4.58,
                 0.52,
-                "="
+                ">"
             ]
         }
     },
@@ -51043,7 +51043,7 @@
         "pathways": [
             "MetaCyc: Fatty-acid-biosynthesis (Fatty Acid Biosynthesis); Hydroxy-Fatty-Acids-Biosynthesis (Hydroxylated Fatty Acid Biosynthesis); Lipid-Biosynthesis (Fatty Acid and Lipid Biosynthesis); PWY-6433 (hydroxylated fatty acid biosynthesis (plants))"
         ],
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -51100,12 +51100,12 @@
             "Group contribution": [
                 2.16,
                 7.48,
-                "="
+                ">"
             ],
             "eQuilibrator": [
                 3.24,
                 0.82,
-                "="
+                ">"
             ]
         }
     },
@@ -61275,7 +61275,7 @@
         "pathways": [
             "MetaCyc: POLYKETIDE-SYN (Polyketide Biosynthesis); PWY-7880 (coelimycin P1 biosynthesis); SECONDARY-METABOLITE-BIOSYNTHESIS (Secondary Metabolite Biosynthesis)"
         ],
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -61364,7 +61364,7 @@
             "Group contribution": [
                 -5.2,
                 43.14,
-                "="
+                ">"
             ]
         }
     },
@@ -61396,7 +61396,7 @@
         "pathways": [
             "MetaCyc: Degradation (Degradation/Utilization/Assimilation); Ginsenoside-Degradation (Ginsenoside Degradation); PWY-6412 (ginsenoside degradation II); SECONDARY-METABOLITE-DEGRADATION (Secondary Metabolite Degradation); TERPENOID-DEG (Terpenoid Degradation)"
         ],
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -61442,7 +61442,7 @@
             "eQuilibrator": [
                 -4.13,
                 1.05,
-                "="
+                ">"
             ]
         }
     },
@@ -64869,7 +64869,7 @@
         "pathways": [
             "MetaCyc: Cell-Structure-Biosynthesis (Cell Structure Biosynthesis); Metabolic-Clusters (Metabolic Clusters); PLANT-CELL-STRUCTURE (Plant Cell Structures); PWY-6733 (sporopollenin precursors biosynthesis)"
         ],
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -64926,12 +64926,12 @@
             "Group contribution": [
                 -1.17,
                 13.35,
-                "="
+                ">"
             ],
             "eQuilibrator": [
                 -2.03,
                 0.43,
-                "="
+                ">"
             ]
         }
     },
@@ -65338,7 +65338,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -65392,7 +65392,7 @@
             "eQuilibrator": [
                 -6.43,
                 0.76,
-                "="
+                ">"
             ]
         }
     },
@@ -67958,7 +67958,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -68004,7 +68004,7 @@
             "eQuilibrator": [
                 -3.04,
                 0.42,
-                "="
+                ">"
             ]
         }
     },
@@ -68214,7 +68214,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -68260,7 +68260,7 @@
             "eQuilibrator": [
                 -0.88,
                 0.33,
-                "="
+                ">"
             ]
         }
     },
@@ -69598,7 +69598,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -69644,7 +69644,7 @@
             "eQuilibrator": [
                 -3.61,
                 0.84,
-                "="
+                ">"
             ]
         }
     },
@@ -69828,7 +69828,7 @@
         "pathways": [
             "MetaCyc: Antibiotic-Biosynthesis (Antibiotic Biosynthesis); CARBO-BIOSYNTHESIS (Sugar Biosynthesis); Carbohydrates-Biosynthesis (Carbohydrate Biosynthesis); Macrolides-Biosynthesis (Macrolide Antibiotic Biosynthesis); PWY-7104 (dTDP-L-megosamine biosynthesis); PWY-7110 (superpathway of megalomicin A biosynthesis); PWY-7438 (superpathway of dTDP-glucose-derived antibiotic building blocks biosynthesis); SECONDARY-METABOLITE-BIOSYNTHESIS (Secondary Metabolite Biosynthesis); SUGAR-NUCLEOTIDES (Sugar Nucleotide Biosynthesis); dTDP-Sugar-Biosynthesis (dTDP-sugar Biosynthesis)"
         ],
-        "reversibility": ">",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -69877,7 +69877,7 @@
             "Group contribution": [
                 -23.57,
                 10.51,
-                ">"
+                "="
             ],
             "eQuilibrator": [
                 -1.91,
@@ -72257,7 +72257,7 @@
         "pathways": [
             "MetaCyc: LIGNAN-SYN (Lignan Biosynthesis); Metabolic-Clusters (Metabolic Clusters); PHENYLPROPANOID-SYN (Phenylpropanoid Derivative Biosynthesis); PWY-7491 (podophyllotoxin glucosides metabolism); SECONDARY-METABOLITE-BIOSYNTHESIS (Secondary Metabolite Biosynthesis)"
         ],
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -72303,7 +72303,7 @@
             "eQuilibrator": [
                 -3.04,
                 0.42,
-                "="
+                ">"
             ]
         }
     },
@@ -73932,7 +73932,7 @@
         "pathways": [
             "MetaCyc: Cell-Structure-Biosynthesis (Cell Structure Biosynthesis); Metabolic-Clusters (Metabolic Clusters); PLANT-CELL-STRUCTURE (Plant Cell Structures); PWY-6733 (sporopollenin precursors biosynthesis)"
         ],
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -73989,7 +73989,7 @@
             "Group contribution": [
                 11.68,
                 17.95,
-                "="
+                ">"
             ],
             "eQuilibrator": [
                 60.29,
@@ -74901,7 +74901,7 @@
         "pathways": [
             "MetaCyc: Docosahexaenoate-Biosynthesis (Docosahexaenoate Biosynthesis); Fatty-acid-biosynthesis (Fatty Acid Biosynthesis); Lipid-Biosynthesis (Fatty Acid and Lipid Biosynthesis); PUFA-Biosynthesis (Polyunsaturated Fatty Acid Biosynthesis); PWY-7606 (docosahexaenoate biosynthesis III (6-desaturase, mammals)); Unsaturated-Fatty-Acids-Biosynthesis (Unsaturated Fatty Acid Biosynthesis)"
         ],
-        "reversibility": "=",
+        "reversibility": "<",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -74955,7 +74955,7 @@
             "eQuilibrator": [
                 14.27,
                 0.34,
-                "="
+                "<"
             ]
         }
     },
@@ -76276,7 +76276,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -76314,7 +76314,7 @@
             "eQuilibrator": [
                 -27.07,
                 4.66,
-                "="
+                ">"
             ]
         }
     },
@@ -76646,9 +76646,9 @@
         ],
         "thermodynamics": {
             "Group contribution": [
-                -13.06,
-                6.32,
-                ">"
+                10000000.0,
+                10000000.0,
+                "?"
             ],
             "eQuilibrator": [
                 -20.76,
@@ -76850,7 +76850,7 @@
         "pathways": [
             "MetaCyc: Lipid-Biosynthesis (Fatty Acid and Lipid Biosynthesis); PWY-6350 (archaetidylinositol biosynthesis); Phospholipid-Biosynthesis (Phospholipid Biosynthesis)"
         ],
-        "reversibility": ">",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -76899,7 +76899,7 @@
             "Group contribution": [
                 -14.03,
                 5.34,
-                ">"
+                "="
             ],
             "eQuilibrator": [
                 53.87,

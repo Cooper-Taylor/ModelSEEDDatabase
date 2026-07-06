@@ -18539,7 +18539,7 @@
         ],
         "thermodynamics": {
             "Group contribution": [
-                -0.0,
+                0.0,
                 11.54,
                 "="
             ]
@@ -19990,7 +19990,7 @@
         ],
         "thermodynamics": {
             "Group contribution": [
-                -0.0,
+                0.0,
                 11.44,
                 "="
             ]
@@ -25030,7 +25030,7 @@
         ],
         "thermodynamics": {
             "Group contribution": [
-                -0.0,
+                0.0,
                 13.42,
                 "="
             ]
@@ -25402,7 +25402,7 @@
         ],
         "thermodynamics": {
             "Group contribution": [
-                -0.0,
+                0.0,
                 16.9,
                 "="
             ]
@@ -40255,7 +40255,7 @@
             "Group contribution": [
                 9.27,
                 3.51,
-                "="
+                "<"
             ]
         }
     },
