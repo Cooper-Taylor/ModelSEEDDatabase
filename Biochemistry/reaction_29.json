@@ -487,13 +487,13 @@
         ],
         "code": "(1) cpd02654[0] + (1) cpd02894[0] <=> (1) cpd00012[0] + (1) cpd00793[0]",
         "compound_ids": "cpd00012;cpd00793;cpd02654;cpd02894",
-        "definition": "(1) 4-Methyl-5--2-phosphoethyl-thiazole[0] + (1) 4-Amino-2-methyl-5-diphosphomethylpyrimidine[0] <=> (1) PPi[0] + (1) Thiamine phosphate[0]",
+        "definition": "(1) 4-Methyl-5--2-phosphoethyl-thiazole[0] + (1) 4-Amino-2-methyl-5-diphosphomethylpyrimidine[0] => (1) PPi[0] + (1) Thiamine phosphate[0]",
         "deltag": -5.07,
         "deltagerr": 0.71,
         "ec_numbers": [
             "2.5.1.3"
         ],
-        "equation": "(1) cpd02654[0] + (1) cpd02894[0] <=> (1) cpd00012[0] + (1) cpd00793[0]",
+        "equation": "(1) cpd02654[0] + (1) cpd02894[0] => (1) cpd00012[0] + (1) cpd00793[0]",
         "id": "rxn29006",
         "is_obsolete": 1,
         "is_transport": 0,
@@ -12340,7 +12340,7 @@
             "dGPredictor": [
                 -67.33,
                 2.29,
-                "="
+                ">"
             ]
         }
     },
@@ -14098,7 +14098,7 @@
             "dGPredictor": [
                 -67.33,
                 2.29,
-                "="
+                ">"
             ]
         }
     },
@@ -24491,7 +24491,7 @@
             "dGPredictor": [
                 -67.33,
                 2.29,
-                "="
+                ">"
             ],
             "eQuilibrator": [
                 -6.16,
@@ -40550,7 +40550,7 @@
             "dGPredictor": [
                 -67.33,
                 2.29,
-                "="
+                ">"
             ]
         }
     },
@@ -40981,7 +40981,7 @@
             "dGPredictor": [
                 -67.33,
                 2.29,
-                "="
+                ">"
             ]
         }
     },
@@ -47942,7 +47942,7 @@
             "MetaCyc: CARBO-BIOSYNTHESIS (Sugar Biosynthesis); Carbohydrates-Biosynthesis (Carbohydrate Biosynthesis); GLYCOGEN-BIOSYN (Glycogen and Starch Biosynthesis); Glycan-Biosynthesis (Glycan Biosynthesis); Glycan-Pathways (Glycan Pathways); Metabolic-Regulators (Metabolic Regulator Biosynthesis); Organic-solutes-Biosynthesis (Organic Solute Biosynthesis); PWY-7900 (glycogen biosynthesis III (from &alpha;-maltose 1-phosphate)); PWY-881 (trehalose biosynthesis II); Polysaccharides-Biosynthesis (Polysaccharide Biosynthesis); TREHALOSESYN-PWY (trehalose biosynthesis III); TRESYN-PWY (trehalose biosynthesis I); Trehalose-biosynthesis (Trehalose Biosynthesis)",
             "KEGG: rn00500 (Starch and sucrose metabolism)"
         ],
-        "reversibility": ">",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -47993,7 +47993,7 @@
             "eQuilibrator": [
                 -1.67,
                 0.54,
-                ">"
+                "="
             ]
         }
     },
@@ -48084,7 +48084,7 @@
             "dGPredictor": [
                 -2.95,
                 0.03,
-                ">"
+                "="
             ]
         }
     },
@@ -48890,12 +48890,12 @@
             "Group contribution": [
                 -9.17,
                 2.35,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 -7.58,
                 0.04,
-                "="
+                ">"
             ],
             "eQuilibrator": [
                 -7.29,
@@ -49385,7 +49385,7 @@
         "pathways": [
             "MetaCyc: Degradation (Degradation/Utilization/Assimilation); NUCLEO-DEG (Nucleoside and Nucleotide Degradation); Nucleotide-Biosynthesis (Nucleoside and Nucleotide Biosynthesis); PWY-6556 (pyrimidine ribonucleosides salvage II); PWY-7196 (superpathway of pyrimidine ribonucleosides salvage); PYR-NUC-SYN (Pyrimidine Nucleotide Biosynthesis); Pyrimidine-Degradation (Pyrimidine Nucleotide Degradation); Pyrimidine-Nucleotide-Salvage (Pyrimidine Nucleotide Salvage); Pyrimidine-Ribonucleosides-Degradation (Pyrimidine Ribonucleoside Degradation)"
         ],
-        "reversibility": ">",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -49436,7 +49436,7 @@
             "eQuilibrator": [
                 -6.28,
                 0.55,
-                ">"
+                "="
             ]
         }
     },
@@ -50498,7 +50498,7 @@
             "dGPredictor": [
                 -6.54,
                 0.32,
-                ">"
+                "="
             ],
             "eQuilibrator": [
                 -60.66,
@@ -50594,7 +50594,7 @@
             "dGPredictor": [
                 -6.68,
                 0.35,
-                ">"
+                "="
             ]
         }
     },
@@ -50861,7 +50861,7 @@
             "dGPredictor": [
                 -0.62,
                 0.2,
-                ">"
+                "="
             ],
             "eQuilibrator": [
                 -6.09,
@@ -51038,7 +51038,7 @@
             "dGPredictor": [
                 -2.88,
                 0.03,
-                ">"
+                "="
             ],
             "eQuilibrator": [
                 97.86,
@@ -51383,7 +51383,7 @@
         "pathways": [
             "KEGG: rn00500 (Starch and sucrose metabolism)"
         ],
-        "reversibility": ">",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -51421,12 +51421,12 @@
             "dGPredictor": [
                 -2.98,
                 0.03,
-                ">"
+                "="
             ],
             "eQuilibrator": [
                 -2.79,
                 0.26,
-                ">"
+                "="
             ]
         }
     },
@@ -51854,7 +51854,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": ">",
+        "reversibility": "=",
         "source": "Secondary Database",
         "status": "OK",
         "stoichiometry": [
@@ -51905,7 +51905,7 @@
             "eQuilibrator": [
                 -3.94,
                 0.96,
-                ">"
+                "="
             ]
         }
     },
@@ -52022,7 +52022,7 @@
         "pathways": [
             "MetaCyc: Adenine-Adenosine-Salvage (Adenine and Adenosine Salvage); Adenosine-Nucleotides-Degradation (Adenosine Nucleotide Degradation); Degradation (Degradation/Utilization/Assimilation); NUCLEO-DEG (Nucleoside and Nucleotide Degradation); Nucleotide-Biosynthesis (Nucleoside and Nucleotide Biosynthesis); PUR-NUC-SYN (Purine Nucleotide Biosynthesis); PWY-6353 (purine nucleotides degradation II (aerobic)); PWY-6609 (adenine and adenosine salvage III); PWY-6611 (adenine and adenosine salvage V); PWY0-1296 (purine ribonucleosides degradation); PWY66-409 (superpathway of purine nucleotide salvage); Purine-Degradation (Purine Nucleotide Degradation); Purine-Nucleotides-Salvage (Purine Nucleotide Salvage); SALVADEHYPOX-PWY (adenosine nucleotides degradation II)"
         ],
-        "reversibility": ">",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -52076,12 +52076,12 @@
             "dGPredictor": [
                 -5.65,
                 0.02,
-                ">"
+                "="
             ],
             "eQuilibrator": [
                 -5.49,
                 0.18,
-                ">"
+                "="
             ]
         }
     },
@@ -52118,7 +52118,7 @@
         "pathways": [
             "MetaCyc: Adenine-Adenosine-Salvage (Adenine and Adenosine Salvage); Nucleotide-Biosynthesis (Nucleoside and Nucleotide Biosynthesis); PUR-NUC-SYN (Purine Nucleotide Biosynthesis); PWY-6610 (adenine salvage); Purine-Nucleotides-Salvage (Purine Nucleotide Salvage)"
         ],
-        "reversibility": ">",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -52172,12 +52172,12 @@
             "dGPredictor": [
                 -4.99,
                 0.03,
-                ">"
+                "="
             ],
             "eQuilibrator": [
                 -5.3,
                 0.39,
-                ">"
+                "="
             ]
         }
     },
@@ -52254,7 +52254,7 @@
             "dGPredictor": [
                 -4.99,
                 0.03,
-                ">"
+                "="
             ]
         }
     },
@@ -52699,14 +52699,14 @@
         ],
         "code": "(1) cpd00002[0] + (1) cpd00013[0] + (1) cpd00041[0] <=> (1) cpd00012[0] + (1) cpd00018[0] + (1) cpd00132[0]",
         "compound_ids": "cpd00002;cpd00012;cpd00013;cpd00018;cpd00041;cpd00067;cpd00132",
-        "definition": "(1) ATP[0] + (1) NH3[0] + (1) L-Aspartate[0] => (1) PPi[0] + (1) AMP[0] + (2) H+[0] + (1) L-Asparagine[0]",
+        "definition": "(1) ATP[0] + (1) NH3[0] + (1) L-Aspartate[0] <=> (1) PPi[0] + (1) AMP[0] + (2) H+[0] + (1) L-Asparagine[0]",
         "deltag": -4.43,
         "deltagerr": 0.87,
         "ec_numbers": [
             "6.3.1.1",
             "6.3.5.4"
         ],
-        "equation": "(1) cpd00002[0] + (1) cpd00013[0] + (1) cpd00041[0] => (1) cpd00012[0] + (1) cpd00018[0] + (2) cpd00067[0] + (1) cpd00132[0]",
+        "equation": "(1) cpd00002[0] + (1) cpd00013[0] + (1) cpd00041[0] <=> (1) cpd00012[0] + (1) cpd00018[0] + (2) cpd00067[0] + (1) cpd00132[0]",
         "id": "rxn29993",
         "is_obsolete": 1,
         "is_transport": 0,
@@ -52720,7 +52720,7 @@
         "pathways": [
             "MetaCyc: ASPARAGINE-SYN (L-asparagine Biosynthesis); ASPARAGINESYN-PWY (L-asparagine biosynthesis II); ASPASN-PWY (superpathway of L-aspartate and L-asparagine biosynthesis); Amino-Acid-Biosynthesis (Amino Acid Biosynthesis); IND-AMINO-ACID-SYN (Proteinogenic Amino Acid Biosynthesis); Metabolic-Clusters (Metabolic Clusters); PWY0-1325 (superpathway of L-asparagine biosynthesis)"
         ],
-        "reversibility": ">",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -52790,12 +52790,12 @@
             "dGPredictor": [
                 -4.4,
                 0.04,
-                ">"
+                "="
             ],
             "eQuilibrator": [
                 -4.43,
                 0.87,
-                ">"
+                "="
             ]
         }
     },
@@ -52965,7 +52965,7 @@
             "dGPredictor": [
                 -5.65,
                 0.02,
-                ">"
+                "="
             ],
             "eQuilibrator": [
                 -13.75,
@@ -53158,7 +53158,7 @@
             "Group contribution": [
                 -5.14,
                 2.19,
-                ">"
+                "="
             ],
             "dGPredictor": [
                 -13.74,
@@ -53258,7 +53258,7 @@
             "dGPredictor": [
                 2.45,
                 0.26,
-                ">"
+                "="
             ],
             "eQuilibrator": [
                 1.3,

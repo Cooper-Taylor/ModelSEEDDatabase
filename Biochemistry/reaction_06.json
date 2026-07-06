@@ -4738,7 +4738,7 @@
             "dGPredictor": [
                 -6.14,
                 0.23,
-                "="
+                ">"
             ],
             "eQuilibrator": [
                 9.74,
@@ -35254,7 +35254,7 @@
             "EQC"
         ],
         "pathways": null,
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -35303,7 +35303,7 @@
             "Group contribution": [
                 -19.86,
                 10.91,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 8.34,
@@ -37083,7 +37083,7 @@
             "dGPredictor": [
                 -8.51,
                 0.2,
-                ">"
+                "="
             ],
             "eQuilibrator": [
                 33.69,
@@ -44810,7 +44810,7 @@
             "dGPredictor": [
                 15.28,
                 0.25,
-                "<"
+                "="
             ]
         }
     },
@@ -71084,7 +71084,7 @@
             "Group contribution": [
                 -7.83,
                 4.03,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 -13.06,
@@ -76091,7 +76091,7 @@
             "Group contribution": [
                 7.34,
                 5.01,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 -18.1,
@@ -76162,7 +76162,7 @@
             "Group contribution": [
                 7.73,
                 3.5,
-                "="
+                "<"
             ],
             "eQuilibrator": [
                 -1.36,

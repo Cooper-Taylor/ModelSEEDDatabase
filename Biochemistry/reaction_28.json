@@ -160,7 +160,7 @@
             "dGPredictor": [
                 -0.8,
                 0.49,
-                ">"
+                "="
             ],
             "eQuilibrator": [
                 -5.17,
@@ -203,7 +203,7 @@
             "MetaCyc: ARG+POLYAMINE-SYN (superpathway of arginine and polyamine biosynthesis); ARGININE-SYN (L-arginine Biosynthesis); ARGSYN-PWY (L-arginine biosynthesis I (via L-ornithine)); ARGSYNBSUB-PWY (L-arginine biosynthesis II (acetyl cycle)); Amino-Acid-Biosynthesis (Amino Acid Biosynthesis); GLUTORN-PWY (L-ornithine biosynthesis I); IND-AMINO-ACID-SYN (Proteinogenic Amino Acid Biosynthesis); L-Ornithine-Biosynthesis (L-Ornithine Biosynthesis); Other-Amino-Acid-Biosynthesis (Other Amino Acid Biosynthesis); PWY-5154 (L-arginine biosynthesis III (via <i>N</i>-acetyl-L-citrulline)); Polyamine-Biosynthesis (Amine and Polyamine Biosynthesis)",
             "KEGG: rn00330 (Arginine and proline metabolism); rn01110 (Biosynthesis of secondary metabolites); rn01210 (2-Oxocarboxylic acid metabolism); rn01230 (Biosynthesis of amino acids)"
         ],
-        "reversibility": "<",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -270,7 +270,7 @@
             "eQuilibrator": [
                 1.6,
                 0.39,
-                "<"
+                "="
             ]
         }
     },
@@ -1583,7 +1583,7 @@
             "dGPredictor": [
                 -0.02,
                 0.02,
-                ">"
+                "="
             ]
         }
     },
@@ -2683,7 +2683,7 @@
             "Group contribution": [
                 0.55,
                 1.36,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 -6.9,
@@ -2949,12 +2949,12 @@
             "Group contribution": [
                 -1.32,
                 2.72,
-                ">"
+                "="
             ],
             "dGPredictor": [
                 1.17,
                 0.4,
-                ">"
+                "="
             ],
             "eQuilibrator": [
                 -6.26,
@@ -3486,7 +3486,7 @@
             "dGPredictor": [
                 -0.13,
                 0.03,
-                "="
+                ">"
             ]
         }
     },
@@ -5353,14 +5353,14 @@
         ],
         "code": "(1) cpd00002[0] + (1) cpd00010[0] + (1) cpd00141[0] <=> (1) cpd00012[0] + (1) cpd00018[0] + (1) cpd00086[0]",
         "compound_ids": "cpd00002;cpd00010;cpd00012;cpd00018;cpd00067;cpd00086;cpd00141",
-        "definition": "(1) ATP[0] + (1) CoA[0] + (1) Propionate[0] => (1) PPi[0] + (1) AMP[0] + (1) H+[0] + (1) Propionyl-CoA[0]",
+        "definition": "(1) ATP[0] + (1) CoA[0] + (1) Propionate[0] <=> (1) PPi[0] + (1) AMP[0] + (1) H+[0] + (1) Propionyl-CoA[0]",
         "deltag": 1.42,
         "deltagerr": 0.71,
         "ec_numbers": [
             "6.2.1.1",
             "6.2.1.17"
         ],
-        "equation": "(1) cpd00002[0] + (1) cpd00010[0] + (1) cpd00141[0] => (1) cpd00012[0] + (1) cpd00018[0] + (1) cpd00067[0] + (1) cpd00086[0]",
+        "equation": "(1) cpd00002[0] + (1) cpd00010[0] + (1) cpd00141[0] <=> (1) cpd00012[0] + (1) cpd00018[0] + (1) cpd00067[0] + (1) cpd00086[0]",
         "id": "rxn28088",
         "is_obsolete": 1,
         "is_transport": 0,
@@ -5466,14 +5466,14 @@
         ],
         "code": "(1) cpd00002[0] + (1) cpd00010[0] + (1) cpd00141[0] <=> (1) cpd00012[0] + (1) cpd00018[0] + (1) cpd00086[0]",
         "compound_ids": "cpd00002;cpd00010;cpd00012;cpd00018;cpd00067;cpd00086;cpd00141",
-        "definition": "(1) ATP[0] + (1) CoA[0] + (1) Propionate[0] => (1) PPi[0] + (1) AMP[0] + (1) H+[0] + (1) Propionyl-CoA[0]",
+        "definition": "(1) ATP[0] + (1) CoA[0] + (1) Propionate[0] <=> (1) PPi[0] + (1) AMP[0] + (1) H+[0] + (1) Propionyl-CoA[0]",
         "deltag": 1.42,
         "deltagerr": 0.71,
         "ec_numbers": [
             "6.2.1.1",
             "6.2.1.17"
         ],
-        "equation": "(1) cpd00002[0] + (1) cpd00010[0] + (1) cpd00141[0] => (1) cpd00012[0] + (1) cpd00018[0] + (1) cpd00067[0] + (1) cpd00086[0]",
+        "equation": "(1) cpd00002[0] + (1) cpd00010[0] + (1) cpd00141[0] <=> (1) cpd00012[0] + (1) cpd00018[0] + (1) cpd00067[0] + (1) cpd00086[0]",
         "id": "rxn28089",
         "is_obsolete": 1,
         "is_transport": 0,
@@ -6834,7 +6834,7 @@
             "Group contribution": [
                 -11.95,
                 2.87,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 -5.84,
@@ -6925,7 +6925,7 @@
             "Group contribution": [
                 -11.95,
                 2.87,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 -5.84,
@@ -7585,7 +7585,7 @@
             "dGPredictor": [
                 12.39,
                 0.03,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 4.72,
@@ -7682,7 +7682,7 @@
             "dGPredictor": [
                 12.98,
                 0.03,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 4.72,
@@ -7704,13 +7704,13 @@
         ],
         "code": "(1) cpd00002[0] + (1) cpd00020[0] + (1) cpd00242[0] <=> (1) cpd00008[0] + (1) cpd00009[0] + (1) cpd00032[0]",
         "compound_ids": "cpd00002;cpd00008;cpd00009;cpd00020;cpd00032;cpd00067;cpd00242",
-        "definition": "(1) ATP[0] + (1) Pyruvate[0] + (1) H2CO3[0] => (1) ADP[0] + (1) Phosphate[0] + (1) Oxaloacetate[0] + (1) H+[0]",
+        "definition": "(1) ATP[0] + (1) Pyruvate[0] + (1) H2CO3[0] <=> (1) ADP[0] + (1) Phosphate[0] + (1) Oxaloacetate[0] + (1) H+[0]",
         "deltag": -0.94,
         "deltagerr": 0.18,
         "ec_numbers": [
             "6.4.1.1"
         ],
-        "equation": "(1) cpd00002[0] + (1) cpd00020[0] + (1) cpd00242[0] => (1) cpd00008[0] + (1) cpd00009[0] + (1) cpd00032[0] + (1) cpd00067[0]",
+        "equation": "(1) cpd00002[0] + (1) cpd00020[0] + (1) cpd00242[0] <=> (1) cpd00008[0] + (1) cpd00009[0] + (1) cpd00032[0] + (1) cpd00067[0]",
         "id": "rxn28116",
         "is_obsolete": 1,
         "is_transport": 0,
@@ -12030,7 +12030,7 @@
             "dGPredictor": [
                 -2.57,
                 0.51,
-                ">"
+                "="
             ]
         }
     },
@@ -12494,7 +12494,7 @@
             "dGPredictor": [
                 -2.57,
                 0.51,
-                ">"
+                "="
             ]
         }
     },
@@ -12782,7 +12782,7 @@
             "dGPredictor": [
                 -2.57,
                 0.51,
-                "="
+                ">"
             ]
         }
     },
@@ -14636,7 +14636,7 @@
         "pathways": [
             "MetaCyc: Docosahexaenoate-Biosynthesis (Docosahexaenoate Biosynthesis); Fatty-acid-biosynthesis (Fatty Acid Biosynthesis); Lipid-Biosynthesis (Fatty Acid and Lipid Biosynthesis); PUFA-Biosynthesis (Polyunsaturated Fatty Acid Biosynthesis); PWY-7053 (docosahexaenoate biosynthesis I (lower eukaryotes)); PWY-7606 (docosahexaenoate biosynthesis III (6-desaturase, mammals)); PWY-7727 (docosahexaenoate biosynthesis IV (4-desaturase, mammals)); Unsaturated-Fatty-Acids-Biosynthesis (Unsaturated Fatty Acid Biosynthesis)"
         ],
-        "reversibility": ">",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -14693,7 +14693,7 @@
             "Group contribution": [
                 2.16,
                 8.02,
-                ">"
+                "="
             ],
             "dGPredictor": [
                 -2.21,
@@ -14703,7 +14703,7 @@
             "eQuilibrator": [
                 3.24,
                 0.82,
-                ">"
+                "="
             ]
         }
     },
@@ -15086,7 +15086,7 @@
             "dGPredictor": [
                 -2.21,
                 0.22,
-                ">"
+                "="
             ]
         }
     },
@@ -15758,7 +15758,7 @@
             "Group contribution": [
                 12.36,
                 2.29,
-                "="
+                "<"
             ],
             "dGPredictor": [
                 -2.21,
@@ -15808,7 +15808,7 @@
             "MetaCyc: Carbohydrates-Degradation (Carbohydrate Degradation); Degradation (Degradation/Utilization/Assimilation); PWY-621 (sucrose degradation III (sucrose invertase)); PWY66-373 (sucrose degradation V (sucrose &alpha;-glucosidase)); SUCROSE-DEG (Sucrose Degradation); Sugars-And-Polysaccharides-Degradation (Sugar Degradation)",
             "KEGG: rn00500 (Starch and sucrose metabolism)"
         ],
-        "reversibility": ">",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -15859,7 +15859,7 @@
             "eQuilibrator": [
                 -5.31,
                 0.66,
-                ">"
+                "="
             ]
         }
     },
@@ -15899,7 +15899,7 @@
             "MetaCyc: Carbohydrates-Degradation (Carbohydrate Degradation); Degradation (Degradation/Utilization/Assimilation); PWY-621 (sucrose degradation III (sucrose invertase)); PWY66-373 (sucrose degradation V (sucrose &alpha;-glucosidase)); SUCROSE-DEG (Sucrose Degradation); Sugars-And-Polysaccharides-Degradation (Sugar Degradation)",
             "KEGG: rn00500 (Starch and sucrose metabolism)"
         ],
-        "reversibility": ">",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -15950,7 +15950,7 @@
             "eQuilibrator": [
                 -5.31,
                 0.66,
-                ">"
+                "="
             ]
         }
     },
@@ -15990,7 +15990,7 @@
             "MetaCyc: Carbohydrates-Degradation (Carbohydrate Degradation); Degradation (Degradation/Utilization/Assimilation); PWY-621 (sucrose degradation III (sucrose invertase)); PWY66-373 (sucrose degradation V (sucrose &alpha;-glucosidase)); SUCROSE-DEG (Sucrose Degradation); Sugars-And-Polysaccharides-Degradation (Sugar Degradation)",
             "KEGG: rn00500 (Starch and sucrose metabolism)"
         ],
-        "reversibility": ">",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -16041,7 +16041,7 @@
             "eQuilibrator": [
                 -5.31,
                 0.66,
-                ">"
+                "="
             ]
         }
     },
@@ -16081,7 +16081,7 @@
             "MetaCyc: Carbohydrates-Degradation (Carbohydrate Degradation); Degradation (Degradation/Utilization/Assimilation); PWY-621 (sucrose degradation III (sucrose invertase)); PWY66-373 (sucrose degradation V (sucrose &alpha;-glucosidase)); SUCROSE-DEG (Sucrose Degradation); Sugars-And-Polysaccharides-Degradation (Sugar Degradation)",
             "KEGG: rn00500 (Starch and sucrose metabolism)"
         ],
-        "reversibility": ">",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -16132,7 +16132,7 @@
             "eQuilibrator": [
                 -5.31,
                 0.66,
-                ">"
+                "="
             ]
         }
     },
@@ -16172,7 +16172,7 @@
             "MetaCyc: Carbohydrates-Degradation (Carbohydrate Degradation); Degradation (Degradation/Utilization/Assimilation); PWY-621 (sucrose degradation III (sucrose invertase)); PWY66-373 (sucrose degradation V (sucrose &alpha;-glucosidase)); SUCROSE-DEG (Sucrose Degradation); Sugars-And-Polysaccharides-Degradation (Sugar Degradation)",
             "KEGG: rn00500 (Starch and sucrose metabolism)"
         ],
-        "reversibility": ">",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -16223,7 +16223,7 @@
             "eQuilibrator": [
                 -5.31,
                 0.66,
-                ">"
+                "="
             ]
         }
     },
@@ -16372,7 +16372,7 @@
             "dGPredictor": [
                 4.84,
                 0.34,
-                "="
+                "<"
             ]
         }
     },
@@ -16444,7 +16444,7 @@
             "dGPredictor": [
                 4.84,
                 0.34,
-                "="
+                "<"
             ]
         }
     },
@@ -16516,7 +16516,7 @@
             "dGPredictor": [
                 4.84,
                 0.34,
-                "="
+                "<"
             ]
         }
     },
@@ -17189,7 +17189,7 @@
         "pathways": [
             "MetaCyc: Carbohydrates-Degradation (Carbohydrate Degradation); Degradation (Degradation/Utilization/Assimilation); Energy-Metabolism (Generation of Precursor Metabolite and Energy); Entner-Duodoroff-Pathways (Entner-Duodoroff Pathways); PWY-2221 (Entner-Doudoroff pathway III (semi-phosphorylative)); Sugars-And-Polysaccharides-Degradation (Sugar Degradation)"
         ],
-        "reversibility": ">",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -17256,7 +17256,7 @@
             "eQuilibrator": [
                 -9.33,
                 0.11,
-                ">"
+                "="
             ]
         }
     },
@@ -17348,7 +17348,7 @@
             "dGPredictor": [
                 3.65,
                 0.38,
-                "="
+                "<"
             ]
         }
     },
@@ -17572,7 +17572,7 @@
             "dGPredictor": [
                 3.65,
                 0.38,
-                "="
+                ">"
             ],
             "eQuilibrator": [
                 -4.77,
@@ -21300,7 +21300,7 @@
             "dGPredictor": [
                 -5.04,
                 0.45,
-                ">"
+                "="
             ],
             "eQuilibrator": [
                 0.52,
@@ -23828,7 +23828,7 @@
             "dGPredictor": [
                 5.61,
                 0.13,
-                "<"
+                "="
             ]
         }
     },
@@ -23921,7 +23921,7 @@
             "dGPredictor": [
                 8.61,
                 0.25,
-                "="
+                "<"
             ],
             "eQuilibrator": [
                 -4.89,
@@ -24017,7 +24017,7 @@
             "dGPredictor": [
                 8.61,
                 0.25,
-                "="
+                "<"
             ],
             "eQuilibrator": [
                 -4.89,
@@ -25735,7 +25735,7 @@
             "MetaCyc: ARGININE-SYN (L-arginine Biosynthesis); Amino-Acid-Biosynthesis (Amino Acid Biosynthesis); IND-AMINO-ACID-SYN (Proteinogenic Amino Acid Biosynthesis); PWY-5154 (L-arginine biosynthesis III (via <i>N</i>-acetyl-L-citrulline))",
             "KEGG: rn00330 (Arginine and proline metabolism)"
         ],
-        "reversibility": ">",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -25781,12 +25781,12 @@
             "dGPredictor": [
                 -4.56,
                 0.26,
-                ">"
+                "="
             ],
             "eQuilibrator": [
                 -6.73,
                 1.05,
-                ">"
+                "="
             ]
         }
     },
@@ -25976,7 +25976,7 @@
             "dGPredictor": [
                 -4.56,
                 0.26,
-                "="
+                ">"
             ]
         }
     },
@@ -27107,7 +27107,7 @@
             "dGPredictor": [
                 -3.68,
                 1.06,
-                ">"
+                "="
             ]
         }
     },
@@ -28275,7 +28275,7 @@
             "dGPredictor": [
                 4.2,
                 0.02,
-                ">"
+                "="
             ]
         }
     },
@@ -31844,7 +31844,7 @@
             "dGPredictor": [
                 20.9,
                 0.56,
-                "<"
+                "="
             ]
         }
     },
@@ -33515,7 +33515,7 @@
             "Group contribution": [
                 -16.2,
                 6.3,
-                ">"
+                "="
             ],
             "dGPredictor": [
                 20.9,
@@ -34391,7 +34391,7 @@
             "dGPredictor": [
                 3.78,
                 0.35,
-                "="
+                "<"
             ]
         }
     },
@@ -34699,7 +34699,7 @@
             "dGPredictor": [
                 3.78,
                 0.35,
-                "="
+                ">"
             ]
         }
     },
@@ -36115,7 +36115,7 @@
             "dGPredictor": [
                 8.11,
                 1.06,
-                "="
+                "<"
             ]
         }
     },
@@ -36205,7 +36205,7 @@
             "dGPredictor": [
                 8.11,
                 1.06,
-                "="
+                "<"
             ]
         }
     },
@@ -42304,7 +42304,7 @@
             "dGPredictor": [
                 7.3,
                 0.19,
-                "="
+                "<"
             ]
         }
     },
@@ -43835,7 +43835,7 @@
             "dGPredictor": [
                 7.3,
                 0.19,
-                "<"
+                "="
             ]
         }
     },
@@ -45095,7 +45095,7 @@
             "dGPredictor": [
                 -0.47,
                 0.04,
-                ">"
+                "="
             ]
         }
     },
@@ -50875,7 +50875,7 @@
             "dGPredictor": [
                 9.34,
                 0.4,
-                "<"
+                "="
             ]
         }
     },
@@ -51689,7 +51689,7 @@
             "dGPredictor": [
                 9.34,
                 0.4,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 -11.45,
@@ -51969,7 +51969,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Secondary Database",
         "status": "CI:4",
         "stoichiometry": [
@@ -52002,7 +52002,7 @@
             "Group contribution": [
                 -12.68,
                 8.87,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 -37.19,
@@ -52012,7 +52012,7 @@
             "eQuilibrator": [
                 -1.98,
                 0.61,
-                "="
+                ">"
             ]
         }
     },
@@ -52047,7 +52047,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Secondary Database",
         "status": "CI:4",
         "stoichiometry": [
@@ -52080,7 +52080,7 @@
             "Group contribution": [
                 -12.68,
                 8.87,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 -37.19,
@@ -52090,7 +52090,7 @@
             "eQuilibrator": [
                 -1.98,
                 0.61,
-                "="
+                ">"
             ]
         }
     },
@@ -52752,7 +52752,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": ">",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -52798,12 +52798,12 @@
             "dGPredictor": [
                 -6.3,
                 0.94,
-                ">"
+                "="
             ],
             "eQuilibrator": [
                 -2.73,
                 0.45,
-                ">"
+                "="
             ]
         }
     },
@@ -53578,7 +53578,7 @@
             "dGPredictor": [
                 -6.3,
                 0.94,
-                "="
+                ">"
             ]
         }
     },
@@ -54560,7 +54560,7 @@
             "MetaCyc: ERGOSTEROL-SYN-PWY (superpathway of ergosterol biosynthesis I); Ergosterol-Biosynthesis (Ergosterol Biosynthesis); Lipid-Biosynthesis (Fatty Acid and Lipid Biosynthesis); PWY-6075 (ergosterol biosynthesis I); Sterol-Biosynthesis (Sterol Biosynthesis)",
             "KEGG: rn00100 (Steroid biosynthesis)"
         ],
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -54609,7 +54609,7 @@
             "Group contribution": [
                 -19.86,
                 10.94,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 7.1,
@@ -54871,7 +54871,7 @@
             "dGPredictor": [
                 7.1,
                 0.91,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 -15.54,
@@ -54966,7 +54966,7 @@
             "dGPredictor": [
                 7.1,
                 0.91,
-                ">"
+                "="
             ]
         }
     },
@@ -55314,7 +55314,7 @@
             "dGPredictor": [
                 7.1,
                 0.91,
-                "="
+                ">"
             ]
         }
     },
@@ -55499,7 +55499,7 @@
             "dGPredictor": [
                 7.1,
                 0.91,
-                "<"
+                "="
             ]
         }
     },
@@ -55625,7 +55625,7 @@
             "dGPredictor": [
                 7.1,
                 0.91,
-                "<"
+                "="
             ]
         }
     },
@@ -55692,7 +55692,7 @@
             "dGPredictor": [
                 7.1,
                 0.91,
-                "<"
+                "="
             ]
         }
     },
@@ -55759,7 +55759,7 @@
             "dGPredictor": [
                 7.1,
                 0.91,
-                "<"
+                "="
             ]
         }
     },
@@ -56062,7 +56062,7 @@
             "dGPredictor": [
                 7.1,
                 0.91,
-                "<"
+                "="
             ]
         }
     },
@@ -56129,7 +56129,7 @@
             "dGPredictor": [
                 7.1,
                 0.91,
-                "<"
+                "="
             ]
         }
     },
@@ -56501,7 +56501,7 @@
             "dGPredictor": [
                 7.1,
                 0.91,
-                "<"
+                "="
             ]
         }
     },
@@ -56804,7 +56804,7 @@
             "dGPredictor": [
                 7.1,
                 0.91,
-                "<"
+                "="
             ]
         }
     },
@@ -57137,7 +57137,7 @@
             "dGPredictor": [
                 7.1,
                 0.91,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 -72.76,
@@ -59432,7 +59432,7 @@
             "dGPredictor": [
                 -5.25,
                 0.18,
-                ">"
+                "="
             ]
         }
     },
@@ -59506,7 +59506,7 @@
             "dGPredictor": [
                 -5.25,
                 0.18,
-                ">"
+                "="
             ]
         }
     },
@@ -59580,7 +59580,7 @@
             "dGPredictor": [
                 -5.25,
                 0.18,
-                ">"
+                "="
             ]
         }
     },
@@ -59654,7 +59654,7 @@
             "dGPredictor": [
                 -5.25,
                 0.18,
-                ">"
+                "="
             ]
         }
     },
@@ -59728,7 +59728,7 @@
             "dGPredictor": [
                 -5.25,
                 0.18,
-                ">"
+                "="
             ]
         }
     },
@@ -59802,7 +59802,7 @@
             "dGPredictor": [
                 -5.25,
                 0.18,
-                ">"
+                "="
             ]
         }
     },
@@ -60541,7 +60541,7 @@
             "dGPredictor": [
                 -5.25,
                 0.18,
-                ">"
+                "="
             ]
         }
     },
@@ -61051,7 +61051,7 @@
             "dGPredictor": [
                 -5.25,
                 0.18,
-                ">"
+                "="
             ]
         }
     },
@@ -61135,7 +61135,7 @@
             "dGPredictor": [
                 -5.25,
                 0.18,
-                ">"
+                "="
             ]
         }
     },
@@ -61390,7 +61390,7 @@
             "dGPredictor": [
                 -5.25,
                 0.18,
-                ">"
+                "="
             ]
         }
     },
@@ -61474,7 +61474,7 @@
             "dGPredictor": [
                 -5.25,
                 0.18,
-                ">"
+                "="
             ]
         }
     },
@@ -61830,7 +61830,7 @@
             "dGPredictor": [
                 17.96,
                 0.73,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 -20.35,

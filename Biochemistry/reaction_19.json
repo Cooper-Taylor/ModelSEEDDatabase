@@ -10,13 +10,13 @@
         ],
         "code": "(1) cpd00002[0] + (1) cpd00010[0] + (1) cpd02878[0] <=> (1) cpd00012[0] + (1) cpd00018[0] + (1) cpd11262[0]",
         "compound_ids": "cpd00002;cpd00010;cpd00012;cpd00018;cpd00067;cpd02878;cpd11262",
-        "definition": "(1) ATP[0] + (1) CoA[0] + (1) 3alpha,7alpha,12alpha-Trihydroxy-5beta-cholestanate[0] => (1) PPi[0] + (1) AMP[0] + (1) H+[0] + (1) (25R)-3alpha,7alpha,12alpha-Trihydroxy-5beta-cholestan-26-oyl-CoA[0]",
+        "definition": "(1) ATP[0] + (1) CoA[0] + (1) 3alpha,7alpha,12alpha-Trihydroxy-5beta-cholestanate[0] <=> (1) PPi[0] + (1) AMP[0] + (1) H+[0] + (1) (25R)-3alpha,7alpha,12alpha-Trihydroxy-5beta-cholestan-26-oyl-CoA[0]",
         "deltag": -2.62,
         "deltagerr": 0.35,
         "ec_numbers": [
             "6.2.1.7"
         ],
-        "equation": "(1) cpd00002[0] + (1) cpd00010[0] + (1) cpd02878[0] => (1) cpd00012[0] + (1) cpd00018[0] + (1) cpd00067[0] + (1) cpd11262[0]",
+        "equation": "(1) cpd00002[0] + (1) cpd00010[0] + (1) cpd02878[0] <=> (1) cpd00012[0] + (1) cpd00018[0] + (1) cpd00067[0] + (1) cpd11262[0]",
         "id": "rxn19000",
         "is_obsolete": 1,
         "is_transport": 0,
@@ -32,7 +32,7 @@
             "MetaCyc: Lipid-Biosynthesis (Fatty Acid and Lipid Biosynthesis); PWY-6061 (bile acid biosynthesis, neutral pathway); Sterol-Biosynthesis (Sterol Biosynthesis)",
             "KEGG: rn00120 (Primary bile acid biosynthesis)"
         ],
-        "reversibility": ">",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -97,7 +97,7 @@
             "Group contribution": [
                 -21.55,
                 12.11,
-                ">"
+                "="
             ],
             "dGPredictor": [
                 -13.21,
@@ -107,7 +107,7 @@
             "eQuilibrator": [
                 -2.62,
                 0.35,
-                ">"
+                "="
             ]
         }
     },
@@ -1046,14 +1046,14 @@
         ],
         "code": "(1) cpd00001[0] + (2) cpd00002[0] + (1) cpd00011[0] + (1) cpd00013[0] <=> (2) cpd00008[0] + (1) cpd00009[0] + (1) cpd00146[0]",
         "compound_ids": "cpd00001;cpd00002;cpd00008;cpd00009;cpd00011;cpd00013;cpd00067;cpd00146",
-        "definition": "(1) H2O[0] + (2) ATP[0] + (1) CO2[0] + (1) NH3[0] => (2) ADP[0] + (1) Phosphate[0] + (3) H+[0] + (1) Carbamoylphosphate[0]",
+        "definition": "(1) H2O[0] + (2) ATP[0] + (1) CO2[0] + (1) NH3[0] <=> (2) ADP[0] + (1) Phosphate[0] + (3) H+[0] + (1) Carbamoylphosphate[0]",
         "deltag": 0.14,
         "deltagerr": 0.96,
         "ec_numbers": [
             "6.3.4.16",
             "6.3.4.16-"
         ],
-        "equation": "(1) cpd00001[0] + (2) cpd00002[0] + (1) cpd00011[0] + (1) cpd00013[0] => (2) cpd00008[0] + (1) cpd00009[0] + (3) cpd00067[0] + (1) cpd00146[0]",
+        "equation": "(1) cpd00001[0] + (2) cpd00002[0] + (1) cpd00011[0] + (1) cpd00013[0] <=> (2) cpd00008[0] + (1) cpd00009[0] + (3) cpd00067[0] + (1) cpd00146[0]",
         "id": "rxn19010",
         "is_obsolete": 1,
         "is_transport": 0,
@@ -1140,7 +1140,7 @@
             "Group contribution": [
                 -16.9,
                 8.67,
-                ">"
+                "="
             ],
             "dGPredictor": [
                 -0.02,
@@ -1822,7 +1822,7 @@
             "MetaCyc: Alcohol-Biosynthesis (Fermentation to Alcohols); C1-COMPOUNDS (C1 Compound Utilization and Assimilation); Carbohydrates-Degradation (Carbohydrate Degradation); Degradation (Degradation/Utilization/Assimilation); Energy-Metabolism (Generation of Precursor Metabolite and Energy); Entner-Duodoroff-Pathways (Entner-Duodoroff Pathways); Fermentation (); Fermentation-to-Acids (Fermentation to Short-Chain Fatty Acids); Fermentation-to-Lactate (Fermentation to Lactate); Formaldehyde-Oxidation (Formaldehyde Oxidation); GLYCOLYSIS-E-D (superpathway of glycolysis and the Entner-Doudoroff pathway); OXIDATIVEPENT-PWY (pentose phosphate pathway (oxidative branch) I); P122-PWY (heterolactic fermentation); PENTOSE-P-PWY (pentose phosphate pathway); PWY-6901 (superpathway of glucose and xylose degradation); PWY-8004 (Entner-Doudoroff pathway I); Pentose-Phosphate-Cycle (Pentose Phosphate Pathways); Pyruvate-Degradation (Fermentation of Pyruvate); Pyruvate-Ethanol-Fermentation (Pyruvate Fermentation to Ehanol); RUMP-PWY (formaldehyde oxidation I); Sugars-And-Polysaccharides-Degradation (Sugar Degradation)",
             "KEGG: rn00030 (Pentose phosphate pathway); rn01110 (Biosynthesis of secondary metabolites); rn01200 (Carbon metabolism)"
         ],
-        "reversibility": ">",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -1868,12 +1868,12 @@
             "dGPredictor": [
                 -5.16,
                 0.03,
-                ">"
+                "="
             ],
             "eQuilibrator": [
                 -5.31,
                 0.4,
-                ">"
+                "="
             ]
         }
     },
@@ -1911,7 +1911,7 @@
             "MetaCyc: Alcohol-Biosynthesis (Fermentation to Alcohols); C1-COMPOUNDS (C1 Compound Utilization and Assimilation); Carbohydrates-Degradation (Carbohydrate Degradation); Degradation (Degradation/Utilization/Assimilation); Energy-Metabolism (Generation of Precursor Metabolite and Energy); Entner-Duodoroff-Pathways (Entner-Duodoroff Pathways); Fermentation (); Fermentation-to-Acids (Fermentation to Short-Chain Fatty Acids); Fermentation-to-Lactate (Fermentation to Lactate); Formaldehyde-Oxidation (Formaldehyde Oxidation); GLYCOLYSIS-E-D (superpathway of glycolysis and the Entner-Doudoroff pathway); OXIDATIVEPENT-PWY (pentose phosphate pathway (oxidative branch) I); P122-PWY (heterolactic fermentation); PENTOSE-P-PWY (pentose phosphate pathway); PWY-6901 (superpathway of glucose and xylose degradation); PWY-8004 (Entner-Doudoroff pathway I); Pentose-Phosphate-Cycle (Pentose Phosphate Pathways); Pyruvate-Degradation (Fermentation of Pyruvate); Pyruvate-Ethanol-Fermentation (Pyruvate Fermentation to Ehanol); RUMP-PWY (formaldehyde oxidation I); Sugars-And-Polysaccharides-Degradation (Sugar Degradation)",
             "KEGG: rn00030 (Pentose phosphate pathway); rn01110 (Biosynthesis of secondary metabolites); rn01200 (Carbon metabolism)"
         ],
-        "reversibility": ">",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -1957,12 +1957,12 @@
             "dGPredictor": [
                 -5.16,
                 0.03,
-                ">"
+                "="
             ],
             "eQuilibrator": [
                 -5.31,
                 0.4,
-                ">"
+                "="
             ]
         }
     },
@@ -2642,7 +2642,7 @@
             "dGPredictor": [
                 15.51,
                 0.48,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 4.44,
@@ -2685,7 +2685,7 @@
             "MetaCyc: Amino-Acid-Biosynthesis (Amino Acid Biosynthesis); Amino-Acid-Degradation (Amino Acid Degradation); BRANCHED-CHAIN-AA-SYN-PWY (superpathway of branched chain amino acid biosynthesis); Degradation (Degradation/Utilization/Assimilation); ILEUSYN-PWY (L-isoleucine biosynthesis I (from threonine)); IND-AMINO-ACID-SYN (Proteinogenic Amino Acid Biosynthesis); ISOLEUCINE-SYN (L-isoleucine Biosynthesis); PWY-3001 (superpathway of L-isoleucine biosynthesis I); PWY-5101 (L-isoleucine biosynthesis II); PWY-5103 (L-isoleucine biosynthesis III); PWY-5104 (L-isoleucine biosynthesis IV); Proteinogenic-Amino-Acids-Degradation (Proteinogenic Amino Acid Degradation); THREOCAT-PWY (superpathway of L-threonine metabolism); THREONINE-DEG (L-threonine Degradation)",
             "KEGG: rn00290 (Valine, leucine and isoleucine biosynthesis); rn01110 (Biosynthesis of secondary metabolites); rn01210 (2-Oxocarboxylic acid metabolism); rn01230 (Biosynthesis of amino acids)"
         ],
-        "reversibility": ">",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -2744,7 +2744,7 @@
             "eQuilibrator": [
                 -5.83,
                 1.19,
-                ">"
+                "="
             ]
         }
     },
@@ -3886,7 +3886,7 @@
         "pathways": [
             "MetaCyc: Fatty-acid-biosynthesis (Fatty Acid Biosynthesis); Lipid-Biosynthesis (Fatty Acid and Lipid Biosynthesis); PWY-7036 (very long chain fatty acid biosynthesis II)"
         ],
-        "reversibility": "<",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -3945,7 +3945,7 @@
             "eQuilibrator": [
                 14.27,
                 0.34,
-                "<"
+                "="
             ]
         }
     },
@@ -3983,7 +3983,7 @@
         "pathways": [
             "MetaCyc: Fatty-acid-biosynthesis (Fatty Acid Biosynthesis); Lipid-Biosynthesis (Fatty Acid and Lipid Biosynthesis); PWY-7036 (very long chain fatty acid biosynthesis II)"
         ],
-        "reversibility": "<",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -4042,7 +4042,7 @@
             "eQuilibrator": [
                 14.27,
                 0.34,
-                "<"
+                "="
             ]
         }
     },
@@ -4080,7 +4080,7 @@
         "pathways": [
             "MetaCyc: Fatty-acid-biosynthesis (Fatty Acid Biosynthesis); Lipid-Biosynthesis (Fatty Acid and Lipid Biosynthesis); PWY-7036 (very long chain fatty acid biosynthesis II)"
         ],
-        "reversibility": "<",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -4139,7 +4139,7 @@
             "eQuilibrator": [
                 14.27,
                 0.34,
-                "<"
+                "="
             ]
         }
     },
@@ -4176,7 +4176,7 @@
         "pathways": [
             "MetaCyc: Fatty-acid-biosynthesis (Fatty Acid Biosynthesis); Lipid-Biosynthesis (Fatty Acid and Lipid Biosynthesis); PWY-7036 (very long chain fatty acid biosynthesis II)"
         ],
-        "reversibility": "<",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -4235,7 +4235,7 @@
             "eQuilibrator": [
                 14.27,
                 0.34,
-                "<"
+                "="
             ]
         }
     },
@@ -4650,7 +4650,7 @@
             "dGPredictor": [
                 -12.06,
                 0.05,
-                ">"
+                "="
             ]
         }
     },
@@ -4748,7 +4748,7 @@
             "dGPredictor": [
                 -12.06,
                 0.05,
-                ">"
+                "="
             ]
         }
     },
@@ -5822,7 +5822,7 @@
         "pathways": [
             "MetaCyc: Adenine-Adenosine-Salvage (Adenine and Adenosine Salvage); Nucleotide-Biosynthesis (Nucleoside and Nucleotide Biosynthesis); PUR-NUC-SYN (Purine Nucleotide Biosynthesis); PWY-6605 (adenine and adenosine salvage II); Purine-Nucleotides-Salvage (Purine Nucleotide Salvage)"
         ],
-        "reversibility": ">",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -5873,7 +5873,7 @@
             "eQuilibrator": [
                 -4.44,
                 0.46,
-                ">"
+                "="
             ]
         }
     },
@@ -6067,7 +6067,7 @@
             "dGPredictor": [
                 -19.67,
                 0.03,
-                ">"
+                "="
             ]
         }
     },
@@ -6154,7 +6154,7 @@
             "Group contribution": [
                 -14.03,
                 6.15,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 -6.48,
@@ -6240,7 +6240,7 @@
             "dGPredictor": [
                 -6.48,
                 0.21,
-                ">"
+                "="
             ]
         }
     },
@@ -6428,7 +6428,7 @@
             "dGPredictor": [
                 -6.48,
                 0.21,
-                ">"
+                "="
             ]
         }
     },
@@ -6858,7 +6858,7 @@
             "dGPredictor": [
                 -6.48,
                 0.21,
-                ">"
+                "="
             ]
         }
     },
@@ -9044,7 +9044,7 @@
         "pathways": [
             "MetaCyc: Carbohydrates-Degradation (Carbohydrate Degradation); Degradation (Degradation/Utilization/Assimilation); L-rhamnose-Degradation (L-rhamnose Degradation); PWY-6713 (L-rhamnose degradation II); Sugars-And-Polysaccharides-Degradation (Sugar Degradation)"
         ],
-        "reversibility": ">",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -9111,7 +9111,7 @@
             "eQuilibrator": [
                 -10.64,
                 0.48,
-                ">"
+                "="
             ]
         }
     },
@@ -9826,7 +9826,7 @@
             "MetaCyc: Alcohol-Degradation (Alcohol Degradation); Degradation (Degradation/Utilization/Assimilation); Ethanol-Degradation (Ethanol Degradation); NITROGEN-DEG (Nitrogen Compound Metabolism); Noncarbon-Nutrients (Inorganic Nutrient Metabolism); PWY-7387 (hypotaurine degradation); PWY66-161 (ethanol degradation III); PWY66-162 (ethanol degradation IV); PWY66-21 (ethanol degradation II); Sulfur-Metabolism (Sulfur Compound Metabolism)",
             "KEGG: rn00010 (Glycolysis / Gluconeogenesis); rn00620 (Pyruvate metabolism); rn01110 (Biosynthesis of secondary metabolites)"
         ],
-        "reversibility": ">",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -9888,12 +9888,12 @@
             "dGPredictor": [
                 -11.01,
                 0.03,
-                ">"
+                "="
             ],
             "eQuilibrator": [
                 -11.48,
                 0.31,
-                ">"
+                "="
             ]
         }
     },
@@ -9988,7 +9988,7 @@
             "dGPredictor": [
                 -11.01,
                 0.03,
-                ">"
+                "="
             ],
             "eQuilibrator": [
                 -9.17,
@@ -11386,7 +11386,7 @@
             "dGPredictor": [
                 7.25,
                 0.47,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 -13.28,
@@ -11476,7 +11476,7 @@
             "dGPredictor": [
                 7.25,
                 0.47,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 -13.28,
@@ -11872,7 +11872,7 @@
             "dGPredictor": [
                 6.25,
                 0.71,
-                "="
+                "<"
             ],
             "eQuilibrator": [
                 -310.37,
@@ -13179,7 +13179,7 @@
             "MetaCyc: AMINE-DEG (Amine and Polyamine Degradation); ARGDEG-PWY (superpathway of L-arginine, putrescine, and 4-aminobutanoate degradation); ARGININE-DEG (L-arginine Degradation); Amino-Acid-Degradation (Amino Acid Degradation); Degradation (Degradation/Utilization/Assimilation); ORNARGDEG-PWY (superpathway of L-arginine and L-ornithine degradation); ORNDEG-PWY (superpathway of ornithine degradation); PUTDEG-PWY (putrescine degradation I); PWY-2 (putrescine degradation IV); PWY-3 (putrescine degradation V); Proteinogenic-Amino-Acids-Degradation (Proteinogenic Amino Acid Degradation); Putrescine-Degradation (Putrescine Degradation)",
             "KEGG: rn00330 (Arginine and proline metabolism); rn00410 (beta-Alanine metabolism)"
         ],
-        "reversibility": ">",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -13246,7 +13246,7 @@
             "eQuilibrator": [
                 -10.95,
                 0.48,
-                ">"
+                "="
             ]
         }
     },
@@ -13326,7 +13326,7 @@
             "dGPredictor": [
                 -5.01,
                 0.03,
-                ">"
+                "="
             ]
         }
     },
@@ -13600,7 +13600,7 @@
             "dGPredictor": [
                 -5.01,
                 0.03,
-                "<"
+                "="
             ]
         }
     },
@@ -13695,7 +13695,7 @@
             "dGPredictor": [
                 -5.01,
                 0.03,
-                "<"
+                "="
             ]
         }
     },
@@ -14816,7 +14816,7 @@
             "MetaCyc: ARG+POLYAMINE-SYN (superpathway of arginine and polyamine biosynthesis); ARGDEG-III-PWY (L-arginine degradation IV (arginine decarboxylase/agmatine deiminase pathway)); ARGDEG-PWY (superpathway of L-arginine, putrescine, and 4-aminobutanoate degradation); ARGININE-DEG (L-arginine Degradation); Acid-Resistance (Acid Resistance); Amino-Acid-Degradation (Amino Acid Degradation); Degradation (Degradation/Utilization/Assimilation); Detoxification (Detoxification); ORNARGDEG-PWY (superpathway of L-arginine and L-ornithine degradation); POLYAMINSYN3-PWY (superpathway of polyamine biosynthesis II); POLYAMSYN-PWY (superpathway of polyamine biosynthesis I); PWY-40 (putrescine biosynthesis I); PWY-43 (putrescine biosynthesis II); PWY-6305 (putrescine biosynthesis IV); PWY-6834 (spermidine biosynthesis III); PWY0-1299 (arginine dependent acid resistance); PWY0-823 (L-arginine degradation III (arginine decarboxylase/agmatinase pathway)); Polyamine-Biosynthesis (Amine and Polyamine Biosynthesis); Proteinogenic-Amino-Acids-Degradation (Proteinogenic Amino Acid Degradation); Putrescine-Biosynthesis (Putrescine Biosynthesis); Spermidine-Biosynthesis (Spermidine Biosynthesis)",
             "KEGG: rn00330 (Arginine and proline metabolism)"
         ],
-        "reversibility": ">",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -14867,7 +14867,7 @@
             "eQuilibrator": [
                 -0.83,
                 1.48,
-                ">"
+                "="
             ]
         }
     },
@@ -14905,7 +14905,7 @@
             "MetaCyc: ARG-GLU-PWY (L-arginine degradation VII (arginase 3 pathway)); ARG-PRO-PWY (L-arginine degradation VI (arginase 2 pathway)); ARGASEDEG-PWY (L-arginine degradation I (arginase pathway)); ARGININE-DEG (L-arginine Degradation); Amino-Acid-Biosynthesis (Amino Acid Biosynthesis); Amino-Acid-Degradation (Amino Acid Degradation); CITRULBIO-PWY (L-citrulline biosynthesis); Citrulline-Biosynthesis (L-citrulline Biosynthesis); Degradation (Degradation/Utilization/Assimilation); GLUTAMATE-SYN (L-glutamate Biosynthesis); IND-AMINO-ACID-SYN (Proteinogenic Amino Acid Biosynthesis); L-Ornithine-Biosynthesis (L-Ornithine Biosynthesis); NITROGEN-DEG (Nitrogen Compound Metabolism); Noncarbon-Nutrients (Inorganic Nutrient Metabolism); Other-Amino-Acid-Biosynthesis (Other Amino Acid Biosynthesis); PROLINE-SYN (L-proline Biosynthesis); PWY-4984 (urea cycle); PWY-5004 (superpathway of L-citrulline metabolism); PWY-6305 (putrescine biosynthesis IV); PWY-6922 (L-<i>N<sup>&delta;</sup></i>-acetylornithine biosynthesis); Polyamine-Biosynthesis (Amine and Polyamine Biosynthesis); Proteinogenic-Amino-Acids-Degradation (Proteinogenic Amino Acid Degradation); Putrescine-Biosynthesis (Putrescine Biosynthesis)",
             "KEGG: rn00330 (Arginine and proline metabolism); rn01110 (Biosynthesis of secondary metabolites); rn01230 (Biosynthesis of amino acids)"
         ],
-        "reversibility": ">",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -14951,12 +14951,12 @@
             "dGPredictor": [
                 -6.86,
                 0.06,
-                ">"
+                "="
             ],
             "eQuilibrator": [
                 -7.0,
                 1.54,
-                ">"
+                "="
             ]
         }
     },
@@ -15220,7 +15220,7 @@
             "dGPredictor": [
                 -6.86,
                 0.06,
-                ">"
+                "="
             ]
         }
     },
@@ -15306,7 +15306,7 @@
             "dGPredictor": [
                 -6.86,
                 0.06,
-                "="
+                ">"
             ]
         }
     },
@@ -15394,7 +15394,7 @@
             "dGPredictor": [
                 -6.86,
                 0.06,
-                "="
+                ">"
             ]
         }
     },
@@ -16316,7 +16316,7 @@
             "dGPredictor": [
                 -6.86,
                 0.06,
-                ">"
+                "="
             ]
         }
     },
@@ -16772,7 +16772,7 @@
         "pathways": [
             "MetaCyc: 3-OH-4-Methyl-Anthranilate-Biosynthesis (3-hydroxy-4-methyl-anthranilate biosynthesis); AROMATIC-COMPOUNDS-DEGRADATION (Aromatic Compound Degradation); Amino-Acid-Degradation (Amino Acid Degradation); Cofactor-Biosynthesis (Cofactor, Prosthetic Group, Electron Carrier, and Vitamin Biosynthesis); Degradation (Degradation/Utilization/Assimilation); NAD-Metabolism (NAD Metabolism); NAD-SYN (NAD Biosynthesis); NADSYN-PWY (NAD <i>de novo</i> biosynthesis II (from tryptophan)); PWY-2504 (superpathway of aromatic compound degradation via 3-oxoadipate); PWY-3502 (superpathway of NAD biosynthesis in eukaryotes); PWY-5651 (L-tryptophan degradation to 2-amino-3-carboxymuconate semialdehyde); PWY-5655 (L-tryptophan degradation IX); PWY-6309 (L-tryptophan degradation XI (mammalian, via kynurenine)); PWY-6505 (L-tryptophan degradation XII (Geobacillus)); PWY-6954 (superpathway of aromatic compound degradation via 2-hydroxypentadienoate); PWY-7717 (3-hydroxy-4-methyl-anthranilate biosynthesis I); PWY-7765 (3-hydroxy-4-methyl-anthranilate biosynthesis II); Proteinogenic-Amino-Acids-Degradation (Proteinogenic Amino Acid Degradation); SECONDARY-METABOLITE-BIOSYNTHESIS (Secondary Metabolite Biosynthesis); TRPCAT-PWY (L-tryptophan degradation I (via anthranilate)); TRYPTOPHAN-DEG (L-tryptophan Degradation); TRYPTOPHAN-DEGRADATION-1 (L-tryptophan degradation III (eukaryotic))"
         ],
-        "reversibility": ">",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -16831,7 +16831,7 @@
             "eQuilibrator": [
                 -7.42,
                 1.34,
-                ">"
+                "="
             ]
         }
     },
@@ -17177,13 +17177,13 @@
         ],
         "code": "(1) cpd00002[0] + (1) cpd00059[0] <=> (1) cpd00008[0] + (1) cpd21906[0]",
         "compound_ids": "cpd00002;cpd00008;cpd00059;cpd00067;cpd21906",
-        "definition": "(1) ATP[0] + (1) L-Ascorbate[0] <=> (1) ADP[0] + (1) H+[0] + (1) 2-phospho-L-ascorbate[0]",
+        "definition": "(1) ATP[0] + (1) L-Ascorbate[0] => (1) ADP[0] + (1) H+[0] + (1) 2-phospho-L-ascorbate[0]",
         "deltag": -9.57,
         "deltagerr": 0.86,
         "ec_numbers": [
             "2.7.1.-"
         ],
-        "equation": "(1) cpd00002[0] + (1) cpd00059[0] <=> (1) cpd00008[0] + (1) cpd00067[0] + (1) cpd21906[0]",
+        "equation": "(1) cpd00002[0] + (1) cpd00059[0] => (1) cpd00008[0] + (1) cpd00067[0] + (1) cpd21906[0]",
         "id": "rxn19207",
         "is_obsolete": 0,
         "is_transport": 0,
@@ -17196,7 +17196,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "CI:1",
         "stoichiometry": [
@@ -17255,7 +17255,7 @@
             "eQuilibrator": [
                 -9.57,
                 0.86,
-                "="
+                ">"
             ]
         }
     },
@@ -17728,7 +17728,7 @@
             "dGPredictor": [
                 -3.93,
                 0.04,
-                ">"
+                "="
             ]
         }
     },
@@ -18651,7 +18651,7 @@
             "dGPredictor": [
                 -11.1,
                 0.32,
-                ">"
+                "="
             ],
             "eQuilibrator": [
                 -8.67,
@@ -19892,7 +19892,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": ">",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -19941,17 +19941,17 @@
             "Group contribution": [
                 -5.14,
                 4.2,
-                ">"
+                "="
             ],
             "dGPredictor": [
                 -4.73,
                 0.21,
-                ">"
+                "="
             ],
             "eQuilibrator": [
                 -5.05,
                 0.47,
-                ">"
+                "="
             ]
         }
     },
@@ -20424,7 +20424,7 @@
             "dGPredictor": [
                 1.86,
                 0.19,
-                "<"
+                "="
             ]
         }
     },
@@ -20543,13 +20543,13 @@
         ],
         "code": "(1) cpd00002[0] + (1) cpd00010[0] + (1) cpd05238[0] <=> (1) cpd00012[0] + (1) cpd00018[0] + (1) cpd16346[0]",
         "compound_ids": "cpd00002;cpd00010;cpd00012;cpd00018;cpd00067;cpd05238;cpd16346",
-        "definition": "(1) ATP[0] + (1) CoA[0] + (1) Nervonic acid[0] => (1) PPi[0] + (1) AMP[0] + (1) H+[0] + (1) Nervonoyl-CoA[0]",
+        "definition": "(1) ATP[0] + (1) CoA[0] + (1) Nervonic acid[0] <=> (1) PPi[0] + (1) AMP[0] + (1) H+[0] + (1) Nervonoyl-CoA[0]",
         "deltag": -2.62,
         "deltagerr": 0.35,
         "ec_numbers": [
             "6.2.1.3"
         ],
-        "equation": "(1) cpd00002[0] + (1) cpd00010[0] + (1) cpd05238[0] => (1) cpd00012[0] + (1) cpd00018[0] + (1) cpd00067[0] + (1) cpd16346[0]",
+        "equation": "(1) cpd00002[0] + (1) cpd00010[0] + (1) cpd05238[0] <=> (1) cpd00012[0] + (1) cpd00018[0] + (1) cpd00067[0] + (1) cpd16346[0]",
         "id": "rxn19246",
         "is_obsolete": 0,
         "is_transport": 0,
@@ -20562,7 +20562,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": ">",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -20637,7 +20637,7 @@
             "eQuilibrator": [
                 -2.62,
                 0.35,
-                ">"
+                "="
             ]
         }
     },
@@ -20854,7 +20854,7 @@
             "dGPredictor": [
                 1.86,
                 0.19,
-                ">"
+                "="
             ]
         }
     },
@@ -24412,7 +24412,7 @@
             "dGPredictor": [
                 -0.0,
                 0.02,
-                ">"
+                "="
             ]
         }
     },
@@ -24912,7 +24912,7 @@
             "dGPredictor": [
                 -0.0,
                 0.02,
-                "<"
+                "="
             ]
         }
     },
@@ -24945,7 +24945,7 @@
         "pathways": [
             "MetaCyc: AROMATIC-COMPOUNDS-DEGRADATION (Aromatic Compound Degradation); Degradation (Degradation/Utilization/Assimilation); PWY-6781 (chlorogenic acid degradation)"
         ],
-        "reversibility": ">",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -25004,7 +25004,7 @@
             "eQuilibrator": [
                 -5.72,
                 0.54,
-                ">"
+                "="
             ]
         }
     },
@@ -26069,7 +26069,7 @@
             "dGPredictor": [
                 -30.45,
                 0.84,
-                ">"
+                "="
             ]
         }
     },
@@ -27623,7 +27623,7 @@
             "dGPredictor": [
                 3.15,
                 0.02,
-                "="
+                "<"
             ]
         }
     },
@@ -27818,7 +27818,7 @@
         "pathways": [
             "KEGG: rn00230 (Purine metabolism)"
         ],
-        "reversibility": ">",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -27869,7 +27869,7 @@
             "eQuilibrator": [
                 -7.68,
                 0.72,
-                ">"
+                "="
             ]
         }
     },
@@ -27906,7 +27906,7 @@
         "pathways": [
             "KEGG: rn00230 (Purine metabolism)"
         ],
-        "reversibility": ">",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -27957,7 +27957,7 @@
             "eQuilibrator": [
                 -7.69,
                 0.72,
-                ">"
+                "="
             ]
         }
     },
@@ -27994,7 +27994,7 @@
         "pathways": [
             "KEGG: rn00240 (Pyrimidine metabolism)"
         ],
-        "reversibility": ">",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -28045,7 +28045,7 @@
             "eQuilibrator": [
                 -7.68,
                 0.72,
-                ">"
+                "="
             ]
         }
     },
@@ -28082,7 +28082,7 @@
         "pathways": [
             "KEGG: rn00240 (Pyrimidine metabolism)"
         ],
-        "reversibility": ">",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -28133,7 +28133,7 @@
             "eQuilibrator": [
                 -7.83,
                 0.72,
-                ">"
+                "="
             ]
         }
     },
@@ -28551,11 +28551,11 @@
         ],
         "code": "(1) cpd00001[0] + (1) cpd19019[0] <=> (1) cpd00084[0] + (1) cpd00227[0]",
         "compound_ids": "cpd00001;cpd00067;cpd00084;cpd00227;cpd19019",
-        "definition": "(1) H2O[0] + (1) L-Cystathionine[0] <= (1) H+[0] + (1) L-Cysteine[0] + (1) L-Homoserine[0]",
+        "definition": "(1) H2O[0] + (1) L-Cystathionine[0] <=> (1) H+[0] + (1) L-Cysteine[0] + (1) L-Homoserine[0]",
         "deltag": 15.23,
         "deltagerr": 1.59,
         "ec_numbers": null,
-        "equation": "(1) cpd00001[0] + (1) cpd19019[0] <= (1) cpd00067[0] + (1) cpd00084[0] + (1) cpd00227[0]",
+        "equation": "(1) cpd00001[0] + (1) cpd19019[0] <=> (1) cpd00067[0] + (1) cpd00084[0] + (1) cpd00227[0]",
         "id": "rxn19346",
         "is_obsolete": 0,
         "is_transport": 0,
@@ -28568,7 +28568,7 @@
             "HB"
         ],
         "pathways": null,
-        "reversibility": "<",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "CI:1",
         "stoichiometry": [
@@ -28617,7 +28617,7 @@
             "Group contribution": [
                 -3.85,
                 1.34,
-                ">"
+                "="
             ],
             "dGPredictor": [
                 -17.35,
@@ -28627,7 +28627,7 @@
             "eQuilibrator": [
                 15.23,
                 1.59,
-                "<"
+                "="
             ]
         }
     },
@@ -28831,7 +28831,7 @@
             "dGPredictor": [
                 0.4,
                 0.26,
-                "="
+                ">"
             ]
         }
     },
@@ -29918,7 +29918,7 @@
             "dGPredictor": [
                 0.4,
                 0.26,
-                "<"
+                "="
             ]
         }
     },
@@ -30160,7 +30160,7 @@
             "dGPredictor": [
                 0.4,
                 0.26,
-                "="
+                ">"
             ]
         }
     },
@@ -31944,7 +31944,7 @@
             "dGPredictor": [
                 0.0,
                 0.02,
-                ">"
+                "="
             ]
         }
     },
@@ -32040,7 +32040,7 @@
             "dGPredictor": [
                 0.0,
                 0.02,
-                ">"
+                "="
             ]
         }
     },
@@ -32219,7 +32219,7 @@
         "pathways": [
             "MetaCyc: Carbohydrates-Degradation (Carbohydrate Degradation); D-Arabinose-Degradation (D-arabinose Degradation); DARABCATK12-PWY (D-arabinose degradation I); Degradation (Degradation/Utilization/Assimilation); PWY-5257 (superpathway of pentose and pentitol degradation); SECONDARY-METABOLITE-DEGRADATION (Secondary Metabolite Degradation); SUGAR-ALCOHOLS-DEG (Sugar Alcohol Degradation); Sugar-Derivatives (Sugar Derivative Degradation); Sugars-And-Polysaccharides-Degradation (Sugar Degradation)"
         ],
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -32278,7 +32278,7 @@
             "eQuilibrator": [
                 -7.2,
                 0.46,
-                "="
+                ">"
             ]
         }
     },
@@ -33524,7 +33524,7 @@
             "dGPredictor": [
                 0.01,
                 0.02,
-                ">"
+                "="
             ]
         }
     },
@@ -33746,7 +33746,7 @@
             "dGPredictor": [
                 0.01,
                 0.02,
-                ">"
+                "="
             ]
         }
     },
@@ -34978,7 +34978,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": "<",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -35037,7 +35037,7 @@
             "eQuilibrator": [
                 14.27,
                 0.34,
-                "<"
+                "="
             ]
         }
     },
@@ -35397,7 +35397,7 @@
         "pathways": [
             "MetaCyc: Degradation (Degradation/Utilization/Assimilation); Fatty-Acid-and-Lipid-Degradation (Fatty Acid and Lipid Degradation); SOPHOROSYLOXYDOCOSANOATE-DEG-PWY (sophorosyloxydocosanoate deacetylation)"
         ],
-        "reversibility": ">",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -35456,7 +35456,7 @@
             "eQuilibrator": [
                 -6.4,
                 0.52,
-                ">"
+                "="
             ]
         }
     },
@@ -35490,7 +35490,7 @@
         "pathways": [
             "MetaCyc: Degradation (Degradation/Utilization/Assimilation); Fatty-Acid-and-Lipid-Degradation (Fatty Acid and Lipid Degradation); SOPHOROSYLOXYDOCOSANOATE-DEG-PWY (sophorosyloxydocosanoate deacetylation)"
         ],
-        "reversibility": ">",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -35549,7 +35549,7 @@
             "eQuilibrator": [
                 -6.4,
                 0.52,
-                ">"
+                "="
             ]
         }
     },
@@ -36614,7 +36614,7 @@
             "dGPredictor": [
                 -12.07,
                 0.27,
-                ">"
+                "="
             ]
         }
     },
@@ -36696,7 +36696,7 @@
             "dGPredictor": [
                 -2.16,
                 1.04,
-                "="
+                ">"
             ],
             "eQuilibrator": [
                 5.61,
@@ -36883,7 +36883,7 @@
             "dGPredictor": [
                 -2.16,
                 1.04,
-                ">"
+                "="
             ]
         }
     },
@@ -41274,7 +41274,7 @@
             "MetaCyc: Acetate-Formation (Fermentation to Acetate); Alcohol-Biosynthesis (Fermentation to Alcohols); Autotrophic-CO2-Fixation (Autotrophic CO<sub>2</sub> Fixation); C1-COMPOUNDS (C1 Compound Utilization and Assimilation); CALVIN-PWY (Calvin-Benson-Bassham cycle); CARBO-BIOSYNTHESIS (Sugar Biosynthesis); CARBOXYLATES-DEG (Carboxylate Degradation); CO2-Fixation (CO<sub>2</sub> Fixation); Carbohydrates-Biosynthesis (Carbohydrate Biosynthesis); Carbohydrates-Degradation (Carbohydrate Degradation); Degradation (Degradation/Utilization/Assimilation); Energy-Metabolism (Generation of Precursor Metabolite and Energy); Ethylene-Biosynthesis (Ethylene Biosynthesis); Fermentation (); Fermentation-to-Acids (Fermentation to Short-Chain Fatty Acids); Fermentation-to-Lactate (Fermentation to Lactate); Formaldehyde-Assimilation (Formaldehyde Assimilation); GLUCONEO-PWY (gluconeogenesis I); GLYCOLYSIS (glycolysis I (from glucose 6-phosphate)); GLYCOLYSIS-E-D (superpathway of glycolysis and the Entner-Doudoroff pathway); GLYCOLYSIS-TCA-GLYOX-BYPASS (superpathway of glycolysis, pyruvate dehydrogenase, TCA, and glyoxylate bypass); GLYCOLYSIS-VARIANTS (Glycolysis); Gluconeogenesis (Gluconeogenesis); HEXITOLDEGSUPER-PWY (superpathway of hexitol degradation (bacteria)); HORMONE-SYN (Hormone Biosynthesis); P185-PWY (formaldehyde assimilation III (dihydroxyacetone cycle)); P441-PWY (superpathway of <i>N</i>-acetylneuraminate degradation); P461-PWY (hexitol fermentation to lactate, formate, ethanol and acetate); PHOTOALL-PWY (oxygenic photosynthesis); PWY-5484 (glycolysis II (from fructose 6-phosphate)); PWY-6886 (1-butanol autotrophic biosynthesis (engineered)); PWY-7124 (ethylene biosynthesis V (engineered)); PWY-7218 (photosynthetic 3-hydroxybutanoate biosynthesis (engineered)); PWY-7345 (superpathway of anaerobic sucrose degradation); PWY66-399 (gluconeogenesis III); Photosynthesis (); Plant-Hormone-Biosynthesis (Plant Hormone Biosynthesis); Pyruvate-Degradation (Fermentation of Pyruvate); Pyruvate-Ethanol-Fermentation (Pyruvate Fermentation to Ehanol); SECONDARY-METABOLITE-DEGRADATION (Secondary Metabolite Degradation); SUCROSE-DEG (Sucrose Degradation); SUCSYN-PWY (sucrose biosynthesis I (from photosynthesis)); SUGAR-ALCOHOLS-DEG (Sugar Alcohol Degradation); Storage-Compounds-Biosynthesis (Storage Compound Biosynthesis); Sucrose-Biosynthesis (Sucrose Biosynthesis); Sugar-Derivatives (Sugar Derivative Degradation); Sugars-And-Polysaccharides-Degradation (Sugar Degradation)",
             "KEGG: rn00010 (Glycolysis / Gluconeogenesis); rn00030 (Pentose phosphate pathway); rn00051 (Fructose and mannose metabolism); rn01110 (Biosynthesis of secondary metabolites); rn01200 (Carbon metabolism)"
         ],
-        "reversibility": ">",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -41320,12 +41320,12 @@
             "dGPredictor": [
                 -1.41,
                 0.28,
-                ">"
+                "="
             ],
             "eQuilibrator": [
                 -1.84,
                 0.3,
-                ">"
+                "="
             ]
         }
     },
@@ -41363,7 +41363,7 @@
             "MetaCyc: Acetate-Formation (Fermentation to Acetate); Alcohol-Biosynthesis (Fermentation to Alcohols); Autotrophic-CO2-Fixation (Autotrophic CO<sub>2</sub> Fixation); C1-COMPOUNDS (C1 Compound Utilization and Assimilation); CALVIN-PWY (Calvin-Benson-Bassham cycle); CARBO-BIOSYNTHESIS (Sugar Biosynthesis); CARBOXYLATES-DEG (Carboxylate Degradation); CO2-Fixation (CO<sub>2</sub> Fixation); Carbohydrates-Biosynthesis (Carbohydrate Biosynthesis); Carbohydrates-Degradation (Carbohydrate Degradation); Degradation (Degradation/Utilization/Assimilation); Energy-Metabolism (Generation of Precursor Metabolite and Energy); Ethylene-Biosynthesis (Ethylene Biosynthesis); Fermentation (); Fermentation-to-Acids (Fermentation to Short-Chain Fatty Acids); Fermentation-to-Lactate (Fermentation to Lactate); Formaldehyde-Assimilation (Formaldehyde Assimilation); GLUCONEO-PWY (gluconeogenesis I); GLYCOLYSIS (glycolysis I (from glucose 6-phosphate)); GLYCOLYSIS-E-D (superpathway of glycolysis and the Entner-Doudoroff pathway); GLYCOLYSIS-TCA-GLYOX-BYPASS (superpathway of glycolysis, pyruvate dehydrogenase, TCA, and glyoxylate bypass); GLYCOLYSIS-VARIANTS (Glycolysis); Gluconeogenesis (Gluconeogenesis); HEXITOLDEGSUPER-PWY (superpathway of hexitol degradation (bacteria)); HORMONE-SYN (Hormone Biosynthesis); P185-PWY (formaldehyde assimilation III (dihydroxyacetone cycle)); P441-PWY (superpathway of <i>N</i>-acetylneuraminate degradation); P461-PWY (hexitol fermentation to lactate, formate, ethanol and acetate); PHOTOALL-PWY (oxygenic photosynthesis); PWY-5484 (glycolysis II (from fructose 6-phosphate)); PWY-6886 (1-butanol autotrophic biosynthesis (engineered)); PWY-7124 (ethylene biosynthesis V (engineered)); PWY-7218 (photosynthetic 3-hydroxybutanoate biosynthesis (engineered)); PWY-7345 (superpathway of anaerobic sucrose degradation); PWY66-399 (gluconeogenesis III); Photosynthesis (); Plant-Hormone-Biosynthesis (Plant Hormone Biosynthesis); Pyruvate-Degradation (Fermentation of Pyruvate); Pyruvate-Ethanol-Fermentation (Pyruvate Fermentation to Ehanol); SECONDARY-METABOLITE-DEGRADATION (Secondary Metabolite Degradation); SUCROSE-DEG (Sucrose Degradation); SUCSYN-PWY (sucrose biosynthesis I (from photosynthesis)); SUGAR-ALCOHOLS-DEG (Sugar Alcohol Degradation); Storage-Compounds-Biosynthesis (Storage Compound Biosynthesis); Sucrose-Biosynthesis (Sucrose Biosynthesis); Sugar-Derivatives (Sugar Derivative Degradation); Sugars-And-Polysaccharides-Degradation (Sugar Degradation)",
             "KEGG: rn00010 (Glycolysis / Gluconeogenesis); rn00030 (Pentose phosphate pathway); rn00051 (Fructose and mannose metabolism); rn01110 (Biosynthesis of secondary metabolites); rn01200 (Carbon metabolism)"
         ],
-        "reversibility": ">",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -41409,12 +41409,12 @@
             "dGPredictor": [
                 -1.41,
                 0.28,
-                ">"
+                "="
             ],
             "eQuilibrator": [
                 -1.84,
                 0.3,
-                ">"
+                "="
             ]
         }
     },
@@ -42625,7 +42625,7 @@
             "dGPredictor": [
                 -22.44,
                 0.76,
-                "<"
+                "="
             ]
         }
     },
@@ -43327,7 +43327,7 @@
         "pathways": [
             "MetaCyc: FLAVONE-SYN (Flavone Biosynthesis); FLAVONOID-SYN (Flavonoid Biosynthesis); PHENYLPROPANOID-SYN (Phenylpropanoid Derivative Biosynthesis); PWY-6239 (luteolin glycosides biosynthesis); SECONDARY-METABOLITE-BIOSYNTHESIS (Secondary Metabolite Biosynthesis)"
         ],
-        "reversibility": ">",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -43386,7 +43386,7 @@
             "eQuilibrator": [
                 -13.33,
                 0.99,
-                ">"
+                "="
             ]
         }
     },
@@ -44374,7 +44374,7 @@
             "dGPredictor": [
                 -5.09,
                 0.03,
-                ">"
+                "="
             ]
         }
     },
@@ -46874,7 +46874,7 @@
             "dGPredictor": [
                 1.46,
                 0.03,
-                "<"
+                "="
             ]
         }
     },
@@ -46913,7 +46913,7 @@
             "MetaCyc: ANAEROFRUCAT-PWY (homolactic fermentation); ANAGLYCOLYSIS-PWY (glycolysis III (from glucose)); Acetate-Formation (Fermentation to Acetate); Alcohol-Biosynthesis (Fermentation to Alcohols); C1-COMPOUNDS (C1 Compound Utilization and Assimilation); CARBO-BIOSYNTHESIS (Sugar Biosynthesis); CARBOXYLATES-DEG (Carboxylate Degradation); Carbohydrates-Biosynthesis (Carbohydrate Biosynthesis); Carbohydrates-Degradation (Carbohydrate Degradation); Degradation (Degradation/Utilization/Assimilation); Energy-Metabolism (Generation of Precursor Metabolite and Energy); Entner-Duodoroff-Pathways (Entner-Duodoroff Pathways); Fermentation (); Fermentation-to-Acids (Fermentation to Short-Chain Fatty Acids); Fermentation-to-Lactate (Fermentation to Lactate); Formaldehyde-Assimilation (Formaldehyde Assimilation); GLUCONEO-PWY (gluconeogenesis I); GLYCOLYSIS (glycolysis I (from glucose 6-phosphate)); GLYCOLYSIS-E-D (superpathway of glycolysis and the Entner-Doudoroff pathway); GLYCOLYSIS-TCA-GLYOX-BYPASS (superpathway of glycolysis, pyruvate dehydrogenase, TCA, and glyoxylate bypass); GLYCOLYSIS-VARIANTS (Glycolysis); Gluconeogenesis (Gluconeogenesis); HEXITOLDEGSUPER-PWY (superpathway of hexitol degradation (bacteria)); P122-PWY (heterolactic fermentation); P124-PWY (Bifidobacterium shunt); P185-PWY (formaldehyde assimilation III (dihydroxyacetone cycle)); P441-PWY (superpathway of <i>N</i>-acetylneuraminate degradation); P461-PWY (hexitol fermentation to lactate, formate, ethanol and acetate); PWY-1042 (glycolysis IV (plant cytosol)); PWY-5464 (superpathway of cytosolic glycolysis (plants), pyruvate dehydrogenase and TCA cycle); PWY-5484 (glycolysis II (from fructose 6-phosphate)); PWY-6901 (superpathway of glucose and xylose degradation); PWY-7003 (glycerol degradation to butanol); PWY-7345 (superpathway of anaerobic sucrose degradation); PWY-8004 (Entner-Doudoroff pathway I); PWY66-399 (gluconeogenesis III); Pyruvate-Degradation (Fermentation of Pyruvate); Pyruvate-Ethanol-Fermentation (Pyruvate Fermentation to Ehanol); SECONDARY-METABOLITE-DEGRADATION (Secondary Metabolite Degradation); SUCROSE-DEG (Sucrose Degradation); SUCSYN-PWY (sucrose biosynthesis I (from photosynthesis)); SUGAR-ALCOHOLS-DEG (Sugar Alcohol Degradation); Sucrose-Biosynthesis (Sucrose Biosynthesis); Sugar-Derivatives (Sugar Derivative Degradation); Sugars-And-Polysaccharides-Degradation (Sugar Degradation)",
             "KEGG: rn00010 (Glycolysis / Gluconeogenesis); rn00710 (Carbon fixation in photosynthetic organisms); rn01110 (Biosynthesis of secondary metabolites); rn01200 (Carbon metabolism); rn01230 (Biosynthesis of amino acids)"
         ],
-        "reversibility": "<",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -46975,12 +46975,12 @@
             "dGPredictor": [
                 1.85,
                 0.02,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 1.25,
                 0.1,
-                "<"
+                "="
             ]
         }
     },
@@ -47669,7 +47669,7 @@
             "EQU"
         ],
         "pathways": null,
-        "reversibility": ">",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -47720,7 +47720,7 @@
             "eQuilibrator": [
                 -3.76,
                 0.95,
-                ">"
+                "="
             ]
         }
     },
@@ -47834,13 +47834,13 @@
         ],
         "code": "(1) cpd00002[0] + (1) cpd00242[0] + (1) cpd15169[0] <=> (1) cpd00008[0] + (1) cpd00009[0] + (1) cpd00948[0]",
         "compound_ids": "cpd00002;cpd00008;cpd00009;cpd00067;cpd00242;cpd00948;cpd15169",
-        "definition": "(1) ATP[0] + (1) H2CO3[0] + (1) trans-Geranyl-CoA[0] => (1) ADP[0] + (1) Phosphate[0] + (1) H+[0] + (1) Isohexenyl-glutaconyl-CoA[0]",
+        "definition": "(1) ATP[0] + (1) H2CO3[0] + (1) trans-Geranyl-CoA[0] <=> (1) ADP[0] + (1) Phosphate[0] + (1) H+[0] + (1) Isohexenyl-glutaconyl-CoA[0]",
         "deltag": -2.28,
         "deltagerr": 0.35,
         "ec_numbers": [
             "6.4.1.5"
         ],
-        "equation": "(1) cpd00002[0] + (1) cpd00242[0] + (1) cpd15169[0] => (1) cpd00008[0] + (1) cpd00009[0] + (1) cpd00067[0] + (1) cpd00948[0]",
+        "equation": "(1) cpd00002[0] + (1) cpd00242[0] + (1) cpd15169[0] <=> (1) cpd00008[0] + (1) cpd00009[0] + (1) cpd00067[0] + (1) cpd00948[0]",
         "id": "rxn19772",
         "is_obsolete": 0,
         "is_transport": 0,
@@ -47855,7 +47855,7 @@
         "pathways": [
             "MetaCyc: Degradation (Degradation/Utilization/Assimilation); PWY-6672 (<i>cis</i>-genanyl-CoA degradation); SECONDARY-METABOLITE-DEGRADATION (Secondary Metabolite Degradation); TERPENOID-DEG (Terpenoid Degradation)"
         ],
-        "reversibility": ">",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -47930,7 +47930,7 @@
             "eQuilibrator": [
                 -2.28,
                 0.35,
-                ">"
+                "="
             ]
         }
     },
@@ -49990,7 +49990,7 @@
             "dGPredictor": [
                 -2.96,
                 0.02,
-                ">"
+                "="
             ]
         }
     },
@@ -50612,7 +50612,7 @@
             "dGPredictor": [
                 0.37,
                 0.34,
-                ">"
+                "="
             ],
             "eQuilibrator": [
                 -3.78,
@@ -51517,7 +51517,7 @@
             "dGPredictor": [
                 -1.73,
                 0.37,
-                "="
+                ">"
             ],
             "eQuilibrator": [
                 -4.92,
@@ -51539,13 +51539,13 @@
         ],
         "code": "(1) cpd00002[0] + (1) cpd00013[0] + (1) cpd00023[0] <=> (1) cpd00008[0] + (1) cpd00009[0] + (1) cpd00053[0]",
         "compound_ids": "cpd00002;cpd00008;cpd00009;cpd00013;cpd00023;cpd00053;cpd00067",
-        "definition": "(1) ATP[0] + (1) NH3[0] + (1) L-Glutamate[0] => (1) ADP[0] + (1) Phosphate[0] + (1) L-Glutamine[0] + (1) H+[0]",
+        "definition": "(1) ATP[0] + (1) NH3[0] + (1) L-Glutamate[0] <=> (1) ADP[0] + (1) Phosphate[0] + (1) L-Glutamine[0] + (1) H+[0]",
         "deltag": -3.34,
         "deltagerr": 0.2,
         "ec_numbers": [
             "6.3.1.2"
         ],
-        "equation": "(1) cpd00002[0] + (1) cpd00013[0] + (1) cpd00023[0] => (1) cpd00008[0] + (1) cpd00009[0] + (1) cpd00053[0] + (1) cpd00067[0]",
+        "equation": "(1) cpd00002[0] + (1) cpd00013[0] + (1) cpd00023[0] <=> (1) cpd00008[0] + (1) cpd00009[0] + (1) cpd00053[0] + (1) cpd00067[0]",
         "id": "rxn19835",
         "is_obsolete": 1,
         "is_transport": 0,
@@ -51560,7 +51560,7 @@
             "MetaCyc: AMMASSIM-PWY (ammonia assimilation cycle III); Amino-Acid-Biosynthesis (Amino Acid Biosynthesis); Ammonia-Assimilation (Ammonia Assimilation); Degradation (Degradation/Utilization/Assimilation); GLNSYN-PWY (L-glutamine biosynthesis I); GLUTAMATE-SYN (L-glutamate Biosynthesis); GLUTAMINE-SYN (L-glutamine Biosynthesis); IND-AMINO-ACID-SYN (Proteinogenic Amino Acid Biosynthesis); Metabolic-Clusters (Metabolic Clusters); NITROGEN-DEG (Nitrogen Compound Metabolism); Nitrate-Reduction (Nitrate Reduction); Noncarbon-Nutrients (Inorganic Nutrient Metabolism); PWY-3282 (superpathway of ammonia assimilation (plants)); PWY-381 (nitrate reduction II (assimilatory)); PWY-5505 (L-glutamate and L-glutamine biosynthesis); PWY-5675 (nitrate reduction V (assimilatory)); PWY-6549 (L-glutamine biosynthesis III); PWY-6963 (ammonia assimilation cycle I); PWY-6964 (ammonia assimilation cycle II); PWY490-3 (nitrate reduction VI (assimilatory))",
             "KEGG: rn00250 (Alanine, aspartate and glutamate metabolism); rn00330 (Arginine and proline metabolism); rn00630 (Glyoxylate and dicarboxylate metabolism); rn00910 (Nitrogen metabolism); rn01230 (Biosynthesis of amino acids)"
         ],
-        "reversibility": ">",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -51625,17 +51625,17 @@
             "Group contribution": [
                 -2.09,
                 4.42,
-                ">"
+                "="
             ],
             "dGPredictor": [
                 -3.62,
                 0.03,
-                ">"
+                "="
             ],
             "eQuilibrator": [
                 -3.34,
                 0.2,
-                ">"
+                "="
             ]
         }
     },
@@ -51652,13 +51652,13 @@
         ],
         "code": "(1) cpd00002[0] + (1) cpd00013[0] + (1) cpd00023[0] <=> (1) cpd00008[0] + (1) cpd00009[0] + (1) cpd00053[0]",
         "compound_ids": "cpd00002;cpd00008;cpd00009;cpd00013;cpd00023;cpd00053;cpd00067",
-        "definition": "(1) ATP[0] + (1) NH3[0] + (1) L-Glutamate[0] => (1) ADP[0] + (1) Phosphate[0] + (1) L-Glutamine[0] + (1) H+[0]",
+        "definition": "(1) ATP[0] + (1) NH3[0] + (1) L-Glutamate[0] <=> (1) ADP[0] + (1) Phosphate[0] + (1) L-Glutamine[0] + (1) H+[0]",
         "deltag": -3.34,
         "deltagerr": 0.2,
         "ec_numbers": [
             "6.3.1.2"
         ],
-        "equation": "(1) cpd00002[0] + (1) cpd00013[0] + (1) cpd00023[0] => (1) cpd00008[0] + (1) cpd00009[0] + (1) cpd00053[0] + (1) cpd00067[0]",
+        "equation": "(1) cpd00002[0] + (1) cpd00013[0] + (1) cpd00023[0] <=> (1) cpd00008[0] + (1) cpd00009[0] + (1) cpd00053[0] + (1) cpd00067[0]",
         "id": "rxn19836",
         "is_obsolete": 1,
         "is_transport": 0,
@@ -51673,7 +51673,7 @@
             "MetaCyc: AMMASSIM-PWY (ammonia assimilation cycle III); Amino-Acid-Biosynthesis (Amino Acid Biosynthesis); Ammonia-Assimilation (Ammonia Assimilation); Degradation (Degradation/Utilization/Assimilation); GLNSYN-PWY (L-glutamine biosynthesis I); GLUTAMATE-SYN (L-glutamate Biosynthesis); GLUTAMINE-SYN (L-glutamine Biosynthesis); IND-AMINO-ACID-SYN (Proteinogenic Amino Acid Biosynthesis); Metabolic-Clusters (Metabolic Clusters); NITROGEN-DEG (Nitrogen Compound Metabolism); Nitrate-Reduction (Nitrate Reduction); Noncarbon-Nutrients (Inorganic Nutrient Metabolism); PWY-3282 (superpathway of ammonia assimilation (plants)); PWY-381 (nitrate reduction II (assimilatory)); PWY-5505 (L-glutamate and L-glutamine biosynthesis); PWY-5675 (nitrate reduction V (assimilatory)); PWY-6549 (L-glutamine biosynthesis III); PWY-6963 (ammonia assimilation cycle I); PWY-6964 (ammonia assimilation cycle II); PWY490-3 (nitrate reduction VI (assimilatory))",
             "KEGG: rn00250 (Alanine, aspartate and glutamate metabolism); rn00330 (Arginine and proline metabolism); rn00630 (Glyoxylate and dicarboxylate metabolism); rn00910 (Nitrogen metabolism); rn01230 (Biosynthesis of amino acids)"
         ],
-        "reversibility": ">",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -51738,17 +51738,17 @@
             "Group contribution": [
                 -2.09,
                 4.42,
-                ">"
+                "="
             ],
             "dGPredictor": [
                 -3.62,
                 0.03,
-                ">"
+                "="
             ],
             "eQuilibrator": [
                 -3.34,
                 0.2,
-                ">"
+                "="
             ]
         }
     },
@@ -51902,7 +51902,7 @@
             "dGPredictor": [
                 -3.62,
                 0.03,
-                "="
+                "<"
             ]
         }
     },
@@ -52980,7 +52980,7 @@
             "dGPredictor": [
                 7.52,
                 0.02,
-                "<"
+                "="
             ]
         }
     },
@@ -53072,7 +53072,7 @@
             "dGPredictor": [
                 7.52,
                 0.02,
-                "<"
+                "="
             ]
         }
     },
@@ -53453,7 +53453,7 @@
             "dGPredictor": [
                 -0.07,
                 0.03,
-                "="
+                ">"
             ]
         }
     },
@@ -55171,7 +55171,7 @@
             "Group contribution": [
                 -14.03,
                 5.79,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 -3.4,
@@ -55419,7 +55419,7 @@
             "dGPredictor": [
                 -3.4,
                 0.02,
-                ">"
+                "="
             ]
         }
     },
@@ -55495,7 +55495,7 @@
             "dGPredictor": [
                 -3.4,
                 0.02,
-                ">"
+                "="
             ]
         }
     },
@@ -57349,7 +57349,7 @@
             "dGPredictor": [
                 -7.29,
                 0.02,
-                "="
+                ">"
             ]
         }
     },
@@ -57387,7 +57387,7 @@
             "MetaCyc: Amino-Acid-Biosynthesis (Amino Acid Biosynthesis); HOMOSER-THRESYN-PWY (L-threonine biosynthesis); IND-AMINO-ACID-SYN (Proteinogenic Amino Acid Biosynthesis); ISOLEUCINE-SYN (L-isoleucine Biosynthesis); METHIONINE-SYN (L-methionine Biosynthesis); Methionine-De-novo-Biosynthesis (L-methionine <i>De Novo</i> Biosynthesis); P4-PWY (superpathway of L-lysine, L-threonine and L-methionine biosynthesis I); PWY-3001 (superpathway of L-isoleucine biosynthesis I); PWY-702 (L-methionine biosynthesis II (plants)); PWY-724 (superpathway of L-lysine, L-threonine and L-methionine biosynthesis II); PWY0-781 (aspartate superpathway); THREONINE-BIOSYNTHESIS (L-threonine Biosynthesis); THRESYN-PWY (superpathway of L-threonine biosynthesis)",
             "KEGG: rn00260 (Glycine, serine and threonine metabolism); rn01230 (Biosynthesis of amino acids)"
         ],
-        "reversibility": "=",
+        "reversibility": ">",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -57446,7 +57446,7 @@
             "eQuilibrator": [
                 -8.11,
                 1.09,
-                "="
+                ">"
             ]
         }
     },
@@ -58507,7 +58507,7 @@
             "dGPredictor": [
                 19.24,
                 0.5,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 -85.62,
@@ -58891,7 +58891,7 @@
             "dGPredictor": [
                 19.24,
                 0.5,
-                "<"
+                "="
             ],
             "eQuilibrator": [
                 -7.89,
@@ -58990,7 +58990,7 @@
             "dGPredictor": [
                 19.24,
                 0.5,
-                "<"
+                "="
             ]
         }
     },
@@ -59475,7 +59475,7 @@
         "pathways": [
             "MetaCyc: AROMATIC-COMPOUNDS-DEGRADATION (Aromatic Compound Degradation); Adenosine-Nucleotides-Degradation (Adenosine Nucleotide Degradation); Degradation (Degradation/Utilization/Assimilation); NUCLEO-DEG (Nucleoside and Nucleotide Degradation); P165-PWY (superpathway of purines degradation in plants); PWY-5044 (purine nucleotides degradation I (plants)); PWY-6596 (adenosine nucleotides degradation I); Purine-Degradation (Purine Nucleotide Degradation); Urate-Degradation (Urate Degradation)"
         ],
-        "reversibility": ">",
+        "reversibility": "=",
         "source": "Primary Database",
         "status": "OK",
         "stoichiometry": [
@@ -59526,7 +59526,7 @@
             "eQuilibrator": [
                 -4.25,
                 0.46,
-                ">"
+                "="
             ]
         }
     },
@@ -59613,7 +59613,7 @@
             "Group contribution": [
                 -14.03,
                 5.79,
-                "="
+                ">"
             ],
             "dGPredictor": [
                 -3.43,
@@ -60232,7 +60232,7 @@
             "Group contribution": [
                 3.13,
                 6.14,
-                ">"
+                "="
             ],
             "dGPredictor": [
                 1.43,
@@ -60329,7 +60329,7 @@
             "Group contribution": [
                 3.13,
                 6.14,
-                ">"
+                "="
             ],
             "dGPredictor": [
                 1.43,
@@ -61540,12 +61540,12 @@
             "Group contribution": [
                 16.86,
                 6.16,
-                "<"
+                "="
             ],
             "dGPredictor": [
                 -14.15,
                 0.85,
-                ">"
+                "="
             ],
             "eQuilibrator": [
                 14.5,
@@ -61645,7 +61645,7 @@
             "Group contribution": [
                 16.86,
                 6.18,
-                "<"
+                "="
             ],
             "dGPredictor": [
                 14.73,
@@ -61757,7 +61757,7 @@
             "dGPredictor": [
                 14.73,
                 0.85,
-                "<"
+                "="
             ]
         }
     },
@@ -61842,7 +61842,7 @@
             "dGPredictor": [
                 14.73,
                 0.85,
-                "<"
+                "="
             ]
         }
     },

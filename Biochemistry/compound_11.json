@@ -4777,7 +4777,7 @@
             }
         },
         "pkb": "1:3:-4.56;1:6:-3.87",
-        "smiles": "I[Hg]CC1COC(C[Hg]I)CO1",
+        "smiles": "[I][Hg][CH2]C1COC([CH2][Hg][I])CO1",
         "source": "Primary Database",
         "thermodynamics": null
     },
@@ -5148,7 +5148,7 @@
             }
         },
         "pkb": "1:5:-3.04",
-        "smiles": "CC(C)(C[Sn](CC(C)(C)c1ccccc1)(CC(C)(C)c1ccccc1)O[Sn](CC(C)(C)c1ccccc1)(CC(C)(C)c1ccccc1)CC(C)(C)c1ccccc1)c1ccccc1",
+        "smiles": "CC(C)([CH2][Sn]([CH2]C(C)(C)c1ccccc1)([CH2]C(C)(C)c1ccccc1)[O][Sn]([CH2]C(C)(C)c1ccccc1)([CH2]C(C)(C)c1ccccc1)[CH2]C(C)(C)c1ccccc1)c1ccccc1",
         "source": "Primary Database",
         "thermodynamics": null
     },
@@ -5906,7 +5906,7 @@
             }
         },
         "pkb": "",
-        "smiles": "O=[Mo](=O)([O-])[O-].[Na+].[Na+]",
+        "smiles": "[Na+].[Na+].[O]=[Mo](=[O])([O-])[O-]",
         "source": "Primary Database",
         "thermodynamics": null
     },
@@ -12399,7 +12399,7 @@
             }
         },
         "pkb": "1:9:1.87;1:19:2.72;1:44:-8.26;1:45:-3.03",
-        "smiles": "C=CC1=C(C)C2=N/C1=C\\c1c(C)c(CCC(=O)[O-])c3n1[Fe]n1/c(c(C)c(C(O)CC/C=C(\\C)CC/C=C(\\C)CCC=C(C)C)/c1=C/2)=C\\C1=N/C(=C\\3)C(CCC(=O)[O-])=C1C=O",
+        "smiles": "C=CC1=C(C)C2=N/C1=C\\c1c(C)c(CCC(=O)[O-])c3[n]1[Fe][n]1/c(c(C)c(C(O)CC/C=C(\\C)CC/C=C(\\C)CCC=C(C)C)/c1=C/2)=C\\C1=N/C(=C\\3)C(CCC(=O)[O-])=C1C=O",
         "source": "Primary Database",
         "thermodynamics": null
     },
@@ -12443,7 +12443,7 @@
             }
         },
         "pkb": "1:9:3.03;1:19:2.44;1:44:-3.03",
-        "smiles": "C=CC1=C(C)C2=N/C1=C\\c1c(C)c(CCC(=O)[O-])c3n1[Fe]n1/c(c(C)c(C(O)CC/C=C(\\C)CC/C=C(\\C)CCC=C(C)C)/c1=C/2)=C\\C1=N/C(=C\\3)C(CCC(=O)[O-])=C1C",
+        "smiles": "C=CC1=C(C)C2=N/C1=C\\c1c(C)c(CCC(=O)[O-])c3[n]1[Fe][n]1/c(c(C)c(C(O)CC/C=C(\\C)CC/C=C(\\C)CCC=C(C)C)/c1=C/2)=C\\C1=N/C(=C\\3)C(CCC(=O)[O-])=C1C",
         "source": "Primary Database",
         "thermodynamics": null
     },
@@ -18130,7 +18130,7 @@
         "notes": null,
         "pka": "",
         "pkb": "",
-        "smiles": "",
+        "smiles": "*SC(=O)CCC",
         "source": "Primary Database",
         "thermodynamics": null
     },
@@ -18242,7 +18242,7 @@
         "notes": null,
         "pka": "",
         "pkb": "",
-        "smiles": "",
+        "smiles": "*SC(=O)/C=C/CCCCCCCCCCC",
         "source": "Primary Database",
         "thermodynamics": null
     },
@@ -18274,7 +18274,7 @@
         "notes": null,
         "pka": "",
         "pkb": "",
-        "smiles": "",
+        "smiles": "*SC(=O)CCCCCCCCCCC",
         "source": "Primary Database",
         "thermodynamics": null
     },
@@ -18306,7 +18306,7 @@
         "notes": null,
         "pka": "",
         "pkb": "",
-        "smiles": "",
+        "smiles": "*SC(=O)/C=C/CCCCCCCCC",
         "source": "Primary Database",
         "thermodynamics": null
     },
@@ -18338,7 +18338,7 @@
         "notes": null,
         "pka": "",
         "pkb": "",
-        "smiles": "",
+        "smiles": "*SC(=O)CCCCCCC",
         "source": "Primary Database",
         "thermodynamics": null
     },
@@ -18370,7 +18370,7 @@
         "notes": null,
         "pka": "",
         "pkb": "",
-        "smiles": "",
+        "smiles": "*SC(=O)/C=C/CCCCC",
         "source": "Primary Database",
         "thermodynamics": null
     },
@@ -18402,7 +18402,7 @@
         "notes": null,
         "pka": "",
         "pkb": "",
-        "smiles": "",
+        "smiles": "*SC(=O)CCCCC",
         "source": "Primary Database",
         "thermodynamics": null
     },
@@ -18434,7 +18434,7 @@
         "notes": null,
         "pka": "",
         "pkb": "",
-        "smiles": "",
+        "smiles": "*SC(=O)/C=C/CCC",
         "source": "Primary Database",
         "thermodynamics": null
     },
@@ -18466,7 +18466,7 @@
         "notes": null,
         "pka": "",
         "pkb": "",
-        "smiles": "",
+        "smiles": "*SC(=O)CCCCCCCCC",
         "source": "Primary Database",
         "thermodynamics": null
     },
@@ -18578,7 +18578,7 @@
         "notes": null,
         "pka": "",
         "pkb": "",
-        "smiles": "",
+        "smiles": "*SC(=O)/C=C/CCCCCCCCCCCCC",
         "source": "Primary Database",
         "thermodynamics": null
     },
@@ -18654,7 +18654,7 @@
         "notes": null,
         "pka": "",
         "pkb": "",
-        "smiles": "",
+        "smiles": "*SC(=O)C[C@H](O)CCC",
         "source": "Primary Database",
         "thermodynamics": null
     },
@@ -18686,7 +18686,7 @@
         "notes": null,
         "pka": "",
         "pkb": "",
-        "smiles": "",
+        "smiles": "*SC(=O)C[C@H](O)CCCCCCCCC",
         "source": "Primary Database",
         "thermodynamics": null
     },
@@ -18762,7 +18762,7 @@
         "notes": null,
         "pka": "",
         "pkb": "",
-        "smiles": "",
+        "smiles": "*SC(=O)C[C@H](O)CCCCCCC",
         "source": "Primary Database",
         "thermodynamics": null
     },
@@ -18838,7 +18838,7 @@
         "notes": null,
         "pka": "",
         "pkb": "",
-        "smiles": "",
+        "smiles": "*SC(=O)C[C@H](O)CCCCCCCCCCC",
         "source": "Primary Database",
         "thermodynamics": null
     },
@@ -18870,7 +18870,7 @@
         "notes": null,
         "pka": "",
         "pkb": "",
-        "smiles": "",
+        "smiles": "*SC(=O)CC(=O)CCCCCCCCCCCCC",
         "source": "Primary Database",
         "thermodynamics": null
     },
@@ -18902,7 +18902,7 @@
         "notes": null,
         "pka": "",
         "pkb": "",
-        "smiles": "",
+        "smiles": "*SC(=O)CC(=O)CCC",
         "source": "Primary Database",
         "thermodynamics": null
     },
@@ -18934,7 +18934,7 @@
         "notes": null,
         "pka": "",
         "pkb": "",
-        "smiles": "",
+        "smiles": "*SC(=O)CC(=O)CCCCCCC",
         "source": "Primary Database",
         "thermodynamics": null
     },
@@ -18966,7 +18966,7 @@
         "notes": null,
         "pka": "",
         "pkb": "",
-        "smiles": "",
+        "smiles": "*SC(=O)CC(C)=O",
         "source": "Primary Database",
         "thermodynamics": null
     },
@@ -18998,7 +18998,7 @@
         "notes": null,
         "pka": "",
         "pkb": "",
-        "smiles": "",
+        "smiles": "*SC(=O)CC(=O)CCCCCCCCC",
         "source": "Primary Database",
         "thermodynamics": null
     },
@@ -19030,7 +19030,7 @@
         "notes": null,
         "pka": "",
         "pkb": "",
-        "smiles": "",
+        "smiles": "*SC(=O)CC(=O)CCCCC",
         "source": "Primary Database",
         "thermodynamics": null
     },
@@ -19062,7 +19062,7 @@
         "notes": null,
         "pka": "",
         "pkb": "",
-        "smiles": "",
+        "smiles": "*SC(=O)CC(=O)CCCCCCCCCCC",
         "source": "Primary Database",
         "thermodynamics": null
     },
@@ -19094,7 +19094,7 @@
         "notes": null,
         "pka": "",
         "pkb": "",
-        "smiles": "",
+        "smiles": "*SC(=O)CC(=O)[O-]",
         "source": "Primary Database",
         "thermodynamics": null
     },
@@ -19126,7 +19126,7 @@
         "notes": null,
         "pka": "",
         "pkb": "",
-        "smiles": "",
+        "smiles": "*S",
         "source": "Primary Database",
         "thermodynamics": null
     },
@@ -19158,7 +19158,7 @@
         "notes": null,
         "pka": "",
         "pkb": "",
-        "smiles": "",
+        "smiles": "*SC(C)=O",
         "source": "Primary Database",
         "thermodynamics": null
     },
@@ -21417,7 +21417,7 @@
             }
         },
         "pkb": "",
-        "smiles": "O=[Mo](=O)([O-])[O-]",
+        "smiles": "[O]=[Mo](=[O])([O-])[O-]",
         "source": "Primary Database",
         "thermodynamics": null
     },
@@ -22255,7 +22255,7 @@
             }
         },
         "pkb": "",
-        "smiles": "O=[Cr](=O)([O-])[O-]",
+        "smiles": "[O]=[Cr](=[O])([O-])[O-]",
         "source": "Primary Database",
         "thermodynamics": null
     },
@@ -22378,7 +22378,7 @@
             }
         },
         "pkb": "1:1:-0.46;1:2:-2.51;1:3:-4.12",
-        "smiles": "O[Sb](O)O",
+        "smiles": "[OH][Sb]([OH])[OH]",
         "source": "Primary Database",
         "thermodynamics": null
     },
@@ -22714,7 +22714,7 @@
         ],
         "pka": "",
         "pkb": "",
-        "smiles": "",
+        "smiles": "*C(=O)SCCNC(=O)CCNC(=O)[C@H](O)C(C)(C)COP(=O)([O-])OP(=O)([O-])OC[C@H]1O[C@@H](n2cnc3c(N)ncnc32)[C@H](O)[C@@H]1OP(=O)([O-])[O-]",
         "source": "Primary Database",
         "thermodynamics": null
     },
@@ -23287,7 +23287,7 @@
         "notes": null,
         "pka": "",
         "pkb": "",
-        "smiles": "",
+        "smiles": "*CCC(=O)S*",
         "source": "Primary Database",
         "thermodynamics": null
     },
@@ -26464,7 +26464,7 @@
         "notes": null,
         "pka": "",
         "pkb": "",
-        "smiles": "",
+        "smiles": "*CC(=O)CC(=O)SCCNC(=O)CCNC(=O)[C@H](O)C(C)(C)COP(=O)([O-])OC[C@H]([NH2+]*)C(*)=O",
         "source": "Primary Database",
         "thermodynamics": null
     },
@@ -26537,7 +26537,7 @@
         "notes": null,
         "pka": "",
         "pkb": "",
-        "smiles": "",
+        "smiles": "*/C=C/C(=O)S*",
         "source": "Primary Database",
         "thermodynamics": null
     },
@@ -28681,12 +28681,12 @@
             "MetaCyc: Acetyl-CoA-carboxylases; All-apo-ACPs; Apo-EntB; Apo-EntF; CPD-8564; Glycoprotein-L-Serine; LYS2-peptidyl-carrier-protein; Phosphoacetylglucosamine-Mutase; Phosphoglucomutase; Phosphoglucosamine-Mutase; Pyruvate-dehydrogenase-L-serine; Wnt-Protein-L-serine; apo-Peptidyl-carrier-proteins",
             "Rhea: GENERIC:11170"
         ],
-        "charge": 0,
+        "charge": -2,
         "class": null,
         "comprised_of": null,
         "deltag": 10000000.0,
         "deltagerr": 10000000.0,
-        "formula": "C4H6N2O3",
+        "formula": "CHNO2R",
         "id": "cpd11799",
         "inchikey": "",
         "is_cofactor": 0,
@@ -28698,7 +28698,7 @@
         "notes": null,
         "pka": "",
         "pkb": "",
-        "smiles": "",
+        "smiles": "*NC(=O)[C@H](CO)NC(*)=O",
         "source": "Primary Database",
         "thermodynamics": null
     },
@@ -29947,7 +29947,7 @@
         "notes": null,
         "pka": "",
         "pkb": "",
-        "smiles": "",
+        "smiles": "*C[C@@H](O)CC(=O)SCCNC(=O)CCNC(=O)[C@H](O)C(C)(C)COP(=O)([O-])OC[C@H]([NH2+]*)C(*)=O",
         "source": "Primary Database",
         "thermodynamics": null
     },

@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 import os
 import sys
+import csv
 import json
 import glob
 
@@ -9,6 +10,204 @@ import glob
 #################################################################
 sys.path.append('../../Libs/Python')
 from BiochemPy import Compounds
+
+
+#################################################################
+## Curated structure picks (manual overrides)
+#################################################################
+
+def load_curated_picks():
+    """Read all *.tsv files under Biochemistry/Curation/overrides/structure_picks/
+    and return {cpd_id: {format, structure, source_db, source_id, curator,
+                          date, rationale}}.
+
+    Each TSV file's name is the curator (e.g. samseaver.tsv). Last-write-
+    wins if a compound appears in multiple curator files; warns on overlap.
+    """
+    picks = {}
+    overrides_dir = os.path.join(
+        os.path.dirname(__file__), '..', '..',
+        'Biochemistry', 'Curation', 'overrides', 'structure_picks')
+    overrides_dir = os.path.normpath(overrides_dir)
+    if not os.path.isdir(overrides_dir):
+        return picks
+    for path in sorted(glob.glob(os.path.join(overrides_dir, '*.tsv'))):
+        curator = os.path.splitext(os.path.basename(path))[0]
+        with open(path) as fh:
+            reader = csv.DictReader(fh, delimiter='\t')
+            for row in reader:
+                cpd_id = row.get('cpd_id', '').strip()
+                if not cpd_id:
+                    continue
+                if cpd_id in picks and picks[cpd_id]['curator'] != curator:
+                    print(f"WARN: cpd {cpd_id} curated by both "
+                          f"{picks[cpd_id]['curator']} and {curator}; "
+                          f"using {curator}", file=sys.stderr)
+                picks[cpd_id] = {
+                    'format': row.get('format', '').strip(),
+                    'structure': row.get('structure', '').strip(),
+                    'source_db': row.get('source_db', '').strip(),
+                    'source_id': row.get('source_id', '').strip(),
+                    'curator': curator,
+                    'date': row.get('date', '').strip(),
+                    'rationale': row.get('rationale', '').strip(),
+                }
+    return picks
+
+
+def derive_structures_from_override(override):
+    """Given a curator override row, parse its structure via RDKit and
+    return {'SMILE': str, 'InChI': str, 'InChIKey': str, 'formula': str,
+             'charge': str} -- all derived consistently from the override.
+    Returns None if RDKit can't parse the structure.
+    """
+    import re
+    try:
+        from rdkit import Chem, RDLogger
+        from rdkit.Chem import rdMolDescriptors
+        from rdkit.Chem.inchi import MolFromInchi, MolToInchi, InchiToInchiKey
+        RDLogger.DisableLog('rdApp.*')
+    except ImportError:
+        print("ERROR: RDKit not available; cannot derive structures "
+              "from curator overrides. Skipping override consult.",
+              file=sys.stderr)
+        return None
+
+    fmt = override['format']
+    struct = override['structure']
+    if fmt == 'InChI':
+        mol = MolFromInchi(struct)
+        if mol is None:
+            return None
+        inchi = struct
+    elif fmt == 'SMILE':
+        mol = Chem.MolFromSmiles(struct)
+        if mol is None:
+            return None
+        # Standard InChI can't represent wildcard atoms (*). For
+        # R-containing picks we still return SMILES + formula + charge;
+        # InChI and InChIKey are left blank and downstream skips them.
+        try:
+            inchi = MolToInchi(mol) or ''
+        except Exception:
+            inchi = ''
+    else:
+        return None
+
+    smiles = Chem.MolToSmiles(mol, isomericSmiles=True, canonical=True)
+    inchikey = InchiToInchiKey(inchi) if inchi else ''
+    # rdMolDescriptors.CalcMolFormula: strip trailing charge marker
+    # (stored in a separate column), rewrite '*' wildcards as 'R'
+    # (ModelSEED convention), and re-sort into Hill+alpha order --
+    # RDKit places '*' immediately after H, but the rest of the
+    # codebase places R alphabetically among the heavy atoms
+    # (e.g. C22H31N7O17P3RS, not C22H31RN7O17P3S).
+    formula_raw = re.sub(r'[+\-]\d*$', '',
+                         rdMolDescriptors.CalcMolFormula(mol))
+    counts = {}
+    for m in re.finditer(r'([A-Z][a-z]?|\*)(\d*)', formula_raw):
+        el = 'R' if m.group(1) == '*' else m.group(1)
+        counts[el] = counts.get(el, 0) + int(m.group(2) or 1)
+    def _key(el):
+        if el == 'C': return (0, '')
+        if el == 'H': return (1, '')
+        return (2, el)
+    formula = ''.join(
+        f"{el}{counts[el] if counts[el] > 1 else ''}"
+        for el in sorted(counts, key=_key))
+    charge = str(Chem.GetFormalCharge(mol))
+    return {
+        'SMILE': smiles,
+        'InChI': inchi,
+        'InChIKey': inchikey,
+        'formula': formula,
+        'charge': charge,
+    }
+
+
+CURATED_PICKS = load_curated_picks()
+
+
+#################################################################
+## ACP formula/charge overrides
+##
+## Biochemistry/Curation/overrides/acps_formula_charge.tsv contains
+## hand-curated formula/charge values for ACP (acyl-carrier-protein)
+## compounds. The formulas include the pantetheine + 4'-phosphate side
+## chain plus the specific acyl group, with a wildcard 'R' representing
+## the protein backbone. Historically only Update_Compound_Structures_
+## Formulas_Charge.py consulted this file (to override the per-compound
+## JSON records); the picker did not, so ACP compounds hit the
+## formula-conflict branch and were dropped from Unique_ModelSEED_
+## Structures.txt entirely (including cpd11493 ACP itself, used in
+## 911 reactions).
+##
+## The picker now reads this file too and uses it as the source of
+## truth for formula/charge on any compound listed. The picked
+## structure comes from a source database (typically KEGG or MetaCyc)
+## because the override file records formula/charge only, not the
+## actual SMILES/InChI/InChIKey.
+#################################################################
+
+def load_acps_overrides():
+    """Read Biochemistry/Curation/overrides/acps_formula_charge.tsv
+    and return {cpd_id: (formula, charge)}."""
+    path = os.path.normpath(os.path.join(
+        os.path.dirname(__file__), '..', '..',
+        'Biochemistry', 'Curation', 'overrides', 'acps_formula_charge.tsv'))
+    d = {}
+    if not os.path.isfile(path):
+        return d
+    with open(path) as fh:
+        reader = csv.DictReader(fh, delimiter='\t')
+        for row in reader:
+            cpd = row.get('ID', '').strip()
+            if not cpd:
+                continue
+            d[cpd] = (row.get('formula', '').strip(),
+                      row.get('charge', '').strip())
+    return d
+
+
+ACP_OVERRIDES = load_acps_overrides()
+
+
+#################################################################
+## SMILES canonicalization (idempotent with Recanonicalize_SMILES.py)
+##
+## Every SMILES row this script writes -- to All_ModelSEED_Structures.txt
+## and to Unique_ModelSEED_Structures.txt -- is passed through the same
+## RDKit-canonical function that Recanonicalize_SMILES.py uses. This
+## makes the two scripts' outputs idempotent: running the picker followed
+## by Recanonicalize produces zero further changes.
+##
+## Import lazily-guarded so the picker still runs (with warnings) if
+## RDKit isn't installed; the SMILES would then be written as-is.
+#################################################################
+
+def _make_smiles_canonicalizer():
+    """Return a function s -> canonical(s) that never raises;
+    on parse failure it returns the input unchanged."""
+    try:
+        # Reuse the algorithm from Recanonicalize_SMILES.py in the same
+        # directory to guarantee identical output.
+        script_dir = os.path.dirname(os.path.abspath(__file__))
+        if script_dir not in sys.path:
+            sys.path.insert(0, script_dir)
+        from Recanonicalize_SMILES import canonical_smiles as _canon
+        def _fn(s):
+            if not s:
+                return s
+            new, status = _canon(s)
+            return new if status not in ('parse_failure', 'null_or_empty') else s
+        return _fn
+    except Exception as e:
+        print(f"WARN: could not load SMILES canonicalizer ({e}); "
+              f"picker will write SMILES as-is from sources.", file=sys.stderr)
+        return lambda s: s
+
+
+CANONICALIZE_SMILES = _make_smiles_canonicalizer()
 
 #Load Compounds
 CompoundsHelper = Compounds()
@@ -96,12 +295,16 @@ for msid in sorted(MS_Aliases_Dict.keys()):
 
                         #################################################################
                         ## Write all structures to master 'All_ModelSEED_Strutures.txt'
+                        ## SMILES rows are canonicalized so this file's output stays
+                        ## idempotent with Recanonicalize_SMILES.py.
                         #################################################################
 
+                        structure_to_write = (CANONICALIZE_SMILES(structure)
+                                              if struct_type == "SMILE" else structure)
                         master_structs_file.write("\t".join([msid,struct_type,struct_stage,external_id,source,\
                                                                  formula_charge_dict['formula'],\
                                                                  formula_charge_dict['charge'],\
-                                                                 structure])+"\n")
+                                                                 structure_to_write])+"\n")
                         
                         #################################################################
                         ## Skip if curated structure designated to be ignored
@@ -129,7 +332,115 @@ for msid in sorted(MS_Aliases_Dict.keys()):
 
     if(len(Structs.keys())==0):
         continue
-    
+
+    #################################################################
+    ## Curator override consult: if this compound has a manual pick in
+    ## Biochemistry/Curation/overrides/structure_picks/<curator>.tsv,
+    ## use it directly and skip the cascade tiebreaker entirely.
+    ## All three formats (SMILE, InChIKey, InChI) are derived from the
+    ## override's structure via RDKit so they stay internally consistent.
+    #################################################################
+
+    if(msid in CURATED_PICKS):
+        override = CURATED_PICKS[msid]
+        derived = derive_structures_from_override(override)
+        if(derived is None):
+            print(f"WARN: cpd {msid} curator override ({override['curator']}) "
+                  f"could not be parsed by RDKit; falling back to cascade",
+                  file=sys.stderr)
+        else:
+            # Aggregate all aliases for this compound across all sources
+            override_aliases = set()
+            for src in MS_Aliases_Dict[msid]:
+                for alias in MS_Aliases_Dict[msid][src]:
+                    override_aliases.add(alias)
+            aliases_str = ";".join(sorted(override_aliases))
+            # Write the structure rows to Unique using derived values.
+            # Skip any format the pick doesn't yield (e.g. InChI/InChIKey
+            # for R-containing SMILES picks that RDKit can't represent).
+            for stype in ("SMILE", "InChIKey", "InChI"):
+                if not derived.get(stype):
+                    continue
+                unique_structs_file.write("\t".join((
+                    msid, stype, aliases_str,
+                    derived['formula'], derived['charge'],
+                    derived[stype])) + "\n")
+            # Record the pick rationale
+            reason = f"manual_curation:{override['curator']}"
+            pick_reasons_file.write("\t".join((
+                msid, override['format'], "Charged", reason,
+                override['structure'], aliases_str)) + "\n")
+            # Also report the underlying conflict (transparency) if any
+            # We pick the priority type/stage for the conflict report only.
+            for try_type in ("InChI", "SMILE"):
+                if(try_type in Structs and "Charged" in Structs[try_type]
+                        and len(Structs[try_type]["Charged"]) > 1):
+                    for structure in Structs[try_type]["Charged"]:
+                        for ext_id in Structs[try_type]["Charged"][structure]:
+                            structure_conflicts_file.write("\t".join((
+                                msid, try_type, "Charged", structure, ext_id,
+                                Structs[try_type]["Charged"][structure][ext_id])) + "\n")
+                    break
+            # Skip the cascade tiebreaker for this compound
+            continue
+
+    #################################################################
+    ## ACP formula-override consult: for any compound with a hand-
+    ## curated formula/charge in acps_formula_charge.tsv, apply the
+    ## override and pick any source structure. This resolves compounds
+    ## that would otherwise hit the formula_conflict_no_pick branch
+    ## and be dropped from Unique.
+    #################################################################
+
+    if(msid in ACP_OVERRIDES):
+        override_formula, override_charge = ACP_OVERRIDES[msid]
+        # Prefer InChI/Charged, then InChI/Original, then SMILE/Charged, SMILE/Original
+        pick_type, pick_stage = None, None
+        for try_type in ('InChI', 'SMILE'):
+            if try_type not in Structs:
+                continue
+            for try_stage in ('Charged', 'Original'):
+                if try_stage in Structs[try_type]:
+                    pick_type, pick_stage = try_type, try_stage
+                    break
+            if pick_type:
+                break
+        if pick_type is None:
+            print(f"Warning: ACP override for {msid} but no source "
+                  f"structure available; skipping.", file=sys.stderr)
+        else:
+            # Aggregate all aliases for this compound across sources
+            override_aliases = set()
+            for src in MS_Aliases_Dict[msid]:
+                for alias in MS_Aliases_Dict[msid][src]:
+                    override_aliases.add(alias)
+            aliases_str = ";".join(sorted(override_aliases))
+            # Write each format's Unique row using the picked source's structure
+            # for that format, plus the override formula/charge.
+            representative_structure = sorted(Structs[pick_type][pick_stage].keys())[0]
+            for stype in ('SMILE', 'InChIKey', 'InChI'):
+                if stype not in Structs or pick_stage not in Structs[stype]:
+                    continue
+                s = sorted(Structs[stype][pick_stage].keys())[0]
+                s_out = CANONICALIZE_SMILES(s) if stype == 'SMILE' else s
+                unique_structs_file.write("\t".join((
+                    msid, stype, aliases_str,
+                    override_formula, override_charge, s_out)) + "\n")
+            pick_reasons_file.write("\t".join((
+                msid, pick_type, pick_stage, "manual_formula_override:acps",
+                representative_structure, aliases_str)) + "\n")
+            # Report underlying conflict (transparency)
+            for try_type in ("InChI", "SMILE"):
+                if(try_type in Structs and pick_stage in Structs[try_type]
+                        and len(Structs[try_type][pick_stage]) > 1):
+                    for structure in Structs[try_type][pick_stage]:
+                        for ext_id in Structs[try_type][pick_stage][structure]:
+                            structure_conflicts_file.write("\t".join((
+                                msid, try_type, pick_stage, structure, ext_id,
+                                Structs[try_type][pick_stage][structure][ext_id])) + "\n")
+                    break
+            continue
+
     #################################################################
     ## Prioritized which type and stage for the structure for comparison
     ## Priority Order is:
@@ -240,15 +551,18 @@ for msid in sorted(MS_Aliases_Dict.keys()):
                         aliases[alias]=1
 
                 #################################################################
-                ## We write them to file
+                ## We write them to file (SMILES canonicalized to keep Unique
+                ## idempotent with Recanonicalize_SMILES.py)
                 #################################################################
 
+                structure_to_write = (CANONICALIZE_SMILES(structure)
+                                      if structure_type == "SMILE" else structure)
                 unique_structs_file.write("\t".join((msid,\
                                                      structure_type,\
                                                      ";".join(sorted(aliases)),\
                                                      formula_charge_dict['formula'],\
                                                      formula_charge_dict['charge'],\
-                                                     structure))+"\n")
+                                                     structure_to_write))+"\n")
 
         else:
 
@@ -494,15 +808,18 @@ for msid in sorted(MS_Aliases_Dict.keys()):
                         aliases[alias]=1
 
                 #################################################################
-                ## Finally, write to file
+                ## Finally, write to file (SMILES canonicalized to keep Unique
+                ## idempotent with Recanonicalize_SMILES.py)
                 #################################################################
 
+                structure_to_use_out = (CANONICALIZE_SMILES(structure_to_use)
+                                        if structure_type == "SMILE" else structure_to_use)
                 unique_structs_file.write("\t".join((msid,\
                                                      structure_type,\
                                                      ";".join(sorted(aliases)),\
                                                      formula_charge_dict['formula'],\
                                                      formula_charge_dict['charge'],\
-                                                     structure_to_use))+"\n")
+                                                     structure_to_use_out))+"\n")
                                         
     #################################################################
     ## Here we report the structural conflicts
