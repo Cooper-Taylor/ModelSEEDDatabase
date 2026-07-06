@@ -25,7 +25,15 @@ curated_aliases = th.parse_curated_structure_aliases(
 
 
 def resolve(cpd, stype, structure, aliases):
-    curated = curated_aliases[cpd][structure]
+    # A small number of compounds pick a curated structure from
+    # Unique_ModelSEED_Structures.txt that the regenerated
+    # All_ModelSEED_Structures.txt no longer lists (the two files drifted out of
+    # sync when All was not regenerated alongside Unique upstream). Treat a
+    # missing provenance record as "no curated aliases": the alias filter then
+    # keeps nothing and lowest_energy_gc_style falls back to the sentinel
+    # default, preserving the provenance-trim intent instead of raising
+    # KeyError.
+    curated = curated_aliases.get(cpd, {}).get(structure, {})
     return th.lowest_energy_gc_style(
         (a for a in aliases if a in curated), gc_table)
 
