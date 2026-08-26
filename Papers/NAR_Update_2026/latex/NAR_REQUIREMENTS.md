@@ -227,6 +227,20 @@ span both columns.
 We vendor [`oup-authoring-template`](https://ctan.org/pkg/oup-authoring-template)
 v1.5 (2026-07-14, LPPL) so the project builds without installing anything.
 
+The same class is published by OUP on Overleaf as
+**[OUP General Template](https://www.overleaf.com/latex/templates/oup-general-template/ybpypwncdxyb)**
+(source 11) — "A general template supporting journals published by Oxford
+University Press." CTAN and Overleaf are the same template; we took the CTAN
+copy because it can be vendored and version-pinned.
+
+**Note when uploading to Overleaf:** because `oup-authoring-template.cls` is
+committed here, an Overleaf project built from this directory uses *our* pinned
+copy, not Overleaf's. That is deliberate — the build stays reproducible. If you
+would rather track Overleaf's copy, delete our `.cls` and start from the gallery
+template instead. The Overleaf listing showed a more recent update date
+(early August 2026) than CTAN's v1.5 release (2026-07-14), so a small version
+drift is possible; CTAN reported 1.5 as current when checked on 2026-08-26.
+
 ### Which template — and why not the legacy `NAR.cls`
 
 A second, older template exists: a NAR-specific class used as
@@ -612,6 +626,7 @@ Data availability statements are also mandatory:
 | 8 | NAR author guidelines, Manuscript Preparation section (initial-submission rules, Do/Don't list) — relayed by the corresponding author; not retrievable by automated means | https://academic.oup.com/nar/pages/author-guidelines#section-13-7-10 | 2026-08-26 |
 | 9 | NAR Author Guidelines — full page text (scope, peer review, ethics, authorship, ORCID, AI disclosure, data/code availability, computational resources, charges), supplied by the corresponding author. **Truncated at 50,000 characters before the "Preparing your manuscript" section**, so Article structure / References / Tables / Figures remain unseen | https://academic.oup.com/nar/pages/author-guidelines | 2026-08-26 |
 | 10 | `nar.bst` v3.19 — BibTeX style for Nucleic Acid Research (candidate fix for §11) | https://ctan.org/pkg/nar | 2026-08-26 |
+| 11 | OUP General Template on Overleaf (same class as source 6) | https://www.overleaf.com/latex/templates/oup-general-template/ybpypwncdxyb | 2026-08-26 |
 
 A local copy of source 2 is **not** committed here — it is OUP copyright. Re-download
 from the URL above if the quotes need re-checking.
