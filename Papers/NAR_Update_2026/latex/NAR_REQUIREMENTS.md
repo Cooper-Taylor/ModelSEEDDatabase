@@ -263,11 +263,17 @@ Source: [Database Issue Guidelines](https://academic.oup.com/nar/pages/Ms_Prep_D
 
 ## 9. Submission logistics
 
-- **Six suggested referees** with names, institutes, and email addresses.
+- **At least six** potential reviewers — "Authors must suggest at least six
+  potential reviewers at submission." Add one extra for each reviewer you ask
+  to exclude (exclusions go in the cover letter with a brief reason).
+- Names, institutes, and email addresses.
   Independent (not recent collaborators), not from the same institution or city
   as any author. Omitting them "may delay handling."
 - Disclosure of related recent or concurrent submissions required; duplicate
   submission "triggers automatic rejection and further sanctions."
+- **Pre-submission technical checks:** NAR has partnered with Cactus for the
+  Paperpal Preflight tool. Worth running before submission.
+- Peer review is single-anonymized; manuscripts typically go to two reviewers.
 - **Timing:** pre-submission enquiries to the Executive Editor by **1 July**;
   new-database manuscripts due **15 August**; **updates due 15 September**;
   nothing before 1 June.
@@ -369,6 +375,23 @@ returns HTTP 403, proxies hit a CAPTCHA, and automated fetches truncate before
 the section. Everything the corresponding author has relayed from it (§7, §10)
 is marked as such.
 
+Source 9 supplied most of the page but was **truncated at 50,000 characters,
+before the "Preparing your manuscript" section**. From that page's own contents
+list, the following remain unseen and are the highest-value gap:
+
+> File types · LaTeX · Initial submission · Revision · **Article structure**
+> (Title, Authors and affiliations, Graphical abstracts, Text Abstract,
+> Introduction, Materials and Methods, Nomenclature conventions, Computer
+> programs, Statistical analyses, Results, Discussion, Data Availability,
+> Supplementary Data statement, Acknowledgements, Author Contributions
+> Statement, Funding, Conflict of interest disclosure, **References**,
+> **Tables**, **Figures**, BioRender, **Figure accessibility and alt text**,
+> Supplementary Data)
+
+**References, Tables and Figures in that list would very likely settle §11 and
+the figure questions in §3.** Getting the rest of that page is the single most
+useful remaining action.
+
 The following are **guesses inherited from the OUP sample template or inferred
 from the source manuscript**, not sourced requirements:
 
@@ -379,7 +402,7 @@ from the source manuscript**, not sourced requirements:
 | 3 | Section order and heading names | `main.tex` `\input` order | Follows `MANUSCRIPT.md`, not a NAR-specified order |
 | 4 | Six keywords | `main.tex` `\keywords` | Invented. Unknown whether the Database issue uses keywords, or how many |
 | 5 | `\appnotes{Database Issue}`, `\vol{00}`, `\issue{0}`, `\firstpage{1}` | `main.tex` metadata | Placeholder values from the sample |
-| 6 | Back-matter set and order (Author contributions / Funding / Acknowledgements / Conflict of interest) | `sections/author_contributions.tex` | Invented. NAR requires an author-contributions statement; the rest is unconfirmed |
+| 6 | Back-matter **order** | `sections/author_contributions.tex` | The *set* is now confirmed (§13): Acknowledgements, Author Contributions, Funding and Conflict of interest disclosure all appear in NAR's Article structure list. Their required order and exact headings are still unseen |
 | 7 | Abstract length | `sections/abstract.tex` | No limit found anywhere. Current draft is ~150 words |
 | 8 | `table*` for the five-column tables | `sections/results_*.tex` | Layout judgement, not a requirement |
 | 9 | Data Availability as a plain `\section` | `sections/data_availability.tex` | Heading and placement unconfirmed |
@@ -396,9 +419,121 @@ Bundle these into one message; several are cheap to answer and unblock real work
 3. Should section headings be numbered or unnumbered? (item 1)
 4. Is there an abstract word limit? (item 7)
 5. Does the Database issue use keywords, and how many? (item 4)
-6. Is a conflict-of-interest statement required, and under what heading? (item 6)
-7. The draft currently exceeds 4–6 typeset pages — is a longer update paper
+6. The draft currently exceeds 4–6 typeset pages — is a longer update paper
    acceptable, or should we cut to fit? (§1)
+7. Are there colour or page charges that scale with figure count? (The Charges
+   section lists "Colour charges" and "Page charges" but the supplied text was
+   truncated before their content.)
+
+*Answered since first draft:* a conflict-of-interest disclosure **is** required
+(§13), so that question has been removed from this list.
+
+---
+
+## 13. Authorship, ORCID, and mandatory disclosures
+
+All quotes from source 9 (NAR Author Guidelines).
+
+### ORCID is required
+
+> "Submitting authors are required to provide an ORCID iD (Open Researcher and
+> Contributor iD) at submission."
+
+The OUP class supports this inline: `\author[1]{Name\ORCID{0000-0000-0000-0000}}`.
+
+### Author Contributions statement is mandatory
+
+> "The inclusion of an Author Contributions statement is mandatory for all
+> articles, preferably with the original submission, but no later than at
+> revision."
+
+CRediT is encouraged. Non-author contributors go under Acknowledgements with
+their contributions described.
+
+### Conflict of interest disclosure is required
+
+> "The Journal requires all authors to disclose any potential conflict of
+> interest at the point of submission. It is the responsibility of the
+> corresponding author to ensure that conflicts of interest of all authors are
+> declared to the Journal."
+
+"Conflict of interest disclosure" also appears as its own entry in the Article
+structure contents list. This **resolves an earlier open question** — the
+section is required, and the placeholder in
+`sections/author_contributions.tex` is correct.
+
+### AI disclosure — applies to this manuscript
+
+> "The use of AI (for example, to help generate content or images, write code,
+> process data, or for translation) should be disclosed both in cover letters to
+> editors and in the Methods or Acknowledgements section of manuscripts."
+
+> "Natural language processing tools driven by artificial intelligence (AI) do
+> not qualify as authors, and the Journal will screen for them in author lists."
+
+**This is a live obligation, not a hypothetical.** The LaTeX port of this
+manuscript from `MANUSCRIPT.md`, and parts of the surrounding analysis tooling,
+were produced with AI assistance. Decide with the co-authors what is disclosable
+and write it into the cover letter and the Methods or Acknowledgements section.
+Do not leave this to submission day.
+
+### Equal contribution — and a footnote caveat
+
+> "The joint authors should be identified by a dagger symbol and a footnote
+> containing the statement '† Name1, Name2 and Name3 contributed equally to this
+> work' should be added. The relative contributions of ALL authors must appear
+> under Acknowledgements."
+
+Note the tension with §10's "Don't use footnotes". The prohibition evidently
+targets *content* footnotes in the body; the author-note apparatus (equal
+contribution daggers, corresponding-author asterisks) is explicitly required and
+is handled by the class's `\corresp` and author-mark machinery, not by
+`\footnote`. **Keep `\footnote` out of the body regardless.**
+
+---
+
+## 14. Computational resources — the database itself
+
+This is a Database paper, so NAR's computational-resource policy is a
+requirement on the resource, not just the manuscript. All quotes from source 9.
+
+The journal requires that any published database, webserver, or dataset be:
+
+> "freely available over the internet, without login or registration, and"
+> "updated or at least maintained in a fully functional form, ideally at the same
+> URL for at least 5 years."
+
+Databases specifically:
+
+> "If any part of the database (e.g. the one that deals with the user-submitted
+> data) needs to be password-protected, only the freely available part will be
+> considered by the reviewers."
+
+> "Authors are encouraged, but not required, to make the contents of their
+> databases freely available as flat or relational files upon request."
+
+Software:
+
+> "Authors must ensure that the software is available for a full 5 years
+> following publication, preferably through a download link on a stable URL or in
+> a public code repository such as GitHub."
+
+### Code deposit — action required at revision
+
+> "you will be required to deposit the code to Zenodo or FigShare and provide the
+> permanent DOI in the Data Availability statement at revision or acceptance.
+> These repositories will retain the version of the code that was used in your
+> paper."
+
+A GitHub URL alone is **not** sufficient. `sections/data_availability.tex`
+currently cites the repository and a planned PyPi package; it needs a Zenodo or
+FigShare DOI by revision.
+
+Data availability statements are also mandatory:
+
+> "The inclusion of a data availability statement is a requirement for papers
+> published in the Journal."
+
 
 ---
 
@@ -414,6 +549,7 @@ Bundle these into one message; several are cheap to answer and unblock real work
 | 6 | `oup-authoring-template` v1.5 on CTAN | https://ctan.org/pkg/oup-authoring-template | 2026-08-26 |
 | 7 | NAR LaTeX design requirement ('Modern Large') — relayed by the corresponding author; originates from OUP's *Preparing and submitting your manuscript* page, which returned navigation-only content on automated fetch | https://academic.oup.com/journals/pages/authors/preparing_your_manuscript | 2026-08-26 |
 | 8 | NAR author guidelines, Manuscript Preparation section (initial-submission rules, Do/Don't list) — relayed by the corresponding author; not retrievable by automated means | https://academic.oup.com/nar/pages/author-guidelines#section-13-7-10 | 2026-08-26 |
+| 9 | NAR Author Guidelines — full page text (scope, peer review, ethics, authorship, ORCID, AI disclosure, data/code availability, computational resources, charges), supplied by the corresponding author. **Truncated at 50,000 characters before the "Preparing your manuscript" section**, so Article structure / References / Tables / Figures remain unseen | https://academic.oup.com/nar/pages/author-guidelines | 2026-08-26 |
 
 A local copy of source 2 is **not** committed here — it is OUP copyright. Re-download
 from the URL above if the quotes need re-checking.
