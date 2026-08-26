@@ -227,6 +227,59 @@ span both columns.
 We vendor [`oup-authoring-template`](https://ctan.org/pkg/oup-authoring-template)
 v1.5 (2026-07-14, LPPL) so the project builds without installing anything.
 
+### Which template — and why not the legacy `NAR.cls`
+
+A second, older template exists: a NAR-specific class used as
+`\documentclass[a4,center,fleqn]{NAR}`. **We are not using it.** Its markup is
+wholly incompatible with the OUP template:
+
+| | legacy `NAR.cls` | `oup-authoring-template` (ours) |
+|---|---|---|
+| Class options | `a4, center, fleqn` | `unnumsec, webpdf, modern, large` |
+| Volume / issue | `\jvolume`, `\jissue` | `\vol`, `\issue` |
+| Authors | one `\author{}` block, manual `$^{1,*}$` marks | per-author `\author[n]{}` |
+| Affiliations | one `\address{}` block | `\address[n]{}` per affiliation |
+| Correspondence | `\footnote` inside `\author` | `\corresp[$\ast$]{}` |
+| Dates | `\history{Received…; Revised…; Accepted…}` | `\received{}{}{}` etc. |
+| Abstract | `\begin{abstract}…\end{abstract}` | `\abstract{…}` |
+| Tables | `\tableparts{caption}{tabular}{note}`, `\colrule` | `\caption{}` + `\midrule` |
+| Sections | numbered, ALL-CAPS headings | `unnumsec` |
+| Bibliography | hand-written `thebibliography` | BibTeX + `oup-plain` |
+
+**The decisive evidence is "Modern Large".** That design does not exist in
+`NAR.cls`, whose only options are `a4`, `center`, and `fleqn`. The
+Modern/Traditional/Contemporary × Large/Medium/Mediumone/Small matrix is
+exclusively an `oup-authoring-template` feature (source 6). The instruction in
+source 7 can therefore only refer to the OUP template.
+
+Treat `NAR.cls` as legacy unless NAR's current site serves it — which we cannot
+check, since the "File types → LaTeX" subsection is inside the truncated region
+(§12).
+
+**If we ever do have to switch,** the cost is contained by the architecture:
+`sections/` contains zero styling commands, so only `main.tex` (18 front-matter
+macros) and the four table environments would need rewriting.
+
+### Useful intelligence from the legacy template
+
+Even though we do not use it, it shows NAR house conventions the current
+guidance has not given us:
+
+1. **Conflict of interest heading.** It writes
+   `\subsubsection{Conflict of interest statement.} None declared.` — NAR's own
+   wording is "Conflict of interest statement", not "Conflict of interest".
+   Ours should match. \TBD
+2. **A CONCLUSION section exists** in its structure, between Discussion and
+   Acknowledgements. Our manuscript has none. Confirm whether NAR expects one.
+3. **Reference format**, visible in its `thebibliography`:
+   `Author,A.B. and Author,C. (1992) Article title. *Abbreviated Journal Name*,
+   **5**, 300--330.` — no space after the comma in initials, year in
+   parentheses, journal abbreviated and italic, volume bold, en-dashed pages.
+4. It hand-writes the bibliography **in citation order**, sidestepping the
+   sorting problem in §11 entirely.
+5. It uses `\footnote` for the corresponding author — supporting the reading in
+   §13 that the "no footnotes" rule targets *content* footnotes only.
+
 ### Fonts are not set in the LaTeX
 
 The class loads **no font package** — no `fontenc`, no Times/Helvetica/STIX
@@ -359,7 +412,15 @@ and NAR's stated rule.
    Most likely answer, and costs nothing to confirm.
 2. Substitute an `unsrt`-derived `.bst` that preserves citation order. Deviates
    from OUP's documented instruction.
-3. Hand-author `\begin{thebibliography}` in citation order. The manual permits
+3. Use **`nar.bst`** (CTAN `/biblio/bibtex/contrib/misc/nar.bst`, v3.19,
+   2011-12-23, "BibTeX style for Nucleic Acid Research"). Its header records
+   that it "was created by Tom Schneider from unsrt.bst", and it contains
+   **zero `SORT` commands** — so it preserves citation order, which is exactly
+   what NAR asks for. Its output format also matches the reference style in the
+   legacy NAR template (§7). Caveats: third-party rather than OUP-official,
+   last updated 2011, and untested in combination with
+   `oup-authoring-template.cls`. Verify a build before adopting.
+4. Hand-author `\begin{thebibliography}` in citation order. The manual permits
    this ("The basic bibliography environment is accepted") but loses BibTeX.
 
 Do not silently switch styles — record the decision here first.
@@ -550,6 +611,7 @@ Data availability statements are also mandatory:
 | 7 | NAR LaTeX design requirement ('Modern Large') — relayed by the corresponding author; originates from OUP's *Preparing and submitting your manuscript* page, which returned navigation-only content on automated fetch | https://academic.oup.com/journals/pages/authors/preparing_your_manuscript | 2026-08-26 |
 | 8 | NAR author guidelines, Manuscript Preparation section (initial-submission rules, Do/Don't list) — relayed by the corresponding author; not retrievable by automated means | https://academic.oup.com/nar/pages/author-guidelines#section-13-7-10 | 2026-08-26 |
 | 9 | NAR Author Guidelines — full page text (scope, peer review, ethics, authorship, ORCID, AI disclosure, data/code availability, computational resources, charges), supplied by the corresponding author. **Truncated at 50,000 characters before the "Preparing your manuscript" section**, so Article structure / References / Tables / Figures remain unseen | https://academic.oup.com/nar/pages/author-guidelines | 2026-08-26 |
+| 10 | `nar.bst` v3.19 — BibTeX style for Nucleic Acid Research (candidate fix for §11) | https://ctan.org/pkg/nar | 2026-08-26 |
 
 A local copy of source 2 is **not** committed here — it is OUP copyright. Re-download
 from the URL above if the quotes need re-checking.
