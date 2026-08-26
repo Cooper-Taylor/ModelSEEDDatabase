@@ -25,6 +25,13 @@ latex/
 markers, and the ordered list of `\input` lines. **Do not put prose in
 `main.tex`**; add or reorder `\input` lines instead.
 
+NAR specifies the OUP template's **Modern Large** design, set as
+`\documentclass[unnumsec,webpdf,modern,large]{oup-authoring-template}`. That
+gives 9bp body text on 11.5pt leading, a **sans-serif** body (modern is the only
+one of the three OUP designs that forces sans), 7.5bp footnotes, 210×276 mm
+paper, and two columns. Don't change `modern` or `large` — see
+[`NAR_REQUIREMENTS.md` §7](NAR_REQUIREMENTS.md#required-design-modern-large).
+
 ### Sections
 
 | File | Manuscript section |

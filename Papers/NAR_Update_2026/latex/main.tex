@@ -53,9 +53,15 @@
 %%  [ ] DEADLINE -- update manuscripts due 15 September. Nothing before 1 June.
 %%-----------------------------------------------------------------------------
 
-%% Layout options: contemporary|modern|traditional  x  large|medium|mediumone|small
+%% NAR specifies the OUP template's "Modern Large" design -- do not change these
+%% two options without checking NAR_REQUIREMENTS.md section 7 first.
+%% Modern/large gives: 9bp body on 11.5pt leading, SANS-SERIF body text
+%% (modern is the only one of the three designs that forces \sffamily),
+%% 7.5bp footnotes, 210x276mm paper, two columns.
+%% Other designs exist (contemporary|traditional x large|medium|mediumone|small)
+%% but are not what NAR asks for.
 %% Omitting namedate/numbered keeps the class default = numeric citations (NAR style).
-\documentclass[unnumsec,webpdf,contemporary,large]{oup-authoring-template}
+\documentclass[unnumsec,webpdf,modern,large]{oup-authoring-template}
 
 %\onecolumn  % uncomment for a wide single-column reading/review draft
 

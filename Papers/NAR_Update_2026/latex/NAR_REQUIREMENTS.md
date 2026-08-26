@@ -18,6 +18,7 @@ All pages checked **2026-08-26**.
 | Figure format? | Raster → uncompressed **.tif**; vector → **.eps/.svg/.pdf** with embedded fonts. | [OUP artwork PDF](#sources) |
 | Figure resolution? | **300 dpi** colour half-tone · **600** greyscale · **600–900** combination/line art · **1200** mono line art. | [OUP artwork PDF](#sources) |
 | Graphical abstract? | **Mandatory.** 5:2, ≥127×50 mm, TIF/EPS/PDF, 300–600 dpi. | [DB Issue](https://academic.oup.com/nar/pages/Ms_Prep_Database) |
+| LaTeX design? | OUP template, **'Modern Large'** — `[unnumsec,webpdf,modern,large]`. | [§7](#required-design-modern-large) |
 | Deadline? | **15 September** for update papers. | [DB Issue](https://academic.oup.com/nar/pages/Ms_Prep_Database) |
 
 ---
@@ -186,9 +187,59 @@ produces NAR-style numeric citations; the bibliography style is `oup-plain`.
 
 Source: [Database Issue Guidelines](https://academic.oup.com/nar/pages/Ms_Prep_Database).
 
+### Required design: Modern Large
+
+> NAR recommends the OUP LaTeX template, available on Overleaf and as a
+> downloadable package via OUP's *Preparing and submitting your manuscript*
+> page. **Use the 'Modern Large' design.**
+
+Source 7 (see [Sources](#sources)) — relayed by the corresponding author,
+2026-08-26. Not independently retrieved; OUP's *Preparing and submitting your
+manuscript* page returned navigation-only content on every automated fetch.
+
+This is set in `main.tex` as:
+
+```latex
+\documentclass[unnumsec,webpdf,modern,large]{oup-authoring-template}
+```
+
+**Do not change `modern` or `large` without re-checking this section.**
+
+What Modern Large produces, read from `oup-authoring-template.cls` v1.5:
+
+| Property | Value | Class line |
+|---|---|---|
+| Body text | 9bp on 11.5pt leading | 175 |
+| Body family | **sans-serif** — `modern` is the only design that forces `\sffamilyfont` | 174 |
+| Footnotes | 7.5bp on 8 | 286 |
+| Paper | 210 × 276 mm | 81–82 |
+| Columns | two (`\twocolumn`) | 2521 |
+
+For contrast, the template's own default (`contemporary, large`) is 8bp/11.5bp
+with a serif body and 6.5bp footnotes. **Modern Large sets larger body type, so
+it fits fewer words per page** — relevant against the 4–6 page budget in §1.
+
+Main figures are single-column at this width; use `figure*` (and `table*`) to
+span both columns.
+
 We vendor [`oup-authoring-template`](https://ctan.org/pkg/oup-authoring-template)
-v1.5 (2026-07-14, LPPL). The class sets `\twocolumn` by default, so main figures
-are single-column unless placed in `figure*`.
+v1.5 (2026-07-14, LPPL) so the project builds without installing anything.
+
+### Fonts are not set in the LaTeX
+
+The class loads **no font package** — no `fontenc`, no Times/Helvetica/STIX
+(verified: 32 `\RequirePackage` calls, none typographic). Compiled output
+therefore renders in LaTeX's default Computer Modern and **will not look like a
+published NAR paper**. This is expected: the author template fixes metrics,
+layout, and structure, and OUP substitutes production fonts at typesetting.
+
+Consequence for editing: text-mode Unicode is unreliable with no `fontenc`
+declared, so Greek and thermodynamic symbols go through the math-mode macros
+`\dfG`, `\drG`, `\drGo` defined in `main.tex` rather than being pasted in
+literally.
+
+The Arial / ≥7pt / 0.25–1pt rules in §3 are **artwork** requirements for the
+image files. Nothing in the LaTeX enforces them.
 
 ---
 
@@ -233,6 +284,7 @@ Source: [Database Issue Guidelines](https://academic.oup.com/nar/pages/Ms_Prep_D
 | 4 | NAR Author Guidelines | https://academic.oup.com/nar/pages/author-guidelines | 2026-08-26 |
 | 5 | NAR Methods Guidelines | https://academic.oup.com/nar/pages/methods-guidelines | 2026-08-26 |
 | 6 | `oup-authoring-template` v1.5 on CTAN | https://ctan.org/pkg/oup-authoring-template | 2026-08-26 |
+| 7 | NAR LaTeX design requirement ('Modern Large') — relayed by the corresponding author; originates from OUP's *Preparing and submitting your manuscript* page, which returned navigation-only content on automated fetch | https://academic.oup.com/journals/pages/authors/preparing_your_manuscript | 2026-08-26 |
 
 A local copy of source 2 is **not** committed here — it is OUP copyright. Re-download
 from the URL above if the quotes need re-checking.
