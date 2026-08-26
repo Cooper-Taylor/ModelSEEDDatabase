@@ -19,6 +19,8 @@ All pages checked **2026-08-26**.
 | Figure resolution? | **300 dpi** colour half-tone · **600** greyscale · **600–900** combination/line art · **1200** mono line art. | [OUP artwork PDF](#sources) |
 | Graphical abstract? | **Mandatory.** 5:2, ≥127×50 mm, TIF/EPS/PDF, 300–600 dpi. | [DB Issue](https://academic.oup.com/nar/pages/Ms_Prep_Database) |
 | LaTeX design? | OUP template, **'Modern Large'** — `[unnumsec,webpdf,modern,large]`. | [§7](#required-design-modern-large) |
+| Initial submission? | **One .pdf**, figures/tables embedded. Supplementary separate. **No line numbers, no footnotes.** | [§10](#10-initial-submission) |
+| Known problem? | **`oup-plain.bst` sorts alphabetically**, conflicting with NAR's order-of-appearance rule. | [§11](#11-known-conflict-bibliography-ordering) |
 | Deadline? | **15 September** for update papers. | [DB Issue](https://academic.oup.com/nar/pages/Ms_Prep_Database) |
 
 ---
@@ -274,6 +276,132 @@ Source: [Database Issue Guidelines](https://academic.oup.com/nar/pages/Ms_Prep_D
 
 ---
 
+## 10. Initial submission
+
+> "For the initial submission, we encourage you to submit a single .pdf file
+> which includes the main text, references, tables, and figures. All figures and
+> tables should be embedded in the text to facilitate reviewing."
+>
+> "Please upload supplementary data as separate file(s)."
+
+**Do**
+
+> - "Number all pages."
+> - "Use embedded TrueType fonts in your Word document."
+> - "Insert special characters using the Symbol font."
+> - "Use single-column and single-spaced text (unless using LaTeX)"
+> - "Submit a Graphical Abstract"
+
+**Don't**
+
+> - "Use line-numbering."
+> - "Use footnotes."
+
+Source 8 (see [Sources](#sources)) — NAR author guidelines, Manuscript
+Preparation section, relayed by the corresponding author 2026-08-26. That
+section could not be retrieved directly (see the retrieval notes).
+
+### What this means for this project
+
+| Requirement | Status |
+|---|---|
+| Single PDF, figures/tables embedded | **Satisfied by construction** — `latexmk -pdf main.tex` produces exactly this |
+| Number all pages | **Satisfied** — the class puts `\thepage` in the running heads |
+| Embedded TrueType fonts / Symbol font | **N/A** — both are Word instructions |
+| Single-column, single-spaced | **Explicitly waived for LaTeX.** Keep the two-column Modern Large output; do not uncomment `\onecolumn` for the real submission |
+| No line-numbering | **Satisfied** — `lineno` is not loaded (verified) |
+| No footnotes | **Satisfied** — no `\footnote` anywhere in `sections/` or `main.tex` (verified). Keep it that way; use parenthetical text instead |
+| Supplementary data as separate files | Nothing supplementary exists yet; the direction-sensitivity matrix is planned as supplementary |
+| Graphical abstract | **Missing** — see §4 |
+
+---
+
+## 11. Known conflict: bibliography ordering
+
+**This is unresolved and needs an answer from the editor or production.**
+
+NAR requires (§6):
+
+> "Cited in text by sequential number in order of appearance"
+
+OUP's template manual instructs, for numbered style:
+
+> "numbered citation style = `\bibliographystyle{oup-plain}`"
+
+But `oup-plain.bst` **sorts the bibliography alphabetically**. Its `presort`
+function builds a sort key from author, year, and title, then executes `SORT`
+(line 1051 of `oup-plain.bst`):
+
+```bibtex
+FUNCTION {presort}
+{ ... 'author.sort ... year field.or.null sortify ... title field.or.null ... }
+ITERATE {presort}
+SORT
+```
+
+With natbib in numeric mode and an alphabetically-sorted `.bst`, reference
+numbers are assigned in alphabetical order. In-text citations therefore will
+**not** ascend — you get (3), (1), (4) rather than (1), (2), (3).
+
+This is not a misconfiguration on our side: `oup-plain` is exactly what OUP
+documents for numbered style. The conflict is between OUP's supplied style file
+and NAR's stated rule.
+
+**Options, in order of preference:**
+
+1. Ask the Executive Editor or production whether they renumber at typesetting.
+   Most likely answer, and costs nothing to confirm.
+2. Substitute an `unsrt`-derived `.bst` that preserves citation order. Deviates
+   from OUP's documented instruction.
+3. Hand-author `\begin{thebibliography}` in citation order. The manual permits
+   this ("The basic bibliography environment is accepted") but loses BibTeX.
+
+Do not silently switch styles — record the decision here first.
+
+---
+
+## 12. Unverified — do not treat as settled
+
+NAR's Author Guidelines "Manuscript preparation" section is **unreachable by
+automated means**. Three URL forms were tried (plain, with the
+`#section-13-7-10` anchor, and via a text-extraction proxy); direct `curl`
+returns HTTP 403, proxies hit a CAPTCHA, and automated fetches truncate before
+the section. Everything the corresponding author has relayed from it (§7, §10)
+is marked as such.
+
+The following are **guesses inherited from the OUP sample template or inferred
+from the source manuscript**, not sourced requirements:
+
+| # | Item | Where | Risk |
+|---|---|---|---|
+| 1 | `unnumsec` (unnumbered section heads) | `main.tex` class options | Copied from the sample's default line. No source says NAR wants unnumbered headings |
+| 2 | `webpdf` | `main.tex` class options | Same. Manual defines it as "cropped paper size in the PDF output" |
+| 3 | Section order and heading names | `main.tex` `\input` order | Follows `MANUSCRIPT.md`, not a NAR-specified order |
+| 4 | Six keywords | `main.tex` `\keywords` | Invented. Unknown whether the Database issue uses keywords, or how many |
+| 5 | `\appnotes{Database Issue}`, `\vol{00}`, `\issue{0}`, `\firstpage{1}` | `main.tex` metadata | Placeholder values from the sample |
+| 6 | Back-matter set and order (Author contributions / Funding / Acknowledgements / Conflict of interest) | `sections/author_contributions.tex` | Invented. NAR requires an author-contributions statement; the rest is unconfirmed |
+| 7 | Abstract length | `sections/abstract.tex` | No limit found anywhere. Current draft is ~150 words |
+| 8 | `table*` for the five-column tables | `sections/results_*.tex` | Layout judgement, not a requirement |
+| 9 | Data Availability as a plain `\section` | `sections/data_availability.tex` | Heading and placement unconfirmed |
+| 10 | NAR-specific figure overrides | §3 | The OUP artwork PDF says to use it "alongside any specific instructions provide on the website of the journal" — those instructions were never seen |
+
+### Questions for the Executive Editor
+
+Bundle these into one message; several are cheap to answer and unblock real work.
+
+1. Does production renumber references, or should we supply a citation-order
+   `.bst`? (§11)
+2. Are there NAR-specific figure requirements that override the general OUP
+   artwork guidance? (§3, item 10 above)
+3. Should section headings be numbered or unnumbered? (item 1)
+4. Is there an abstract word limit? (item 7)
+5. Does the Database issue use keywords, and how many? (item 4)
+6. Is a conflict-of-interest statement required, and under what heading? (item 6)
+7. The draft currently exceeds 4–6 typeset pages — is a longer update paper
+   acceptable, or should we cut to fit? (§1)
+
+---
+
 ## Sources
 
 | # | Source | URL | Retrieved |
@@ -285,6 +413,7 @@ Source: [Database Issue Guidelines](https://academic.oup.com/nar/pages/Ms_Prep_D
 | 5 | NAR Methods Guidelines | https://academic.oup.com/nar/pages/methods-guidelines | 2026-08-26 |
 | 6 | `oup-authoring-template` v1.5 on CTAN | https://ctan.org/pkg/oup-authoring-template | 2026-08-26 |
 | 7 | NAR LaTeX design requirement ('Modern Large') — relayed by the corresponding author; originates from OUP's *Preparing and submitting your manuscript* page, which returned navigation-only content on automated fetch | https://academic.oup.com/journals/pages/authors/preparing_your_manuscript | 2026-08-26 |
+| 8 | NAR author guidelines, Manuscript Preparation section (initial-submission rules, Do/Don't list) — relayed by the corresponding author; not retrievable by automated means | https://academic.oup.com/nar/pages/author-guidelines#section-13-7-10 | 2026-08-26 |
 
 A local copy of source 2 is **not** committed here — it is OUP copyright. Re-download
 from the URL above if the quotes need re-checking.
@@ -294,7 +423,11 @@ from the URL above if the quotes need re-checking.
 Sources 4 and 5 were reached but returned **no** length, figure-count, or
 figure-format content — the Author Guidelines' "Manuscript preparation" section
 sits behind Cloudflare (direct `curl` returns HTTP 403, reader proxies hit the
-CAPTCHA, and automated fetches truncate before reaching it). The figure
+CAPTCHA, and automated fetches truncate before reaching it). Three URL forms
+were tried, including the `#section-13-7-10` anchor; all three truncate at the
+same point. Sources 7 and 8 come from that section and were relayed by the
+corresponding author. **Anything else in that section remains unknown** — see
+§12. The figure
 specification in §3 therefore comes from OUP's central artwork PDF (source 2),
 not from a NAR-specific page. Per that PDF's own caveat, **check the NAR site for
 journal-specific overrides** before final artwork submission.
@@ -303,12 +436,28 @@ journal-specific overrides** before final artwork submission.
 
 ## Open items for this manuscript
 
-| # | Item | Where |
-|---|---|---|
-| 1 | Title should begin with the database name, not "The" | `main.tex` title block |
-| 2 | Graphical abstract does not exist yet | separate file at submission |
-| 3 | Draft is over the 4–6 page budget — compile and measure | whole document |
-| 4 | `[VERIFY]` notes in the bibliography unresolved | `references.bib` |
-| 5 | Data availability lacks download formats, 5-year persistence, mobile note | `sections/data_availability.tex` |
-| 6 | Six referees to nominate | ScholarOne, at submission |
-| 7 | Figures should be exported as vector PDF/EPS, Arial, ≥7pt, 0.25–1pt lines | figure generator scripts |
+| # | Item | Where | Blocked on |
+|---|---|---|---|
+| 1 | Title should begin with the database name, not "The" | `main.tex` title block | author decision |
+| 2 | Graphical abstract does not exist yet | separate file at submission | design work |
+| 3 | Draft is over the 4–6 page budget — compile and measure | whole document | a TeX build |
+| 4 | `[VERIFY]` notes in the bibliography unresolved | `references.bib` | lookup |
+| 5 | Data availability lacks download formats, 5-year persistence, mobile note | `sections/data_availability.tex` | drafting |
+| 6 | Six referees to nominate | ScholarOne, at submission | author decision |
+| 7 | Figures as vector PDF/EPS, Arial, ≥7pt, 0.25–1pt lines | figure generator scripts | figure work |
+| 8 | Bibliography ordering conflict | `main.tex` `\bibliographystyle` | **editor** (§11) |
+| 9 | Ten unverified formatting assumptions | various | **editor** (§12) |
+| 10 | Keep the document free of footnotes and line numbers | all `sections/` | ongoing discipline |
+
+## Compliance already verified
+
+Checked against the source, not assumed:
+
+- No `\footnote` anywhere in `main.tex` or `sections/` — NAR prohibits footnotes
+- `lineno` not loaded — NAR prohibits line numbering
+- Pages numbered via the class running heads
+- Build produces a single PDF with tables embedded
+- All four tables' column counts match their specs
+- No bare underscores across 84 `\file`/`\texttt`/`\cpd` uses
+- No non-ASCII characters left from the markdown conversion
+- All 25 `\input` targets resolve; braces balanced; all cite keys and refs resolve

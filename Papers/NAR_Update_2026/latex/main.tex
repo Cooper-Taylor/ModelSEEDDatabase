@@ -47,6 +47,11 @@
 %%  [ ] DATABASE ACCESS -- must be freely accessible without login; HTTPS
 %%      encouraged; URL persistence expected for >= 5 years post-publication.
 %%      Mobile/tablet accessibility is worth mentioning explicitly.
+%%  [ ] INITIAL SUBMISSION -- one .pdf with main text, references, tables and
+%%      figures EMBEDDED. Supplementary data as separate file(s). Number all
+%%      pages (the class does this). Single-column/single-spaced is waived for
+%%      LaTeX, so the two-column class output is correct as-is.
+%%      DO NOT use line-numbering. DO NOT use footnotes. (Verified absent.)
 %%  [ ] SUBMISSION -- six suggested referees (name, institute, email),
 %%      independent, not same institution/city as any author. Handled in
 %%      ScholarOne at submission time, not in this file.
@@ -71,8 +76,10 @@
 %%  It also defines \toprule / \midrule / \botrule itself -- do NOT load
 %%  booktabs, it clashes.
 %%-----------------------------------------------------------------------------
-\usepackage{siunitx}
-\sisetup{group-separator={,}, group-minimum-digits=4, detect-weight=true}
+%% NOTE: the OUP manual asks authors to "refrain from adding further packages
+%% or macros if possible", so nothing is loaded here. The draft-marker and
+%% domain-shorthand macros below are the only additions, and the markers
+%% disappear entirely under \draftmodefalse.
 
 %%-----------------------------------------------------------------------------
 %%  Draft markers.
