@@ -3,6 +3,11 @@
 LaTeX build of `../MANUSCRIPT.md`, targeting **Nucleic Acids Research**,
 Database Issue ([author guidance](https://academic.oup.com/nar/pages/Ms_Prep_Database)).
 
+> **Journal requirements — page budget, figure formats and dpi, graphical
+> abstract, reference style — are documented with citations in
+> [`NAR_REQUIREMENTS.md`](NAR_REQUIREMENTS.md). Read that before changing
+> formatting or preparing figures.**
+
 ## Layout
 
 ```
@@ -69,8 +74,9 @@ the LaTeX. It stays in `MANUSCRIPT.md`.
 
 ## Before submission
 
-See the checklist at the top of `main.tex`. The items needing action beyond
-filling `[TBD]`s:
+Full sourced checklist: [`NAR_REQUIREMENTS.md`](NAR_REQUIREMENTS.md) (also
+mirrored as a short list at the top of `main.tex`). The items needing action
+beyond filling `[TBD]`s:
 
 1. **Title** — NAR wants the database name as the first word; the title
    currently opens with "The".

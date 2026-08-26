@@ -1,0 +1,262 @@
+# NAR submission requirements — reference
+
+Everything below is sourced. Each claim carries a link to where it came from and,
+where the wording matters, a verbatim quote. **Do not add a requirement to this
+file without a citation.**
+
+Target: **Nucleic Acids Research, Database Issue — update paper.**
+All pages checked **2026-08-26**.
+
+---
+
+## Quick answers
+
+| Question | Answer | Source |
+|---|---|---|
+| How much text? | **4–6 typeset journal pages.** No word limit exists. | [DB Issue](https://academic.oup.com/nar/pages/Ms_Prep_Database) |
+| How many figures? | **No stated limit.** The page budget is the real constraint. | [DB Issue](https://academic.oup.com/nar/pages/Ms_Prep_Database) |
+| Figure format? | Raster → uncompressed **.tif**; vector → **.eps/.svg/.pdf** with embedded fonts. | [OUP artwork PDF](#sources) |
+| Figure resolution? | **300 dpi** colour half-tone · **600** greyscale · **600–900** combination/line art · **1200** mono line art. | [OUP artwork PDF](#sources) |
+| Graphical abstract? | **Mandatory.** 5:2, ≥127×50 mm, TIF/EPS/PDF, 300–600 dpi. | [DB Issue](https://academic.oup.com/nar/pages/Ms_Prep_Database) |
+| Deadline? | **15 September** for update papers. | [DB Issue](https://academic.oup.com/nar/pages/Ms_Prep_Database) |
+
+---
+
+## 1. Length
+
+Update papers:
+
+> "should typically be no more than 4-6 journal pages in length"
+
+New database papers (not our case):
+
+> "New submissions to *NAR* are typically 4-5 typeset journal pages in length, but authors are urged to be succinct"
+
+Source: [NAR Database Issue Guidelines](https://academic.oup.com/nar/pages/Ms_Prep_Database).
+Contact the Executive Editor before submitting anything longer.
+
+**No word count is specified on any NAR page.** NAR budgets in *typeset pages*.
+The only way to know where we stand is to compile and count. The sibling
+[Web Server Issue page](https://academic.oup.com/nar/pages/Submission_Webserver)
+uses the same unit — "Submissions should typically be 4-5 printed journal pages
+in length" — confirming this is how NAR expresses limits, not an oversight on
+one page.
+
+---
+
+## 2. Figures — how many
+
+**No numeric limit is stated** on the Database Issue page, the Web Server Issue
+page, the [Author Guidelines](https://academic.oup.com/nar/pages/author-guidelines),
+or the [Methods Guidelines](https://academic.oup.com/nar/pages/methods-guidelines).
+
+Content *is* constrained. From the Database Issue page, the database home page
+
+> "should not be used as a figure in the main text article to be typeset, but a representative screen dump"
+
+of a query output is permitted.
+
+---
+
+## 3. Figures — format, resolution, colour
+
+From OUP's *Guidance for preparing artwork* (see [Sources](#sources)).
+
+**Read this caveat first**, it is the PDF's own opening line:
+
+> "Below are tips rather than strict rules, as image content, source material and available software may constrain what you are able to achieve. Please use these guidelines alongside any specific instructions provide on the website of the journal to which you are submitting."
+
+### File formats
+
+- "Save raster images (photographs, scans) as uncompressed .tif to avoid quality loss"
+- ".jpg/.png are acceptable for raster images but may be lower resolution than .tif"
+- "Save vector images (diagrams, shapes, text) as .eps/.svg/.pdf and embed fonts"
+- "For .svg, convert text to shapes/paths to ensure consistent browser display"
+- "Avoid .bmp, .gif, and native application formats"
+- "Save images created in MS Office with 'Print to PDF' to preserve quality and format"
+
+### Resolution
+
+Set the intended print size in your software so the resulting dpi is:
+
+| Image type | Minimum dpi |
+|---|---|
+| Colour half-tones | "at least 300dpi" |
+| Greyscale half-tones | "at least 600dpi" |
+| Combination half-tones and line art | "600–900dpi" |
+| Monochrome line art | "at least 1200dpi" |
+| Pure vector | "no inherent resolution" |
+
+- "Do not use 'up-sampling' in your image-editing software to artificially increase dpi"
+- "Check your chosen journal's print size by using your PDF reader's measuring tool, to assess the maximum width of single and double-column images"
+- "To reduce file size, crop white borders (minimum 2px) and flatten all layers"
+
+### Colour
+
+- "Either RGB or CMYK colour-space is acceptable"
+- "RGB is recommended as it makes the best use of screen capabilities"
+- "RGB images will be converted to CMYK for print"
+
+### Fonts and lines
+
+- "Use Arial, Times New Roman, Courier or Symbol fonts for accurate reproduction"
+- "Ensure text is no less than 7pt"
+- "Set line thickness between 0.25pt and 1pt"
+- "Avoid pale colours such as yellow and colour combinations that may be difficult for colour-blind readers to distinguish (eg red–green), and favour bold contrasts"
+- "Avoid using colour in isolation to convey meaning—consider textures, labels or additional text"
+
+### File handling
+
+- "Name figure files simply to match citation, eg fig1.tif, fig2.eps"
+- "Provide multi-panel images in a single file"
+- "Provide captions in the manuscript, not in the image file"
+- "Cite all figures in sequence"
+- "If combining multiple panels, avoid MS tools such as Powerpoint and use dedicated software such as Photoshop, GIMP, Illustrator or InkScape"
+
+### At proof stage
+
+- "PDF proofs reduce raster image resolution to 200dpi to manage online file size" — this is expected, not a defect in your figure
+- "Vector images are preserved in the PDF proof to ensure no loss of quality"
+- "Print size may be adjusted during typesetting to optimize layout"
+
+**Practical consequence for this manuscript:** our figures are generated by
+Python scripts, so export vector PDF/EPS rather than PNG wherever possible —
+vector has no resolution ceiling, survives the proof stage intact, and sidesteps
+the entire dpi table above. Matplotlib/Plotly `savefig(..., format='pdf')` with
+fonts embedded. Use Arial to match the OUP list.
+
+---
+
+## 4. Graphical abstract — MANDATORY
+
+> "Authors MUST provide a Graphical Abstract."
+
+Specification, verbatim from the [Database Issue Guidelines](https://academic.oup.com/nar/pages/Ms_Prep_Database):
+
+- "Size: 5:2 aspect ratio, 127x50mm or 5x2in minimum"
+- "File Type: TIF, EPS or editable PDF"
+- "Resolution: 300-600dpi minimum"
+- "Orientation: landscape"
+- "Font: Use a sans serif font such as Arial, 12–16 points"
+
+Content requirements — it should "be simple", "be original i.e. not an existing
+main or supplementary figure", "use colour", "use text sparingly, mainly for
+labels", "read from top down or left to right", and must "not include trademarked
+or copyrighted images or logos" (the example given: the text *UniProt* is fine,
+"but not the logo").
+
+It is submitted as a **separate file**, not embedded in the LaTeX.
+
+---
+
+## 5. Title, abstract, URL
+
+- The database name "should ideally be the first word of the title."
+  **Our title currently opens with "The"** — see the checklist in `main.tex`.
+- A working URL must appear **in the abstract and in the article body**.
+- Abstracts must stand alone: no citations to the reference list, no equations.
+
+Source: [Database Issue Guidelines](https://academic.oup.com/nar/pages/Ms_Prep_Database).
+
+---
+
+## 6. References
+
+- Cited in text by **sequential number in order of appearance**, listed
+  numerically, in correct journal format.
+- Excluded: items "submitted" or "in preparation", unpublished results, personal
+  communications.
+- Other databases: cite via their most recent published description. If none
+  exists, "the URL goes in the body text rather than the reference list."
+- **No maximum reference count is stated.**
+
+Source: [Database Issue Guidelines](https://academic.oup.com/nar/pages/Ms_Prep_Database).
+
+In this project the OUP class default (no `namedate`/`numbered` option) already
+produces NAR-style numeric citations; the bibliography style is `oup-plain`.
+
+---
+
+## 7. Manuscript file formats and template
+
+- Text "including references, figure legends and simple tables" may be `.pdf`,
+  `.doc`, `.rtf`, or LaTeX. A PDF is acceptable at initial submission.
+- NAR offers Word and LaTeX templates; the LaTeX one is the general OUP template.
+- Submission is through ScholarOne Manuscripts.
+
+Source: [Database Issue Guidelines](https://academic.oup.com/nar/pages/Ms_Prep_Database).
+
+We vendor [`oup-authoring-template`](https://ctan.org/pkg/oup-authoring-template)
+v1.5 (2026-07-14, LPPL). The class sets `\twocolumn` by default, so main figures
+are single-column unless placed in `figure*`.
+
+---
+
+## 8. Database requirements (not manuscript formatting)
+
+- Must be **freely accessible without login**. Narrow exemptions for legally
+  protected human data or acute funding constraints, agreed with the editor
+  beforehand.
+- HTTPS encouraged; required where sensitive data is handled.
+- **URL persistence of at least five years** post-publication expected.
+- Mobile and tablet accessibility encouraged, and "worth mentioning in the
+  manuscript."
+- Data availability must address "the formats and terms for data download."
+- Supplementary material encouraged, must be complete at submission.
+
+Source: [Database Issue Guidelines](https://academic.oup.com/nar/pages/Ms_Prep_Database).
+
+---
+
+## 9. Submission logistics
+
+- **Six suggested referees** with names, institutes, and email addresses.
+  Independent (not recent collaborators), not from the same institution or city
+  as any author. Omitting them "may delay handling."
+- Disclosure of related recent or concurrent submissions required; duplicate
+  submission "triggers automatic rejection and further sanctions."
+- **Timing:** pre-submission enquiries to the Executive Editor by **1 July**;
+  new-database manuscripts due **15 August**; **updates due 15 September**;
+  nothing before 1 June.
+
+Source: [Database Issue Guidelines](https://academic.oup.com/nar/pages/Ms_Prep_Database).
+
+---
+
+## Sources
+
+| # | Source | URL | Retrieved |
+|---|---|---|---|
+| 1 | NAR Database Issue Guidelines | https://academic.oup.com/nar/pages/Ms_Prep_Database | 2026-08-26 |
+| 2 | OUP — *Guidance for preparing artwork* (PDF) | https://static.primary.prod.gcms.the-infra.com/static/site/journals/document/images-author-guidance.pdf?node=1bf05d0b2fbd9c529a23&version=490455:30c2211aa70bba63a5ee | 2026-08-26 |
+| 3 | NAR Web Server Issue Guidelines (cross-check on length) | https://academic.oup.com/nar/pages/Submission_Webserver | 2026-08-26 |
+| 4 | NAR Author Guidelines | https://academic.oup.com/nar/pages/author-guidelines | 2026-08-26 |
+| 5 | NAR Methods Guidelines | https://academic.oup.com/nar/pages/methods-guidelines | 2026-08-26 |
+| 6 | `oup-authoring-template` v1.5 on CTAN | https://ctan.org/pkg/oup-authoring-template | 2026-08-26 |
+
+A local copy of source 2 is **not** committed here — it is OUP copyright. Re-download
+from the URL above if the quotes need re-checking.
+
+### Retrieval notes
+
+Sources 4 and 5 were reached but returned **no** length, figure-count, or
+figure-format content — the Author Guidelines' "Manuscript preparation" section
+sits behind Cloudflare (direct `curl` returns HTTP 403, reader proxies hit the
+CAPTCHA, and automated fetches truncate before reaching it). The figure
+specification in §3 therefore comes from OUP's central artwork PDF (source 2),
+not from a NAR-specific page. Per that PDF's own caveat, **check the NAR site for
+journal-specific overrides** before final artwork submission.
+
+---
+
+## Open items for this manuscript
+
+| # | Item | Where |
+|---|---|---|
+| 1 | Title should begin with the database name, not "The" | `main.tex` title block |
+| 2 | Graphical abstract does not exist yet | separate file at submission |
+| 3 | Draft is over the 4–6 page budget — compile and measure | whole document |
+| 4 | `[VERIFY]` notes in the bibliography unresolved | `references.bib` |
+| 5 | Data availability lacks download formats, 5-year persistence, mobile note | `sections/data_availability.tex` |
+| 6 | Six referees to nominate | ScholarOne, at submission |
+| 7 | Figures should be exported as vector PDF/EPS, Arial, ≥7pt, 0.25–1pt lines | figure generator scripts |
