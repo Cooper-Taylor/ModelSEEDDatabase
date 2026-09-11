@@ -1,0 +1,63 @@
+key	value	note
+concept	flow_pipeline	layout mockup, not the submission file
+canvas_mm	254.0x101.6	NAR 5:2, 2x the 127x50 mm minimum
+min_font_pt	12	enforced by _check_font_floor
+pt_scale	1.0	set to 2.0 to keep 12 pt after a downscale to 127 mm
+font	Arial	NAR asks for Arial; falls back to DejaVu Sans here
+data_provenance	-	ModelSEED dev @ d64fdc6f (/scratch/ctaylor/tmp/devsnap_d64fdc6f), read 2026-09-11
+compounds[2026]	45708	data/msdb_counts.tsv
+compounds_with_structure[2026]	36943	data/msdb_counts.tsv
+reactions[2026]	56012	data/msdb_counts.tsv
+reactions_balanced[2026]	34370	data/msdb_counts.tsv
+compounds[2020]	33992	data/msdb_counts.tsv
+compounds_with_structure[2020]	28120	data/msdb_counts.tsv
+reactions[2020]	36193	data/msdb_counts.tsv
+reactions_balanced[2020]	25457	data/msdb_counts.tsv
+reversible[2020]	18399	data/msdb_counts.tsv
+functional_reactions[2020]	21403	data/msdb_counts.tsv
+biolog_functional[2020]	355	data/msdb_counts.tsv
+biolog_total[2020]	390	data/msdb_counts.tsv
+thermo_reactions:Group contribution[2026]	56002	data/msdb_counts.tsv
+thermo_reactions:TECRDB[2026]	797	data/msdb_counts.tsv
+thermo_reactions:dGPredictor[2026]	29617	data/msdb_counts.tsv
+thermo_reactions:eQuilibrator[2026]	25175	data/msdb_counts.tsv
+thermo_reactions:eQuilibrator_prerefresh[pre-2026-refresh]	25029	data/msdb_counts.tsv
+thermo_estimates_per_reaction:0[2026]	10	data/msdb_counts.tsv
+thermo_estimates_per_reaction:1[2026]	26014	data/msdb_counts.tsv
+thermo_estimates_per_reaction:2[2026]	5184	data/msdb_counts.tsv
+thermo_estimates_per_reaction:3[2026]	24804	data/msdb_counts.tsv
+thermo_estimates_per_balanced_reaction:1[2026]	11766	data/msdb_counts.tsv
+thermo_estimates_per_balanced_reaction:2[2026]	2140	data/msdb_counts.tsv
+thermo_estimates_per_balanced_reaction:3[2026]	20464	data/msdb_counts.tsv
+thermo_evidence_grade:bronze[2026]	11259	data/msdb_counts.tsv
+thermo_evidence_grade:gold[2026]	5342	data/msdb_counts.tsv
+thermo_evidence_grade:silver[2026]	16498	data/msdb_counts.tsv
+direction:>[2026]	13034	data/msdb_counts.tsv
+direction_balanced:>[2026]	9922	data/msdb_counts.tsv
+direction:<[2026]	2697	data/msdb_counts.tsv
+direction_balanced:<[2026]	1158	data/msdb_counts.tsv
+direction:=[2026]	14426	data/msdb_counts.tsv
+direction_balanced:=[2026]	12629	data/msdb_counts.tsv
+direction:?[2026]	25855	data/msdb_counts.tsv
+direction_balanced:?[2026]	10661	data/msdb_counts.tsv
+atom_mapping:clean[2026]	25058	data/msdb_counts.tsv
+atom_mapping:salvaged[2026]	7819	data/msdb_counts.tsv
+atom_mapping:total[2026]	32877	data/msdb_counts.tsv
+scale:bar_pair:2020	33992	19.723mm of 32.500mm axis, top=56012
+scale:bar_pair:2026	45708	26.521mm of 32.500mm axis, top=56012
+scale:bar_pair:2020	36193	21.000mm of 32.500mm axis, top=56012
+scale:bar_pair:2026	56012	32.500mm of 32.500mm axis, top=56012
+scale:hbar_rows:eQuilibrator	25175	23.376mm of 52.000mm axis, top=56002
+scale:hbar_rows:Group contrib.	56002	52.000mm of 52.000mm axis, top=56002
+scale:hbar_rows:dGPredictor	29617	27.501mm of 52.000mm axis, top=56002
+scale:direction_strip:>	9922	15.011mm of 52.000mm axis, top=34370
+scale:direction_strip:=	12629	19.107mm of 52.000mm axis, top=34370
+scale:direction_strip:<	1158	1.752mm of 52.000mm axis, top=34370
+scale:direction_strip:?	10661	16.130mm of 52.000mm axis, top=34370
+scale:atom_progress:mapped	32877	47.828mm of 50.000mm axis, top=34370
+acp_overrides	47	results_structure_curation.tex
+excluded_compounds	4	results_structure_curation.tex
+PENDING:similarity_model	TBD	chosen reaction-embedding foundation model
+PENDING:biolog_2026	TBD	functional Biolog conditions, 2026 refresh
+PENDING:n_models	TBD	size of the ModelSEED v2 draft-model corpus
+PENDING:direction_effect	TBD	headline direction-sensitivity result

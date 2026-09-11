@@ -1,0 +1,42 @@
+# ModelSEED dev @ d64fdc6f (/scratch/ctaylor/tmp/devsnap_d64fdc6f), read 2026-09-11
+# 2020 rows are Seaver et al. 2020 Tables 2-3, not recomputed.
+# All 2026 rows are STORED fields, not recomputed locally.
+key	value	vintage
+compounds	45708	2026
+compounds_with_structure	36943	2026
+reactions	56012	2026
+reactions_balanced	34370	2026
+compounds	33992	2020
+compounds_with_structure	28120	2020
+reactions	36193	2020
+reactions_balanced	25457	2020
+reversible	18399	2020
+functional_reactions	21403	2020
+biolog_functional	355	2020
+biolog_total	390	2020
+thermo_reactions:Group contribution	56002	2026
+thermo_reactions:TECRDB	797	2026
+thermo_reactions:dGPredictor	29617	2026
+thermo_reactions:eQuilibrator	25175	2026
+thermo_reactions:eQuilibrator_prerefresh	25029	pre-2026-refresh
+thermo_estimates_per_reaction:0	10	2026
+thermo_estimates_per_reaction:1	26014	2026
+thermo_estimates_per_reaction:2	5184	2026
+thermo_estimates_per_reaction:3	24804	2026
+thermo_estimates_per_balanced_reaction:1	11766	2026
+thermo_estimates_per_balanced_reaction:2	2140	2026
+thermo_estimates_per_balanced_reaction:3	20464	2026
+thermo_evidence_grade:bronze	11259	2026
+thermo_evidence_grade:gold	5342	2026
+thermo_evidence_grade:silver	16498	2026
+direction:>	13034	2026
+direction_balanced:>	9922	2026
+direction:<	2697	2026
+direction_balanced:<	1158	2026
+direction:=	14426	2026
+direction_balanced:=	12629	2026
+direction:?	25855	2026
+direction_balanced:?	10661	2026
+atom_mapping:clean	25058	2026
+atom_mapping:salvaged	7819	2026
+atom_mapping:total	32877	2026

@@ -1,0 +1,24 @@
+> Figure registry for the NAR 2026 update paper. One row per FIGURE SET: the
+> output directory under latex/figures/, the script, the exact argv, and tags.
+> Lines starting with '>' are comments.
+>
+> Scoped to Papers/NAR_Update_2026/ rather than the ModelSEEDDatabase repo root,
+> because the repo root already has a `Scripts/` (capital S) tree for the
+> biochemistry pipeline and a second lowercase `scripts/` there would collide on
+> case-insensitive checkouts. Paper figures are a separate concern anyway.
+>
+> Regenerate:
+>     python3 scripts/regen_figures.py --list
+>     python3 scripts/regen_figures.py --all
+>     python3 scripts/regen_figures.py --tag graphical-abstract
+>     python3 scripts/regen_figures.py ga_flow_pipeline
+>
+> Adding a new figure: add a row here in the same call that creates the script.
+> An unregistered figure is a figure nobody can regenerate.
+>
+name	script	args	tags
+ga_flow_pipeline	plot_graphical_abstract.py	--concept flow_pipeline	graphical-abstract,diagram
+ga_one_reaction	plot_graphical_abstract.py	--concept one_reaction_four_lenses --out-subdir ga_one_reaction	graphical-abstract,diagram
+ga_before_after	plot_graphical_abstract.py	--concept before_after_ledger --out-subdir ga_before_after	graphical-abstract,diagram
+ga_direction_funnel	plot_graphical_abstract.py	--concept direction_funnel --out-subdir ga_direction_funnel	graphical-abstract,diagram
+ga_atom_spine	plot_graphical_abstract.py	--concept atom_trace_spine --out-subdir ga_atom_spine	graphical-abstract,diagram
