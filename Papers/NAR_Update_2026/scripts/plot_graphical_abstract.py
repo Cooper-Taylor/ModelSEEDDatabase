@@ -350,6 +350,47 @@ def _check_text_overlaps(fig, ax, pad=0.5, min_gap=1.5):
         raise SystemExit("text layout problems:\n  " + "\n  ".join(bad))
 
 
+
+_containers: list[tuple] = []     # (x, y, w, h, name) in mm; see contain()
+
+
+def contain(x, y, w, h, name):
+    """Register a box that text placed inside it must not escape.
+
+    _check_text_overlaps() polices text against TEXT. Nothing policed text
+    against the BOX it sits in, and that is the failure this figure kept
+    producing: 'STRUCTURES' is 32.0 mm at 12 pt, not the 25 mm it looks like,
+    and 'ΔG PREDICTIONS' is 40.6 mm. Both silently overhung their panels.
+    Measure, do not estimate -- and then let the run fail if it regresses."""
+    _containers.append((x, y, w, h, name))
+
+
+def _check_text_in_containers(fig, ax, pad=1.2):
+    if not _containers:
+        return
+    fig.canvas.draw()
+    r = fig.canvas.get_renderer()
+    inv = ax.transData.inverted()
+    bad = []
+    for a in ax.texts:
+        bb = a.get_window_extent(renderer=r)
+        (x0, y0), (x1, y1) = inv.transform([(bb.x0, bb.y0), (bb.x1, bb.y1)])
+        cx, cy = (x0 + x1) / 2, (y0 + y1) / 2
+        for bx, by, bw, bh, name in _containers:
+            if not (bx <= cx <= bx + bw and by <= cy <= by + bh):
+                continue                       # not this box's text
+            if x0 < bx + pad or x1 > bx + bw - pad:
+                over = max(bx + pad - x0, x1 - (bx + bw - pad))
+                bad.append(f"{a.get_text()!r} overflows {name} horizontally "
+                           f"by {over:.1f} mm")
+            if y0 < by + pad or y1 > by + bh - pad:
+                over = max(by + pad - y0, y1 - (by + bh - pad))
+                bad.append(f"{a.get_text()!r} overflows {name} vertically "
+                           f"by {over:.1f} mm")
+    if bad:
+        raise SystemExit("text escapes its box:\n  " + "\n  ".join(bad))
+
+
 def _check_bar_scale(tol=1e-6):
     for chart, label, value, top, drawn, full in _bars:
         want, got = value / top, drawn / full
@@ -1191,11 +1232,16 @@ def concept_atom_spine(ax):
 
 
 # --------------------------------------------------------------- server_hub
-SERVER_BODY = "#37373a"      # near-black chassis; the sketch asks for gray/black
-SERVER_UNIT = "#4b4b50"      # the individual rack units
-SERVER_EDGE = "#25252a"
-LED_ON = "#1baf7a"           # the green dot in the sketch (STAGES["thermo"])
-LED_OFF = "#6e6e76"
+SERVER_BODY = "#2f2f33"      # near-black chassis; the sketch asks for gray/black
+SERVER_UNIT = "#54545b"      # the individual rack units
+SERVER_EDGE = "#1d1d21"
+LED_ON = "#17c07f"           # every light is lit; a saturated step of STAGES["thermo"]
+# Structures are a property OF molecules, so they take the dark end of the same
+# blue ramp rather than a new hue -- related, but not mistakable for the
+# molecules chip now that the counts are gone.
+STRUCT_HUE = RAMP[4]
+FILL_A = 0.16                # chip fills; was 0.10 and read as washed out
+ARROW_A = 1.0                # arrows at full strength
 
 
 def server_rack(ax, x, y, w, h, *, title="ModelSEED", units=5):
@@ -1216,27 +1262,29 @@ def server_rack(ax, x, y, w, h, *, title="ModelSEED", units=5):
     text(ax, x + w / 2, y + h - hdr_h / 2, title, 13, color="white",
          weight="bold", ha="center", va="center", zorder=5)
 
-    body_top, body_bot = y + h - hdr_h - 2.0, y + 7.0
-    uh = (body_top - body_bot) / units
+    body_top, body_bot = y + h - hdr_h - 2.0, y + 4.0
+    pitch = (body_top - body_bot) / units
+    pad, gap = 0.9, 1.6
     for i in range(units):
-        uy = body_bot + i * uh
+        # The DRAWN unit rect, derived once. FancyBboxPatch's pad expands the
+        # box it is given, so the rect is inset by `pad` on every side of the
+        # call below -- everything inside the unit is centred on THIS, which is
+        # what the LEDs were previously 0.8 mm out from.
+        ux0, ux1 = x + 3.0, x + w - 3.0
+        uy0 = body_bot + i * pitch
+        uy1 = uy0 + pitch - gap
+        ucy = (uy0 + uy1) / 2.0
         ax.add_patch(FancyBboxPatch(
-            (x + 3.0 + 0.9, uy + 0.9), w - 6.0 - 1.8, uh - 1.6 - 1.8,
-            boxstyle="round,pad=0.9", facecolor=SERVER_UNIT, edgecolor="none",
+            (ux0 + pad, uy0 + pad), (ux1 - ux0) - 2 * pad, (uy1 - uy0) - 2 * pad,
+            boxstyle=f"round,pad={pad}", facecolor=SERVER_UNIT, edgecolor="none",
             zorder=4))
-        # drive slots
+        slot_h = (uy1 - uy0) * 0.40
         for k in range(3):
-            ax.add_patch(Rectangle(
-                (x + w - 13.0 + k * 3.0, uy + uh * 0.30), 1.5, uh * 0.36,
-                facecolor=SERVER_EDGE, edgecolor="none", alpha=0.75, zorder=5))
-        # one green LED, the rest dim -- the sketch's single green dot
-        lit = (i == units - 1)
-        ax.add_patch(Circle((x + 6.6, uy + uh / 2), 1.15,
-                            facecolor=LED_ON if lit else LED_OFF,
+            ax.add_patch(Rectangle((ux1 - 10.0 + k * 3.0, ucy - slot_h / 2),
+                                   1.5, slot_h, facecolor=SERVER_EDGE,
+                                   edgecolor="none", alpha=0.8, zorder=5))
+        ax.add_patch(Circle((ux0 + 3.6, ucy), 1.25, facecolor=LED_ON,
                             edgecolor="none", zorder=5))
-        if lit:
-            ax.add_patch(Circle((x + 6.6, uy + uh / 2), 2.3, facecolor=LED_ON,
-                                edgecolor="none", alpha=0.28, zorder=4))
     # No subtitle: the figure title already carries "Biochemistry Database",
     # and anything at the chassis foot lands on the lowest source row.
 
@@ -1296,6 +1344,10 @@ def concept_server_hub(ax):
     Geometry is hand-placed in millimetres. The three input chips, the four
     source arrows and the three grade chips are each on a shared x, so the
     figure reads as three columns of arrows rather than a spray.
+
+    NO COUNTS. Every number was stripped on request -- this is a structure
+    diagram, and the counts live in the other concepts and in Table 2. That
+    also removes the label/value collisions the overlap audit kept catching.
     """
     text(ax, W / 2, H - 9.0, "ModelSEED Biochemistry Database  —  2026 update",
          16, weight="bold", ha="center")
@@ -1303,64 +1355,61 @@ def concept_server_hub(ax):
     SRV_X, SRV_W, SRV_Y, SRV_H = 78.0, 34.0, 38.0, 44.0
 
     # ---- left: what goes IN
-    in_rows = [("MOLECULES", c("compounds"), "mol", "ring"),
-               ("REACTIONS", c("reactions"), "rxn", "rxn"),
-               ("STRUCTURES", c("compounds_with_structure"), "mol", "chain")]
-    for (lab, val, key, glyph), cy in zip(in_rows, (74.0, 60.0, 46.0)):
-        hue = STAGES[key]
-        card(ax, 4.0, cy - 6.5, 46.0, 13.0, face=hue, edge=hue, lw=1.1,
-             alpha=0.10, radius=2.5)
-        card(ax, 4.0, cy - 6.5, 46.0, 13.0, face="none", edge=hue, lw=1.1,
+    in_rows = [("MOLECULES", STAGES["mol"], "ring"),
+               ("REACTIONS", STAGES["rxn"], "rxn"),
+               ("STRUCTURES", STRUCT_HUE, "chain")]
+    for (lab, hue, glyph), cy in zip(in_rows, (74.0, 60.0, 46.0)):
+        contain(4.0, cy - 7.0, 48.0, 14.0, f"{lab} chip")
+        card(ax, 4.0, cy - 7.0, 48.0, 14.0, face=hue, edge="none",
+             alpha=FILL_A, radius=2.5)
+        card(ax, 4.0, cy - 7.0, 48.0, 14.0, face="none", edge=hue, lw=1.4,
              radius=2.5)
         if glyph == "ring":
-            molecule_glyph(ax, 11.0, cy, 2.9, hue, kind="ring")
+            molecule_glyph(ax, 10.4, cy, 2.7, hue, kind="ring")
         elif glyph == "chain":
-            molecule_glyph(ax, 11.0, cy, 2.9, hue, kind="chain")
+            molecule_glyph(ax, 10.4, cy, 2.3, hue, kind="chain")
         else:
-            molecule_glyph(ax, 8.6, cy, 2.2, hue, kind="ring")
-            equilibrium(ax, 12.4, cy, w=3.0)
-            molecule_glyph(ax, 16.2, cy, 2.2, hue, kind="chain")
-        text(ax, 20.5, cy + 2.6, lab, 12, weight="bold")
-        text(ax, 20.5, cy - 3.0, f"{val:,}", 12, color=INK_2)
-        block_arrow(ax, 52.0, cy, SRV_X - 2.0, cy, hue, shaft=4.0, head=7.0,
-                    alpha=0.75)
+            # Two tiny species and an equilibrium. The full reaction_glyph is
+            # four molecules wide and swamped the chip.
+            molecule_glyph(ax, 7.6, cy, 1.6, hue, kind="ring")
+            equilibrium(ax, 10.4, cy, w=2.2)
+            molecule_glyph(ax, 13.2, cy, 1.6, hue, kind="chain")
+        text(ax, 17.0, cy, lab, 12, weight="bold")
+        block_arrow(ax, 54.0, cy, SRV_X - 2.0, cy, hue, shaft=4.2, head=7.0,
+                    alpha=ARROW_A)
 
     # ---- the hub
     server_rack(ax, SRV_X, SRV_Y, SRV_W, SRV_H)
 
     # ---- bottom: atom mapping
-    ATOM_X, ATOM_W, ATOM_Y, ATOM_H = 45.0, 161.0, 3.0, 26.0
+    ATOM_X, ATOM_W, ATOM_Y, ATOM_H = 45.0, 161.0, 2.0, 23.0
+    # Shaft longer than the head, or it reads as a triangle rather than an arrow.
     block_arrow(ax, SRV_X + SRV_W / 2, SRV_Y - 1.0, SRV_X + SRV_W / 2,
-                ATOM_Y + ATOM_H + 0.5, STAGES["atom"], shaft=8.0, head=9.0,
-                alpha=0.85)
+                ATOM_Y + ATOM_H + 0.5, STAGES["atom"], shaft=4.6, head=6.0,
+                alpha=ARROW_A)
+    contain(ATOM_X, ATOM_Y, ATOM_W, ATOM_H, "atom-mapping box")
     card(ax, ATOM_X, ATOM_Y, ATOM_W, ATOM_H, face=STAGES["atom"], edge="none",
-         alpha=0.07, radius=2.5)
+         alpha=0.09, radius=2.5)
     card(ax, ATOM_X, ATOM_Y, ATOM_W, ATOM_H, face="none", edge=STAGES["atom"],
-         lw=1.2, alpha=0.55, radius=2.5)
-    text(ax, ATOM_X + 4.0, ATOM_Y + ATOM_H - 4.6, "ATOM MAPPING", 12,
+         lw=1.4, radius=2.5)
+    text(ax, ATOM_X + 5.0, ATOM_Y + ATOM_H - 4.8, "ATOM MAPPING", 12,
          weight="bold", color=STAGES["atom"])
-    text(ax, ATOM_X + ATOM_W - 4.0, ATOM_Y + ATOM_H - 4.6,
-         f"{c('atom_mapping:total'):,} reactions", 12, color=INK_2, ha="right")
-    paste_slot(ax, ATOM_X + 4.0, ATOM_Y + 3.0, ATOM_W - 8.0, ATOM_H - 11.0,
+    paste_slot(ax, ATOM_X + 5.0, ATOM_Y + 3.0, ATOM_W - 10.0, ATOM_H - 11.5,
                STAGES["atom"], "paste atom-mapping capture here")
 
     # ---- right: the four sources, then one prediction, then the grades
-    DG_X, DG_W, DG_Y, DG_H = 162.0, 44.0, 34.0, 48.0
-    srcs = [("eQuilibrator", c("thermo_reactions:eQuilibrator")),
-            ("dGPredictor", c("thermo_reactions:dGPredictor")),
-            ("TECRDB", c("thermo_reactions:TECRDB")),
-            ("Group contrib.", c("thermo_reactions:Group contribution"))]
-    # Rows sit in the box BODY (34-72), never on its 10 mm header strip.
-    for (lab, val), cy in zip(srcs, (71.0, 60.0, 49.0, 38.0)):
+    DG_X, DG_W, DG_Y, DG_H = 162.0, 46.0, 34.0, 48.0
+    srcs = ["eQuilibrator", "dGPredictor", "TECRDB", "Group contribution"]
+    for lab, cy in zip(srcs, (70.0, 60.0, 50.0, 40.0)):
         block_arrow(ax, SRV_X + SRV_W + 1.5, cy, DG_X - 0.5, cy,
-                    STAGES["thermo"], shaft=3.4, head=6.4, alpha=0.7)
-        text(ax, 114.0, cy + 8.0, lab, 12, weight="bold")
-        text(ax, 114.0, cy + 3.0, f"{val:,}", 12, color=INK_2)
+                    STAGES["thermo"], shaft=3.6, head=6.4, alpha=ARROW_A)
+        text(ax, 113.5, cy + 4.6, lab, 12, weight="bold")
 
+    contain(DG_X, DG_Y, DG_W, DG_H, "ΔG box")
     card(ax, DG_X, DG_Y, DG_W, DG_H, face=STAGES["thermo"], edge="none",
-         alpha=0.10, radius=2.5)
+         alpha=FILL_A, radius=2.5)
     card(ax, DG_X, DG_Y, DG_W, DG_H, face="none", edge=STAGES["thermo"],
-         lw=1.3, alpha=0.65, radius=2.5)
+         lw=1.5, radius=2.5)
     hdr = 10.0
     ax.add_patch(FancyBboxPatch(
         (DG_X + 1.2, DG_Y + DG_H - hdr + 1.2), DG_W - 2.4, hdr - 2.4,
@@ -1368,26 +1417,22 @@ def concept_server_hub(ax):
         zorder=3))
     text(ax, DG_X + DG_W / 2, DG_Y + DG_H - hdr / 2, "ΔG PREDICTIONS", 12,
          color="white", weight="bold", ha="center", va="center", zorder=4)
-    text(ax, DG_X + DG_W / 2, DG_Y + DG_H - hdr - 7.0,
-         f"{c('thermo_estimates_per_balanced_reaction:3'):,}", 14,
-         weight="bold", ha="center", color=STAGES["thermo"])
-    text(ax, DG_X + DG_W / 2, DG_Y + DG_H - hdr - 14.0,
-         "balanced rxns", 12, color=INK_2, ha="center")
-    text(ax, DG_X + DG_W / 2, DG_Y + DG_H - hdr - 20.0,
-         "with all three", 12, color=INK_2, ha="center")
+    text(ax, DG_X + DG_W / 2, DG_Y + DG_H - hdr - 8.0, "one ΔrG′°", 12,
+         ha="center", color=INK_2)
+    text(ax, DG_X + DG_W / 2, DG_Y + DG_H - hdr - 14.5, "per reaction", 12,
+         ha="center", color=INK_2)
 
-    grades = [("GOLD", c("thermo_evidence_grade:gold"), GRADE_RAMP[0]),
-              ("SILVER", c("thermo_evidence_grade:silver"), GRADE_RAMP[1]),
-              ("BRONZE", c("thermo_evidence_grade:bronze"), GRADE_RAMP[2])]
-    for (lab, val, col), cy in zip(grades, (72.0, 58.0, 44.0)):
-        block_arrow(ax, DG_X + DG_W + 1.0, cy, 214.5, cy, col, shaft=3.0,
-                    head=5.0, alpha=0.85)
-        card(ax, 216.0, cy - 6.5, 34.0, 13.0, face=col, edge="none",
-             alpha=0.16, radius=2.5)
-        card(ax, 216.0, cy - 6.5, 34.0, 13.0, face="none", edge=col, lw=1.2,
+    grades = [("GOLD", GRADE_RAMP[0]), ("SILVER", GRADE_RAMP[1]),
+              ("BRONZE", GRADE_RAMP[2])]
+    for (lab, col), cy in zip(grades, (72.0, 58.0, 44.0)):
+        block_arrow(ax, DG_X + DG_W + 1.0, cy, 220.0, cy, col, shaft=3.2,
+                    head=5.2, alpha=ARROW_A)
+        contain(222.0, cy - 7.0, 28.0, 14.0, f"{lab} chip")
+        card(ax, 222.0, cy - 7.0, 28.0, 14.0, face=col, edge="none",
+             alpha=0.20, radius=2.5)
+        card(ax, 222.0, cy - 7.0, 28.0, 14.0, face="none", edge=col, lw=1.5,
              radius=2.5)
-        text(ax, 219.5, cy + 2.6, lab, 12, weight="bold", color=col)
-        text(ax, 219.5, cy - 3.0, f"{val:,}", 12, color=INK_2)
+        text(ax, 236.0, cy, lab, 12, weight="bold", color=col, ha="center")
 
 
 CONCEPTS = {
@@ -1422,6 +1467,7 @@ def main() -> int:
     _check_font_floor()
     _check_bar_scale()
     _check_text_overlaps(fig, ax)
+    _check_text_in_containers(fig, ax)
 
     stem = out / f"graphical_abstract_{args.concept}"
     # dpi matters even for the vector formats: matplotlib resamples embedded

@@ -281,10 +281,15 @@ estimators rather than as a fourth unrelated topic. The rack is a literal
 picture of "the database", which makes the inbound/outbound reading immediate
 without a legend.
 
-Costs: the rack is decorative, spending roughly an eighth of the canvas on a
-metaphor rather than on data. Every number is a bare count — there is no
-comparison against 2020 anywhere, which concepts A and C both carry. And the
-bottom band is currently empty.
+Costs: it carries **no data at all**. Counts were stripped on request, so this
+is a structure diagram — it says what the update contains and how the pieces
+connect, but nothing about how much of anything there is, and nothing about
+2020. Concepts A and C carry the growth story; this one does not. The rack is
+also a metaphor occupying roughly an eighth of the canvas.
+
+If numbers are wanted back, they were previously drawn beside each input chip,
+each source arrow and each grade chip, all read from `data/msdb_counts.tsv` —
+`git show` the commit that added this concept.
 
 **Placeholders:** the atom-mapping illustration. The band reserves a 152 × 15 mm
 slot for a capture from the web UI; drop a file at
