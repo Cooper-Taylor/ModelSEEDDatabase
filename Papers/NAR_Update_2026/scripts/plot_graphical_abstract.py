@@ -1342,51 +1342,56 @@ def paste_slot(ax, x, y, w, h, hue, label):
 def concept_server_hub(ax):
     """The hand-sketched layout: the database as a hub.
 
-    Geometry is hand-placed in millimetres. The three input chips, the four
-    source arrows and the three grade chips are each on a shared x, so the
-    figure reads as three columns of arrows rather than a spray.
-
     NO COUNTS. Every number was stripped on request -- this is a structure
-    diagram, and the counts live in the other concepts and in Table 2. That
-    also removes the label/value collisions the overlap audit kept catching.
+    diagram, and the counts live in the other concepts and in Table 2.
+
+    SPACING IS DERIVED, NOT TYPED. Every gap between an arrow tip and the thing
+    it touches is GAP; every row group is centred on HUB_CY. Hand-typed offsets
+    had drifted to 0.5, 1.0, 1.5 and 2.0 mm in different places, which reads as
+    sloppy at print size and is invisible while editing.
     """
     text(ax, W / 2, H - 9.0, "ModelSEED Biochemistry Database  —  2026 update",
          16, weight="bold", ha="center")
 
-    SRV_X, SRV_W, SRV_Y, SRV_H = 78.0, 34.0, 38.0, 44.0
+    GAP = 2.0                 # the ONLY arrow-to-object clearance in this figure
+    HUB_CY = 62.0             # every row group is centred on this
+    SRV_X, SRV_W, SRV_H = 78.0, 34.0, 44.0
+    SRV_Y = HUB_CY - SRV_H / 2
+
+    def rows(n, pitch):
+        """n row centres, evenly pitched, centred on HUB_CY."""
+        return [HUB_CY + (n - 1) / 2 * pitch - i * pitch for i in range(n)]
 
     # ---- left: what goes IN
     in_rows = [("MOLECULES", STAGES["mol"], "ring"),
                ("REACTIONS", STAGES["rxn"], "rxn"),
                ("STRUCTURES", STRUCT_HUE, "chain")]
-    for (lab, hue, glyph), cy in zip(in_rows, (74.0, 60.0, 46.0)):
-        contain(4.0, cy - 7.0, 48.0, 14.0, f"{lab} chip")
-        card(ax, 4.0, cy - 7.0, 48.0, 14.0, face=hue, edge="none",
+    CHIP_X, CHIP_W, CHIP_H = 4.0, 48.0, 14.0
+    for (lab, hue, glyph), cy in zip(in_rows, rows(3, 14.0)):
+        contain(CHIP_X, cy - CHIP_H / 2, CHIP_W, CHIP_H, f"{lab} chip")
+        card(ax, CHIP_X, cy - CHIP_H / 2, CHIP_W, CHIP_H, face=hue, edge="none",
              alpha=FILL_A, radius=2.5)
-        card(ax, 4.0, cy - 7.0, 48.0, 14.0, face="none", edge=hue, lw=1.4,
-             radius=2.5)
+        card(ax, CHIP_X, cy - CHIP_H / 2, CHIP_W, CHIP_H, face="none", edge=hue,
+             lw=1.4, radius=2.5)
         if glyph == "ring":
             molecule_glyph(ax, 10.4, cy, 2.7, hue, kind="ring")
         elif glyph == "chain":
             molecule_glyph(ax, 10.4, cy, 2.3, hue, kind="chain")
         else:
-            # Two tiny species and an equilibrium. The full reaction_glyph is
-            # four molecules wide and swamped the chip.
             molecule_glyph(ax, 7.6, cy, 1.6, hue, kind="ring")
             equilibrium(ax, 10.4, cy, w=2.2)
             molecule_glyph(ax, 13.2, cy, 1.6, hue, kind="chain")
         text(ax, 17.0, cy, lab, 12, weight="bold")
-        block_arrow(ax, 54.0, cy, SRV_X - 2.0, cy, hue, shaft=4.2, head=7.0,
-                    alpha=ARROW_A)
+        block_arrow(ax, CHIP_X + CHIP_W + GAP, cy, SRV_X - GAP, cy, hue,
+                    shaft=4.2, head=7.0, alpha=ARROW_A)
 
     # ---- the hub
     server_rack(ax, SRV_X, SRV_Y, SRV_W, SRV_H)
 
     # ---- bottom: atom mapping
     ATOM_X, ATOM_W, ATOM_Y, ATOM_H = 45.0, 161.0, 2.0, 23.0
-    # Shaft longer than the head, or it reads as a triangle rather than an arrow.
-    block_arrow(ax, SRV_X + SRV_W / 2, SRV_Y - 1.0, SRV_X + SRV_W / 2,
-                ATOM_Y + ATOM_H + 0.5, STAGES["atom"], shaft=4.6, head=6.0,
+    block_arrow(ax, SRV_X + SRV_W / 2, SRV_Y - GAP, SRV_X + SRV_W / 2,
+                ATOM_Y + ATOM_H + GAP, STAGES["atom"], shaft=4.6, head=5.0,
                 alpha=ARROW_A)
     contain(ATOM_X, ATOM_Y, ATOM_W, ATOM_H, "atom-mapping box")
     card(ax, ATOM_X, ATOM_Y, ATOM_W, ATOM_H, face=STAGES["atom"], edge="none",
@@ -1399,45 +1404,44 @@ def concept_server_hub(ax):
                STAGES["atom"], "paste atom-mapping capture here")
 
     # ---- right: the four sources, then one prediction, then the grades
-    # An OVAL, not a panel: it is a merge node, and nothing is written inside
-    # it, so the arrows can meet its curve instead of a flat edge. Each arrow
-    # stops at the ellipse boundary computed for its own y, which is what makes
-    # four parallel arrows read as converging on one thing.
-    DG_CX, DG_CY, DG_A, DG_B = 182.0, 55.0, 14.0, 19.0
+    DG_CX, DG_CY, DG_A, DG_B = 182.0, HUB_CY, 14.0, 19.0
 
     def _ellipse_x(y, side):
-        """x where the ellipse boundary sits at height y. side = -1 left, +1 right."""
+        """x of the ellipse boundary at height y. side = -1 left, +1 right."""
         t = (y - DG_CY) / DG_B
         return DG_CX + side * DG_A * math.sqrt(max(0.0, 1.0 - t * t))
 
     srcs = ["eQuilibrator", "dGPredictor", "TECRDB", "Group contribution"]
-    for lab, cy in zip(srcs, (70.0, 60.0, 50.0, 40.0)):
-        block_arrow(ax, SRV_X + SRV_W + 1.5, cy, _ellipse_x(cy, -1) - 0.5, cy,
+    for lab, cy in zip(srcs, rows(4, 10.0)):
+        block_arrow(ax, SRV_X + SRV_W + GAP, cy, _ellipse_x(cy, -1) - GAP, cy,
                     STAGES["thermo"], shaft=3.6, head=6.4, alpha=ARROW_A)
-        text(ax, 113.5, cy + 4.6, lab, 12, weight="bold")
+        text(ax, SRV_X + SRV_W + GAP, cy + 4.6, lab, 12, weight="bold")
 
+    # zorder above the arrows: the grade arrows are drawn after the oval, so at
+    # equal zorder they painted over it.
     ax.add_patch(Ellipse((DG_CX, DG_CY), 2 * DG_A, 2 * DG_B,
                          facecolor=STAGES["thermo"], edgecolor="none",
-                         alpha=FILL_A, zorder=2))
+                         alpha=FILL_A, zorder=6))
     ax.add_patch(Ellipse((DG_CX, DG_CY), 2 * DG_A, 2 * DG_B, facecolor="none",
-                         edgecolor=STAGES["thermo"], linewidth=1.6, zorder=3))
-    # The label sits ABOVE the oval. An ellipse has no header strip to put it
-    # in, and "ΔG PREDICTIONS" is 40.6 mm at 12 pt -- an oval wide enough to
-    # hold it would not be smaller than the panel it replaced.
+                         edgecolor=STAGES["thermo"], linewidth=1.6, zorder=7))
+    # Label outside: an ellipse has no header strip, and "ΔG PREDICTIONS" is
+    # 40.6 mm at 12 pt -- an oval wide enough to hold it would not be small.
     text(ax, DG_CX, DG_CY + DG_B + 4.5, "ΔG PREDICTIONS", 12, weight="bold",
          ha="center", color=STAGES["thermo"])
 
     grades = [("GOLD", GRADE_RAMP[0]), ("SILVER", GRADE_RAMP[1]),
               ("BRONZE", GRADE_RAMP[2])]
-    for (lab, col), cy in zip(grades, (72.0, 58.0, 44.0)):
-        block_arrow(ax, _ellipse_x(cy, +1) + 0.5, cy, 220.0, cy, col,
+    GR_X, GR_W, GR_H = 222.0, 28.0, 14.0
+    for (lab, col), cy in zip(grades, rows(3, 14.0)):
+        block_arrow(ax, _ellipse_x(cy, +1) + GAP, cy, GR_X - GAP, cy, col,
                     shaft=3.2, head=5.2, alpha=ARROW_A)
-        contain(222.0, cy - 7.0, 28.0, 14.0, f"{lab} chip")
-        card(ax, 222.0, cy - 7.0, 28.0, 14.0, face=col, edge="none",
+        contain(GR_X, cy - GR_H / 2, GR_W, GR_H, f"{lab} chip")
+        card(ax, GR_X, cy - GR_H / 2, GR_W, GR_H, face=col, edge="none",
              alpha=0.20, radius=2.5)
-        card(ax, 222.0, cy - 7.0, 28.0, 14.0, face="none", edge=col, lw=1.5,
-             radius=2.5)
-        text(ax, 236.0, cy, lab, 12, weight="bold", color=col, ha="center")
+        card(ax, GR_X, cy - GR_H / 2, GR_W, GR_H, face="none", edge=col,
+             lw=1.5, radius=2.5)
+        text(ax, GR_X + GR_W / 2, cy, lab, 12, weight="bold", color=col,
+             ha="center")
 
 
 CONCEPTS = {
