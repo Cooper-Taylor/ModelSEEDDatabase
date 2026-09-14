@@ -1,12 +1,11 @@
 key	value	note
-concept	flow_pipeline	layout mockup, not the submission file
+concept	atom_trace_spine	layout mockup, not the submission file
 canvas_mm	254.0x101.6	NAR 5:2, 2x the 127x50 mm minimum
 min_font_pt	12	enforced by _check_font_floor
 pt_scale	1.0	set to 2.0 to keep 12 pt after a downscale to 127 mm
 font	Arial	NAR asks for Arial; falls back to DejaVu Sans here
 data_provenance	-	ModelSEED dev @ d64fdc6f (/scratch/ctaylor/tmp/devsnap_d64fdc6f), read 2026-09-11
 ui_capture	present	/scratch/ctaylor/ModelSEEDDatabase/Papers/NAR_Update_2026/latex/figures/ga_flow_pipeline/screenshot.png
-ui_capture_dpi	374	source pixels at the placed size; clears NAR's 300 dpi floor for colour half-tones
 atom_map_image	EMPTY SLOT	/scratch/ctaylor/ModelSEEDDatabase/Papers/NAR_Update_2026/assets/atom_mapping_capture.png -- server_hub reserves a paste slot for this
 ui_capture_crop	(0.314, 0.73, 0.3784, 0.5521)	fractions x0,x1,y0,y1 -- crops away the nav bar, which carries the logo NAR bans and the signed-in username
 compounds[2026]	45708	data/msdb_counts.tsv
@@ -47,16 +46,12 @@ direction_balanced:?[2026]	10661	data/msdb_counts.tsv
 atom_mapping:clean[2026]	25058	data/msdb_counts.tsv
 atom_mapping:salvaged[2026]	7819	data/msdb_counts.tsv
 atom_mapping:total[2026]	32877	data/msdb_counts.tsv
-scale:bar_chart:2020	33992	22.661mm of 40.000mm axis, top=60000
-scale:bar_chart:2026	45708	30.472mm of 40.000mm axis, top=60000
-scale:bar_chart:2020	36193	24.129mm of 40.000mm axis, top=60000
-scale:bar_chart:2026	56012	37.341mm of 40.000mm axis, top=60000
-scale:hbar_rows:eQuilibrator	25175	20.140mm of 48.000mm axis, top=60000
-scale:hbar_rows:Group contrib.	56002	44.802mm of 48.000mm axis, top=60000
-scale:hbar_rows:dGPredictor	29617	23.694mm of 48.000mm axis, top=60000
-scale:hbar_rows:gold	5342	9.390mm of 29.000mm axis, top=16498
-scale:hbar_rows:silver	16498	29.000mm of 29.000mm axis, top=16498
-scale:hbar_rows:bronze	11259	19.791mm of 29.000mm axis, top=16498
+scale:hbar_pair:2026	56002	128.000mm of 128.000mm axis, top=56002
+scale:hbar_pair:pre-2026	25029	57.207mm of 128.000mm axis, top=56002
+scale:hbar_pair:2026	34370	128.000mm of 128.000mm axis, top=34370
+scale:hbar_pair:2020	25457	94.806mm of 128.000mm axis, top=34370
+scale:hbar_pair:2026	45708	128.000mm of 128.000mm axis, top=45708
+scale:hbar_pair:2020	33992	95.191mm of 128.000mm axis, top=45708
 acp_overrides	47	results_structure_curation.tex
 excluded_compounds	4	results_structure_curation.tex
 PENDING:similarity_model	TBD	chosen reaction-embedding foundation model

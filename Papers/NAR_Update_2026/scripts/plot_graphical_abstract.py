@@ -3,7 +3,7 @@
 
 WHAT THIS DRAWS
 ---------------
-Five competing concepts for the mandatory NAR graphical abstract, each covering
+Six competing concepts for the mandatory NAR graphical abstract, each covering
 the same four headline features of the update:
 
     molecules  ->  reactions  ->  thermodynamics / reaction ranking  ->  atom mapping
@@ -15,6 +15,12 @@ the same four headline features of the update:
                              then fanned out into model-output impact
     atom_trace_spine         one carbon traced through a pathway, data layers
                              stacked underneath
+    server_hub               the database as a hub: molecules/reactions/
+                             structures in from the left, atom mapping out the
+                             bottom, four DrG' sources out the right merging
+                             into one prediction that is graded gold/silver/
+                             bronze. Drawn from the hand sketch in
+                             assets/sketch_server_hub_IMG_6387.jpeg.
 
 Pick one, then we replace the placeholder cells with real art. These are
 LAYOUT MOCKUPS, not the submission file.
@@ -213,6 +219,15 @@ SCREENSHOT = Path(os.environ.get(
 # Re-measure these if the capture is ever replaced; they are fractions of the
 # source image, not pixels, but they are specific to this framing.
 SCREENSHOT_CROP = (0.3140, 0.7300, 0.3784, 0.5521)
+
+# server_hub reserves a slot for an atom-mapping illustration lifted from the
+# web UI. Point this at a file and it is placed and reported; leave it absent
+# and a dashed "paste here" slot is drawn instead, with the gap recorded in
+# _stats.tsv. Never invent the artwork.
+ATOM_MAP_IMAGE = Path(os.environ.get(
+    "NAR_ATOM_MAP_IMAGE",
+    ROOT / "assets" / "atom_mapping_capture.png"))
+_atom_map_dpi: list[float] = []
 # The whole equation is 3.70:1 -- in a ~49 mm panel that is 11 mm tall and each
 # structure lands at 8 mm. So the four participants are cut out INDIVIDUALLY and
 # re-laid as a wrapped two-line equation, which more than doubles each structure
@@ -1174,12 +1189,214 @@ def concept_atom_spine(ax):
                     color=hue, lw=1.0, alpha=0.4, zorder=1)
 
 
+
+# --------------------------------------------------------------- server_hub
+SERVER_BODY = "#37373a"      # near-black chassis; the sketch asks for gray/black
+SERVER_UNIT = "#4b4b50"      # the individual rack units
+SERVER_EDGE = "#25252a"
+LED_ON = "#1baf7a"           # the green dot in the sketch (STAGES["thermo"])
+LED_OFF = "#6e6e76"
+
+
+def server_rack(ax, x, y, w, h, *, title="ModelSEED", units=5):
+    """A rack of servers, near-black, with one green status LED.
+
+    Drawn rather than clip-arted so it stays vector and recolourable. The units
+    are horizontal because that is what makes a box read as a rack; the sketch's
+    vertical divisions read as a filing cabinet at small sizes."""
+    # card() hardcodes zorder=1; the chassis has to sit above the inbound
+    # arrows, so raise the returned patch rather than widening the shared helper.
+    card(ax, x, y, w, h, face=SERVER_BODY, edge=SERVER_EDGE, lw=1.2,
+         radius=2.5).set_zorder(3)
+    hdr_h = 10.0
+    ax.add_patch(FancyBboxPatch(
+        (x + 1.4, y + h - hdr_h + 1.4), w - 2.8, hdr_h - 2.8,
+        boxstyle="round,pad=1.4", facecolor=SERVER_EDGE, edgecolor="none",
+        zorder=4))
+    text(ax, x + w / 2, y + h - hdr_h / 2, title, 13, color="white",
+         weight="bold", ha="center", va="center", zorder=5)
+
+    body_top, body_bot = y + h - hdr_h - 2.0, y + 7.0
+    uh = (body_top - body_bot) / units
+    for i in range(units):
+        uy = body_bot + i * uh
+        ax.add_patch(FancyBboxPatch(
+            (x + 3.0 + 0.9, uy + 0.9), w - 6.0 - 1.8, uh - 1.6 - 1.8,
+            boxstyle="round,pad=0.9", facecolor=SERVER_UNIT, edgecolor="none",
+            zorder=4))
+        # drive slots
+        for k in range(3):
+            ax.add_patch(Rectangle(
+                (x + w - 13.0 + k * 3.0, uy + uh * 0.30), 1.5, uh * 0.36,
+                facecolor=SERVER_EDGE, edgecolor="none", alpha=0.75, zorder=5))
+        # one green LED, the rest dim -- the sketch's single green dot
+        lit = (i == units - 1)
+        ax.add_patch(Circle((x + 6.6, uy + uh / 2), 1.15,
+                            facecolor=LED_ON if lit else LED_OFF,
+                            edgecolor="none", zorder=5))
+        if lit:
+            ax.add_patch(Circle((x + 6.6, uy + uh / 2), 2.3, facecolor=LED_ON,
+                                edgecolor="none", alpha=0.28, zorder=4))
+    # No subtitle: the figure title already carries "Biochemistry Database",
+    # and anything at the chassis foot lands on the lowest source row.
+
+
+def block_arrow(ax, x0, y0, x1, y1, color, *, shaft=5.0, head=9.0, alpha=1.0,
+                z=2):
+    """A fat block arrow. Horizontal or vertical only -- the layouts never need
+    a diagonal one, and a general implementation would be harder to reason
+    about than two cases."""
+    if abs(y1 - y0) < 1e-9:                      # horizontal
+        d = 1.0 if x1 > x0 else -1.0
+        bx = x1 - d * head
+        ax.add_patch(Polygon([(x0, y0 - shaft / 2), (bx, y0 - shaft / 2),
+                              (bx, y0 - head / 2), (x1, y0),
+                              (bx, y0 + head / 2), (bx, y0 + shaft / 2),
+                              (x0, y0 + shaft / 2)],
+                             closed=True, facecolor=color, edgecolor="none",
+                             alpha=alpha, zorder=z))
+    else:                                        # vertical
+        d = 1.0 if y1 > y0 else -1.0
+        by = y1 - d * head
+        ax.add_patch(Polygon([(x0 - shaft / 2, y0), (x0 - shaft / 2, by),
+                              (x0 - head / 2, by), (x0, y1),
+                              (x0 + head / 2, by), (x0 + shaft / 2, by),
+                              (x0 + shaft / 2, y0)],
+                             closed=True, facecolor=color, edgecolor="none",
+                             alpha=alpha, zorder=z))
+
+
+def paste_slot(ax, x, y, w, h, hue, label):
+    """A deliberately empty, labelled region for artwork we do not have yet.
+
+    Distinct from tbd(): tbd() marks a NUMBER the manuscript has not settled,
+    this marks a PICTURE someone still has to drop in. If ATOM_MAP_IMAGE exists
+    the picture is placed instead and the slot disappears."""
+    if ATOM_MAP_IMAGE.exists():
+        img = mpimg.imread(ATOM_MAP_IMAGE)
+        ih, iw = img.shape[0], img.shape[1]
+        scale = min(w / iw, h / ih)
+        dw, dh = iw * scale, ih * scale
+        cx, cy = x + w / 2, y + h / 2
+        _atom_map_dpi.append(iw / dw * 25.4)
+        ax.imshow(img, extent=(cx - dw / 2, cx + dw / 2, cy - dh / 2, cy + dh / 2),
+                  aspect="auto", interpolation="none", zorder=4)
+        card(ax, cx - dw / 2, cy - dh / 2, dw, dh, face="none", edge=hue,
+             lw=0.8, radius=1.5, alpha=0.5)
+        return
+    card(ax, x, y, w, h, face="none", edge=INK_MUTED, lw=1.0, ls=(0, (3, 3)),
+         radius=2.0)
+    text(ax, x + w / 2, y + h / 2, label, 12, color=INK_MUTED, ha="center",
+         va="center")
+
+
+def concept_server_hub(ax):
+    """The hand-sketched layout: the database as a hub.
+
+    Geometry is hand-placed in millimetres. The three input chips, the four
+    source arrows and the three grade chips are each on a shared x, so the
+    figure reads as three columns of arrows rather than a spray.
+    """
+    text(ax, W / 2, H - 9.0, "ModelSEED Biochemistry Database  —  2026 update",
+         16, weight="bold", ha="center")
+
+    SRV_X, SRV_W, SRV_Y, SRV_H = 78.0, 34.0, 38.0, 44.0
+
+    # ---- left: what goes IN
+    in_rows = [("MOLECULES", c("compounds"), "mol", "ring"),
+               ("REACTIONS", c("reactions"), "rxn", "rxn"),
+               ("STRUCTURES", c("compounds_with_structure"), "mol", "chain")]
+    for (lab, val, key, glyph), cy in zip(in_rows, (74.0, 60.0, 46.0)):
+        hue = STAGES[key]
+        card(ax, 4.0, cy - 6.5, 46.0, 13.0, face=hue, edge=hue, lw=1.1,
+             alpha=0.10, radius=2.5)
+        card(ax, 4.0, cy - 6.5, 46.0, 13.0, face="none", edge=hue, lw=1.1,
+             radius=2.5)
+        if glyph == "ring":
+            molecule_glyph(ax, 11.0, cy, 2.9, hue, kind="ring")
+        elif glyph == "chain":
+            molecule_glyph(ax, 11.0, cy, 2.9, hue, kind="chain")
+        else:
+            molecule_glyph(ax, 8.6, cy, 2.2, hue, kind="ring")
+            equilibrium(ax, 12.4, cy, w=3.0)
+            molecule_glyph(ax, 16.2, cy, 2.2, hue, kind="chain")
+        text(ax, 20.5, cy + 2.6, lab, 12, weight="bold")
+        text(ax, 20.5, cy - 3.0, f"{val:,}", 12, color=INK_2)
+        block_arrow(ax, 52.0, cy, SRV_X - 2.0, cy, hue, shaft=4.0, head=7.0,
+                    alpha=0.75)
+
+    # ---- the hub
+    server_rack(ax, SRV_X, SRV_Y, SRV_W, SRV_H)
+
+    # ---- bottom: atom mapping
+    ATOM_X, ATOM_W, ATOM_Y, ATOM_H = 45.0, 161.0, 3.0, 26.0
+    block_arrow(ax, SRV_X + SRV_W / 2, SRV_Y - 1.0, SRV_X + SRV_W / 2,
+                ATOM_Y + ATOM_H + 0.5, STAGES["atom"], shaft=8.0, head=9.0,
+                alpha=0.85)
+    card(ax, ATOM_X, ATOM_Y, ATOM_W, ATOM_H, face=STAGES["atom"], edge="none",
+         alpha=0.07, radius=2.5)
+    card(ax, ATOM_X, ATOM_Y, ATOM_W, ATOM_H, face="none", edge=STAGES["atom"],
+         lw=1.2, alpha=0.55, radius=2.5)
+    text(ax, ATOM_X + 4.0, ATOM_Y + ATOM_H - 4.6, "ATOM MAPPING", 12,
+         weight="bold", color=STAGES["atom"])
+    text(ax, ATOM_X + ATOM_W - 4.0, ATOM_Y + ATOM_H - 4.6,
+         f"{c('atom_mapping:total'):,} reactions", 12, color=INK_2, ha="right")
+    paste_slot(ax, ATOM_X + 4.0, ATOM_Y + 3.0, ATOM_W - 8.0, ATOM_H - 11.0,
+               STAGES["atom"], "paste atom-mapping capture here")
+
+    # ---- right: the four sources, then one prediction, then the grades
+    DG_X, DG_W, DG_Y, DG_H = 162.0, 44.0, 34.0, 48.0
+    srcs = [("eQuilibrator", c("thermo_reactions:eQuilibrator")),
+            ("dGPredictor", c("thermo_reactions:dGPredictor")),
+            ("TECRDB", c("thermo_reactions:TECRDB")),
+            ("Group contrib.", c("thermo_reactions:Group contribution"))]
+    # Rows sit in the box BODY (34-72), never on its 10 mm header strip.
+    for (lab, val), cy in zip(srcs, (71.0, 60.0, 49.0, 38.0)):
+        block_arrow(ax, SRV_X + SRV_W + 1.5, cy, DG_X - 0.5, cy,
+                    STAGES["thermo"], shaft=3.4, head=6.4, alpha=0.7)
+        text(ax, 114.0, cy + 8.0, lab, 12, weight="bold")
+        text(ax, 114.0, cy + 3.0, f"{val:,}", 12, color=INK_2)
+
+    card(ax, DG_X, DG_Y, DG_W, DG_H, face=STAGES["thermo"], edge="none",
+         alpha=0.10, radius=2.5)
+    card(ax, DG_X, DG_Y, DG_W, DG_H, face="none", edge=STAGES["thermo"],
+         lw=1.3, alpha=0.65, radius=2.5)
+    hdr = 10.0
+    ax.add_patch(FancyBboxPatch(
+        (DG_X + 1.2, DG_Y + DG_H - hdr + 1.2), DG_W - 2.4, hdr - 2.4,
+        boxstyle="round,pad=1.2", facecolor=STAGES["thermo"], edgecolor="none",
+        zorder=3))
+    text(ax, DG_X + DG_W / 2, DG_Y + DG_H - hdr / 2, "ΔG PREDICTIONS", 12,
+         color="white", weight="bold", ha="center", va="center", zorder=4)
+    text(ax, DG_X + DG_W / 2, DG_Y + DG_H - hdr - 7.0,
+         f"{c('thermo_estimates_per_balanced_reaction:3'):,}", 14,
+         weight="bold", ha="center", color=STAGES["thermo"])
+    text(ax, DG_X + DG_W / 2, DG_Y + DG_H - hdr - 14.0,
+         "balanced rxns", 12, color=INK_2, ha="center")
+    text(ax, DG_X + DG_W / 2, DG_Y + DG_H - hdr - 20.0,
+         "with all three", 12, color=INK_2, ha="center")
+
+    grades = [("GOLD", c("thermo_evidence_grade:gold"), GRADE_RAMP[0]),
+              ("SILVER", c("thermo_evidence_grade:silver"), GRADE_RAMP[1]),
+              ("BRONZE", c("thermo_evidence_grade:bronze"), GRADE_RAMP[2])]
+    for (lab, val, col), cy in zip(grades, (72.0, 58.0, 44.0)):
+        block_arrow(ax, DG_X + DG_W + 1.0, cy, 214.5, cy, col, shaft=3.0,
+                    head=5.0, alpha=0.85)
+        card(ax, 216.0, cy - 6.5, 34.0, 13.0, face=col, edge="none",
+             alpha=0.16, radius=2.5)
+        card(ax, 216.0, cy - 6.5, 34.0, 13.0, face="none", edge=col, lw=1.2,
+             radius=2.5)
+        text(ax, 219.5, cy + 2.6, lab, 12, weight="bold", color=col)
+        text(ax, 219.5, cy - 3.0, f"{val:,}", 12, color=INK_2)
+
+
 CONCEPTS = {
     "flow_pipeline": concept_flow_pipeline,
     "one_reaction_four_lenses": concept_one_reaction,
     "before_after_ledger": concept_before_after,
     "direction_funnel": concept_direction_funnel,
     "atom_trace_spine": concept_atom_spine,
+    "server_hub": concept_server_hub,
 }
 
 
@@ -1235,6 +1452,12 @@ def main() -> int:
             fh.write(f"ui_capture_dpi\t{d:.0f}\tsource pixels at the placed "
                      f"size; {'clears' if d >= 300 else 'BELOW'} NAR's 300 dpi "
                      "floor for colour half-tones\n")
+        fh.write(f"atom_map_image\t{'present' if ATOM_MAP_IMAGE.exists() else 'EMPTY SLOT'}"
+                 f"\t{ATOM_MAP_IMAGE} -- server_hub reserves a paste slot for this\n")
+        if _atom_map_dpi:
+            d = _atom_map_dpi[0]
+            fh.write(f"atom_map_dpi\t{d:.0f}\tsource pixels at the placed size; "
+                     f"{'clears' if d >= 300 else 'BELOW'} NAR's 300 dpi floor\n")
         fh.write(f"ui_capture_crop\t{SCREENSHOT_CROP}\t"
                  "fractions x0,x1,y0,y1 -- crops away the nav bar, which "
                  "carries the logo NAR bans and the signed-in username\n")

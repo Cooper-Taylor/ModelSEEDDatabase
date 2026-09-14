@@ -22,3 +22,4 @@ ga_one_reaction	plot_graphical_abstract.py	--concept one_reaction_four_lenses --
 ga_before_after	plot_graphical_abstract.py	--concept before_after_ledger --out-subdir ga_before_after	graphical-abstract,diagram
 ga_direction_funnel	plot_graphical_abstract.py	--concept direction_funnel --out-subdir ga_direction_funnel	graphical-abstract,diagram
 ga_atom_spine	plot_graphical_abstract.py	--concept atom_trace_spine --out-subdir ga_atom_spine	graphical-abstract,diagram
+ga_server_hub	plot_graphical_abstract.py	--concept server_hub --out-subdir ga_server_hub	graphical-abstract,diagram

@@ -17,7 +17,7 @@ latex/
 ├── oup-authoring-template.cls   # vendored from CTAN v1.5 (LPPL) so this builds anywhere
 ├── oup-plain.bst                # numeric bibliography style (NAR)
 ├── oup-abbrvnat.bst             # author-year alternative, unused
-├── figures/                     # figure sources; empty until the direction-study figure lands
+├── figures/                     # rendered figures, one dir per registry row (see ../scripts/figures.tsv)
 └── sections/                    # one file per manuscript section — all prose lives here
 ```
 
@@ -88,7 +88,8 @@ beyond filling `[TBD]`s:
 1. **Title** — NAR wants the database name as the first word; the title
    currently opens with "The".
 2. **Graphical abstract** — mandatory, 5:2 ratio, min 127×50 mm, 300–600 dpi,
-   original artwork. Not embedded here; submitted as a separate file.
+   original artwork. Not embedded here; submitted as a separate file. Candidate
+   layouts and the concept write-up: [`../GRAPHICAL_ABSTRACT.md`](../GRAPHICAL_ABSTRACT.md).
 3. **Length** — update papers run 4–6 typeset pages. This draft is over by
    design; trim once the `[TBD]`s resolve.
 4. **References** — resolve every `[VERIFY]` note in `references.bib`.
