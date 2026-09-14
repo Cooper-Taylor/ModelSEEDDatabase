@@ -272,8 +272,14 @@ real miniature visuals to earn their space. Thermodynamics gets one line.
 
 The database as a physical hub. Molecules, reactions and structures arrive from
 the left; atom mapping drops out of the bottom; the four ΔrG′° estimators fan
-out to the right, merge into one prediction, and that prediction is graded gold
-/ silver / bronze.
+out to the right and converge on one oval, and that prediction is graded gold /
+silver / bronze.
+
+The oval is 40 × 34 mm, sized by its own label: "ΔG PREDICTIONS" is 40.6 mm on
+one line at the 12 pt floor, so it is set over two lines and the 32.3 mm
+"PREDICTIONS" row fixes the width. Every arrow meets the curve at the boundary
+computed for its own height, which is what makes four parallel arrows read as
+converging rather than as stopping at a shared vertical line.
 
 Closest of all the candidates to how the update is actually organised, and the
 only one that shows the grading as a *consequence* of having four independent

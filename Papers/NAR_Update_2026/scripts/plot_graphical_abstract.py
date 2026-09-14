@@ -355,7 +355,7 @@ def _check_text_overlaps(fig, ax, pad=0.5, min_gap=1.5):
 _containers: list[tuple] = []     # (x, y, w, h, name) in mm; see contain()
 
 
-def contain(x, y, w, h, name):
+def contain(x, y, w, h, name, ellipse=False):
     """Register a box that text placed inside it must not escape.
 
     _check_text_overlaps() polices text against TEXT. Nothing policed text
@@ -363,7 +363,7 @@ def contain(x, y, w, h, name):
     producing: 'STRUCTURES' is 32.0 mm at 12 pt, not the 25 mm it looks like,
     and 'ΔG PREDICTIONS' is 40.6 mm. Both silently overhung their panels.
     Measure, do not estimate -- and then let the run fail if it regresses."""
-    _containers.append((x, y, w, h, name))
+    _containers.append((x, y, w, h, name, ellipse))
 
 
 def _check_text_in_containers(fig, ax, pad=1.2):
@@ -377,9 +377,18 @@ def _check_text_in_containers(fig, ax, pad=1.2):
         bb = a.get_window_extent(renderer=r)
         (x0, y0), (x1, y1) = inv.transform([(bb.x0, bb.y0), (bb.x1, bb.y1)])
         cx, cy = (x0 + x1) / 2, (y0 + y1) / 2
-        for bx, by, bw, bh, name in _containers:
+        for bx, by, bw, bh, name, is_ell in _containers:
             if not (bx <= cx <= bx + bw and by <= cy <= by + bh):
                 continue                       # not this box's text
+            if is_ell:
+                ex, ey = bx + bw / 2, by + bh / 2
+                ra, rb = bw / 2 - pad, bh / 2 - pad
+                out = [(px, py) for px in (x0, x1) for py in (y0, y1)
+                       if ((px - ex) / ra) ** 2 + ((py - ey) / rb) ** 2 > 1.0]
+                if out:
+                    bad.append(f"{a.get_text()!r} escapes {name}: "
+                               f"{len(out)} of 4 corners outside the ellipse")
+                continue
             if x0 < bx + pad or x1 > bx + bw - pad:
                 over = max(bx + pad - x0, x1 - (bx + bw - pad))
                 bad.append(f"{a.get_text()!r} overflows {name} horizontally "
@@ -1290,17 +1299,23 @@ def server_rack(ax, x, y, w, h, *, title="ModelSEED", units=5):
     # and anything at the chassis foot lands on the lowest source row.
 
 
-def block_arrow(ax, x0, y0, x1, y1, color, *, shaft=5.0, head=9.0, alpha=1.0,
-                z=2):
+def block_arrow(ax, x0, y0, x1, y1, color, *, shaft=5.0, head=9.0, head_w=None,
+                alpha=1.0, z=2):
     """A fat block arrow. Horizontal or vertical only -- the layouts never need
     a diagonal one, and a general implementation would be harder to reason
-    about than two cases."""
+    about than two cases.
+
+    `head` is the head LENGTH along the axis; `head_w` its WIDTH across it.
+    They default to the same value, which is fine while shaft << head, but a
+    shaft of 4.6 against a head of 5.0 produced a rectangle with a faint point
+    rather than an arrow. Set head_w explicitly for short, fat arrows."""
+    head_w = head if head_w is None else head_w
     if abs(y1 - y0) < 1e-9:                      # horizontal
         d = 1.0 if x1 > x0 else -1.0
         bx = x1 - d * head
         ax.add_patch(Polygon([(x0, y0 - shaft / 2), (bx, y0 - shaft / 2),
-                              (bx, y0 - head / 2), (x1, y0),
-                              (bx, y0 + head / 2), (bx, y0 + shaft / 2),
+                              (bx, y0 - head_w / 2), (x1, y0),
+                              (bx, y0 + head_w / 2), (bx, y0 + shaft / 2),
                               (x0, y0 + shaft / 2)],
                              closed=True, facecolor=color, edgecolor="none",
                              alpha=alpha, zorder=z))
@@ -1308,8 +1323,8 @@ def block_arrow(ax, x0, y0, x1, y1, color, *, shaft=5.0, head=9.0, alpha=1.0,
         d = 1.0 if y1 > y0 else -1.0
         by = y1 - d * head
         ax.add_patch(Polygon([(x0 - shaft / 2, y0), (x0 - shaft / 2, by),
-                              (x0 - head / 2, by), (x0, y1),
-                              (x0 + head / 2, by), (x0 + shaft / 2, by),
+                              (x0 - head_w / 2, by), (x0, y1),
+                              (x0 + head_w / 2, by), (x0 + shaft / 2, by),
                               (x0 + shaft / 2, y0)],
                              closed=True, facecolor=color, edgecolor="none",
                              alpha=alpha, zorder=z))
@@ -1391,8 +1406,8 @@ def concept_server_hub(ax):
     # ---- bottom: atom mapping
     ATOM_X, ATOM_W, ATOM_Y, ATOM_H = 45.0, 161.0, 2.0, 23.0
     block_arrow(ax, SRV_X + SRV_W / 2, SRV_Y - GAP, SRV_X + SRV_W / 2,
-                ATOM_Y + ATOM_H + GAP, STAGES["atom"], shaft=4.6, head=5.0,
-                alpha=ARROW_A)
+                ATOM_Y + ATOM_H + GAP, STAGES["atom"], shaft=5.0, head=5.5,
+                head_w=13.0, alpha=ARROW_A)
     contain(ATOM_X, ATOM_Y, ATOM_W, ATOM_H, "atom-mapping box")
     card(ax, ATOM_X, ATOM_Y, ATOM_W, ATOM_H, face=STAGES["atom"], edge="none",
          alpha=0.09, radius=2.5)
@@ -1404,7 +1419,7 @@ def concept_server_hub(ax):
                STAGES["atom"], "paste atom-mapping capture here")
 
     # ---- right: the four sources, then one prediction, then the grades
-    DG_CX, DG_CY, DG_A, DG_B = 182.0, HUB_CY, 14.0, 19.0
+    DG_CX, DG_CY, DG_A, DG_B = 182.0, HUB_CY, 20.0, 17.0
 
     def _ellipse_x(y, side):
         """x of the ellipse boundary at height y. side = -1 left, +1 right."""
@@ -1424,10 +1439,13 @@ def concept_server_hub(ax):
                          alpha=FILL_A, zorder=6))
     ax.add_patch(Ellipse((DG_CX, DG_CY), 2 * DG_A, 2 * DG_B, facecolor="none",
                          edgecolor=STAGES["thermo"], linewidth=1.6, zorder=7))
-    # Label outside: an ellipse has no header strip, and "ΔG PREDICTIONS" is
-    # 40.6 mm at 12 pt -- an oval wide enough to hold it would not be small.
-    text(ax, DG_CX, DG_CY + DG_B + 4.5, "ΔG PREDICTIONS", 12, weight="bold",
-         ha="center", color=STAGES["thermo"])
+    # Label INSIDE, in ink. "ΔG PREDICTIONS" is 40.6 mm on one line at 12 pt
+    # and will not fit any oval worth calling small; broken over two lines the
+    # widest row is "PREDICTIONS" at 32.3 mm, which sets the 40 mm width above.
+    contain(DG_CX - DG_A, DG_CY - DG_B, 2 * DG_A, 2 * DG_B, "ΔG oval",
+            ellipse=True)
+    text(ax, DG_CX, DG_CY, "ΔG\nPREDICTIONS", 12, weight="bold", ha="center",
+         va="center", color=INK, zorder=8, linespacing=1.45)
 
     grades = [("GOLD", GRADE_RAMP[0]), ("SILVER", GRADE_RAMP[1]),
               ("BRONZE", GRADE_RAMP[2])]
