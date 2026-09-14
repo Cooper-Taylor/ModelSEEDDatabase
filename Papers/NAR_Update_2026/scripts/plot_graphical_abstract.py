@@ -89,6 +89,7 @@ USAGE
 from __future__ import annotations
 
 import argparse
+import math
 import os
 from pathlib import Path
 
@@ -1398,35 +1399,39 @@ def concept_server_hub(ax):
                STAGES["atom"], "paste atom-mapping capture here")
 
     # ---- right: the four sources, then one prediction, then the grades
-    DG_X, DG_W, DG_Y, DG_H = 162.0, 46.0, 34.0, 48.0
+    # An OVAL, not a panel: it is a merge node, and nothing is written inside
+    # it, so the arrows can meet its curve instead of a flat edge. Each arrow
+    # stops at the ellipse boundary computed for its own y, which is what makes
+    # four parallel arrows read as converging on one thing.
+    DG_CX, DG_CY, DG_A, DG_B = 182.0, 55.0, 14.0, 19.0
+
+    def _ellipse_x(y, side):
+        """x where the ellipse boundary sits at height y. side = -1 left, +1 right."""
+        t = (y - DG_CY) / DG_B
+        return DG_CX + side * DG_A * math.sqrt(max(0.0, 1.0 - t * t))
+
     srcs = ["eQuilibrator", "dGPredictor", "TECRDB", "Group contribution"]
     for lab, cy in zip(srcs, (70.0, 60.0, 50.0, 40.0)):
-        block_arrow(ax, SRV_X + SRV_W + 1.5, cy, DG_X - 0.5, cy,
+        block_arrow(ax, SRV_X + SRV_W + 1.5, cy, _ellipse_x(cy, -1) - 0.5, cy,
                     STAGES["thermo"], shaft=3.6, head=6.4, alpha=ARROW_A)
         text(ax, 113.5, cy + 4.6, lab, 12, weight="bold")
 
-    contain(DG_X, DG_Y, DG_W, DG_H, "ΔG box")
-    card(ax, DG_X, DG_Y, DG_W, DG_H, face=STAGES["thermo"], edge="none",
-         alpha=FILL_A, radius=2.5)
-    card(ax, DG_X, DG_Y, DG_W, DG_H, face="none", edge=STAGES["thermo"],
-         lw=1.5, radius=2.5)
-    hdr = 10.0
-    ax.add_patch(FancyBboxPatch(
-        (DG_X + 1.2, DG_Y + DG_H - hdr + 1.2), DG_W - 2.4, hdr - 2.4,
-        boxstyle="round,pad=1.2", facecolor=STAGES["thermo"], edgecolor="none",
-        zorder=3))
-    text(ax, DG_X + DG_W / 2, DG_Y + DG_H - hdr / 2, "ΔG PREDICTIONS", 12,
-         color="white", weight="bold", ha="center", va="center", zorder=4)
-    text(ax, DG_X + DG_W / 2, DG_Y + DG_H - hdr - 8.0, "one ΔrG′°", 12,
-         ha="center", color=INK_2)
-    text(ax, DG_X + DG_W / 2, DG_Y + DG_H - hdr - 14.5, "per reaction", 12,
-         ha="center", color=INK_2)
+    ax.add_patch(Ellipse((DG_CX, DG_CY), 2 * DG_A, 2 * DG_B,
+                         facecolor=STAGES["thermo"], edgecolor="none",
+                         alpha=FILL_A, zorder=2))
+    ax.add_patch(Ellipse((DG_CX, DG_CY), 2 * DG_A, 2 * DG_B, facecolor="none",
+                         edgecolor=STAGES["thermo"], linewidth=1.6, zorder=3))
+    # The label sits ABOVE the oval. An ellipse has no header strip to put it
+    # in, and "ΔG PREDICTIONS" is 40.6 mm at 12 pt -- an oval wide enough to
+    # hold it would not be smaller than the panel it replaced.
+    text(ax, DG_CX, DG_CY + DG_B + 4.5, "ΔG PREDICTIONS", 12, weight="bold",
+         ha="center", color=STAGES["thermo"])
 
     grades = [("GOLD", GRADE_RAMP[0]), ("SILVER", GRADE_RAMP[1]),
               ("BRONZE", GRADE_RAMP[2])]
     for (lab, col), cy in zip(grades, (72.0, 58.0, 44.0)):
-        block_arrow(ax, DG_X + DG_W + 1.0, cy, 220.0, cy, col, shaft=3.2,
-                    head=5.2, alpha=ARROW_A)
+        block_arrow(ax, _ellipse_x(cy, +1) + 0.5, cy, 220.0, cy, col,
+                    shaft=3.2, head=5.2, alpha=ARROW_A)
         contain(222.0, cy - 7.0, 28.0, 14.0, f"{lab} chip")
         card(ax, 222.0, cy - 7.0, 28.0, 14.0, face=col, edge="none",
              alpha=0.20, radius=2.5)
