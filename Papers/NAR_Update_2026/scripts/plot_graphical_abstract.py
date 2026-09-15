@@ -1829,7 +1829,7 @@ def concept_server_hub(ax):
     for lab, cy in zip(["eQuilibrator", "dGPredictor", "Group Contrib."],
                        comp_rows):
         text(ax, LBL_X, cy + 4.56, lab, 12, weight="bold")
-    confluence_arrow(ax, LBL_X, comp_rows, COMP_Y + COMP_H / 2, 127.0, 132.0,
+    confluence_arrow(ax, LBL_X, comp_rows, COMP_Y + COMP_H / 2, 128.0, 132.6,
                      BOX_X - GAP, COMP_HUE, alpha=ARROW_A)
 
     # Each kind gets its own box, and each box then feeds the ONE panel where
