@@ -1702,11 +1702,22 @@ def concept_server_hub(ax):
         # cleanly over both structures and over the equilibrium arrows.
         apex = ATOM_Y + ATOM_H - 3.4
         rad = 2.0 * ((a[1] + b[1]) / 2 - apex) / (b[0] - a[0])
+        conn = f"arc3,rad={rad:.4f}"
+        # Shaft and head are two patches over the same curve. A dashed
+        # FancyArrowPatch applies its dash pattern to the ARROWHEAD's outline
+        # as well as the shaft, which chews the triangle into a blob with a
+        # spur hanging off one side; the head has to be its own solid,
+        # unstroked patch to come out crisp. The shaft then stops at the head's
+        # base, which for this style is mutation_scale * 0.4 points long.
+        head_pt = 15 * 0.4
         ax.add_patch(FancyArrowPatch(
-            a, b, connectionstyle=f"arc3,rad={rad:.4f}", arrowstyle="-|>",
-            mutation_scale=15, linewidth=1.7, linestyle=(0, (2.9, 2.0)),
-            color=STAGES["atom"], zorder=6, shrinkA=8.0, shrinkB=11.0,
-            capstyle="round"))
+            a, b, connectionstyle=conn, arrowstyle="-", linewidth=1.7,
+            linestyle=(0, (2.9, 2.0)), color=STAGES["atom"], zorder=6,
+            shrinkA=8.0, shrinkB=11.0 + head_pt, capstyle="round"))
+        ax.add_patch(FancyArrowPatch(
+            a, b, connectionstyle=conn, arrowstyle="-|>", mutation_scale=15,
+            linewidth=0.0, facecolor=STAGES["atom"], edgecolor="none",
+            zorder=6, shrinkA=8.0, shrinkB=11.0))
 
     # ---- right: one experimental source, three computational ones
     # "Group contribution" is 46.2 mm at 12 pt and sets where the boxes start.
