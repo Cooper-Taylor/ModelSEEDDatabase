@@ -1479,7 +1479,17 @@ MOLECULE_DIR = Path(os.environ.get("NAR_MOLECULE_DIR",
 _molecules_used: list[str] = []
 
 
-def _molecule(name):
+# The mapping colour of glyoxylate's carboxylate carbon, read off that capture.
+# CO2 was captured on its own, so its carbon came out plain black -- restating
+# it in this colour is what makes the dashed trace's two ends read as one atom.
+TRACED_C = "#1225cd"
+
+
+def _has_colour(img, hexc, tol=0.02):
+    return bool(np.all(np.abs(img[..., :3] - to_rgb(hexc)) < tol, axis=-1).any())
+
+
+def _molecule(name, *, recolour=None):
     """Load a molecule capture and key out its background.
 
     The captures are opaque -- white surround, light-grey plate -- which would
@@ -1492,7 +1502,12 @@ def _molecule(name):
     drawings are not -- glyoxylate fills 52% of its tile's height and CO2 only
     12% -- so an uncropped tile spends most of its allotted space on nothing.
     Cropping makes the drawn structure, rather than the screenshot, the thing
-    that gets sized."""
+    that gets sized.
+
+    `recolour` is ((fx0, fx1), colour) and restates one atom label in a
+    different hue: every NEUTRAL pixel in that fractional column band is
+    redrawn in `colour` at its original coverage, so antialiasing survives and
+    the coloured bonds, which are not neutral, are left alone."""
     img = mpimg.imread(MOLECULE_DIR / f"{name}.png")
     if img.shape[2] == 3:
         img = np.dstack([img, np.ones(img.shape[:2])])
@@ -1502,6 +1517,16 @@ def _molecule(name):
     rows = np.where(img[..., 3].any(axis=1))[0]
     cols = np.where(img[..., 3].any(axis=0))[0]
     img = img[rows[0]:rows[-1] + 1, cols[0]:cols[-1] + 1]
+    if recolour is not None:
+        (fx0, fx1), colour = recolour
+        w = img.shape[1]
+        band = np.zeros(w, bool)
+        band[int(fx0 * w):int(fx1 * w)] = True
+        rgb = np.asarray(to_rgb(colour))
+        m = (np.ptp(img[..., :3], axis=2) < 0.06) & band[None, :] \
+            & (img[..., 3] > 0)
+        cover = (1.0 - img[..., :3].mean(axis=2))[m][:, None]
+        img[m, :3] = rgb * cover + (1.0 - cover)
     _molecules_used.append(name)
     return img
 
@@ -1675,11 +1700,20 @@ def concept_server_hub(ax):
     else:
         # 2 glyoxylate <=> CO2 + tartronate semialdehyde. The atom colouring in
         # the captures is the mapping itself, which is the point of the panel.
+        glyoxylate = _molecule("Glyoxalate")
+        if not _has_colour(glyoxylate, TRACED_C):
+            raise SystemExit(
+                f"the glyoxylate capture no longer contains {TRACED_C}: "
+                "re-read the traced carbon's colour before trusting the CO2 "
+                "recolour, or the two ends of the arrow will disagree.")
+        # CO2's C glyph is columns 111..136 of a 248-wide crop, with empty
+        # columns either side of it, so this band takes the letter and no bond.
         placed = reaction_equation(
             ax, ATOM_X + 44.0, ATOM_X + ATOM_W - 4.0, ATOM_Y + ATOM_H / 2,
             28.0,
-            [("txt", "2"), ("mol", _molecule("Glyoxalate")), ("eq", None),
-             ("mol", _molecule("CO2")), ("txt", "+"),
+            [("txt", "2"), ("mol", glyoxylate), ("eq", None),
+             ("mol", _molecule("CO2", recolour=((0.443, 0.557), TRACED_C))),
+             ("txt", "+"),
              ("mol", _molecule("Tartronate Semialdehyde"))])
         # Trace one atom across the reaction: the carboxylate carbon of
         # glyoxylate is the one released as CO2. Anchors are fractions of each

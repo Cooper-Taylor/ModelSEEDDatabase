@@ -292,7 +292,11 @@ hue because they are one family; the ribbons carry the sequence.
 the per-atom colouring, which *is* the mapping; that is why the panel shows
 structures rather than a count. A dashed arc traces one atom across the
 reaction — the carboxylate carbon of glyoxylate, which is the one released as
-CO₂ — so the panel demonstrates a mapping instead of only asserting one.
+CO₂ — so the panel demonstrates a mapping instead of only asserting one. Its
+two ends are drawn in the same colour: CO₂ was captured on its own, so its
+carbon came back plain black, and the script restates that one glyph in
+glyoxylate's traced-carbon hue (`#1225cd`) at load time. The captures
+themselves are never edited.
 
 **Out to the right:** the ΔrG′° estimators, split by kind. OpenTECR is
 experimental and is drawn in its own colour into an **Experimental** box; the
