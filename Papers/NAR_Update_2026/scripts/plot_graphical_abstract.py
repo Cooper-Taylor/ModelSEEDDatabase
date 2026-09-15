@@ -1632,7 +1632,7 @@ def concept_server_hub(ax):
     IN_HUE = STAGES["mol"]            # the three database-content inputs
     EXP_HUE = STAGES["rxn"]           # OpenTECR, and the Experimental box
     COMP_HUE = STAGES["thermo"]       # the three estimators, and Computational
-    SRV_X, SRV_W, SRV_H = 68.0, 34.0, 42.0
+    SRV_X, SRV_W, SRV_H = 65.0, 34.0, 42.0
     SRV_Y = HUB_CY - SRV_H / 2
 
     def rows(n, pitch):
@@ -1643,7 +1643,7 @@ def concept_server_hub(ax):
     # the "composes" sequence is carried by the boxes themselves. Pitch 17 on
     # an 11 mm box leaves a 6 mm gap, which the 1.8 + 3.4 mm arrow clears with
     # 0.8 to spare. The top box then reaches y 88.5, just under the title.
-    CHIP_X, CHIP_W, CHIP_H = 6.0, 48.0, 11.0
+    CHIP_X, CHIP_W, CHIP_H = 3.0, 48.0, 11.0
     in_rows = [("STRUCTURES", "chain"), ("COMPOUNDS", "ring"),
                ("REACTIONS", "rxn")]
     ys = rows(3, 17.0)
@@ -1668,7 +1668,7 @@ def concept_server_hub(ax):
     server_rack(ax, SRV_X, SRV_Y, SRV_W, SRV_H)
 
     # ---- bottom: atom mapping
-    ATOM_X, ATOM_W, ATOM_Y, ATOM_H = 20.0, 182.0, 1.0, 31.0
+    ATOM_X, ATOM_W, ATOM_Y, ATOM_H = 17.0, 182.0, 1.0, 31.0
     block_arrow(ax, SRV_X + SRV_W / 2, SRV_Y - GAP, SRV_X + SRV_W / 2,
                 ATOM_Y + ATOM_H + GAP, STAGES["atom"], shaft=4.0, head=5.0,
                 head_w=11.0, alpha=ARROW_A)
@@ -1755,10 +1755,10 @@ def concept_server_hub(ax):
     # "Group Contrib." is 35.6 mm at 12 pt and still sets the box start: the
     # labels run 104..139.6, so BOX_X cannot come in past ~141.
     LBL_X = SRV_X + SRV_W + GAP
-    BOX_X, BOX_W = 141.5, 46.0
+    BOX_X, BOX_W = 140.0, 44.0
     EXP_Y, EXP_H = 75.0, 12.0
     COMP_Y, COMP_H = 46.0, 27.0
-    PAN_X, PAN_W, PAN_Y, PAN_H = 196.0, 21.0, 45.0, 42.0
+    PAN_X, PAN_W, PAN_Y, PAN_H = 192.0, 21.0, 45.0, 42.0
     PAN_HUE = INK_2
 
     block_arrow(ax, LBL_X, EXP_Y + EXP_H / 2, BOX_X - GAP, EXP_Y + EXP_H / 2,
@@ -1778,9 +1778,10 @@ def concept_server_hub(ax):
     # distribution, not off either source alone.
     # Icon then label, both LEFT aligned rather than centred as a group, so
     # the two rows line up with each other even though "Experimental" is 3 mm
-    # shorter than "Computational". The box has to be 46 mm for that: 1.8 pad
-    # + 4.6 icon + 2.0 gap + 35.6 label + 1.8 pad.
-    ICON_H, ICON_GAP, ICON_PAD = 4.6, 2.0, 1.8
+    # shorter than "Computational". 1.5 pad + 3.8 icon + 1.6 gap + 35.6 label
+    # puts the label's right edge 1.5 mm inside a 44 mm box, which clears the
+    # container check's 1.2. That is the floor: the label cannot shrink.
+    ICON_H, ICON_GAP, ICON_PAD = 3.8, 1.6, 1.5
     for by, bh, lab, hue, glyph in [
             (EXP_Y, EXP_H, "Experimental", EXP_HUE, flask_glyph),
             (COMP_Y, COMP_H, "Computational", COMP_HUE, chip_glyph)]:
@@ -1793,7 +1794,7 @@ def concept_server_hub(ax):
         text(ax, BOX_X + ICON_PAD + ICON_H + ICON_GAP, by + bh / 2, lab, 12,
              weight="bold", va="center", color=hue)
         block_arrow(ax, BOX_X + BOX_W + GAP, by + bh / 2, PAN_X - GAP,
-                    by + bh / 2, hue, shaft=2.8, head=4.0, head_w=6.0,
+                    by + bh / 2, hue, shaft=2.4, head=3.2, head_w=5.6,
                     alpha=ARROW_A)
 
     # ---- the merged panel: the pooled uncertainty distribution.
@@ -1821,7 +1822,7 @@ def concept_server_hub(ax):
                           PAN_H - 9.0 - TAG_H, COMP_HUE, EQ_SIGMA_CARTOON)
 
     # ---- classification
-    GR_X, GR_W, GR_H = 229.0, 23.0, 13.0
+    GR_X, GR_W, GR_H = 224.0, 23.0, 13.0
     grades = [("GOLD", GRADE_RAMP[0]), ("SILVER", GRADE_RAMP[1]),
               ("BRONZE", GRADE_RAMP[2])]
     stack_cy = PAN_Y + PAN_H / 2
@@ -1836,10 +1837,11 @@ def concept_server_hub(ax):
              lw=1.5, radius=2.5)
         text(ax, GR_X + GR_W / 2, cy, lab, 12, weight="bold", color=col,
              ha="center")
-    # Right-aligned to the grade column's right edge: "Classification" is
-    # 32.3 mm and the column is 23, so centring it would run off the canvas.
-    text(ax, GR_X + GR_W, stack_cy + 14.0 + GR_H / 2 + 4.0, "Classification",
-         12, weight="bold", ha="right", color=INK)
+    # Centred on the column. "Classification" is 32.3 mm against a 23 mm
+    # column, so it overhangs both sides by 4.6; the stack sits at 224 rather
+    # than 229 precisely so the right overhang stays on the canvas.
+    text(ax, GR_X + GR_W / 2, stack_cy + 14.0 + GR_H / 2 + 4.0,
+         "Classification", 12, weight="bold", ha="center", color=INK)
 
 CONCEPTS = {
     "flow_pipeline": concept_flow_pipeline,
