@@ -273,9 +273,11 @@ real miniature visuals to earn their space. Thermodynamics gets one line.
 The database as a physical hub.
 
 **In, from the left:** structures → compounds → reactions, stacked in that
-order, with semicircular arcs down their left edges showing that each composes
-the next. They share one hue because they are one family; the arcs carry the
-sequence.
+order. Each box emits a C-shaped ribbon from its left edge that loops out and
+points into the upper third of the box below, showing that each composes the
+next. The ribbon is stroked in the box's own hue and starts inside it, so it
+covers the border on the way out and reads as cut from the box. They share one
+hue because they are one family; the ribbons carry the sequence.
 
 **Out of the bottom:** atom mapping.
 
@@ -300,10 +302,18 @@ rack is also a metaphor occupying roughly an eighth of the canvas.
 | Slot | Drop a file at | Or set |
 |---|---|---|
 | atom-mapping capture, 147 × 12 mm | `assets/atom_mapping_capture.png` | `NAR_ATOM_MAP_IMAGE` |
-| per-estimator bar chart, 32 × 23 mm | `assets/computational_bars.png` | `NAR_BAR_CHART_IMAGE` |
+| per-estimator bar chart, 31 × 21 mm | `assets/computational_bars.png` | `NAR_BAR_CHART_IMAGE` |
 
-Both are placed and scaled automatically on the next run; until then each is
-drawn as a dashed slot.
+The atom-mapping slot is drawn dashed until a file appears. The Computational
+box instead holds a **cartoon** of eQuilibrator's reported-uncertainty
+distribution — silhouette traced from the vector data of panel C, chart 1, of
+[`figures/main_figures_draft.pdf`](figures/main_figures_draft.pdf): 30 bars over
+a 0–2 kcal/mol axis, downsampled to 15 by taking the taller of each pair.
+
+**It is not data.** It has no axis, no scale and no counts, and it is there to
+say "most reactions have a small reported uncertainty, with a long tail".
+`_stats.tsv` records it as `eq_sigma_cartoon` for exactly that reason. Dropping
+a real chart at the path above replaces it.
 
 ### G — Sankey of sources into the database *(no mockup yet)*
 

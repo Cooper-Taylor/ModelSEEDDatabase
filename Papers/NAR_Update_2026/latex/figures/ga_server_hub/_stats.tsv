@@ -6,6 +6,7 @@ pt_scale	1.0	set to 2.0 to keep 12 pt after a downscale to 127 mm
 font	Arial	NAR asks for Arial; falls back to DejaVu Sans here
 data_provenance	-	ModelSEED dev @ d64fdc6f (/scratch/ctaylor/tmp/devsnap_d64fdc6f), read 2026-09-11
 ui_capture	present	/scratch/ctaylor/ModelSEEDDatabase/Papers/NAR_Update_2026/latex/figures/ga_flow_pipeline/screenshot.png
+eq_sigma_cartoon	15 bars	CARTOON, not data: silhouette traced from panel C chart 1 of figures/main_figures_draft.pdf, no axis or scale drawn
 atom_map_image	EMPTY SLOT	/scratch/ctaylor/ModelSEEDDatabase/Papers/NAR_Update_2026/assets/atom_mapping_capture.png -- server_hub reserves a paste slot for this
 ui_capture_crop	(0.314, 0.73, 0.3784, 0.5521)	fractions x0,x1,y0,y1 -- crops away the nav bar, which carries the logo NAR bans and the signed-in username
 compounds[2026]	45708	data/msdb_counts.tsv

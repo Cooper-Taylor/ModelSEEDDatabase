@@ -234,6 +234,19 @@ BAR_CHART_IMAGE = Path(os.environ.get(
     "NAR_BAR_CHART_IMAGE",
     ROOT / "assets" / "computational_bars.png"))
 _atom_map_dpi: list[float] = []
+
+# A CARTOON of the eQuilibrator reported-uncertainty histogram -- panel C, first
+# chart, of Papers/NAR_Update_2026/figures/main_figures_draft.pdf (origin/dev).
+# Traced from that PDF's vector path data: 30 bars over a 0-2 kcal/mol axis,
+# downsampled here to 15 by taking the taller of each pair so the silhouette
+# survives, then normalised to its own peak.
+#
+# THIS IS NOT DATA. It carries no axis, no counts and no scale, and it exists to
+# say "most reactions have a small reported uncertainty, with a long tail". The
+# real numbers are in that figure. _stats.tsv records it as a cartoon so nobody
+# later mistakes it for a plotted series.
+EQ_SIGMA_CARTOON = [0.74, 0.55, 1.00, 0.93, 0.58, 0.40, 0.28, 0.20,
+                    0.14, 0.13, 0.09, 0.07, 0.03, 0.04, 0.02]
 # The whole equation is 3.70:1 -- in a ~49 mm panel that is 11 mm tall and each
 # structure lands at 8 mm. So the four participants are cut out INDIVIDUALLY and
 # re-laid as a wrapped two-line equation, which more than doubles each structure
@@ -1360,6 +1373,66 @@ def paste_slot(ax, x, y, w, h, hue, label, img=None):
          va="center")
 
 
+def influence_arc(ax, x_edge, y_up, y_dn, bulge, color, *, lw=8.0, stub=2.5):
+    """A C-shaped ribbon leaving a box's left edge and re-entering the box below.
+
+    FancyArrowPatch's arc3 cannot do this: at the rad needed for a visible
+    bulge over a chord this short it curls into a blob. So the circular arc is
+    constructed directly -- given the two attachment points and a sagitta, the
+    radius is (c²/4 + d²)/2d and the centre sits (R − d) from the chord, which
+    for d > R puts it on the far side and gives the major arc that reads as a
+    semicircle.
+
+    The ribbon is stroked in the BOX's own hue and starts inside the box, so it
+    covers the border on the way out and reads as cut from the box rather than
+    drawn beside it."""
+    import numpy as np
+    c = y_up - y_dn
+    d = float(bulge)
+    R = (c * c / 4.0 + d * d) / (2.0 * d)
+    cx, cy = x_edge + (R - d), (y_up + y_dn) / 2.0
+    a0 = math.atan2(y_up - cy, x_edge - cx)
+    a1 = math.atan2(y_dn - cy, x_edge - cx)
+    # counter-clockwise from a0 to a1 sweeps the long way, around the left
+    if a1 > a0:
+        a1 -= 2 * math.pi
+    th = np.linspace(a0, a1 - 2 * math.pi if a1 > a0 else a1, 120)
+    xs, ys = cx + R * np.cos(th), cy + R * np.sin(th)
+    ax.plot([x_edge + stub, xs[0]], [y_up, y_up], color=color, lw=lw,
+            solid_capstyle="butt", zorder=4)
+    ax.plot(xs[:-3], ys[:-3], color=color, lw=lw, solid_capstyle="butt",
+            zorder=4)
+    # head, oriented along the tangent at the end point
+    tx, ty = xs[-1] - xs[-6], ys[-1] - ys[-6]
+    n = math.hypot(tx, ty) or 1.0
+    tx, ty = tx / n, ty / n
+    px, py = -ty, tx
+    hl, hw = 4.2, 3.6
+    tip = (xs[-1] + tx * hl * 0.6, ys[-1] + ty * hl * 0.6)
+    base = (xs[-1] - tx * hl * 0.4, ys[-1] - ty * hl * 0.4)
+    ax.add_patch(Polygon([tip,
+                          (base[0] + px * hw, base[1] + py * hw),
+                          (base[0] - px * hw, base[1] - py * hw)],
+                         closed=True, facecolor=color, edgecolor="none",
+                         zorder=5))
+
+
+def cartoon_histogram(ax, x, y, w, h, hue, values, *, gap=0.22):
+    """A shape, not a chart: bars only, no axis, no ticks, no labels.
+
+    Used where the figure needs to say "this distribution is skewed with a long
+    tail" without asserting a number. Anything quantitative belongs in a real
+    chart with a scale."""
+    n = len(values)
+    bw = (w - gap * (n - 1)) / n
+    peak = max(values) or 1.0
+    for i, v in enumerate(values):
+        bh = max(h * v / peak, 0.35)
+        _rrect(ax, x + i * (bw + gap), y, bw, bh, hue, alpha=0.85, z=4, r=0.35)
+    ax.plot([x, x + w], [y, y], color=hue, lw=0.9, alpha=0.55, zorder=4,
+            solid_capstyle="butt")
+
+
 def concept_server_hub(ax):
     """The hand-sketched layout: the database as a hub.
 
@@ -1392,10 +1465,10 @@ def concept_server_hub(ax):
         return [HUB_CY + (n - 1) / 2 * pitch - i * pitch for i in range(n)]
 
     # ---- left: structures -> compounds -> reactions
-    CHIP_X, CHIP_W, CHIP_H = 10.0, 48.0, 14.0
+    CHIP_X, CHIP_W, CHIP_H = 10.0, 48.0, 13.0
     in_rows = [("STRUCTURES", "chain"), ("COMPOUNDS", "ring"),
                ("REACTIONS", "rxn")]
-    ys = rows(3, 14.0)
+    ys = rows(3, 16.0)
     for (lab, glyph), cy in zip(in_rows, ys):
         contain(CHIP_X, cy - CHIP_H / 2, CHIP_W, CHIP_H, f"{lab} chip")
         card(ax, CHIP_X, cy - CHIP_H / 2, CHIP_W, CHIP_H, face=IN_HUE,
@@ -1419,12 +1492,13 @@ def concept_server_hub(ax):
     # compounds, compounds compose reactions. They bow out into the 10 mm
     # margin and land on the upper third of the box below, so they read as
     # "feeds into" rather than as a second data flow.
+    # The arcs START INSIDE the chip and are stroked in the chip's own hue at
+    # ribbon width, so the stroke covers the chip border where it leaves. That
+    # is what makes the arrow read as cut out of the box rather than drawn
+    # beside it -- no separate notch patch is needed.
     for cy_up, cy_dn in zip(ys[:-1], ys[1:]):
-        ax.add_patch(FancyArrowPatch(
-            (CHIP_X, cy_up - CHIP_H / 4), (CHIP_X, cy_dn + CHIP_H / 6),
-            connectionstyle="arc3,rad=0.95", arrowstyle="-|>",
-            mutation_scale=13, linewidth=1.8, color=INK_2, zorder=5,
-            shrinkA=1.0, shrinkB=1.0))
+        influence_arc(ax, CHIP_X, cy_up - CHIP_H / 2 + 0.5,
+                      cy_dn + CHIP_H / 2 - CHIP_H / 3, 6.0, IN_HUE)
 
     # ---- the hub
     server_rack(ax, SRV_X, SRV_Y, SRV_W, SRV_H)
@@ -1471,9 +1545,14 @@ def concept_server_hub(ax):
         card(ax, bx, by, bw, bh, face="none", edge=hue, lw=1.5, radius=2.5)
         text(ax, bx + bw / 2, by + bh - 5.0, lab, 12, weight="bold",
              ha="center", color=hue)
-    # room for a bar chart of per-estimator coverage, pasted later
-    paste_slot(ax, BOX_X + 4.0, COMP_Y + 3.0, BOX_W - 8.0, COMP_H - 12.0,
-               COMP_HUE, "bar chart", img=BAR_CHART_IMAGE)
+    # Cartoon of eQuilibrator's reported-uncertainty distribution. A real
+    # image at BAR_CHART_IMAGE overrides it.
+    if BAR_CHART_IMAGE.exists():
+        paste_slot(ax, BOX_X + 4.0, COMP_Y + 3.0, BOX_W - 8.0, COMP_H - 12.0,
+                   COMP_HUE, "bar chart", img=BAR_CHART_IMAGE)
+    else:
+        cartoon_histogram(ax, BOX_X + 4.5, COMP_Y + 4.0, BOX_W - 9.0,
+                          COMP_H - 14.0, COMP_HUE, EQ_SIGMA_CARTOON)
 
     # A rail so all three grades read as drawing on BOTH boxes, rather than
     # gold appearing to come from the experimental box it happens to sit beside.
@@ -1563,6 +1642,9 @@ def main() -> int:
             fh.write(f"ui_capture_dpi\t{d:.0f}\tsource pixels at the placed "
                      f"size; {'clears' if d >= 300 else 'BELOW'} NAR's 300 dpi "
                      "floor for colour half-tones\n")
+        fh.write(f"eq_sigma_cartoon\t{len(EQ_SIGMA_CARTOON)} bars\tCARTOON, not "
+                 "data: silhouette traced from panel C chart 1 of "
+                 "figures/main_figures_draft.pdf, no axis or scale drawn\n")
         fh.write(f"atom_map_image\t{'present' if ATOM_MAP_IMAGE.exists() else 'EMPTY SLOT'}"
                  f"\t{ATOM_MAP_IMAGE} -- server_hub reserves a paste slot for this\n")
         if _atom_map_dpi:
