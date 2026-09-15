@@ -314,7 +314,12 @@ rack is also a metaphor occupying roughly an eighth of the canvas.
 The atom-mapping band is filled: molecule captures live in
 [`assets/molecules/`](assets/molecules/) and the equation is laid out by
 `reaction_equation()`, which measures every item before placing so adding a
-species cannot silently push it off the panel. A full-width capture at
+species cannot silently push it off the panel. Each capture is cropped to its
+ink before placement -- the screenshots are square but the drawings are not
+(glyoxylate fills 52% of its tile's height, CO2 only 12%), so sizing the tile
+wasted most of the band on nothing -- and the three then share one scale in mm
+per source pixel, which keeps a C=O the same size in CO2 as in tartronate
+semialdehyde. A full-width capture at
 `NAR_ATOM_MAP_IMAGE` still overrides the whole band. The Computational
 box instead holds a **cartoon** of eQuilibrator's reported-uncertainty
 distribution — silhouette traced from the vector data of panel C, chart 1, of

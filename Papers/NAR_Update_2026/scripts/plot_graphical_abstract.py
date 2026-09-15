@@ -1472,13 +1472,22 @@ def _molecule(name):
     read as three grey tiles sitting on the figure surface. Everything above a
     luminance threshold becomes transparent, leaving only the bonds and atom
     labels. The atom colouring IS the atom mapping, so nothing that carries
-    meaning is near that threshold."""
+    meaning is near that threshold.
+
+    The keyed image is then cropped to its ink. The captures are square but the
+    drawings are not -- glyoxylate fills 52% of its tile's height and CO2 only
+    12% -- so an uncropped tile spends most of its allotted space on nothing.
+    Cropping makes the drawn structure, rather than the screenshot, the thing
+    that gets sized."""
     img = mpimg.imread(MOLECULE_DIR / f"{name}.png")
     if img.shape[2] == 3:
         img = np.dstack([img, np.ones(img.shape[:2])])
     img = img.copy()
     lum = img[..., :3].mean(axis=2)
     img[..., 3] = np.where(lum > 0.93, 0.0, img[..., 3])
+    rows = np.where(img[..., 3].any(axis=1))[0]
+    cols = np.where(img[..., 3].any(axis=0))[0]
+    img = img[rows[0]:rows[-1] + 1, cols[0]:cols[-1] + 1]
     _molecules_used.append(name)
     return img
 
@@ -1498,34 +1507,47 @@ def reaction_equation(ax, x0, x1, cy, h, items, *, color=INK):
     measured first and the whole run is centred, so adding a species does not
     silently push the equation off its panel.
 
+    The molecules share ONE scale in mm per source pixel, so a C=O in CO2 is
+    drawn the same size as a C=O in tartronate semialdehyde -- the captures are
+    all rendered at the same bond length, and giving each cropped drawing the
+    same height instead would inflate the small species. `h` is the height
+    budget for the tallest molecule; the scale is whichever of the height and
+    width budgets binds first.
+
     Returns the placed boxes as [(kind, cx, cy, w, h), ...] so callers can
     anchor annotations to a specific ATOM inside a specific molecule without
     re-deriving the layout."""
-    GAPS = {"mol": 2.6, "txt": 1.6, "eq": 3.2}
+    GAPS = {"mol": 2.6, "txt": 3.0, "eq": 3.2}
     EQ_W = 11.0
-    widths = []
+    gaps = [GAPS[k] for k, _ in items[:-1]]
+    mols = [v for k, v in items if k == "mol"]
+    fixed = sum(EQ_W if k == "eq" else len(v) * 2.6
+                for k, v in items if k != "mol") + sum(gaps)
+    scale = h / max(m.shape[0] for m in mols)
+    if sum(m.shape[1] for m in mols) * scale > x1 - x0 - fixed:
+        scale = (x1 - x0 - fixed) / sum(m.shape[1] for m in mols)
+    heights, widths = [], []
     for kind, val in items:
         if kind == "mol":
-            widths.append(h * val.shape[1] / val.shape[0])
-        elif kind == "eq":
-            widths.append(EQ_W)
+            widths.append(val.shape[1] * scale)
+            heights.append(val.shape[0] * scale)
         else:
-            widths.append(len(val) * 2.6)
-    gaps = [GAPS[k] for k, _ in items[:-1]]
+            widths.append(EQ_W if kind == "eq" else len(val) * 2.6)
+            heights.append(h)
     total = sum(widths) + sum(gaps)
     cx = (x0 + x1) / 2 - total / 2
     placed = []
     for i, (kind, val) in enumerate(items):
-        w = widths[i]
+        w, hi = widths[i], heights[i]
         if kind == "mol":
-            molecule_image(ax, val, cx + w / 2, cy, h)
+            molecule_image(ax, val, cx + w / 2, cy, hi)
         elif kind == "eq":
             equilibrium(ax, cx + w / 2, cy, w=EQ_W, color=color, lw=2.4, ms=13,
                         sep=1.7)
         else:
             text(ax, cx + w / 2, cy, val, 14, weight="bold", ha="center",
                  va="center", color=color, check=False)
-        placed.append((kind, cx + w / 2, cy, w, h))
+        placed.append((kind, cx + w / 2, cy, w, hi))
         cx += w + (gaps[i] if i < len(gaps) else 0.0)
     return placed
 
@@ -1567,11 +1589,11 @@ def concept_server_hub(ax):
          16, weight="bold", ha="center")
 
     GAP = 2.0
-    HUB_CY = 64.0
+    HUB_CY = 66.0
     IN_HUE = STAGES["mol"]            # the three database-content inputs
     EXP_HUE = STAGES["rxn"]           # OpenTECR, and the Experimental box
     COMP_HUE = STAGES["thermo"]       # the three estimators, and Computational
-    SRV_X, SRV_W, SRV_H = 78.0, 34.0, 44.0
+    SRV_X, SRV_W, SRV_H = 78.0, 34.0, 42.0
     SRV_Y = HUB_CY - SRV_H / 2
 
     def rows(n, pitch):
@@ -1617,10 +1639,10 @@ def concept_server_hub(ax):
     server_rack(ax, SRV_X, SRV_Y, SRV_W, SRV_H)
 
     # ---- bottom: atom mapping
-    ATOM_X, ATOM_W, ATOM_Y, ATOM_H = 45.0, 157.0, 2.0, 23.0
+    ATOM_X, ATOM_W, ATOM_Y, ATOM_H = 20.0, 182.0, 1.0, 31.0
     block_arrow(ax, SRV_X + SRV_W / 2, SRV_Y - GAP, SRV_X + SRV_W / 2,
-                ATOM_Y + ATOM_H + GAP, STAGES["atom"], shaft=4.2, head=4.8,
-                head_w=11.5, alpha=ARROW_A)
+                ATOM_Y + ATOM_H + GAP, STAGES["atom"], shaft=4.0, head=5.0,
+                head_w=11.0, alpha=ARROW_A)
     contain(ATOM_X, ATOM_Y, ATOM_W, ATOM_H, "atom-mapping box")
     card(ax, ATOM_X, ATOM_Y, ATOM_W, ATOM_H, face=STAGES["atom"], edge="none",
          alpha=0.09, radius=2.5)
@@ -1638,7 +1660,7 @@ def concept_server_hub(ax):
         # the captures is the mapping itself, which is the point of the panel.
         placed = reaction_equation(
             ax, ATOM_X + 44.0, ATOM_X + ATOM_W - 4.0, ATOM_Y + ATOM_H / 2,
-            23.0,
+            28.0,
             [("txt", "2"), ("mol", _molecule("Glyoxalate")), ("eq", None),
              ("mol", _molecule("CO2")), ("txt", "+"),
              ("mol", _molecule("Tartronate Semialdehyde"))])
@@ -1650,8 +1672,8 @@ def concept_server_hub(ax):
         def _atom(idx, fx, fy):
             _k, mx, my, mw, mh = placed[idx]
             return mx + (fx - 0.5) * mw, my + (fy - 0.5) * mh
-        a = _atom(1, 0.60, 0.44)
-        b = _atom(3, 0.50, 0.50)
+        a = _atom(1, 0.630, 0.368)
+        b = _atom(3, 0.508, 0.457)
         ax.add_patch(FancyArrowPatch(
             a, b, connectionstyle="arc3,rad=-0.42", arrowstyle="-|>",
             mutation_scale=9, linewidth=1.2, linestyle=(0, (2.4, 1.8)),
