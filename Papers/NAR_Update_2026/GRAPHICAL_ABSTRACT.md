@@ -273,19 +273,14 @@ real miniature visuals to earn their space. Thermodynamics gets one line.
 The database as a physical hub.
 
 **In, from the left:** structures → compounds → reactions, stacked in that
-order. Each box emits a ribbon from its left edge that runs out, drops parallel
-to the stack, and turns back in to point at the upper third of the box below,
-showing that each composes the next. The ribbon is a filled shape in the box's
-own fill and border colours. Its two junctions are deliberately different: at
-the **tail** the box's border is interrupted and the mouth opens straight into
-the interior, because the ribbon originates there; at the **head** the tip
-lands on the border and stops, because an arrowhead needs its point. So it
-reads as an extrusion of the box rather than a line beside it. Target look:
-[`assets/sketch_arrow_example.png`](assets/sketch_arrow_example.png), and
-[`assets/sketch_chip_arrow_notch.svg`](assets/sketch_chip_arrow_notch.svg) — an
-export with the mouth hand-cleared in an SVG editor, which is what the tail
-junction was rebuilt to reproduce without a cover patch. They share one
-hue because they are one family; the ribbons carry the sequence.
+order. Each box extrudes a block arrow from its **bottom** edge into the box
+below, as one closed outline rather than a card with an arrow parked under it,
+so the "composes" sequence is carried by the boxes themselves. (An earlier
+version ran ribbons down the left edge instead; they cost a 10 mm margin and
+the middle box's incoming and outgoing junctions kept colliding.) They share
+one hue because they are one family. Target look:
+[`assets/sketch_arrow_example.png`](assets/sketch_arrow_example.png) and
+[`assets/sketch_chip_arrow_notch.svg`](assets/sketch_chip_arrow_notch.svg).
 
 **Out of the bottom:** atom mapping, shown as a worked reaction —
 2 glyoxylate ⇌ CO₂ + tartronate semialdehyde. The three molecule captures carry
@@ -318,7 +313,7 @@ rack is also a metaphor occupying roughly an eighth of the canvas.
 
 | Slot | Drop a file at | Or set |
 |---|---|---|
-| per-estimator bar chart, 31 × 21 mm | `assets/computational_bars.png` | `NAR_BAR_CHART_IMAGE` |
+| pooled-uncertainty bar chart, 19 × 27.5 mm | `assets/computational_bars.png` | `NAR_BAR_CHART_IMAGE` |
 
 The atom-mapping band is filled: molecule captures live in
 [`assets/molecules/`](assets/molecules/) and the equation is laid out by
@@ -329,9 +324,14 @@ ink before placement -- the screenshots are square but the drawings are not
 wasted most of the band on nothing -- and the three then share one scale in mm
 per source pixel, which keeps a C=O the same size in CO2 as in tartronate
 semialdehyde. A full-width capture at
-`NAR_ATOM_MAP_IMAGE` still overrides the whole band. The Computational
-box instead holds a **cartoon** of eQuilibrator's reported-uncertainty
-distribution — silhouette traced from the vector data of panel C, chart 1, of
+`NAR_ATOM_MAP_IMAGE` still overrides the whole band. The stoichiometric 2 is
+not drawn: the panel is about which atom goes where, and the coefficient read
+as part of the panel's title.
+
+**Out to the right, continued:** the Experimental and Computational boxes each
+feed one **ΔG** panel, in their own colour, and the grades are assigned off
+that merged distribution rather than off either kind alone. The panel holds a
+**cartoon** of eQuilibrator's reported-uncertainty distribution — silhouette traced from the vector data of panel C, chart 1, of
 [`figures/main_figures_draft.pdf`](figures/main_figures_draft.pdf): 30 bars over
 a 0–2 kcal/mol axis, downsampled to 15 by taking the taller of each pair.
 

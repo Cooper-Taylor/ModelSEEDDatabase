@@ -487,6 +487,51 @@ def card(ax, x, y, w, h, *, face=SURFACE, edge=RULE, lw=1.0, radius=2.5,
     return p
 
 
+def card_down_arrow(ax, x, y, w, h, hue, *, arrow=True, radius=2.5, lw=1.4,
+                    shaft=5.0, shaft_l=1.8, head=11.0, head_l=3.4,
+                    fill_alpha=None, z=1):
+    """A rounded panel, optionally with a block arrow extruded from its BOTTOM
+    edge, as ONE closed outline.
+
+    One path rather than a card with an arrow parked underneath it: the bottom
+    border runs along to the shaft, turns down and round the arrowhead, and
+    comes back up to carry on, so the arrow is unmistakably part of the box and
+    there is no join to hide. Filled opaque and pre-blended, for the same
+    reason the cards are -- a translucent shape over another translucent one
+    darkens the overlap.
+    """
+    # FILL_A and _blend are defined further down the module, so the default
+    # is resolved at call time rather than at def time.
+    fill_alpha = FILL_A if fill_alpha is None else fill_alpha
+    r = radius
+    cx = x + w / 2
+
+    def corner(ox, oy, a0, a1, n=12):
+        t = np.linspace(a0, a1, n)
+        return [(ox + r * math.cos(v), oy + r * math.sin(v)) for v in t]
+
+    p = [(x + r, y)]
+    if arrow:
+        p += [(cx - shaft / 2, y),
+              (cx - shaft / 2, y - shaft_l),
+              (cx - head / 2, y - shaft_l),
+              (cx, y - shaft_l - head_l),
+              (cx + head / 2, y - shaft_l),
+              (cx + shaft / 2, y - shaft_l),
+              (cx + shaft / 2, y)]
+    p += [(x + w - r, y)]
+    p += corner(x + w - r, y + r, -math.pi / 2, 0.0)
+    p += [(x + w, y + h - r)]
+    p += corner(x + w - r, y + h - r, 0.0, math.pi / 2)
+    p += [(x + r, y + h)]
+    p += corner(x + r, y + h - r, math.pi / 2, math.pi)
+    p += [(x, y + r)]
+    p += corner(x + r, y + r, math.pi, 1.5 * math.pi)
+    ax.add_patch(Polygon(p, closed=True, facecolor=_blend(hue, fill_alpha),
+                         edgecolor=hue, linewidth=lw, joinstyle="round",
+                         zorder=z))
+
+
 def gradient_fill(ax, x, y, w, h, hue, *, a_in=0.24, a_out=0.02, radius=2.5,
                   bands=72, cx_f=0.5, cy_f=0.45):
     """Radial tint gradient clipped to the panel's rounded rectangle: strongest
@@ -1387,91 +1432,6 @@ def _blend(hue, alpha, base=SURFACE):
     return tuple(b[k] + (h[k] - b[k]) * alpha for k in range(3))
 
 
-def influence_arc(ax, x_edge, y_up, y_dn, out, hue, *, tail=2.6, r=2.0,
-                  seal=0.9, tip_over=0.0, fill_alpha=FILL_A, lw=1.2, z=0.6):
-    """A ribbon that leaves a box's left edge, drops, and re-enters the box
-    below -- drawn so it reads as an extrusion OF the box, not a line beside it.
-
-    The two junctions are asymmetric on purpose, because they mean different
-    things. At the TAIL the ribbon ORIGINATES in the box, so the box's border
-    is interrupted and the mouth opens straight into the interior: the fill
-    runs `seal` past the border (enough to cover its stroke without a seam) and
-    the OUTLINE is an open polyline that begins and ends exactly on the border,
-    so nothing is drawn across the mouth or inside the box. At the HEAD the
-    ribbon merely ARRIVES, so the tip lands on the border and stops -- an
-    arrowhead needs its point, and opening it would read as a second mouth.
-
-    Earlier versions did this by painting a rectangle of the interior colour
-    over the join. That always left the ribbon's own end cap and rails stranded
-    inside the box, and the cover had to be hand-fitted to the border's stroke
-    width; building the outline open removes the need for any cover at all.
-
-    Geometry is an orthogonal bracket with rounded corners: out, down, back in.
-    The outline is built by offsetting the centreline rather than by stroking
-    it, because matplotlib's filled arrowstyles only accept a quadratic Bezier
-    and this path is a polyline.
-    """
-    import numpy as np
-    head_l, head_hw = tail * 1.05, tail * 0.92
-    # The tip stops ON the border, not inside it: the ribbon should touch the
-    # box at the edge and nowhere else.
-    tip_x = x_edge + tip_over
-    # The whole head has to fit in the straight run between the second corner
-    # and the box edge. If it does not, the centreline doubles back and the
-    # offset rails cross -- which is exactly what a silently reversed final
-    # segment looked like.
-    if tip_x - head_l <= out + r + 0.5:
-        raise SystemExit(
-            f"influence_arc: no room for the head -- corner exits at "
-            f"x={out + r:.1f}, head base would be at x={tip_x - head_l:.1f}. "
-            f"Move `out` left, shrink `r`, or shrink `tail`.")
-
-    c = [(x_edge, y_up), (out + r, y_up)]
-    th = np.linspace(math.pi / 2, math.pi, 18)
-    c += [(out + r + r * math.cos(t), y_up - r + r * math.sin(t)) for t in th]
-    c.append((out, y_dn + r))
-    th = np.linspace(math.pi, 1.5 * math.pi, 18)
-    c += [(out + r + r * math.cos(t), y_dn + r + r * math.sin(t)) for t in th]
-    c.append((tip_x - head_l, y_dn))
-    c = np.asarray(c)
-    # Resample at uniform arc length FIRST. The raw point list mixes long
-    # straight segments with short arc steps, and a central difference over
-    # that measures the spacing rather than the direction, which buckles the
-    # rails at every corner.
-    seg = np.diff(c, axis=0)
-    cum = np.concatenate([[0.0], np.cumsum(np.hypot(seg[:, 0], seg[:, 1]))])
-    u = np.linspace(0.0, cum[-1], 240)
-    c = np.stack([np.interp(u, cum, c[:, 0]), np.interp(u, cum, c[:, 1])],
-                 axis=1)
-
-    # central-difference tangents -> left-hand normals -> the two rails
-    d = np.gradient(c, axis=0)
-    n = np.stack([-d[:, 1], d[:, 0]], axis=1)
-    n /= np.linalg.norm(n, axis=1, keepdims=True)
-    left, right = c + n * tail / 2, c - n * tail / 2
-
-    rim = (list(map(tuple, left))
-           + [(c[-1][0], c[-1][1] + head_hw), (tip_x, y_dn),
-              (c[-1][0], c[-1][1] - head_hw)]
-           + list(map(tuple, right[::-1])))
-
-    # Fill first, opaque and pre-blended rather than translucent: it is painted
-    # over the card, and a second translucent layer would darken the overlap.
-    # Only the mouth reaches inside, by `seal`.
-    # Take the seal corners FROM the rails rather than from y_up +- tail/2:
-    # which rail is the upper one depends on the sign of the offset normal, and
-    # guessing it wrong closes the mouth as a bow tie that leaves two wedges of
-    # border showing.
-    ax.add_patch(Polygon([(left[0][0] + seal, left[0][1])] + rim
-                         + [(right[0][0] + seal, right[0][1])],
-                         closed=True, facecolor=_blend(hue, fill_alpha),
-                         edgecolor="none", zorder=3))
-    # Outline second and OPEN, so the mouth has no cap and the box border
-    # simply resumes above and below it.
-    ax.add_patch(Polygon(rim, closed=False, facecolor="none", edgecolor=hue,
-                         linewidth=lw, joinstyle="round", zorder=4))
-
-
 # Source captures live in assets/, not in a figure OUTPUT directory --
 # latex/figures/<row>/ is rewritten by scripts/regen_figures.py.
 MOLECULE_DIR = Path(os.environ.get("NAR_MOLECULE_DIR",
@@ -1632,23 +1592,25 @@ def concept_server_hub(ax):
     IN_HUE = STAGES["mol"]            # the three database-content inputs
     EXP_HUE = STAGES["rxn"]           # OpenTECR, and the Experimental box
     COMP_HUE = STAGES["thermo"]       # the three estimators, and Computational
-    SRV_X, SRV_W, SRV_H = 78.0, 34.0, 42.0
+    SRV_X, SRV_W, SRV_H = 72.0, 34.0, 42.0
     SRV_Y = HUB_CY - SRV_H / 2
 
     def rows(n, pitch):
         return [HUB_CY + (n - 1) / 2 * pitch - i * pitch for i in range(n)]
 
     # ---- left: structures -> compounds -> reactions
-    CHIP_X, CHIP_W, CHIP_H = 13.0, 48.0, 13.0
+    # Each box extrudes an arrow from its BOTTOM edge into the box below, so
+    # the "composes" sequence is carried by the boxes themselves. Pitch 17 on
+    # an 11 mm box leaves a 6 mm gap, which the 1.8 + 3.4 mm arrow clears with
+    # 0.8 to spare. The top box then reaches y 88.5, just under the title.
+    CHIP_X, CHIP_W, CHIP_H = 6.0, 52.0, 11.0
     in_rows = [("STRUCTURES", "chain"), ("COMPOUNDS", "ring"),
                ("REACTIONS", "rxn")]
-    ys = rows(3, 16.0)
-    for (lab, glyph), cy in zip(in_rows, ys):
+    ys = rows(3, 17.0)
+    for i, ((lab, glyph), cy) in enumerate(zip(in_rows, ys)):
         contain(CHIP_X, cy - CHIP_H / 2, CHIP_W, CHIP_H, f"{lab} chip")
-        card(ax, CHIP_X, cy - CHIP_H / 2, CHIP_W, CHIP_H, face=IN_HUE,
-             edge="none", alpha=FILL_A, radius=2.5)
-        card(ax, CHIP_X, cy - CHIP_H / 2, CHIP_W, CHIP_H, face="none",
-             edge=IN_HUE, lw=1.4, radius=2.5)
+        card_down_arrow(ax, CHIP_X, cy - CHIP_H / 2, CHIP_W, CHIP_H, IN_HUE,
+                        arrow=i < len(in_rows) - 1)
         gx = CHIP_X + 6.4
         if glyph == "ring":
             molecule_glyph(ax, gx, cy, 2.7, IN_HUE, kind="ring")
@@ -1661,21 +1623,6 @@ def concept_server_hub(ax):
         text(ax, CHIP_X + 13.0, cy, lab, 12, weight="bold")
         block_arrow(ax, CHIP_X + CHIP_W + GAP, cy, SRV_X - GAP, cy, IN_HUE,
                     shaft=4.2, head=7.0, alpha=ARROW_A)
-
-    # Semicircular influence arcs down the LEFT edge: structures compose
-    # compounds, compounds compose reactions. They bow out into the 10 mm
-    # margin and land on the upper third of the box below, so they read as
-    # "feeds into" rather than as a second data flow.
-    # The middle chip is both a source and a target, and its two junctions were
-    # colliding: the head arriving at the upper third reaches 0.92*tail below
-    # its tip, the mouth leaving reaches tail/2 above its centre, and at a
-    # 3.4 mm ribbon that overlapped by 1.36 mm. The two are 3.47 mm apart, so
-    # the ribbon has to stay under (3.47 - clearance)/1.42 -- 2.6 leaves 0.57.
-    # The mouth then only needs 4.4 mm of height above the chip's bottom edge
-    # to keep its lower lip off the 2.5 mm corner radius.
-    for cy_up, cy_dn in zip(ys[:-1], ys[1:]):
-        influence_arc(ax, CHIP_X, cy_up - CHIP_H / 2 + 4.4,
-                      cy_dn + CHIP_H / 2 - CHIP_H / 3, CHIP_X - 7.0, IN_HUE)
 
     # ---- the hub
     server_rack(ax, SRV_X, SRV_Y, SRV_W, SRV_H)
@@ -1692,14 +1639,16 @@ def concept_server_hub(ax):
          lw=1.4, radius=2.5)
     # Label on the LEFT so the equation gets the panel's full height; the
     # molecule captures are square and were being squeezed under a header.
-    text(ax, ATOM_X + 3.5, ATOM_Y + ATOM_H / 2, "ATOM MAPPING", 12,
-         weight="bold", color=STAGES["atom"], va="center")
+    text(ax, ATOM_X + 3.5, ATOM_Y + ATOM_H / 2, "ATOM\nMAPPING", 12,
+         weight="bold", color=STAGES["atom"], va="center", linespacing=1.25)
     if ATOM_MAP_IMAGE.exists():
-        paste_slot(ax, ATOM_X + 44.0, ATOM_Y + 3.0, ATOM_W - 48.0,
+        paste_slot(ax, ATOM_X + 30.0, ATOM_Y + 3.0, ATOM_W - 34.0,
                    ATOM_H - 6.0, STAGES["atom"], "atom mapping")
     else:
-        # 2 glyoxylate <=> CO2 + tartronate semialdehyde. The atom colouring in
+        # glyoxylate <=> CO2 + tartronate semialdehyde. The atom colouring in
         # the captures is the mapping itself, which is the point of the panel.
+        # The stoichiometric 2 is dropped: this panel is about which atom goes
+        # where, and the coefficient was reading as part of the panel's title.
         glyoxylate = _molecule("Glyoxalate")
         if not _has_colour(glyoxylate, TRACED_C):
             raise SystemExit(
@@ -1709,9 +1658,9 @@ def concept_server_hub(ax):
         # CO2's C glyph is columns 111..136 of a 248-wide crop, with empty
         # columns either side of it, so this band takes the letter and no bond.
         placed = reaction_equation(
-            ax, ATOM_X + 44.0, ATOM_X + ATOM_W - 4.0, ATOM_Y + ATOM_H / 2,
+            ax, ATOM_X + 30.0, ATOM_X + ATOM_W - 4.0, ATOM_Y + ATOM_H / 2,
             28.0,
-            [("txt", "2"), ("mol", glyoxylate), ("eq", None),
+            [("mol", glyoxylate), ("eq", None),
              ("mol", _molecule("CO2", recolour=((0.443, 0.557), TRACED_C))),
              ("txt", "+"),
              ("mol", _molecule("Tartronate Semialdehyde"))])
@@ -1724,8 +1673,8 @@ def concept_server_hub(ax):
         def _atom(idx, fx, fy):
             _k, mx, my, mw, mh = placed[idx]
             return mx + (fx - 0.5) * mw, my + (fy - 0.5) * mh
-        a = _atom(1, 0.630, 0.368)
-        b = _atom(3, 0.508, 0.457)
+        a = _atom(0, 0.630, 0.368)
+        b = _atom(2, 0.508, 0.457)
         # Solve the arc3 rad rather than hand-tuning it. The two anchors sit
         # at different heights inside their molecules, so a fixed rad puts the
         # crown wherever the chord happens to fall -- at -0.42 it grazed
@@ -1753,56 +1702,78 @@ def concept_server_hub(ax):
             linewidth=0.0, facecolor=STAGES["atom"], edgecolor="none",
             zorder=6, shrinkA=8.0, shrinkB=11.0))
 
-    # ---- right: one experimental source, three computational ones
-    # "Group contribution" is 46.2 mm at 12 pt and sets where the boxes start.
-    BOX_X, BOX_W = 162.0, 40.0
+    # ---- right: one experimental source, three computational ones, merged
+    # "Group Contrib." is 35.6 mm at 12 pt and is the longest label, so it sets
+    # how far right the boxes can start: 108 + 35.6 leaves BOX_X at 146.
+    LBL_X = SRV_X + SRV_W + GAP
+    BOX_X, BOX_W = 146.0, 39.0
     EXP_Y, EXP_H = 71.0, 14.0
     COMP_Y, COMP_H = 34.0, 35.0
+    PAN_X, PAN_W, PAN_Y, PAN_H = 194.0, 25.0, 37.0, 45.0
+    PAN_HUE = INK_2                   # the merge belongs to neither kind
+    # The panel spans BOTH feeds with room to spare: the Experimental arrow
+    # comes in at y 78 and a 40 mm panel topped out at 79.5, so that arrow was
+    # arriving on the corner radius rather than on a straight edge.
 
-    block_arrow(ax, SRV_X + SRV_W + GAP, EXP_Y + EXP_H / 2, BOX_X - GAP,
-                EXP_Y + EXP_H / 2, EXP_HUE, shaft=3.6, head=6.4, alpha=ARROW_A)
-    text(ax, SRV_X + SRV_W + GAP, EXP_Y + EXP_H / 2 + 4.6, "OpenTECR", 12,
+    block_arrow(ax, LBL_X, EXP_Y + EXP_H / 2, BOX_X - GAP, EXP_Y + EXP_H / 2,
+                EXP_HUE, shaft=3.6, head=6.4, alpha=ARROW_A)
+    text(ax, LBL_X, EXP_Y + EXP_H / 2 + 4.6, "OpenTECR", 12,
          weight="bold", color=EXP_HUE)
 
     comp_rows = [COMP_Y + COMP_H * f for f in (0.86, 0.55, 0.24)]
-    for lab, cy in zip(["eQuilibrator", "dGPredictor", "Group contribution"],
+    for lab, cy in zip(["eQuilibrator", "dGPredictor", "Group Contrib."],
                        comp_rows):
-        block_arrow(ax, SRV_X + SRV_W + GAP, cy, BOX_X - GAP, cy, COMP_HUE,
-                    shaft=3.6, head=6.4, alpha=ARROW_A)
-        text(ax, SRV_X + SRV_W + GAP, cy + 4.6, lab, 12, weight="bold")
+        block_arrow(ax, LBL_X, cy, BOX_X - GAP, cy, COMP_HUE, shaft=3.6,
+                    head=6.4, alpha=ARROW_A)
+        text(ax, LBL_X, cy + 4.6, lab, 12, weight="bold")
 
-    for (bx, by, bw, bh, lab, hue, centred) in [
-            (BOX_X, EXP_Y, BOX_W, EXP_H, "Experimental", EXP_HUE, True),
-            (BOX_X, COMP_Y, BOX_W, COMP_H, "Computational", COMP_HUE, False)]:
-        contain(bx, by, bw, bh, f"{lab} box")
-        card(ax, bx, by, bw, bh, face=hue, edge="none", alpha=FILL_A,
+    # Each kind gets its own box, and each box then feeds the ONE panel where
+    # the estimates are pooled -- which is the point: the grades are assigned
+    # off the merged distribution, not off either source alone.
+    for by, bh, lab, hue in [(EXP_Y, EXP_H, "Experimental", EXP_HUE),
+                             (COMP_Y, COMP_H, "Computational", COMP_HUE)]:
+        contain(BOX_X, by, BOX_W, bh, f"{lab} box")
+        card(ax, BOX_X, by, BOX_W, bh, face=hue, edge="none", alpha=FILL_A,
              radius=2.5)
-        card(ax, bx, by, bw, bh, face="none", edge=hue, lw=1.5, radius=2.5)
-        ly = by + bh / 2 if centred else by + bh - 5.0
-        text(ax, bx + bw / 2, ly, lab, 12, weight="bold", ha="center",
-             va="center", color=hue)
+        card(ax, BOX_X, by, BOX_W, bh, face="none", edge=hue, lw=1.5,
+             radius=2.5)
+        text(ax, BOX_X + BOX_W / 2, by + bh / 2, lab, 12, weight="bold",
+             ha="center", va="center", color=hue)
+        block_arrow(ax, BOX_X + BOX_W + GAP, by + bh / 2, PAN_X - GAP,
+                    by + bh / 2, hue, shaft=3.4, head=4.4, head_w=8.0,
+                    alpha=ARROW_A)
+
+    # ---- the merged panel: the pooled uncertainty distribution
+    contain(PAN_X, PAN_Y, PAN_W, PAN_H, "dG panel")
+    card(ax, PAN_X, PAN_Y, PAN_W, PAN_H, face=PAN_HUE, edge="none",
+         alpha=0.10, radius=2.5)
+    card(ax, PAN_X, PAN_Y, PAN_W, PAN_H, face="none", edge=PAN_HUE, lw=1.5,
+         radius=2.5)
+    TAG_H = 8.5
+    tag_y = PAN_Y + PAN_H - 3.0 - TAG_H
+    contain(PAN_X + 3.0, tag_y, PAN_W - 6.0, TAG_H, "dG tag")
+    card(ax, PAN_X + 3.0, tag_y, PAN_W - 6.0, TAG_H, face=SURFACE,
+         edge=PAN_HUE, lw=1.2, radius=2.0)
+    text(ax, PAN_X + PAN_W / 2, tag_y + TAG_H / 2, "\u0394G", 12,
+         weight="bold", ha="center", va="center", color=INK)
     # Cartoon of eQuilibrator's reported-uncertainty distribution. A real
     # image at BAR_CHART_IMAGE overrides it.
     if BAR_CHART_IMAGE.exists():
-        paste_slot(ax, BOX_X + 4.0, COMP_Y + 3.0, BOX_W - 8.0, COMP_H - 12.0,
-                   COMP_HUE, "bar chart", img=BAR_CHART_IMAGE)
+        paste_slot(ax, PAN_X + 3.0, PAN_Y + 3.0, PAN_W - 6.0,
+                   PAN_H - 9.0 - TAG_H, PAN_HUE, "bar chart",
+                   img=BAR_CHART_IMAGE)
     else:
-        cartoon_histogram(ax, BOX_X + 4.5, COMP_Y + 4.0, BOX_W - 9.0,
-                          COMP_H - 14.0, COMP_HUE, EQ_SIGMA_CARTOON)
-
-    # A rail so all three grades read as drawing on BOTH boxes, rather than
-    # gold appearing to come from the experimental box it happens to sit beside.
-    RAIL_X = BOX_X + BOX_W + GAP
-    card(ax, RAIL_X, COMP_Y + 2.0, 1.8, (EXP_Y + EXP_H) - COMP_Y - 4.0,
-         face=INK_MUTED, edge="none", radius=0.9, alpha=0.55)
+        cartoon_histogram(ax, PAN_X + 3.0, PAN_Y + 3.0, PAN_W - 6.0,
+                          PAN_H - 9.0 - TAG_H, COMP_HUE, EQ_SIGMA_CARTOON)
 
     # ---- classification
-    GR_X, GR_W, GR_H = 218.0, 32.0, 14.0
+    GR_X, GR_W, GR_H = 229.0, 23.0, 14.0
     grades = [("GOLD", GRADE_RAMP[0]), ("SILVER", GRADE_RAMP[1]),
               ("BRONZE", GRADE_RAMP[2])]
-    stack_cy = (COMP_Y + EXP_Y + EXP_H) / 2
-    for (lab, col), cy in zip(grades, [stack_cy + 14.0, stack_cy, stack_cy - 14.0]):
-        block_arrow(ax, RAIL_X + 1.8 + GAP, cy, GR_X - GAP, cy, col,
+    stack_cy = PAN_Y + PAN_H / 2
+    for (lab, col), cy in zip(grades,
+                              [stack_cy + 15.0, stack_cy, stack_cy - 15.0]):
+        block_arrow(ax, PAN_X + PAN_W + GAP, cy, GR_X - GAP, cy, col,
                     shaft=3.2, head=5.2, alpha=ARROW_A)
         contain(GR_X, cy - GR_H / 2, GR_W, GR_H, f"{lab} chip")
         card(ax, GR_X, cy - GR_H / 2, GR_W, GR_H, face=col, edge="none",
@@ -1811,9 +1782,10 @@ def concept_server_hub(ax):
              lw=1.5, radius=2.5)
         text(ax, GR_X + GR_W / 2, cy, lab, 12, weight="bold", color=col,
              ha="center")
-    text(ax, GR_X + GR_W / 2, stack_cy + 14.0 + GR_H / 2 + 5.0,
-         "Classification", 12, weight="bold", ha="center", color=INK)
-
+    # Right-aligned to the grade column's right edge: "Classification" is
+    # 32.3 mm and the column is 23, so centring it would run off the canvas.
+    text(ax, GR_X + GR_W, stack_cy + 15.0 + GR_H / 2 + 5.0, "Classification",
+         12, weight="bold", ha="right", color=INK)
 
 CONCEPTS = {
     "flow_pipeline": concept_flow_pipeline,
