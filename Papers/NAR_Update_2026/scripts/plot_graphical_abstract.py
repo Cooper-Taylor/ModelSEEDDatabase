@@ -528,7 +528,7 @@ def chip_glyph(ax, cx, cy, h, hue, *, lw=1.2, z=4):
 
 
 def confluence_arrow(ax, x0, rows, mid, xb, xj, xtip, color, *, shaft=2.8,
-                     head=4.0, head_hw=4.8, alpha=1.0, z=2):
+                     head=5.2, head_hw=2.6, alpha=1.0, z=2):
     """A straight middle shaft that the outer shafts curve into.
 
     Each outer arm runs horizontally to xb, then crosses to the middle line by
@@ -569,7 +569,7 @@ def confluence_arrow(ax, x0, rows, mid, xb, xj, xtip, color, *, shaft=2.8,
 
 
 def card_down_arrow(ax, x, y, w, h, hue, *, arrow=True, radius=2.5, lw=1.4,
-                    shaft=4.0, shaft_l=1.8, head=9.0, head_l=3.4,
+                    shaft=4.0, shaft_l=1.8, head=7.5, head_l=3.0,
                     fill_alpha=None, z=1):
     """A rounded panel, optionally with a block arrow extruded from its BOTTOM
     edge, as ONE closed outline.
@@ -1709,7 +1709,7 @@ def concept_server_hub(ax):
             molecule_glyph(ax, nx, cy, s_c, IN_HUE, kind="chain")
         text(ax, CHIP_X + 13.0, cy, lab, 12, weight="bold")
         block_arrow(ax, CHIP_X + CHIP_W + GAP, cy, SRV_X - GAP, cy, IN_HUE,
-                    shaft=4.2, head=4.6, head_w=7.0, alpha=ARROW_A)
+                    shaft=4.2, head=4.0, head_w=6.0, alpha=ARROW_A)
 
     # ---- the hub
     server_rack(ax, SRV_X, SRV_Y, SRV_W, SRV_H)
@@ -1829,7 +1829,7 @@ def concept_server_hub(ax):
     for lab, cy in zip(["eQuilibrator", "dGPredictor", "Group Contrib."],
                        comp_rows):
         text(ax, LBL_X, cy + 4.56, lab, 12, weight="bold")
-    confluence_arrow(ax, LBL_X, comp_rows, COMP_Y + COMP_H / 2, 127.0, 133.8,
+    confluence_arrow(ax, LBL_X, comp_rows, COMP_Y + COMP_H / 2, 127.0, 132.0,
                      BOX_X - GAP, COMP_HUE, alpha=ARROW_A)
 
     # Each kind gets its own box, and each box then feeds the ONE panel where
