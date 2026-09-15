@@ -1388,17 +1388,23 @@ def _blend(hue, alpha, base=SURFACE):
 
 
 def influence_arc(ax, x_edge, y_up, y_dn, out, hue, *, tail=3.4, r=2.0,
-                  inset=2.5, tip_over=1.2, fill_alpha=FILL_A, lw=1.2, z=0.6):
+                  seal=0.9, tip_over=0.0, fill_alpha=FILL_A, lw=1.2, z=0.6):
     """A ribbon that leaves a box's left edge, drops, and re-enters the box
     below -- drawn so it reads as an extrusion OF the box, not a line beside it.
 
-    The ribbon is a FILLED polygon with an outline, in the box's own fill and
-    border colours, and it is drawn UNDERNEATH the boxes (z < the cards' 1).
-    Both ends run a little way inside their box and are simply covered by it,
-    so the ribbon is clipped flush at both borders and the box outlines stay
-    unbroken. That replaces an earlier join patch that repainted the mouth to
-    fake the same effect -- letting the card do the covering is exact, and it
-    cannot leave a seam if the fill alpha ever changes.
+    The two junctions are asymmetric on purpose, because they mean different
+    things. At the TAIL the ribbon ORIGINATES in the box, so the box's border
+    is interrupted and the mouth opens straight into the interior: the fill
+    runs `seal` past the border (enough to cover its stroke without a seam) and
+    the OUTLINE is an open polyline that begins and ends exactly on the border,
+    so nothing is drawn across the mouth or inside the box. At the HEAD the
+    ribbon merely ARRIVES, so the tip lands on the border and stops -- an
+    arrowhead needs its point, and opening it would read as a second mouth.
+
+    Earlier versions did this by painting a rectangle of the interior colour
+    over the join. That always left the ribbon's own end cap and rails stranded
+    inside the box, and the cover had to be hand-fitted to the border's stroke
+    width; building the outline open removes the need for any cover at all.
 
     Geometry is an orthogonal bracket with rounded corners: out, down, back in.
     The outline is built by offsetting the centreline rather than by stroking
@@ -1420,7 +1426,7 @@ def influence_arc(ax, x_edge, y_up, y_dn, out, hue, *, tail=3.4, r=2.0,
             f"x={out + r:.1f}, head base would be at x={tip_x - head_l:.1f}. "
             f"Move `out` left, shrink `r`, or shrink `tail`.")
 
-    c = [(x_edge + inset, y_up), (out + r, y_up)]
+    c = [(x_edge, y_up), (out + r, y_up)]
     th = np.linspace(math.pi / 2, math.pi, 18)
     c += [(out + r + r * math.cos(t), y_up - r + r * math.sin(t)) for t in th]
     c.append((out, y_dn + r))
@@ -1444,18 +1450,26 @@ def influence_arc(ax, x_edge, y_up, y_dn, out, hue, *, tail=3.4, r=2.0,
     n /= np.linalg.norm(n, axis=1, keepdims=True)
     left, right = c + n * tail / 2, c - n * tail / 2
 
-    poly = list(map(tuple, left))
-    poly += [(c[-1][0], c[-1][1] + head_hw), (tip_x, y_dn),
-             (c[-1][0], c[-1][1] - head_hw)]
-    poly += list(map(tuple, right[::-1]))
-    ax.add_patch(Polygon(poly, closed=True,
-                         facecolor=_blend(hue, fill_alpha), edgecolor=hue,
-                         linewidth=lw, joinstyle="round", zorder=3))
+    rim = (list(map(tuple, left))
+           + [(c[-1][0], c[-1][1] + head_hw), (tip_x, y_dn),
+              (c[-1][0], c[-1][1] - head_hw)]
+           + list(map(tuple, right[::-1])))
 
-    # the join: repaint the mouth so the box outline runs straight through
-    ax.add_patch(Rectangle((x_edge - 0.8, y_up - tail / 2), inset + 0.8, tail,
-                           facecolor=_blend(hue, fill_alpha), edgecolor="none",
-                           zorder=4))
+    # Fill first, opaque and pre-blended rather than translucent: it is painted
+    # over the card, and a second translucent layer would darken the overlap.
+    # Only the mouth reaches inside, by `seal`.
+    # Take the seal corners FROM the rails rather than from y_up +- tail/2:
+    # which rail is the upper one depends on the sign of the offset normal, and
+    # guessing it wrong closes the mouth as a bow tie that leaves two wedges of
+    # border showing.
+    ax.add_patch(Polygon([(left[0][0] + seal, left[0][1])] + rim
+                         + [(right[0][0] + seal, right[0][1])],
+                         closed=True, facecolor=_blend(hue, fill_alpha),
+                         edgecolor="none", zorder=3))
+    # Outline second and OPEN, so the mouth has no cap and the box border
+    # simply resumes above and below it.
+    ax.add_patch(Polygon(rim, closed=False, facecolor="none", edgecolor=hue,
+                         linewidth=lw, joinstyle="round", zorder=4))
 
 
 # Source captures live in assets/, not in a figure OUTPUT directory --
@@ -1627,12 +1641,13 @@ def concept_server_hub(ax):
     # compounds, compounds compose reactions. They bow out into the 10 mm
     # margin and land on the upper third of the box below, so they read as
     # "feeds into" rather than as a second data flow.
-    # The arcs START INSIDE the chip and are stroked in the chip's own hue at
-    # ribbon width, so the stroke covers the chip border where it leaves. That
-    # is what makes the arrow read as cut out of the box rather than drawn
-    # beside it -- no separate notch patch is needed.
+    # The mouth sits 5.2 mm above the source chip's bottom edge. Half the
+    # ribbon width is 1.7 and the chip's corner radius is 2.5, so 4.2 is the
+    # least that opens onto the STRAIGHT part of the border at all; the extra
+    # millimetre leaves a visible run of border between the lower lip and the
+    # corner, so the lip reads as a lip rather than as the start of the curve.
     for cy_up, cy_dn in zip(ys[:-1], ys[1:]):
-        influence_arc(ax, CHIP_X, cy_up - CHIP_H / 2 + 3.2,
+        influence_arc(ax, CHIP_X, cy_up - CHIP_H / 2 + 5.2,
                       cy_dn + CHIP_H / 2 - CHIP_H / 3, CHIP_X - 7.0, IN_HUE)
 
     # ---- the hub

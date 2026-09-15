@@ -276,10 +276,15 @@ The database as a physical hub.
 order. Each box emits a ribbon from its left edge that runs out, drops parallel
 to the stack, and turns back in to point at the upper third of the box below,
 showing that each composes the next. The ribbon is a filled shape in the box's
-own fill and border colours, and a join patch repaints the mouth so the outline
-runs straight through — it reads as an extrusion of the box rather than a line
-beside it. Target look:
-[`assets/sketch_arrow_example.png`](assets/sketch_arrow_example.png). They share one
+own fill and border colours. Its two junctions are deliberately different: at
+the **tail** the box's border is interrupted and the mouth opens straight into
+the interior, because the ribbon originates there; at the **head** the tip
+lands on the border and stops, because an arrowhead needs its point. So it
+reads as an extrusion of the box rather than a line beside it. Target look:
+[`assets/sketch_arrow_example.png`](assets/sketch_arrow_example.png), and
+[`assets/sketch_chip_arrow_notch.svg`](assets/sketch_chip_arrow_notch.svg) — an
+export with the mouth hand-cleared in an SVG editor, which is what the tail
+junction was rebuilt to reproduce without a cover patch. They share one
 hue because they are one family; the ribbons carry the sequence.
 
 **Out of the bottom:** atom mapping, shown as a worked reaction —
