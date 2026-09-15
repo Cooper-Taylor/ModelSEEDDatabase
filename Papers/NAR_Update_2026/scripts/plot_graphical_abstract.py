@@ -1393,10 +1393,13 @@ def influence_arc(ax, x_edge, y_up, y_dn, bulge, color, *, lw=8.0, stub=2.5):
     cx, cy = x_edge + (R - d), (y_up + y_dn) / 2.0
     a0 = math.atan2(y_up - cy, x_edge - cx)
     a1 = math.atan2(y_dn - cy, x_edge - cx)
-    # counter-clockwise from a0 to a1 sweeps the long way, around the left
-    if a1 > a0:
-        a1 -= 2 * math.pi
-    th = np.linspace(a0, a1 - 2 * math.pi if a1 > a0 else a1, 120)
+    # Sweep COUNTER-CLOCKWISE from a0 up past 180 deg to a1, which is the major
+    # arc -- the one that bulges LEFT, away from the boxes. Going the short way
+    # round instead passes through 0 deg, i.e. (cx + R, cy), which is inside the
+    # box: that was the bug.
+    while a1 <= a0:
+        a1 += 2 * math.pi
+    th = np.linspace(a0, a1, 160)
     xs, ys = cx + R * np.cos(th), cy + R * np.sin(th)
     ax.plot([x_edge + stub, xs[0]], [y_up, y_up], color=color, lw=lw,
             solid_capstyle="butt", zorder=4)
@@ -1536,15 +1539,16 @@ def concept_server_hub(ax):
                     shaft=3.6, head=6.4, alpha=ARROW_A)
         text(ax, SRV_X + SRV_W + GAP, cy + 4.6, lab, 12, weight="bold")
 
-    for (bx, by, bw, bh, lab, hue) in [
-            (BOX_X, EXP_Y, BOX_W, EXP_H, "Experimental", EXP_HUE),
-            (BOX_X, COMP_Y, BOX_W, COMP_H, "Computational", COMP_HUE)]:
+    for (bx, by, bw, bh, lab, hue, centred) in [
+            (BOX_X, EXP_Y, BOX_W, EXP_H, "Experimental", EXP_HUE, True),
+            (BOX_X, COMP_Y, BOX_W, COMP_H, "Computational", COMP_HUE, False)]:
         contain(bx, by, bw, bh, f"{lab} box")
         card(ax, bx, by, bw, bh, face=hue, edge="none", alpha=FILL_A,
              radius=2.5)
         card(ax, bx, by, bw, bh, face="none", edge=hue, lw=1.5, radius=2.5)
-        text(ax, bx + bw / 2, by + bh - 5.0, lab, 12, weight="bold",
-             ha="center", color=hue)
+        ly = by + bh / 2 if centred else by + bh - 5.0
+        text(ax, bx + bw / 2, ly, lab, 12, weight="bold", ha="center",
+             va="center", color=hue)
     # Cartoon of eQuilibrator's reported-uncertainty distribution. A real
     # image at BAR_CHART_IMAGE overrides it.
     if BAR_CHART_IMAGE.exists():
