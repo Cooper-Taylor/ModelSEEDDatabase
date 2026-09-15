@@ -293,6 +293,11 @@ carbon came back plain black, and the script restates that one glyph in
 glyoxylate's traced-carbon hue (`#1225cd`) at load time. The captures
 themselves are never edited.
 
+All four white margins are **2.33 mm**, and `_check_margins()` fails the run if
+they drift more than 0.35 apart. Nothing else holds them equal: every element
+is placed by hand in millimetres, so one constant moving pushes a single edge
+out and leaves the other three where they were.
+
 This concept carries **no title** — the caption and the article title do that
 work, and NAR asks for text sparingly.
 

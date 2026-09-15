@@ -436,6 +436,37 @@ def pt(size: int) -> float:
     return size * PT_SCALE
 
 
+def _check_margins(fig, tol=0.35) -> None:
+    """The four white margins must match.
+
+    Nothing else holds them equal: every element in these layouts is placed by
+    hand in millimetres, so one constant moving pushes a single edge out and
+    leaves the other three where they were. That is invisible until the figure
+    is beside something else on a page.
+    """
+    # Probe at a KNOWN dpi rather than reading the live canvas: the canvas is
+    # at the figure's own dpi, which quantises to 0.25 mm per pixel and leaves
+    # the tolerance barely one pixel wide.
+    import io
+    bio = io.BytesIO()
+    fig.savefig(bio, format="png", dpi=200, facecolor=fig.get_facecolor())
+    bio.seek(0)
+    buf = mpimg.imread(bio)[..., :3]
+    ink = np.any(np.abs(buf - np.asarray(to_rgb(SURFACE))) > 0.02, axis=-1)
+    if not ink.any():
+        return
+    r = np.where(ink.any(axis=1))[0]
+    c = np.where(ink.any(axis=0))[0]
+    hpx, wpx = ink.shape
+    m = {"left": c[0] / wpx * W, "right": (wpx - c[-1] - 1) / wpx * W,
+         "top": r[0] / hpx * H, "bottom": (hpx - r[-1] - 1) / hpx * H}
+    if max(m.values()) - min(m.values()) > tol:
+        raise SystemExit(
+            "margins are uneven by "
+            f"{max(m.values()) - min(m.values()):.2f} mm (tolerance {tol}): "
+            + ", ".join(f"{k} {v:.2f}" for k, v in m.items()))
+
+
 def _check_font_floor() -> None:
     bad = sorted({s for _, s in _font_uses if s < MIN_PT})
     if bad:
@@ -1666,7 +1697,7 @@ def concept_server_hub(ax):
     needs to stand apart from the three computational ones.
     """
     GAP = 2.0
-    HUB_CY = 66.0
+    HUB_CY = 72.63
     # ONE head for every arrow in the figure, and one shaft. 4.8 is the
     # largest that every run can hold: the shortest are the chip-to-rack and
     # box-to-panel hops at 5.5 mm, and the box pitch, whose 7.5 mm gap has to
@@ -1675,7 +1706,7 @@ def concept_server_hub(ax):
     IN_HUE = STAGES["mol"]            # the three database-content inputs
     EXP_HUE = STAGES["rxn"]           # OpenTECR, and the Experimental box
     COMP_HUE = STAGES["thermo"]       # the three estimators, and Computational
-    SRV_X, SRV_W, SRV_H = 58.0, 32.0, 42.0
+    SRV_X, SRV_W, SRV_H = 58.6, 32.0, 42.0
     SRV_Y = HUB_CY - SRV_H / 2
 
     def rows(n, pitch):
@@ -1686,7 +1717,7 @@ def concept_server_hub(ax):
     # the "composes" sequence is carried by the boxes themselves. Pitch 17 on
     # an 11 mm box leaves a 6 mm gap, which the 1.8 + 3.4 mm arrow clears with
     # 0.8 to spare. The top box then reaches y 88.5, just under the title.
-    CHIP_X, CHIP_W, CHIP_H = 2.0, 46.5, 11.0
+    CHIP_X, CHIP_W, CHIP_H = 2.6, 46.5, 11.0
     in_rows = [("STRUCTURES", "chain"), ("COMPOUNDS", "ring"),
                ("REACTIONS", "rxn")]
     ys = rows(3, 18.5)
@@ -1721,7 +1752,7 @@ def concept_server_hub(ax):
     server_rack(ax, SRV_X, SRV_Y, SRV_W, SRV_H)
 
     # ---- bottom: atom mapping
-    ATOM_X, ATOM_W, ATOM_Y, ATOM_H = 17.0, 182.0, 1.0, 31.0
+    ATOM_X, ATOM_W, ATOM_Y, ATOM_H = 17.6, 182.0, 2.6, 34.0
     block_arrow(ax, SRV_X + SRV_W / 2, SRV_Y - GAP, SRV_X + SRV_W / 2,
                 ATOM_Y + ATOM_H + GAP, STAGES["atom"], shaft=SHAFT,
                 head=HEAD, head_w=HEAD, alpha=ARROW_A)
@@ -1808,10 +1839,10 @@ def concept_server_hub(ax):
     # "Group Contrib." is 35.6 mm at 12 pt and still sets the box start: the
     # labels run 104..139.6, so BOX_X cannot come in past ~141.
     LBL_X = SRV_X + SRV_W + GAP
-    BOX_X, BOX_W = 140.0, 44.0
-    EXP_Y, EXP_H = 75.0, 12.0
-    COMP_Y, COMP_H = 54.5, 12.0        # same size as Experimental
-    PAN_X, PAN_W, PAN_Y, PAN_H = 193.5, 20.5, 45.0, 42.0
+    BOX_X, BOX_W = 140.6, 44.0
+    EXP_Y, EXP_H = HUB_CY + 9.0, 12.0
+    COMP_Y, COMP_H = HUB_CY - 11.5, 12.0   # same size as Experimental
+    PAN_X, PAN_W, PAN_Y, PAN_H = 194.1, 20.5, HUB_CY - 21.0, 42.0
     PAN_HUE = INK_2
 
     block_arrow(ax, LBL_X, EXP_Y + EXP_H / 2, BOX_X - GAP, EXP_Y + EXP_H / 2,
@@ -1831,11 +1862,11 @@ def concept_server_hub(ax):
     # x=127 its ribbon is still 0.8 mm below the label when the label ends.
     # The top curve has room to spare and starts at the same x, because two
     # arms converging at visibly different rates look like a mistake.
-    comp_rows = [70.0, 60.5, 51.0]
+    comp_rows = [HUB_CY + 4.0, HUB_CY - 5.5, HUB_CY - 15.0]
     for lab, cy in zip(["eQuilibrator", "dGPredictor", "Group Contrib."],
                        comp_rows):
         text(ax, LBL_X, cy + 4.56, lab, 12, weight="bold")
-    confluence_arrow(ax, LBL_X, comp_rows, COMP_Y + COMP_H / 2, 128.0, 131.0,
+    confluence_arrow(ax, LBL_X, comp_rows, COMP_Y + COMP_H / 2, 128.6, 131.6,
                      BOX_X - GAP, COMP_HUE, shaft=SHAFT, head=HEAD,
                      head_hw=HEAD / 2, alpha=ARROW_A)
 
@@ -1888,7 +1919,7 @@ def concept_server_hub(ax):
                           PAN_H - 9.0 - TAG_H, COMP_HUE, EQ_SIGMA_CARTOON)
 
     # ---- classification
-    GR_X, GR_W, GR_H = 224.0, 23.0, 13.0
+    GR_X, GR_W, GR_H = 224.6, 23.0, 13.0
     grades = [("GOLD", GRADE_RAMP[0]), ("SILVER", GRADE_RAMP[1]),
               ("BRONZE", GRADE_RAMP[2])]
     stack_cy = PAN_Y + PAN_H / 2
@@ -1942,6 +1973,8 @@ def main() -> int:
     _check_bar_scale()
     _check_text_overlaps(fig, ax)
     _check_text_in_containers(fig, ax)
+    if args.concept == "server_hub":       # the only layout centred by hand
+        _check_margins(fig)
 
     stem = out / f"graphical_abstract_{args.concept}"
     # dpi matters even for the vector formats: matplotlib resamples embedded
