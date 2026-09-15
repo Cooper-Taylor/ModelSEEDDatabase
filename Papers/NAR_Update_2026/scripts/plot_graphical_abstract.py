@@ -1567,7 +1567,7 @@ def concept_server_hub(ax):
          16, weight="bold", ha="center")
 
     GAP = 2.0
-    HUB_CY = 62.0
+    HUB_CY = 64.0
     IN_HUE = STAGES["mol"]            # the three database-content inputs
     EXP_HUE = STAGES["rxn"]           # OpenTECR, and the Experimental box
     COMP_HUE = STAGES["thermo"]       # the three estimators, and Computational
@@ -1619,8 +1619,8 @@ def concept_server_hub(ax):
     # ---- bottom: atom mapping
     ATOM_X, ATOM_W, ATOM_Y, ATOM_H = 45.0, 157.0, 2.0, 23.0
     block_arrow(ax, SRV_X + SRV_W / 2, SRV_Y - GAP, SRV_X + SRV_W / 2,
-                ATOM_Y + ATOM_H + GAP, STAGES["atom"], shaft=5.0, head=5.5,
-                head_w=13.0, alpha=ARROW_A)
+                ATOM_Y + ATOM_H + GAP, STAGES["atom"], shaft=4.2, head=4.8,
+                head_w=11.5, alpha=ARROW_A)
     contain(ATOM_X, ATOM_Y, ATOM_W, ATOM_H, "atom-mapping box")
     card(ax, ATOM_X, ATOM_Y, ATOM_W, ATOM_H, face=STAGES["atom"], edge="none",
          alpha=0.09, radius=2.5)
@@ -1628,17 +1628,17 @@ def concept_server_hub(ax):
          lw=1.4, radius=2.5)
     # Label on the LEFT so the equation gets the panel's full height; the
     # molecule captures are square and were being squeezed under a header.
-    text(ax, ATOM_X + 5.0, ATOM_Y + ATOM_H / 2, "ATOM MAPPING", 12,
+    text(ax, ATOM_X + 3.5, ATOM_Y + ATOM_H / 2, "ATOM MAPPING", 12,
          weight="bold", color=STAGES["atom"], va="center")
     if ATOM_MAP_IMAGE.exists():
-        paste_slot(ax, ATOM_X + 46.0, ATOM_Y + 3.0, ATOM_W - 51.0,
+        paste_slot(ax, ATOM_X + 44.0, ATOM_Y + 3.0, ATOM_W - 48.0,
                    ATOM_H - 6.0, STAGES["atom"], "atom mapping")
     else:
         # 2 glyoxylate <=> CO2 + tartronate semialdehyde. The atom colouring in
         # the captures is the mapping itself, which is the point of the panel.
         placed = reaction_equation(
-            ax, ATOM_X + 46.0, ATOM_X + ATOM_W - 4.0, ATOM_Y + ATOM_H / 2,
-            20.0,
+            ax, ATOM_X + 44.0, ATOM_X + ATOM_W - 4.0, ATOM_Y + ATOM_H / 2,
+            23.0,
             [("txt", "2"), ("mol", _molecule("Glyoxalate")), ("eq", None),
              ("mol", _molecule("CO2")), ("txt", "+"),
              ("mol", _molecule("Tartronate Semialdehyde"))])
