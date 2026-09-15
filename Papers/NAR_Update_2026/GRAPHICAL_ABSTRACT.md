@@ -285,7 +285,9 @@ hue because they are one family; the ribbons carry the sequence.
 **Out of the bottom:** atom mapping, shown as a worked reaction —
 2 glyoxylate ⇌ CO₂ + tartronate semialdehyde. The three molecule captures carry
 the per-atom colouring, which *is* the mapping; that is why the panel shows
-structures rather than a count.
+structures rather than a count. A dashed arc traces one atom across the
+reaction — the carboxylate carbon of glyoxylate, which is the one released as
+CO₂ — so the panel demonstrates a mapping instead of only asserting one.
 
 **Out to the right:** the ΔrG′° estimators, split by kind. OpenTECR is
 experimental and is drawn in its own colour into an **Experimental** box; the

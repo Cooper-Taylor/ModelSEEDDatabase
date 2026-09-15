@@ -1496,7 +1496,11 @@ def reaction_equation(ax, x0, x1, cy, h, items, *, color=INK):
 
     Items are ("mol", image), ("txt", string) or ("eq", None). Widths are
     measured first and the whole run is centred, so adding a species does not
-    silently push the equation off its panel."""
+    silently push the equation off its panel.
+
+    Returns the placed boxes as [(kind, cx, cy, w, h), ...] so callers can
+    anchor annotations to a specific ATOM inside a specific molecule without
+    re-deriving the layout."""
     GAPS = {"mol": 2.6, "txt": 1.6, "eq": 3.2}
     EQ_W = 11.0
     widths = []
@@ -1510,6 +1514,7 @@ def reaction_equation(ax, x0, x1, cy, h, items, *, color=INK):
     gaps = [GAPS[k] for k, _ in items[:-1]]
     total = sum(widths) + sum(gaps)
     cx = (x0 + x1) / 2 - total / 2
+    placed = []
     for i, (kind, val) in enumerate(items):
         w = widths[i]
         if kind == "mol":
@@ -1520,8 +1525,9 @@ def reaction_equation(ax, x0, x1, cy, h, items, *, color=INK):
         else:
             text(ax, cx + w / 2, cy, val, 14, weight="bold", ha="center",
                  va="center", color=color, check=False)
+        placed.append((kind, cx + w / 2, cy, w, h))
         cx += w + (gaps[i] if i < len(gaps) else 0.0)
-    return total
+    return placed
 
 
 def cartoon_histogram(ax, x, y, w, h, hue, values, *, gap=0.22):
@@ -1630,12 +1636,26 @@ def concept_server_hub(ax):
     else:
         # 2 glyoxylate <=> CO2 + tartronate semialdehyde. The atom colouring in
         # the captures is the mapping itself, which is the point of the panel.
-        reaction_equation(
+        placed = reaction_equation(
             ax, ATOM_X + 46.0, ATOM_X + ATOM_W - 4.0, ATOM_Y + ATOM_H / 2,
             20.0,
             [("txt", "2"), ("mol", _molecule("Glyoxalate")), ("eq", None),
              ("mol", _molecule("CO2")), ("txt", "+"),
              ("mol", _molecule("Tartronate Semialdehyde"))])
+        # Trace one atom across the reaction: the carboxylate carbon of
+        # glyoxylate is the one released as CO2. Anchors are fractions of each
+        # capture, read off the artwork -- glyoxylate's carboxylate C sits at
+        # (0.60, 0.44) of its tile, CO2's C at its centre. The matching
+        # dark-green oxygens in both captures confirm the pair.
+        def _atom(idx, fx, fy):
+            _k, mx, my, mw, mh = placed[idx]
+            return mx + (fx - 0.5) * mw, my + (fy - 0.5) * mh
+        a = _atom(1, 0.60, 0.44)
+        b = _atom(3, 0.50, 0.50)
+        ax.add_patch(FancyArrowPatch(
+            a, b, connectionstyle="arc3,rad=-0.42", arrowstyle="-|>",
+            mutation_scale=9, linewidth=1.2, linestyle=(0, (2.4, 1.8)),
+            color=STAGES["atom"], zorder=6, shrinkA=3.5, shrinkB=3.5))
 
     # ---- right: one experimental source, three computational ones
     # "Group contribution" is 46.2 mm at 12 pt and sets where the boxes start.
