@@ -1373,49 +1373,37 @@ def paste_slot(ax, x, y, w, h, hue, label, img=None):
          va="center")
 
 
-def influence_arc(ax, x_edge, y_up, y_dn, bulge, color, *, lw=8.0, stub=2.5):
-    """A C-shaped ribbon leaving a box's left edge and re-entering the box below.
+def influence_arc(ax, x_edge, y_up, y_dn, out, color, *, lw=8.0, stub=2.5,
+                  r=2.2):
+    """A bracket leaving a box's left edge, dropping, and re-entering the box
+    below: out, down, back in, with rounded corners.
 
-    FancyArrowPatch's arc3 cannot do this: at the rad needed for a visible
-    bulge over a chord this short it curls into a blob. So the circular arc is
-    constructed directly -- given the two attachment points and a sagitta, the
-    radius is (c²/4 + d²)/2d and the centre sits (R − d) from the chord, which
-    for d > R puts it on the far side and gives the major arc that reads as a
-    semicircle.
+    An orthogonal route rather than a circular arc. A true arc large enough to
+    protrude has to bow through the whole margin and reads as a loop; the
+    bracket keeps the vertical run parallel to the boxes, which is what makes it
+    read as "this one feeds the next" down a stack.
 
-    The ribbon is stroked in the BOX's own hue and starts inside the box, so it
-    covers the border on the way out and reads as cut from the box rather than
-    drawn beside it."""
+    `out` is the x the route runs down at, so (x_edge - out) is how far it
+    protrudes. The ribbon starts INSIDE the box and is stroked in the box's own
+    hue, so it covers the border on the way out and reads as cut from the box.
+    """
     import numpy as np
-    c = y_up - y_dn
-    d = float(bulge)
-    R = (c * c / 4.0 + d * d) / (2.0 * d)
-    cx, cy = x_edge + (R - d), (y_up + y_dn) / 2.0
-    a0 = math.atan2(y_up - cy, x_edge - cx)
-    a1 = math.atan2(y_dn - cy, x_edge - cx)
-    # Sweep COUNTER-CLOCKWISE from a0 up past 180 deg to a1, which is the major
-    # arc -- the one that bulges LEFT, away from the boxes. Going the short way
-    # round instead passes through 0 deg, i.e. (cx + R, cy), which is inside the
-    # box: that was the bug.
-    while a1 <= a0:
-        a1 += 2 * math.pi
-    th = np.linspace(a0, a1, 160)
-    xs, ys = cx + R * np.cos(th), cy + R * np.sin(th)
-    ax.plot([x_edge + stub, xs[0]], [y_up, y_up], color=color, lw=lw,
-            solid_capstyle="butt", zorder=4)
-    ax.plot(xs[:-3], ys[:-3], color=color, lw=lw, solid_capstyle="butt",
-            zorder=4)
-    # head, oriented along the tangent at the end point
-    tx, ty = xs[-1] - xs[-6], ys[-1] - ys[-6]
-    n = math.hypot(tx, ty) or 1.0
-    tx, ty = tx / n, ty / n
-    px, py = -ty, tx
-    hl, hw = 4.2, 3.6
-    tip = (xs[-1] + tx * hl * 0.6, ys[-1] + ty * hl * 0.6)
-    base = (xs[-1] - tx * hl * 0.4, ys[-1] - ty * hl * 0.4)
-    ax.add_patch(Polygon([tip,
-                          (base[0] + px * hw, base[1] + py * hw),
-                          (base[0] - px * hw, base[1] - py * hw)],
+    pts = [(x_edge + stub, y_up), (out + r, y_up)]
+    th = np.linspace(math.pi / 2, math.pi, 14)           # turn down
+    pts += [(out + r + r * math.cos(t), y_up - r + r * math.sin(t)) for t in th]
+    pts.append((out, y_dn + r))
+    th = np.linspace(math.pi, 1.5 * math.pi, 14)         # turn right
+    pts += [(out + r + r * math.cos(t), y_dn + r + r * math.sin(t)) for t in th]
+    head_l, head_w = 4.4, 3.8
+    pts.append((x_edge - head_l * 0.5, y_dn))
+    xs = [q[0] for q in pts]
+    ys = [q[1] for q in pts]
+    ax.plot(xs, ys, color=color, lw=lw, solid_capstyle="butt",
+            solid_joinstyle="round", zorder=4)
+    tipx = x_edge + head_l * 0.5
+    ax.add_patch(Polygon([(tipx, y_dn),
+                          (tipx - head_l, y_dn + head_w),
+                          (tipx - head_l, y_dn - head_w)],
                          closed=True, facecolor=color, edgecolor="none",
                          zorder=5))
 
@@ -1500,8 +1488,8 @@ def concept_server_hub(ax):
     # is what makes the arrow read as cut out of the box rather than drawn
     # beside it -- no separate notch patch is needed.
     for cy_up, cy_dn in zip(ys[:-1], ys[1:]):
-        influence_arc(ax, CHIP_X, cy_up - CHIP_H / 2 + 0.5,
-                      cy_dn + CHIP_H / 2 - CHIP_H / 3, 6.0, IN_HUE)
+        influence_arc(ax, CHIP_X, cy_up - CHIP_H / 2 + 2.0,
+                      cy_dn + CHIP_H / 2 - CHIP_H / 3, CHIP_X - 6.0, IN_HUE)
 
     # ---- the hub
     server_rack(ax, SRV_X, SRV_Y, SRV_W, SRV_H)

@@ -273,10 +273,11 @@ real miniature visuals to earn their space. Thermodynamics gets one line.
 The database as a physical hub.
 
 **In, from the left:** structures → compounds → reactions, stacked in that
-order. Each box emits a C-shaped ribbon from its left edge that loops out and
-points into the upper third of the box below, showing that each composes the
-next. The ribbon is stroked in the box's own hue and starts inside it, so it
-covers the border on the way out and reads as cut from the box. They share one
+order. Each box emits a ribbon from its left edge that runs out, drops parallel
+to the stack, and turns back in to point at the upper third of the box below,
+showing that each composes the next. The ribbon is stroked in the box's own hue
+and starts inside it, so it covers the border on the way out and reads as cut
+from the box. They share one
 hue because they are one family; the ribbons carry the sequence.
 
 **Out of the bottom:** atom mapping.
