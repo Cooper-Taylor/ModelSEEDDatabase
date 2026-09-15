@@ -1384,18 +1384,17 @@ def _blend(hue, alpha, base=SURFACE):
 
 
 def influence_arc(ax, x_edge, y_up, y_dn, out, hue, *, tail=3.4, r=2.0,
-                  inset=2.5, tip_over=0.3, fill_alpha=FILL_A, lw=1.2):
+                  inset=2.5, tip_over=1.2, fill_alpha=FILL_A, lw=1.2, z=0.6):
     """A ribbon that leaves a box's left edge, drops, and re-enters the box
     below -- drawn so it reads as an extrusion OF the box, not a line beside it.
 
-    Three things make the merge work, and all three are needed:
-
-    * the ribbon is a FILLED polygon with an outline, in the box's own fill and
-      border colours, not a thick stroked line;
-    * its tail runs `inset` mm INSIDE the box, past the border;
-    * a join patch in the box's flat interior colour is painted last over the
-      mouth, erasing both the box's border across the opening and the ribbon's
-      tail outline within it, leaving one continuous silhouette.
+    The ribbon is a FILLED polygon with an outline, in the box's own fill and
+    border colours, and it is drawn UNDERNEATH the boxes (z < the cards' 1).
+    Both ends run a little way inside their box and are simply covered by it,
+    so the ribbon is clipped flush at both borders and the box outlines stay
+    unbroken. That replaces an earlier join patch that repainted the mouth to
+    fake the same effect -- letting the card do the covering is exact, and it
+    cannot leave a seam if the fill alpha ever changes.
 
     Geometry is an orthogonal bracket with rounded corners: out, down, back in.
     The outline is built by offsetting the centreline rather than by stroking
