@@ -1657,9 +1657,18 @@ def concept_server_hub(ax):
         elif glyph == "chain":
             molecule_glyph(ax, gx, cy, 2.3, IN_HUE, kind="chain")
         else:
-            molecule_glyph(ax, gx - 2.8, cy, 1.6, IN_HUE, kind="ring")
-            equilibrium(ax, gx, cy, w=2.2)
-            molecule_glyph(ax, gx + 2.8, cy, 1.6, IN_HUE, kind="chain")
+            # Laid out left to right by each glyph's REAL extent, not on a
+            # constant pitch. For the same nominal size the chain reaches
+            # 1.6*s either side of its centre while the ring reaches 0.87*s
+            # left and 0.90*s right (its substituent), so an even pitch buried
+            # the equilibrium's right arrowhead 0.9 mm inside the chain.
+            s_r, s_c, eq_w, sep = 1.4, 1.1, 2.4, 0.9
+            rx = CHIP_X + 1.4 + 0.866 * s_r
+            ex = rx + 0.9 * s_r + sep + eq_w / 2
+            nx = ex + eq_w / 2 + sep + 1.6 * s_c
+            molecule_glyph(ax, rx, cy, s_r, IN_HUE, kind="ring")
+            equilibrium(ax, ex, cy, w=eq_w)
+            molecule_glyph(ax, nx, cy, s_c, IN_HUE, kind="chain")
         text(ax, CHIP_X + 13.0, cy, lab, 12, weight="bold")
         block_arrow(ax, CHIP_X + CHIP_W + GAP, cy, SRV_X - GAP, cy, IN_HUE,
                     shaft=4.2, head=7.0, alpha=ARROW_A)
