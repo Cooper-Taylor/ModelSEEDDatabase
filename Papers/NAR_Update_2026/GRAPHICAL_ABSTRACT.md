@@ -297,9 +297,9 @@ This concept carries **no title** — the caption and the article title do that
 work, and NAR asks for text sparingly.
 
 **Out to the right:** the ΔrG′° estimators, split by kind. The three
-computational sources run out as separate shafts and merge into one arrow, so
-the box they enter is the same small size as the experimental one instead of
-being stretched to catch three arrowheads. OpenTECR is
+computational sources run out as separate shafts, and the outer two curve into
+the middle one on a smoothstep, so the box they enter is the same small size as
+the experimental one instead of being stretched to catch three arrowheads. OpenTECR is
 experimental and is drawn in its own colour into an **Experimental** box; the
 three computed estimators run into a **Computational** box. Both feed a rail,
 and from it the reactions are sorted into a **Classification** of gold / silver

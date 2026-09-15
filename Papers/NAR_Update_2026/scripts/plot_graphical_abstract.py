@@ -527,29 +527,45 @@ def chip_glyph(ax, cx, cy, h, hue, *, lw=1.2, z=4):
                            linewidth=lw * 0.8, zorder=z))
 
 
-def merge_arrow(ax, x0, rows, xc, xtip, cy, color, *, shaft=2.8, funnel=2.2,
-                trunk=5.0, head=4.0, head_hw=5.5, alpha=1.0, z=2):
-    """Parallel shafts from x0, collected at xc into ONE arrowhead at xtip.
+def confluence_arrow(ax, x0, rows, mid, xb, xj, xtip, color, *, shaft=2.8,
+                     head=4.5, head_hw=6.0, alpha=1.0, z=2):
+    """A straight middle shaft that the outer shafts curve into.
 
-    Built as a single closed polygon, notches and all, rather than N arrows
-    plus a separately placed head: the gaps between the shafts are part of the
-    same outline, so nothing can drift out of register when a row moves.
+    Each outer arm runs horizontally to xb, then crosses to the middle line by
+    xj on a smoothstep (3t^2 - 2t^3). That curve has HORIZONTAL tangents at
+    both ends, so an arm leaves its own row and arrives on the trunk flush --
+    no corner marks where the ribbon was bent, and no join to hide.
 
-    The trace runs right along the top shaft, funnels in to the trunk, out to
-    the tip, back along the bottom shaft, then works up the left side cutting
-    one notch per adjacent pair -- which closes on the starting point.
+    Drawn as separate solid shapes in one OPAQUE colour rather than as a single
+    traced outline. They union seamlessly because the colour is flat, which
+    keeps the confluence a matter of geometry instead of of tracing a polygon
+    around three ribbons that merge.
     """
-    r = sorted(rows)
-    hi, lo = r[-1] + shaft / 2, r[0] - shaft / 2
-    xt, xh = xc + funnel, xtip - head
-    p = [(x0, hi), (xc, hi), (xt, cy + trunk / 2), (xh, cy + trunk / 2),
-         (xh, cy + head_hw), (xtip, cy), (xh, cy - head_hw),
-         (xh, cy - trunk / 2), (xt, cy - trunk / 2), (xc, lo), (x0, lo)]
-    for lower, upper in zip(r[:-1], r[1:]):
-        p += [(x0, lower + shaft / 2), (xc, lower + shaft / 2),
-              (xc, upper - shaft / 2), (x0, upper - shaft / 2)]
-    ax.add_patch(Polygon(p, closed=True, facecolor=color, edgecolor="none",
-                         alpha=alpha, zorder=z))
+    xh = xtip - head
+    def box(x, y, w, h):
+        ax.add_patch(Rectangle((x, y), w, h, facecolor=color, edgecolor="none",
+                               alpha=alpha, zorder=z))
+    # Abutting shapes leave a hairline where their antialiased edges meet, so
+    # every piece overlaps the next by 0.3 mm. The overlap is invisible: the
+    # colour is flat and opaque, and the shaft is far narrower than the head.
+    box(x0, mid - shaft / 2, xh - x0 + 0.3, shaft)    # the middle arm, straight
+    t = np.linspace(0.0, 1.0, 120)
+    for y in rows:
+        if abs(y - mid) < 1e-9:
+            continue
+        box(x0, y - shaft / 2, xb - x0 + 0.3, shaft)
+        c = np.stack([xb + t * (xj - xb),
+                      y + (mid - y) * (3 * t ** 2 - 2 * t ** 3)], axis=1)
+        d = np.gradient(c, axis=0)
+        n = np.stack([-d[:, 1], d[:, 0]], axis=1)
+        n /= np.linalg.norm(n, axis=1, keepdims=True)
+        rail = np.concatenate([c + n * shaft / 2, (c - n * shaft / 2)[::-1]])
+        ax.add_patch(Polygon(list(map(tuple, rail)), closed=True,
+                             facecolor=color, edgecolor="none", alpha=alpha,
+                             zorder=z))
+    ax.add_patch(Polygon([(xh, mid + head_hw), (xtip, mid),
+                          (xh, mid - head_hw)], closed=True, facecolor=color,
+                         edgecolor="none", alpha=alpha, zorder=z))
 
 
 def card_down_arrow(ax, x, y, w, h, hue, *, arrow=True, radius=2.5, lw=1.4,
@@ -1789,7 +1805,6 @@ def concept_server_hub(ax):
     BOX_X, BOX_W = 140.0, 44.0
     EXP_Y, EXP_H = 75.0, 12.0
     COMP_Y, COMP_H = 54.5, 12.0        # same size as Experimental
-    MERGE_X = 131.5                    # 1.9 mm clear of "Group Contrib."
     PAN_X, PAN_W, PAN_Y, PAN_H = 192.0, 21.0, 45.0, 42.0
     PAN_HUE = INK_2
 
@@ -1798,18 +1813,22 @@ def concept_server_hub(ax):
     text(ax, LBL_X, EXP_Y + EXP_H / 2 + 4.4, "OpenTECR", 12,
          weight="bold", color=EXP_HUE)
 
-    # The three estimators run out as separate shafts and merge into one arrow,
-    # so the box they enter can be the same small size as Experimental instead
-    # of being stretched to catch three heads. The shafts stay spread over the
-    # rack's height because that is where they come from; only the collector
-    # has to clear the labels, and at 131.5 it clears the longest of them
-    # ("Group Contrib.", ending at 129.6) by 1.9 mm.
-    comp_rows = [69.5, 60.5, 51.5]
-    for lab, cy in zip(["eQuilibrator", "dGPredictor", "Group Contrib."],
-                       comp_rows):
-        text(ax, LBL_X, cy + 4.4, lab, 12, weight="bold")
-    merge_arrow(ax, LBL_X, comp_rows, MERGE_X, BOX_X - GAP,
-                COMP_Y + COMP_H / 2, COMP_HUE, alpha=ARROW_A)
+    # The outer two estimators curve into the middle one, which stays straight
+    # and full length, so the box they enter can be the same small size as
+    # Experimental instead of being stretched to catch three heads.
+    #
+    # Label placement is what makes the curves possible. Each curve crosses the
+    # band between its own row and the middle row, so that band has to be clear
+    # of type from where the curve starts. Putting "Group Contrib." BELOW its
+    # shaft empties the lower band, which lets both curves start at the same x
+    # (124, just past "dGPredictor" at 123.0) and stay symmetric. Each label is
+    # still 1.0 mm off its own shaft and at least 1.4 from any other.
+    comp_rows = [70.0, 60.5, 51.0]
+    for lab, cy, dy in zip(["eQuilibrator", "dGPredictor", "Group Contrib."],
+                           comp_rows, (4.56, 4.56, -4.56)):
+        text(ax, LBL_X, cy + dy, lab, 12, weight="bold")
+    confluence_arrow(ax, LBL_X, comp_rows, COMP_Y + COMP_H / 2, 124.0, 133.0,
+                     BOX_X - GAP, COMP_HUE, alpha=ARROW_A)
 
     # Each kind gets its own box, and each box then feeds the ONE panel where
     # the estimates are pooled -- the grades are assigned off the merged
