@@ -528,7 +528,7 @@ def chip_glyph(ax, cx, cy, h, hue, *, lw=1.2, z=4):
 
 
 def confluence_arrow(ax, x0, rows, mid, xb, xj, xtip, color, *, shaft=2.8,
-                     head=4.5, head_hw=6.0, alpha=1.0, z=2):
+                     head=4.0, head_hw=4.8, alpha=1.0, z=2):
     """A straight middle shaft that the outer shafts curve into.
 
     Each outer arm runs horizontally to xb, then crosses to the middle line by
@@ -1670,7 +1670,7 @@ def concept_server_hub(ax):
     IN_HUE = STAGES["mol"]            # the three database-content inputs
     EXP_HUE = STAGES["rxn"]           # OpenTECR, and the Experimental box
     COMP_HUE = STAGES["thermo"]       # the three estimators, and Computational
-    SRV_X, SRV_W, SRV_H = 58.0, 34.0, 42.0
+    SRV_X, SRV_W, SRV_H = 58.0, 32.0, 42.0
     SRV_Y = HUB_CY - SRV_H / 2
 
     def rows(n, pitch):
@@ -1817,17 +1817,19 @@ def concept_server_hub(ax):
     # and full length, so the box they enter can be the same small size as
     # Experimental instead of being stretched to catch three heads.
     #
-    # Label placement is what makes the curves possible. Each curve crosses the
-    # band between its own row and the middle row, so that band has to be clear
-    # of type from where the curve starts. Putting "Group Contrib." BELOW its
-    # shaft empties the lower band, which lets both curves start at the same x
-    # (124, just past "dGPredictor" at 123.0) and stay symmetric. Each label is
-    # still 1.0 mm off its own shaft and at least 1.4 from any other.
+    # Every label sits above its own shaft, 1.0 mm off it and at least 1.4 from
+    # any other. That is what sets where the curves may start: each one crosses
+    # the band its neighbour's label occupies, and the ribbon's leading edge
+    # has to stay clear of that type until the label ends. "Group Contrib." is
+    # the long one at 35.6 mm, so the BOTTOM curve is the binding case -- at
+    # x=127 its ribbon is still 0.8 mm below the label when the label ends.
+    # The top curve has room to spare and starts at the same x, because two
+    # arms converging at visibly different rates look like a mistake.
     comp_rows = [70.0, 60.5, 51.0]
-    for lab, cy, dy in zip(["eQuilibrator", "dGPredictor", "Group Contrib."],
-                           comp_rows, (4.56, 4.56, -4.56)):
-        text(ax, LBL_X, cy + dy, lab, 12, weight="bold")
-    confluence_arrow(ax, LBL_X, comp_rows, COMP_Y + COMP_H / 2, 124.0, 133.0,
+    for lab, cy in zip(["eQuilibrator", "dGPredictor", "Group Contrib."],
+                       comp_rows):
+        text(ax, LBL_X, cy + 4.56, lab, 12, weight="bold")
+    confluence_arrow(ax, LBL_X, comp_rows, COMP_Y + COMP_H / 2, 127.0, 133.8,
                      BOX_X - GAP, COMP_HUE, alpha=ARROW_A)
 
     # Each kind gets its own box, and each box then feeds the ONE panel where
