@@ -313,7 +313,7 @@ rack is also a metaphor occupying roughly an eighth of the canvas.
 
 | Slot | Drop a file at | Or set |
 |---|---|---|
-| pooled-uncertainty bar chart, 18 × 24.5 mm | `assets/computational_bars.png` | `NAR_BAR_CHART_IMAGE` |
+| pooled-uncertainty bar chart, 15 × 24.5 mm | `assets/computational_bars.png` | `NAR_BAR_CHART_IMAGE` |
 
 The atom-mapping band is filled: molecule captures live in
 [`assets/molecules/`](assets/molecules/) and the equation is laid out by
@@ -329,6 +329,7 @@ not drawn: the panel is about which atom goes where, and the coefficient read
 as part of the panel's title.
 
 **Out to the right, continued:** the Experimental and Computational boxes each
+carry an icon — a flask and a processor — beside their labels, and each
 feed one **ΔG** panel, in their own colour, and the grades are assigned off
 that merged distribution rather than off either kind alone. All four estimator
 arrows leave the rack within its own 45–87 mm span, so each reads as coming

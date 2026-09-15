@@ -487,6 +487,46 @@ def card(ax, x, y, w, h, *, face=SURFACE, edge=RULE, lw=1.0, radius=2.5,
     return p
 
 
+def flask_glyph(ax, cx, cy, h, hue, *, lw=1.2, z=4):
+    """An Erlenmeyer flask, h tall and 0.92h wide, centred on (cx, cy).
+
+    Outline drawn as an OPEN polyline so the mouth stays open, with the liquid
+    as a separate translucent fill: a closed outline would put a lid on it."""
+    def P(pts):
+        return [(cx + px * h, cy + py * h) for px, py in pts]
+    ax.add_patch(Polygon(
+        P([(-0.20, 0.50), (-0.20, 0.08), (-0.46, -0.38), (-0.40, -0.50),
+           (0.40, -0.50), (0.46, -0.38), (0.20, 0.08), (0.20, 0.50)]),
+        closed=False, facecolor="none", edgecolor=hue, linewidth=lw,
+        joinstyle="round", zorder=z))
+    # The liquid's top corners sit ON the sloping wall: the wall runs from
+    # (0.20, 0.08) to (0.46, -0.38), so at y = -0.16 it has reached x = 0.336.
+    ax.add_patch(Polygon(
+        P([(-0.336, -0.16), (-0.46, -0.38), (-0.40, -0.50), (0.40, -0.50),
+           (0.46, -0.38), (0.336, -0.16)]),
+        closed=True, facecolor=hue, edgecolor="none", alpha=0.45, zorder=z))
+    ax.plot(*zip(*P([(-0.29, 0.50), (0.29, 0.50)])), color=hue, lw=lw,
+            solid_capstyle="round", zorder=z)
+
+
+def chip_glyph(ax, cx, cy, h, hue, *, lw=1.2, z=4):
+    """A processor die with legs, h wide and h tall, centred on (cx, cy)."""
+    die, pin, core = 0.34, 0.16, 0.15
+    for f in (-0.18, 0.0, 0.18):
+        ax.plot([cx - (die + pin) * h, cx + (die + pin) * h],
+                [cy + f * h, cy + f * h], color=hue, lw=lw,
+                solid_capstyle="round", zorder=z)
+        ax.plot([cx + f * h, cx + f * h],
+                [cy - (die + pin) * h, cy + (die + pin) * h], color=hue,
+                lw=lw, solid_capstyle="round", zorder=z)
+    ax.add_patch(Rectangle((cx - die * h, cy - die * h), 2 * die * h,
+                           2 * die * h, facecolor=_blend(hue, 0.30),
+                           edgecolor=hue, linewidth=lw, zorder=z))
+    ax.add_patch(Rectangle((cx - core * h, cy - core * h), 2 * core * h,
+                           2 * core * h, facecolor="none", edgecolor=hue,
+                           linewidth=lw * 0.8, zorder=z))
+
+
 def card_down_arrow(ax, x, y, w, h, hue, *, arrow=True, radius=2.5, lw=1.4,
                     shaft=4.0, shaft_l=1.8, head=9.0, head_l=3.4,
                     fill_alpha=None, z=1):
@@ -1715,10 +1755,10 @@ def concept_server_hub(ax):
     # "Group Contrib." is 35.6 mm at 12 pt and still sets the box start: the
     # labels run 104..139.6, so BOX_X cannot come in past ~141.
     LBL_X = SRV_X + SRV_W + GAP
-    BOX_X, BOX_W = 146.0, 39.0
+    BOX_X, BOX_W = 141.5, 46.0
     EXP_Y, EXP_H = 75.0, 12.0
     COMP_Y, COMP_H = 46.0, 27.0
-    PAN_X, PAN_W, PAN_Y, PAN_H = 194.0, 24.0, 45.0, 42.0
+    PAN_X, PAN_W, PAN_Y, PAN_H = 196.0, 21.0, 45.0, 42.0
     PAN_HUE = INK_2
 
     block_arrow(ax, LBL_X, EXP_Y + EXP_H / 2, BOX_X - GAP, EXP_Y + EXP_H / 2,
@@ -1736,17 +1776,24 @@ def concept_server_hub(ax):
     # Each kind gets its own box, and each box then feeds the ONE panel where
     # the estimates are pooled -- the grades are assigned off the merged
     # distribution, not off either source alone.
-    for by, bh, lab, hue in [(EXP_Y, EXP_H, "Experimental", EXP_HUE),
-                             (COMP_Y, COMP_H, "Computational", COMP_HUE)]:
+    # Icon then label, both LEFT aligned rather than centred as a group, so
+    # the two rows line up with each other even though "Experimental" is 3 mm
+    # shorter than "Computational". The box has to be 46 mm for that: 1.8 pad
+    # + 4.6 icon + 2.0 gap + 35.6 label + 1.8 pad.
+    ICON_H, ICON_GAP, ICON_PAD = 4.6, 2.0, 1.8
+    for by, bh, lab, hue, glyph in [
+            (EXP_Y, EXP_H, "Experimental", EXP_HUE, flask_glyph),
+            (COMP_Y, COMP_H, "Computational", COMP_HUE, chip_glyph)]:
         contain(BOX_X, by, BOX_W, bh, f"{lab} box")
         card(ax, BOX_X, by, BOX_W, bh, face=hue, edge="none", alpha=FILL_A,
              radius=2.5)
         card(ax, BOX_X, by, BOX_W, bh, face="none", edge=hue, lw=1.5,
              radius=2.5)
-        text(ax, BOX_X + BOX_W / 2, by + bh / 2, lab, 12, weight="bold",
-             ha="center", va="center", color=hue)
+        glyph(ax, BOX_X + ICON_PAD + ICON_H / 2, by + bh / 2, ICON_H, hue)
+        text(ax, BOX_X + ICON_PAD + ICON_H + ICON_GAP, by + bh / 2, lab, 12,
+             weight="bold", va="center", color=hue)
         block_arrow(ax, BOX_X + BOX_W + GAP, by + bh / 2, PAN_X - GAP,
-                    by + bh / 2, hue, shaft=2.8, head=4.2, head_w=6.0,
+                    by + bh / 2, hue, shaft=2.8, head=4.0, head_w=6.0,
                     alpha=ARROW_A)
 
     # ---- the merged panel: the pooled uncertainty distribution.
