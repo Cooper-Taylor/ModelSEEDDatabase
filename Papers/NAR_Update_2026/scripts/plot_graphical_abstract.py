@@ -1387,7 +1387,7 @@ def _blend(hue, alpha, base=SURFACE):
     return tuple(b[k] + (h[k] - b[k]) * alpha for k in range(3))
 
 
-def influence_arc(ax, x_edge, y_up, y_dn, out, hue, *, tail=3.4, r=2.0,
+def influence_arc(ax, x_edge, y_up, y_dn, out, hue, *, tail=2.6, r=2.0,
                   seal=0.9, tip_over=0.0, fill_alpha=FILL_A, lw=1.2, z=0.6):
     """A ribbon that leaves a box's left edge, drops, and re-enters the box
     below -- drawn so it reads as an extrusion OF the box, not a line beside it.
@@ -1641,13 +1641,15 @@ def concept_server_hub(ax):
     # compounds, compounds compose reactions. They bow out into the 10 mm
     # margin and land on the upper third of the box below, so they read as
     # "feeds into" rather than as a second data flow.
-    # The mouth sits 5.2 mm above the source chip's bottom edge. Half the
-    # ribbon width is 1.7 and the chip's corner radius is 2.5, so 4.2 is the
-    # least that opens onto the STRAIGHT part of the border at all; the extra
-    # millimetre leaves a visible run of border between the lower lip and the
-    # corner, so the lip reads as a lip rather than as the start of the curve.
+    # The middle chip is both a source and a target, and its two junctions were
+    # colliding: the head arriving at the upper third reaches 0.92*tail below
+    # its tip, the mouth leaving reaches tail/2 above its centre, and at a
+    # 3.4 mm ribbon that overlapped by 1.36 mm. The two are 3.47 mm apart, so
+    # the ribbon has to stay under (3.47 - clearance)/1.42 -- 2.6 leaves 0.57.
+    # The mouth then only needs 4.4 mm of height above the chip's bottom edge
+    # to keep its lower lip off the 2.5 mm corner radius.
     for cy_up, cy_dn in zip(ys[:-1], ys[1:]):
-        influence_arc(ax, CHIP_X, cy_up - CHIP_H / 2 + 5.2,
+        influence_arc(ax, CHIP_X, cy_up - CHIP_H / 2 + 4.4,
                       cy_dn + CHIP_H / 2 - CHIP_H / 3, CHIP_X - 7.0, IN_HUE)
 
     # ---- the hub
