@@ -228,6 +228,11 @@ SCREENSHOT_CROP = (0.3140, 0.7300, 0.3784, 0.5521)
 ATOM_MAP_IMAGE = Path(os.environ.get(
     "NAR_ATOM_MAP_IMAGE",
     ROOT / "assets" / "atom_mapping_capture.png"))
+# server_hub also reserves a slot in the Computational box for a small bar
+# chart of per-estimator coverage.
+BAR_CHART_IMAGE = Path(os.environ.get(
+    "NAR_BAR_CHART_IMAGE",
+    ROOT / "assets" / "computational_bars.png"))
 _atom_map_dpi: list[float] = []
 # The whole equation is 3.70:1 -- in a ~49 mm panel that is 11 mm tall and each
 # structure lands at 8 mm. So the four participants are cut out INDIVIDUALLY and
@@ -1330,14 +1335,15 @@ def block_arrow(ax, x0, y0, x1, y1, color, *, shaft=5.0, head=9.0, head_w=None,
                              alpha=alpha, zorder=z))
 
 
-def paste_slot(ax, x, y, w, h, hue, label):
+def paste_slot(ax, x, y, w, h, hue, label, img=None):
     """A deliberately empty, labelled region for artwork we do not have yet.
 
     Distinct from tbd(): tbd() marks a NUMBER the manuscript has not settled,
     this marks a PICTURE someone still has to drop in. If ATOM_MAP_IMAGE exists
     the picture is placed instead and the slot disappears."""
-    if ATOM_MAP_IMAGE.exists():
-        img = mpimg.imread(ATOM_MAP_IMAGE)
+    src = ATOM_MAP_IMAGE if img is None else img
+    if src.exists():
+        img = mpimg.imread(src)
         ih, iw = img.shape[0], img.shape[1]
         scale = min(w / iw, h / ih)
         dw, dh = iw * scale, ih * scale
@@ -1357,54 +1363,74 @@ def paste_slot(ax, x, y, w, h, hue, label):
 def concept_server_hub(ax):
     """The hand-sketched layout: the database as a hub.
 
-    NO COUNTS. Every number was stripped on request -- this is a structure
-    diagram, and the counts live in the other concepts and in Table 2.
+    NO COUNTS -- a structure diagram; the counts live in the other concepts.
 
-    SPACING IS DERIVED, NOT TYPED. Every gap between an arrow tip and the thing
-    it touches is GAP; every row group is centred on HUB_CY. Hand-typed offsets
-    had drifted to 0.5, 1.0, 1.5 and 2.0 mm in different places, which reads as
-    sloppy at print size and is invisible while editing.
+    SPACING IS DERIVED. Every arrow-to-object clearance is GAP and every row
+    group is centred on HUB_CY. Hand-typed offsets had drifted to four
+    different values before this was pulled out.
+
+    COLOUR. Only the four validated stage hues are used (slots 1/2/3/7, all
+    pairs PASS). The three inputs deliberately SHARE one hue: they are one
+    family -- structures compose compounds, which compose reactions -- and the
+    semicircular arcs carry that sequence. Giving them three hues needed a
+    second blue that failed the normal-vision floor against the first
+    (ΔE 14.7), and it also consumed the orange that the experimental arrow
+    needs to stand apart from the three computational ones.
     """
     text(ax, W / 2, H - 9.0, "ModelSEED Biochemistry Database  —  2026 update",
          16, weight="bold", ha="center")
 
-    GAP = 2.0                 # the ONLY arrow-to-object clearance in this figure
-    HUB_CY = 62.0             # every row group is centred on this
+    GAP = 2.0
+    HUB_CY = 62.0
+    IN_HUE = STAGES["mol"]            # the three database-content inputs
+    EXP_HUE = STAGES["rxn"]           # OpenTECR, and the Experimental box
+    COMP_HUE = STAGES["thermo"]       # the three estimators, and Computational
     SRV_X, SRV_W, SRV_H = 78.0, 34.0, 44.0
     SRV_Y = HUB_CY - SRV_H / 2
 
     def rows(n, pitch):
-        """n row centres, evenly pitched, centred on HUB_CY."""
         return [HUB_CY + (n - 1) / 2 * pitch - i * pitch for i in range(n)]
 
-    # ---- left: what goes IN
-    in_rows = [("MOLECULES", STAGES["mol"], "ring"),
-               ("REACTIONS", STAGES["rxn"], "rxn"),
-               ("STRUCTURES", STRUCT_HUE, "chain")]
-    CHIP_X, CHIP_W, CHIP_H = 4.0, 48.0, 14.0
-    for (lab, hue, glyph), cy in zip(in_rows, rows(3, 14.0)):
+    # ---- left: structures -> compounds -> reactions
+    CHIP_X, CHIP_W, CHIP_H = 10.0, 48.0, 14.0
+    in_rows = [("STRUCTURES", "chain"), ("COMPOUNDS", "ring"),
+               ("REACTIONS", "rxn")]
+    ys = rows(3, 14.0)
+    for (lab, glyph), cy in zip(in_rows, ys):
         contain(CHIP_X, cy - CHIP_H / 2, CHIP_W, CHIP_H, f"{lab} chip")
-        card(ax, CHIP_X, cy - CHIP_H / 2, CHIP_W, CHIP_H, face=hue, edge="none",
-             alpha=FILL_A, radius=2.5)
-        card(ax, CHIP_X, cy - CHIP_H / 2, CHIP_W, CHIP_H, face="none", edge=hue,
-             lw=1.4, radius=2.5)
+        card(ax, CHIP_X, cy - CHIP_H / 2, CHIP_W, CHIP_H, face=IN_HUE,
+             edge="none", alpha=FILL_A, radius=2.5)
+        card(ax, CHIP_X, cy - CHIP_H / 2, CHIP_W, CHIP_H, face="none",
+             edge=IN_HUE, lw=1.4, radius=2.5)
+        gx = CHIP_X + 6.4
         if glyph == "ring":
-            molecule_glyph(ax, 10.4, cy, 2.7, hue, kind="ring")
+            molecule_glyph(ax, gx, cy, 2.7, IN_HUE, kind="ring")
         elif glyph == "chain":
-            molecule_glyph(ax, 10.4, cy, 2.3, hue, kind="chain")
+            molecule_glyph(ax, gx, cy, 2.3, IN_HUE, kind="chain")
         else:
-            molecule_glyph(ax, 7.6, cy, 1.6, hue, kind="ring")
-            equilibrium(ax, 10.4, cy, w=2.2)
-            molecule_glyph(ax, 13.2, cy, 1.6, hue, kind="chain")
-        text(ax, 17.0, cy, lab, 12, weight="bold")
-        block_arrow(ax, CHIP_X + CHIP_W + GAP, cy, SRV_X - GAP, cy, hue,
+            molecule_glyph(ax, gx - 2.8, cy, 1.6, IN_HUE, kind="ring")
+            equilibrium(ax, gx, cy, w=2.2)
+            molecule_glyph(ax, gx + 2.8, cy, 1.6, IN_HUE, kind="chain")
+        text(ax, CHIP_X + 13.0, cy, lab, 12, weight="bold")
+        block_arrow(ax, CHIP_X + CHIP_W + GAP, cy, SRV_X - GAP, cy, IN_HUE,
                     shaft=4.2, head=7.0, alpha=ARROW_A)
+
+    # Semicircular influence arcs down the LEFT edge: structures compose
+    # compounds, compounds compose reactions. They bow out into the 10 mm
+    # margin and land on the upper third of the box below, so they read as
+    # "feeds into" rather than as a second data flow.
+    for cy_up, cy_dn in zip(ys[:-1], ys[1:]):
+        ax.add_patch(FancyArrowPatch(
+            (CHIP_X, cy_up - CHIP_H / 4), (CHIP_X, cy_dn + CHIP_H / 6),
+            connectionstyle="arc3,rad=0.95", arrowstyle="-|>",
+            mutation_scale=13, linewidth=1.8, color=INK_2, zorder=5,
+            shrinkA=1.0, shrinkB=1.0))
 
     # ---- the hub
     server_rack(ax, SRV_X, SRV_Y, SRV_W, SRV_H)
 
     # ---- bottom: atom mapping
-    ATOM_X, ATOM_W, ATOM_Y, ATOM_H = 45.0, 161.0, 2.0, 23.0
+    ATOM_X, ATOM_W, ATOM_Y, ATOM_H = 45.0, 157.0, 2.0, 23.0
     block_arrow(ax, SRV_X + SRV_W / 2, SRV_Y - GAP, SRV_X + SRV_W / 2,
                 ATOM_Y + ATOM_H + GAP, STAGES["atom"], shaft=5.0, head=5.5,
                 head_w=13.0, alpha=ARROW_A)
@@ -1418,40 +1444,50 @@ def concept_server_hub(ax):
     paste_slot(ax, ATOM_X + 5.0, ATOM_Y + 3.0, ATOM_W - 10.0, ATOM_H - 11.5,
                STAGES["atom"], "paste atom-mapping capture here")
 
-    # ---- right: the four sources, then one prediction, then the grades
-    DG_CX, DG_CY, DG_A, DG_B = 182.0, HUB_CY, 20.0, 17.0
+    # ---- right: one experimental source, three computational ones
+    # "Group contribution" is 46.2 mm at 12 pt and sets where the boxes start.
+    BOX_X, BOX_W = 162.0, 40.0
+    EXP_Y, EXP_H = 71.0, 14.0
+    COMP_Y, COMP_H = 34.0, 35.0
 
-    def _ellipse_x(y, side):
-        """x of the ellipse boundary at height y. side = -1 left, +1 right."""
-        t = (y - DG_CY) / DG_B
-        return DG_CX + side * DG_A * math.sqrt(max(0.0, 1.0 - t * t))
+    block_arrow(ax, SRV_X + SRV_W + GAP, EXP_Y + EXP_H / 2, BOX_X - GAP,
+                EXP_Y + EXP_H / 2, EXP_HUE, shaft=3.6, head=6.4, alpha=ARROW_A)
+    text(ax, SRV_X + SRV_W + GAP, EXP_Y + EXP_H / 2 + 4.6, "OpenTECR", 12,
+         weight="bold", color=EXP_HUE)
 
-    srcs = ["eQuilibrator", "dGPredictor", "TECRDB", "Group contribution"]
-    for lab, cy in zip(srcs, rows(4, 10.0)):
-        block_arrow(ax, SRV_X + SRV_W + GAP, cy, _ellipse_x(cy, -1) - GAP, cy,
-                    STAGES["thermo"], shaft=3.6, head=6.4, alpha=ARROW_A)
+    comp_rows = [COMP_Y + COMP_H * f for f in (0.86, 0.55, 0.24)]
+    for lab, cy in zip(["eQuilibrator", "dGPredictor", "Group contribution"],
+                       comp_rows):
+        block_arrow(ax, SRV_X + SRV_W + GAP, cy, BOX_X - GAP, cy, COMP_HUE,
+                    shaft=3.6, head=6.4, alpha=ARROW_A)
         text(ax, SRV_X + SRV_W + GAP, cy + 4.6, lab, 12, weight="bold")
 
-    # zorder above the arrows: the grade arrows are drawn after the oval, so at
-    # equal zorder they painted over it.
-    ax.add_patch(Ellipse((DG_CX, DG_CY), 2 * DG_A, 2 * DG_B,
-                         facecolor=STAGES["thermo"], edgecolor="none",
-                         alpha=FILL_A, zorder=6))
-    ax.add_patch(Ellipse((DG_CX, DG_CY), 2 * DG_A, 2 * DG_B, facecolor="none",
-                         edgecolor=STAGES["thermo"], linewidth=1.6, zorder=7))
-    # Label INSIDE, in ink. "ΔG PREDICTIONS" is 40.6 mm on one line at 12 pt
-    # and will not fit any oval worth calling small; broken over two lines the
-    # widest row is "PREDICTIONS" at 32.3 mm, which sets the 40 mm width above.
-    contain(DG_CX - DG_A, DG_CY - DG_B, 2 * DG_A, 2 * DG_B, "ΔG oval",
-            ellipse=True)
-    text(ax, DG_CX, DG_CY, "ΔG\nPREDICTIONS", 12, weight="bold", ha="center",
-         va="center", color=INK, zorder=8, linespacing=1.45)
+    for (bx, by, bw, bh, lab, hue) in [
+            (BOX_X, EXP_Y, BOX_W, EXP_H, "Experimental", EXP_HUE),
+            (BOX_X, COMP_Y, BOX_W, COMP_H, "Computational", COMP_HUE)]:
+        contain(bx, by, bw, bh, f"{lab} box")
+        card(ax, bx, by, bw, bh, face=hue, edge="none", alpha=FILL_A,
+             radius=2.5)
+        card(ax, bx, by, bw, bh, face="none", edge=hue, lw=1.5, radius=2.5)
+        text(ax, bx + bw / 2, by + bh - 5.0, lab, 12, weight="bold",
+             ha="center", color=hue)
+    # room for a bar chart of per-estimator coverage, pasted later
+    paste_slot(ax, BOX_X + 4.0, COMP_Y + 3.0, BOX_W - 8.0, COMP_H - 12.0,
+               COMP_HUE, "bar chart", img=BAR_CHART_IMAGE)
 
+    # A rail so all three grades read as drawing on BOTH boxes, rather than
+    # gold appearing to come from the experimental box it happens to sit beside.
+    RAIL_X = BOX_X + BOX_W + GAP
+    card(ax, RAIL_X, COMP_Y + 2.0, 1.8, (EXP_Y + EXP_H) - COMP_Y - 4.0,
+         face=INK_MUTED, edge="none", radius=0.9, alpha=0.55)
+
+    # ---- classification
+    GR_X, GR_W, GR_H = 218.0, 32.0, 14.0
     grades = [("GOLD", GRADE_RAMP[0]), ("SILVER", GRADE_RAMP[1]),
               ("BRONZE", GRADE_RAMP[2])]
-    GR_X, GR_W, GR_H = 222.0, 28.0, 14.0
-    for (lab, col), cy in zip(grades, rows(3, 14.0)):
-        block_arrow(ax, _ellipse_x(cy, +1) + GAP, cy, GR_X - GAP, cy, col,
+    stack_cy = (COMP_Y + EXP_Y + EXP_H) / 2
+    for (lab, col), cy in zip(grades, [stack_cy + 14.0, stack_cy, stack_cy - 14.0]):
+        block_arrow(ax, RAIL_X + 1.8 + GAP, cy, GR_X - GAP, cy, col,
                     shaft=3.2, head=5.2, alpha=ARROW_A)
         contain(GR_X, cy - GR_H / 2, GR_W, GR_H, f"{lab} chip")
         card(ax, GR_X, cy - GR_H / 2, GR_W, GR_H, face=col, edge="none",
@@ -1460,6 +1496,8 @@ def concept_server_hub(ax):
              lw=1.5, radius=2.5)
         text(ax, GR_X + GR_W / 2, cy, lab, 12, weight="bold", color=col,
              ha="center")
+    text(ax, GR_X + GR_W / 2, stack_cy + 14.0 + GR_H / 2 + 5.0,
+         "Classification", 12, weight="bold", ha="center", color=INK)
 
 
 CONCEPTS = {

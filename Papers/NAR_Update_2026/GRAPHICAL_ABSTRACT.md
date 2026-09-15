@@ -270,38 +270,40 @@ real miniature visuals to earn their space. Thermodynamics gets one line.
 
 ![](latex/figures/ga_server_hub/graphical_abstract_server_hub.png)
 
-The database as a physical hub. Molecules, reactions and structures arrive from
-the left; atom mapping drops out of the bottom; the four ΔrG′° estimators fan
-out to the right and converge on one oval, and that prediction is graded gold /
-silver / bronze.
+The database as a physical hub.
 
-The oval is 40 × 34 mm, sized by its own label: "ΔG PREDICTIONS" is 40.6 mm on
-one line at the 12 pt floor, so it is set over two lines and the 32.3 mm
-"PREDICTIONS" row fixes the width. Every arrow meets the curve at the boundary
-computed for its own height, which is what makes four parallel arrows read as
-converging rather than as stopping at a shared vertical line.
+**In, from the left:** structures → compounds → reactions, stacked in that
+order, with semicircular arcs down their left edges showing that each composes
+the next. They share one hue because they are one family; the arcs carry the
+sequence.
+
+**Out of the bottom:** atom mapping.
+
+**Out to the right:** the ΔrG′° estimators, split by kind. OpenTECR is
+experimental and is drawn in its own colour into an **Experimental** box; the
+three computed estimators run into a **Computational** box. Both feed a rail,
+and from it the reactions are sorted into a **Classification** of gold / silver
+/ bronze.
 
 Closest of all the candidates to how the update is actually organised, and the
-only one that shows the grading as a *consequence* of having four independent
-estimators rather than as a fourth unrelated topic. The rack is a literal
-picture of "the database", which makes the inbound/outbound reading immediate
-without a legend.
+only one that shows the grading as a *consequence* of the evidence behind each
+number rather than as a fourth unrelated topic. Separating experimental from
+computational is the point: it is why a grade exists at all.
 
-Costs: it carries **no data at all**. Counts were stripped on request, so this
-is a structure diagram — it says what the update contains and how the pieces
-connect, but nothing about how much of anything there is, and nothing about
-2020. Concepts A and C carry the growth story; this one does not. The rack is
-also a metaphor occupying roughly an eighth of the canvas.
+Costs: it carries **no data**. Counts were stripped on request, so this says
+what the update contains and how the pieces connect, but nothing about how much
+of anything there is, and nothing about 2020 — concepts A and C carry that. The
+rack is also a metaphor occupying roughly an eighth of the canvas.
 
-If numbers are wanted back, they were previously drawn beside each input chip,
-each source arrow and each grade chip, all read from `data/msdb_counts.tsv` —
-`git show` the commit that added this concept.
+**Placeholders — two slots, both reported in `_stats.tsv` rather than invented:**
 
-**Placeholders:** the atom-mapping illustration. The band reserves a 152 × 15 mm
-slot for a capture from the web UI; drop a file at
-`assets/atom_mapping_capture.png` (or set `NAR_ATOM_MAP_IMAGE`) and re-run, and
-it is placed and scaled automatically. Until then the slot is drawn dashed and
-`_stats.tsv` records it as `atom_map_image  EMPTY SLOT`.
+| Slot | Drop a file at | Or set |
+|---|---|---|
+| atom-mapping capture, 147 × 12 mm | `assets/atom_mapping_capture.png` | `NAR_ATOM_MAP_IMAGE` |
+| per-estimator bar chart, 32 × 23 mm | `assets/computational_bars.png` | `NAR_BAR_CHART_IMAGE` |
+
+Both are placed and scaled automatically on the next run; until then each is
+drawn as a dashed slot.
 
 ### G — Sankey of sources into the database *(no mockup yet)*
 
