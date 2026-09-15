@@ -99,6 +99,7 @@ import matplotlib.pyplot as plt
 from matplotlib.colors import to_rgb
 from matplotlib.path import Path as MplPath
 import matplotlib.image as mpimg
+import numpy as np
 from matplotlib.patches import (Circle, Ellipse, FancyArrowPatch,
                                 FancyBboxPatch,
                                 Polygon, Rectangle)
@@ -903,13 +904,16 @@ def ui_capture(ax, x, y, w, hue, *, radius=1.5, crop=None,
     return h
 
 
-def equilibrium(ax, cx, cy, w=4.4, color=INK_2):
-    """Reversible-reaction symbol as two offset half-arrows."""
-    for dy, x0, x1 in ((0.7, -1, 1), (-0.7, 1, -1)):
+def equilibrium(ax, cx, cy, w=4.4, color=INK_2, *, lw=1.0, ms=5, sep=0.7):
+    """Reversible-reaction symbol as two offset half-arrows.
+
+    Defaults are the small inline size used inside the input chips; pass lw/ms/
+    sep up for a standalone symbol in an equation."""
+    for dy, x0, x1 in ((sep, -1, 1), (-sep, 1, -1)):
         ax.add_patch(FancyArrowPatch((cx + x0 * w / 2, cy + dy),
                                      (cx + x1 * w / 2, cy + dy),
-                                     arrowstyle="-|>", mutation_scale=5,
-                                     linewidth=1.0, color=color, zorder=4,
+                                     arrowstyle="-|>", mutation_scale=ms,
+                                     linewidth=lw, color=color, zorder=4,
                                      shrinkA=0, shrinkB=0))
 
 
@@ -1454,6 +1458,72 @@ def influence_arc(ax, x_edge, y_up, y_dn, out, hue, *, tail=3.4, r=2.0,
                            zorder=4))
 
 
+# Source captures live in assets/, not in a figure OUTPUT directory --
+# latex/figures/<row>/ is rewritten by scripts/regen_figures.py.
+MOLECULE_DIR = Path(os.environ.get("NAR_MOLECULE_DIR",
+                                   ROOT / "assets" / "molecules"))
+_molecules_used: list[str] = []
+
+
+def _molecule(name):
+    """Load a molecule capture and key out its background.
+
+    The captures are opaque -- white surround, light-grey plate -- which would
+    read as three grey tiles sitting on the figure surface. Everything above a
+    luminance threshold becomes transparent, leaving only the bonds and atom
+    labels. The atom colouring IS the atom mapping, so nothing that carries
+    meaning is near that threshold."""
+    img = mpimg.imread(MOLECULE_DIR / f"{name}.png")
+    if img.shape[2] == 3:
+        img = np.dstack([img, np.ones(img.shape[:2])])
+    img = img.copy()
+    lum = img[..., :3].mean(axis=2)
+    img[..., 3] = np.where(lum > 0.93, 0.0, img[..., 3])
+    _molecules_used.append(name)
+    return img
+
+
+def molecule_image(ax, img, cx, cy, h, *, z=4):
+    """Place a keyed molecule centred on (cx, cy) at height h. Returns width."""
+    w = h * img.shape[1] / img.shape[0]
+    ax.imshow(img, extent=(cx - w / 2, cx + w / 2, cy - h / 2, cy + h / 2),
+              aspect="auto", interpolation="antialiased", zorder=z)
+    return w
+
+
+def reaction_equation(ax, x0, x1, cy, h, items, *, color=INK):
+    """Lay out `items` left to right, centred in [x0, x1] at height cy.
+
+    Items are ("mol", image), ("txt", string) or ("eq", None). Widths are
+    measured first and the whole run is centred, so adding a species does not
+    silently push the equation off its panel."""
+    GAPS = {"mol": 2.6, "txt": 1.6, "eq": 3.2}
+    EQ_W = 11.0
+    widths = []
+    for kind, val in items:
+        if kind == "mol":
+            widths.append(h * val.shape[1] / val.shape[0])
+        elif kind == "eq":
+            widths.append(EQ_W)
+        else:
+            widths.append(len(val) * 2.6)
+    gaps = [GAPS[k] for k, _ in items[:-1]]
+    total = sum(widths) + sum(gaps)
+    cx = (x0 + x1) / 2 - total / 2
+    for i, (kind, val) in enumerate(items):
+        w = widths[i]
+        if kind == "mol":
+            molecule_image(ax, val, cx + w / 2, cy, h)
+        elif kind == "eq":
+            equilibrium(ax, cx + w / 2, cy, w=EQ_W, color=color, lw=2.4, ms=13,
+                        sep=1.7)
+        else:
+            text(ax, cx + w / 2, cy, val, 14, weight="bold", ha="center",
+                 va="center", color=color, check=False)
+        cx += w + (gaps[i] if i < len(gaps) else 0.0)
+    return total
+
+
 def cartoon_histogram(ax, x, y, w, h, hue, values, *, gap=0.22):
     """A shape, not a chart: bars only, no axis, no ticks, no labels.
 
@@ -1550,10 +1620,22 @@ def concept_server_hub(ax):
          alpha=0.09, radius=2.5)
     card(ax, ATOM_X, ATOM_Y, ATOM_W, ATOM_H, face="none", edge=STAGES["atom"],
          lw=1.4, radius=2.5)
-    text(ax, ATOM_X + 5.0, ATOM_Y + ATOM_H - 4.8, "ATOM MAPPING", 12,
-         weight="bold", color=STAGES["atom"])
-    paste_slot(ax, ATOM_X + 5.0, ATOM_Y + 3.0, ATOM_W - 10.0, ATOM_H - 11.5,
-               STAGES["atom"], "paste atom-mapping capture here")
+    # Label on the LEFT so the equation gets the panel's full height; the
+    # molecule captures are square and were being squeezed under a header.
+    text(ax, ATOM_X + 5.0, ATOM_Y + ATOM_H / 2, "ATOM MAPPING", 12,
+         weight="bold", color=STAGES["atom"], va="center")
+    if ATOM_MAP_IMAGE.exists():
+        paste_slot(ax, ATOM_X + 46.0, ATOM_Y + 3.0, ATOM_W - 51.0,
+                   ATOM_H - 6.0, STAGES["atom"], "atom mapping")
+    else:
+        # 2 glyoxylate <=> CO2 + tartronate semialdehyde. The atom colouring in
+        # the captures is the mapping itself, which is the point of the panel.
+        reaction_equation(
+            ax, ATOM_X + 46.0, ATOM_X + ATOM_W - 4.0, ATOM_Y + ATOM_H / 2,
+            20.0,
+            [("txt", "2"), ("mol", _molecule("Glyoxalate")), ("eq", None),
+             ("mol", _molecule("CO2")), ("txt", "+"),
+             ("mol", _molecule("Tartronate Semialdehyde"))])
 
     # ---- right: one experimental source, three computational ones
     # "Group contribution" is 46.2 mm at 12 pt and sets where the boxes start.
@@ -1680,6 +1762,9 @@ def main() -> int:
             fh.write(f"ui_capture_dpi\t{d:.0f}\tsource pixels at the placed "
                      f"size; {'clears' if d >= 300 else 'BELOW'} NAR's 300 dpi "
                      "floor for colour half-tones\n")
+        fh.write(f"atom_mapping_reaction\t2 glyoxylate <=> CO2 + tartronate "
+                 f"semialdehyde\tmolecule captures: "
+                 f"{', '.join(_molecules_used) if _molecules_used else 'none'}\n")
         fh.write(f"eq_sigma_cartoon\t{len(EQ_SIGMA_CARTOON)} bars\tCARTOON, not "
                  "data: silhouette traced from panel C chart 1 of "
                  "figures/main_figures_draft.pdf, no axis or scale drawn\n")

@@ -282,7 +282,10 @@ beside it. Target look:
 [`assets/sketch_arrow_example.png`](assets/sketch_arrow_example.png). They share one
 hue because they are one family; the ribbons carry the sequence.
 
-**Out of the bottom:** atom mapping.
+**Out of the bottom:** atom mapping, shown as a worked reaction —
+2 glyoxylate ⇌ CO₂ + tartronate semialdehyde. The three molecule captures carry
+the per-atom colouring, which *is* the mapping; that is why the panel shows
+structures rather than a count.
 
 **Out to the right:** the ΔrG′° estimators, split by kind. OpenTECR is
 experimental and is drawn in its own colour into an **Experimental** box; the
@@ -304,10 +307,13 @@ rack is also a metaphor occupying roughly an eighth of the canvas.
 
 | Slot | Drop a file at | Or set |
 |---|---|---|
-| atom-mapping capture, 147 × 12 mm | `assets/atom_mapping_capture.png` | `NAR_ATOM_MAP_IMAGE` |
 | per-estimator bar chart, 31 × 21 mm | `assets/computational_bars.png` | `NAR_BAR_CHART_IMAGE` |
 
-The atom-mapping slot is drawn dashed until a file appears. The Computational
+The atom-mapping band is filled: molecule captures live in
+[`assets/molecules/`](assets/molecules/) and the equation is laid out by
+`reaction_equation()`, which measures every item before placing so adding a
+species cannot silently push it off the panel. A full-width capture at
+`NAR_ATOM_MAP_IMAGE` still overrides the whole band. The Computational
 box instead holds a **cartoon** of eQuilibrator's reported-uncertainty
 distribution — silhouette traced from the vector data of panel C, chart 1, of
 [`figures/main_figures_draft.pdf`](figures/main_figures_draft.pdf): 30 bars over
