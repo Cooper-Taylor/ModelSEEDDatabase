@@ -527,6 +527,31 @@ def chip_glyph(ax, cx, cy, h, hue, *, lw=1.2, z=4):
                            linewidth=lw * 0.8, zorder=z))
 
 
+def merge_arrow(ax, x0, rows, xc, xtip, cy, color, *, shaft=2.8, funnel=2.2,
+                trunk=5.0, head=4.0, head_hw=5.5, alpha=1.0, z=2):
+    """Parallel shafts from x0, collected at xc into ONE arrowhead at xtip.
+
+    Built as a single closed polygon, notches and all, rather than N arrows
+    plus a separately placed head: the gaps between the shafts are part of the
+    same outline, so nothing can drift out of register when a row moves.
+
+    The trace runs right along the top shaft, funnels in to the trunk, out to
+    the tip, back along the bottom shaft, then works up the left side cutting
+    one notch per adjacent pair -- which closes on the starting point.
+    """
+    r = sorted(rows)
+    hi, lo = r[-1] + shaft / 2, r[0] - shaft / 2
+    xt, xh = xc + funnel, xtip - head
+    p = [(x0, hi), (xc, hi), (xt, cy + trunk / 2), (xh, cy + trunk / 2),
+         (xh, cy + head_hw), (xtip, cy), (xh, cy - head_hw),
+         (xh, cy - trunk / 2), (xt, cy - trunk / 2), (xc, lo), (x0, lo)]
+    for lower, upper in zip(r[:-1], r[1:]):
+        p += [(x0, lower + shaft / 2), (xc, lower + shaft / 2),
+              (xc, upper - shaft / 2), (x0, upper - shaft / 2)]
+    ax.add_patch(Polygon(p, closed=True, facecolor=color, edgecolor="none",
+                         alpha=alpha, zorder=z))
+
+
 def card_down_arrow(ax, x, y, w, h, hue, *, arrow=True, radius=2.5, lw=1.4,
                     shaft=4.0, shaft_l=1.8, head=9.0, head_l=3.4,
                     fill_alpha=None, z=1):
@@ -1624,15 +1649,12 @@ def concept_server_hub(ax):
     (ΔE 14.7), and it also consumed the orange that the experimental arrow
     needs to stand apart from the three computational ones.
     """
-    text(ax, W / 2, H - 9.0, "ModelSEED Biochemistry Database  —  2026 update",
-         16, weight="bold", ha="center")
-
     GAP = 2.0
     HUB_CY = 66.0
     IN_HUE = STAGES["mol"]            # the three database-content inputs
     EXP_HUE = STAGES["rxn"]           # OpenTECR, and the Experimental box
     COMP_HUE = STAGES["thermo"]       # the three estimators, and Computational
-    SRV_X, SRV_W, SRV_H = 65.0, 34.0, 42.0
+    SRV_X, SRV_W, SRV_H = 58.0, 34.0, 42.0
     SRV_Y = HUB_CY - SRV_H / 2
 
     def rows(n, pitch):
@@ -1643,7 +1665,7 @@ def concept_server_hub(ax):
     # the "composes" sequence is carried by the boxes themselves. Pitch 17 on
     # an 11 mm box leaves a 6 mm gap, which the 1.8 + 3.4 mm arrow clears with
     # 0.8 to spare. The top box then reaches y 88.5, just under the title.
-    CHIP_X, CHIP_W, CHIP_H = 3.0, 48.0, 11.0
+    CHIP_X, CHIP_W, CHIP_H = 2.0, 47.0, 11.0
     in_rows = [("STRUCTURES", "chain"), ("COMPOUNDS", "ring"),
                ("REACTIONS", "rxn")]
     ys = rows(3, 17.0)
@@ -1671,7 +1693,7 @@ def concept_server_hub(ax):
             molecule_glyph(ax, nx, cy, s_c, IN_HUE, kind="chain")
         text(ax, CHIP_X + 13.0, cy, lab, 12, weight="bold")
         block_arrow(ax, CHIP_X + CHIP_W + GAP, cy, SRV_X - GAP, cy, IN_HUE,
-                    shaft=4.2, head=7.0, alpha=ARROW_A)
+                    shaft=4.2, head=4.6, head_w=7.0, alpha=ARROW_A)
 
     # ---- the hub
     server_rack(ax, SRV_X, SRV_Y, SRV_W, SRV_H)
@@ -1766,7 +1788,8 @@ def concept_server_hub(ax):
     LBL_X = SRV_X + SRV_W + GAP
     BOX_X, BOX_W = 140.0, 44.0
     EXP_Y, EXP_H = 75.0, 12.0
-    COMP_Y, COMP_H = 46.0, 27.0
+    COMP_Y, COMP_H = 54.5, 12.0        # same size as Experimental
+    MERGE_X = 131.5                    # 1.9 mm clear of "Group Contrib."
     PAN_X, PAN_W, PAN_Y, PAN_H = 192.0, 21.0, 45.0, 42.0
     PAN_HUE = INK_2
 
@@ -1775,12 +1798,18 @@ def concept_server_hub(ax):
     text(ax, LBL_X, EXP_Y + EXP_H / 2 + 4.4, "OpenTECR", 12,
          weight="bold", color=EXP_HUE)
 
-    comp_rows = [COMP_Y + COMP_H * f for f in (0.87, 0.54, 0.21)]
+    # The three estimators run out as separate shafts and merge into one arrow,
+    # so the box they enter can be the same small size as Experimental instead
+    # of being stretched to catch three heads. The shafts stay spread over the
+    # rack's height because that is where they come from; only the collector
+    # has to clear the labels, and at 131.5 it clears the longest of them
+    # ("Group Contrib.", ending at 129.6) by 1.9 mm.
+    comp_rows = [69.5, 60.5, 51.5]
     for lab, cy in zip(["eQuilibrator", "dGPredictor", "Group Contrib."],
                        comp_rows):
-        block_arrow(ax, LBL_X, cy, BOX_X - GAP, cy, COMP_HUE, shaft=2.8,
-                    head=5.2, alpha=ARROW_A)
         text(ax, LBL_X, cy + 4.4, lab, 12, weight="bold")
+    merge_arrow(ax, LBL_X, comp_rows, MERGE_X, BOX_X - GAP,
+                COMP_Y + COMP_H / 2, COMP_HUE, alpha=ARROW_A)
 
     # Each kind gets its own box, and each box then feeds the ONE panel where
     # the estimates are pooled -- the grades are assigned off the merged
