@@ -528,7 +528,7 @@ def chip_glyph(ax, cx, cy, h, hue, *, lw=1.2, z=4):
 
 
 def confluence_arrow(ax, x0, rows, mid, xb, xj, xtip, color, *, shaft=2.8,
-                     head=5.2, head_hw=2.6, alpha=1.0, z=2):
+                     head=4.8, head_hw=2.4, alpha=1.0, z=2):
     """A straight middle shaft that the outer shafts curve into.
 
     Each outer arm runs horizontally to xb, then crosses to the middle line by
@@ -1667,6 +1667,11 @@ def concept_server_hub(ax):
     """
     GAP = 2.0
     HUB_CY = 66.0
+    # ONE head for every arrow in the figure, and one shaft. 4.8 is the
+    # largest that every run can hold: the shortest are the chip-to-rack and
+    # box-to-panel hops at 5.5 mm, and the box pitch, whose 7.5 mm gap has to
+    # take 1.8 of shaft, the head, and 0.9 of clearance.
+    HEAD, SHAFT = 4.8, 2.8
     IN_HUE = STAGES["mol"]            # the three database-content inputs
     EXP_HUE = STAGES["rxn"]           # OpenTECR, and the Experimental box
     COMP_HUE = STAGES["thermo"]       # the three estimators, and Computational
@@ -1681,14 +1686,15 @@ def concept_server_hub(ax):
     # the "composes" sequence is carried by the boxes themselves. Pitch 17 on
     # an 11 mm box leaves a 6 mm gap, which the 1.8 + 3.4 mm arrow clears with
     # 0.8 to spare. The top box then reaches y 88.5, just under the title.
-    CHIP_X, CHIP_W, CHIP_H = 2.0, 47.0, 11.0
+    CHIP_X, CHIP_W, CHIP_H = 2.0, 46.5, 11.0
     in_rows = [("STRUCTURES", "chain"), ("COMPOUNDS", "ring"),
                ("REACTIONS", "rxn")]
-    ys = rows(3, 17.0)
+    ys = rows(3, 18.5)
     for i, ((lab, glyph), cy) in enumerate(zip(in_rows, ys)):
         contain(CHIP_X, cy - CHIP_H / 2, CHIP_W, CHIP_H, f"{lab} chip")
         card_down_arrow(ax, CHIP_X, cy - CHIP_H / 2, CHIP_W, CHIP_H, IN_HUE,
-                        arrow=i < len(in_rows) - 1)
+                        arrow=i < len(in_rows) - 1, shaft=SHAFT,
+                        head=HEAD, head_l=HEAD)
         gx = CHIP_X + 6.4
         if glyph == "ring":
             molecule_glyph(ax, gx, cy, 2.7, IN_HUE, kind="ring")
@@ -1709,7 +1715,7 @@ def concept_server_hub(ax):
             molecule_glyph(ax, nx, cy, s_c, IN_HUE, kind="chain")
         text(ax, CHIP_X + 13.0, cy, lab, 12, weight="bold")
         block_arrow(ax, CHIP_X + CHIP_W + GAP, cy, SRV_X - GAP, cy, IN_HUE,
-                    shaft=4.2, head=4.0, head_w=6.0, alpha=ARROW_A)
+                    shaft=SHAFT, head=HEAD, head_w=HEAD, alpha=ARROW_A)
 
     # ---- the hub
     server_rack(ax, SRV_X, SRV_Y, SRV_W, SRV_H)
@@ -1717,8 +1723,8 @@ def concept_server_hub(ax):
     # ---- bottom: atom mapping
     ATOM_X, ATOM_W, ATOM_Y, ATOM_H = 17.0, 182.0, 1.0, 31.0
     block_arrow(ax, SRV_X + SRV_W / 2, SRV_Y - GAP, SRV_X + SRV_W / 2,
-                ATOM_Y + ATOM_H + GAP, STAGES["atom"], shaft=4.0, head=5.0,
-                head_w=11.0, alpha=ARROW_A)
+                ATOM_Y + ATOM_H + GAP, STAGES["atom"], shaft=SHAFT,
+                head=HEAD, head_w=HEAD, alpha=ARROW_A)
     contain(ATOM_X, ATOM_Y, ATOM_W, ATOM_H, "atom-mapping box")
     card(ax, ATOM_X, ATOM_Y, ATOM_W, ATOM_H, face=STAGES["atom"], edge="none",
          alpha=0.09, radius=2.5)
@@ -1805,11 +1811,11 @@ def concept_server_hub(ax):
     BOX_X, BOX_W = 140.0, 44.0
     EXP_Y, EXP_H = 75.0, 12.0
     COMP_Y, COMP_H = 54.5, 12.0        # same size as Experimental
-    PAN_X, PAN_W, PAN_Y, PAN_H = 192.0, 21.0, 45.0, 42.0
+    PAN_X, PAN_W, PAN_Y, PAN_H = 193.5, 20.5, 45.0, 42.0
     PAN_HUE = INK_2
 
     block_arrow(ax, LBL_X, EXP_Y + EXP_H / 2, BOX_X - GAP, EXP_Y + EXP_H / 2,
-                EXP_HUE, shaft=2.8, head=5.2, alpha=ARROW_A)
+                EXP_HUE, shaft=SHAFT, head=HEAD, head_w=HEAD, alpha=ARROW_A)
     text(ax, LBL_X, EXP_Y + EXP_H / 2 + 4.4, "OpenTECR", 12,
          weight="bold", color=EXP_HUE)
 
@@ -1829,8 +1835,9 @@ def concept_server_hub(ax):
     for lab, cy in zip(["eQuilibrator", "dGPredictor", "Group Contrib."],
                        comp_rows):
         text(ax, LBL_X, cy + 4.56, lab, 12, weight="bold")
-    confluence_arrow(ax, LBL_X, comp_rows, COMP_Y + COMP_H / 2, 128.0, 132.6,
-                     BOX_X - GAP, COMP_HUE, alpha=ARROW_A)
+    confluence_arrow(ax, LBL_X, comp_rows, COMP_Y + COMP_H / 2, 128.0, 131.0,
+                     BOX_X - GAP, COMP_HUE, shaft=SHAFT, head=HEAD,
+                     head_hw=HEAD / 2, alpha=ARROW_A)
 
     # Each kind gets its own box, and each box then feeds the ONE panel where
     # the estimates are pooled -- the grades are assigned off the merged
@@ -1853,7 +1860,7 @@ def concept_server_hub(ax):
         text(ax, BOX_X + ICON_PAD + ICON_H + ICON_GAP, by + bh / 2, lab, 12,
              weight="bold", va="center", color=hue)
         block_arrow(ax, BOX_X + BOX_W + GAP, by + bh / 2, PAN_X - GAP,
-                    by + bh / 2, hue, shaft=2.4, head=3.2, head_w=5.6,
+                    by + bh / 2, hue, shaft=SHAFT, head=HEAD, head_w=HEAD,
                     alpha=ARROW_A)
 
     # ---- the merged panel: the pooled uncertainty distribution.
@@ -1888,7 +1895,7 @@ def concept_server_hub(ax):
     for (lab, col), cy in zip(grades,
                               [stack_cy + 14.0, stack_cy, stack_cy - 14.0]):
         block_arrow(ax, PAN_X + PAN_W + GAP, cy, GR_X - GAP, cy, col,
-                    shaft=2.6, head=4.6, alpha=ARROW_A)
+                    shaft=SHAFT, head=HEAD, head_w=HEAD, alpha=ARROW_A)
         contain(GR_X, cy - GR_H / 2, GR_W, GR_H, f"{lab} chip")
         card(ax, GR_X, cy - GR_H / 2, GR_W, GR_H, face=col, edge="none",
              alpha=0.20, radius=2.5)
