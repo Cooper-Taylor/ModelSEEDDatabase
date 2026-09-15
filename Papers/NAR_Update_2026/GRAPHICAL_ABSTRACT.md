@@ -275,9 +275,11 @@ The database as a physical hub.
 **In, from the left:** structures → compounds → reactions, stacked in that
 order. Each box emits a ribbon from its left edge that runs out, drops parallel
 to the stack, and turns back in to point at the upper third of the box below,
-showing that each composes the next. The ribbon is stroked in the box's own hue
-and starts inside it, so it covers the border on the way out and reads as cut
-from the box. They share one
+showing that each composes the next. The ribbon is a filled shape in the box's
+own fill and border colours, and a join patch repaints the mouth so the outline
+runs straight through — it reads as an extrusion of the box rather than a line
+beside it. Target look:
+[`assets/sketch_arrow_example.png`](assets/sketch_arrow_example.png). They share one
 hue because they are one family; the ribbons carry the sequence.
 
 **Out of the bottom:** atom mapping.

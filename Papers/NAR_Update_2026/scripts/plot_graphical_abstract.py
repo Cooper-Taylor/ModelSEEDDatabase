@@ -97,6 +97,7 @@ import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 from matplotlib.colors import to_rgb
+from matplotlib.path import Path as MplPath
 import matplotlib.image as mpimg
 from matplotlib.patches import (Circle, Ellipse, FancyArrowPatch,
                                 FancyBboxPatch,
@@ -1373,39 +1374,83 @@ def paste_slot(ax, x, y, w, h, hue, label, img=None):
          va="center")
 
 
-def influence_arc(ax, x_edge, y_up, y_dn, out, color, *, lw=8.0, stub=2.5,
-                  r=2.2):
-    """A bracket leaving a box's left edge, dropping, and re-entering the box
-    below: out, down, back in, with rounded corners.
+def _blend(hue, alpha, base=SURFACE):
+    """The flat RGB you get by painting `hue` at `alpha` over `base`.
 
-    An orthogonal route rather than a circular arc. A true arc large enough to
-    protrude has to bow through the whole margin and reads as a loop; the
-    bracket keeps the vertical run parallel to the boxes, which is what makes it
-    read as "this one feeds the next" down a stack.
+    Needed because the join patch has to repaint the chip's interior exactly,
+    and a second translucent layer would darken it."""
+    h, b = to_rgb(hue), to_rgb(base)
+    return tuple(b[k] + (h[k] - b[k]) * alpha for k in range(3))
 
-    `out` is the x the route runs down at, so (x_edge - out) is how far it
-    protrudes. The ribbon starts INSIDE the box and is stroked in the box's own
-    hue, so it covers the border on the way out and reads as cut from the box.
+
+def influence_arc(ax, x_edge, y_up, y_dn, out, hue, *, tail=5.0, r=3.0,
+                  inset=3.5, fill_alpha=FILL_A, lw=1.4):
+    """A ribbon that leaves a box's left edge, drops, and re-enters the box
+    below -- drawn so it reads as an extrusion OF the box, not a line beside it.
+
+    Three things make the merge work, and all three are needed:
+
+    * the ribbon is a FILLED polygon with an outline, in the box's own fill and
+      border colours, not a thick stroked line;
+    * its tail runs `inset` mm INSIDE the box, past the border;
+    * a join patch in the box's flat interior colour is painted last over the
+      mouth, erasing both the box's border across the opening and the ribbon's
+      tail outline within it, leaving one continuous silhouette.
+
+    Geometry is an orthogonal bracket with rounded corners: out, down, back in.
+    The outline is built by offsetting the centreline rather than by stroking
+    it, because matplotlib's filled arrowstyles only accept a quadratic Bezier
+    and this path is a polyline.
     """
     import numpy as np
-    pts = [(x_edge + stub, y_up), (out + r, y_up)]
-    th = np.linspace(math.pi / 2, math.pi, 14)           # turn down
-    pts += [(out + r + r * math.cos(t), y_up - r + r * math.sin(t)) for t in th]
-    pts.append((out, y_dn + r))
-    th = np.linspace(math.pi, 1.5 * math.pi, 14)         # turn right
-    pts += [(out + r + r * math.cos(t), y_dn + r + r * math.sin(t)) for t in th]
-    head_l, head_w = 4.4, 3.8
-    pts.append((x_edge - head_l * 0.5, y_dn))
-    xs = [q[0] for q in pts]
-    ys = [q[1] for q in pts]
-    ax.plot(xs, ys, color=color, lw=lw, solid_capstyle="butt",
-            solid_joinstyle="round", zorder=4)
-    tipx = x_edge + head_l * 0.5
-    ax.add_patch(Polygon([(tipx, y_dn),
-                          (tipx - head_l, y_dn + head_w),
-                          (tipx - head_l, y_dn - head_w)],
-                         closed=True, facecolor=color, edgecolor="none",
-                         zorder=5))
+    head_l, head_hw = tail * 0.95, tail * 0.95
+    tip_x = x_edge + 0.8
+    # The whole head has to fit in the straight run between the second corner
+    # and the box edge. If it does not, the centreline doubles back and the
+    # offset rails cross -- which is exactly what a silently reversed final
+    # segment looked like.
+    if tip_x - head_l <= out + r + 0.5:
+        raise SystemExit(
+            f"influence_arc: no room for the head -- corner exits at "
+            f"x={out + r:.1f}, head base would be at x={tip_x - head_l:.1f}. "
+            f"Move `out` left, shrink `r`, or shrink `tail`.")
+
+    c = [(x_edge + inset, y_up), (out + r, y_up)]
+    th = np.linspace(math.pi / 2, math.pi, 18)
+    c += [(out + r + r * math.cos(t), y_up - r + r * math.sin(t)) for t in th]
+    c.append((out, y_dn + r))
+    th = np.linspace(math.pi, 1.5 * math.pi, 18)
+    c += [(out + r + r * math.cos(t), y_dn + r + r * math.sin(t)) for t in th]
+    c.append((tip_x - head_l, y_dn))
+    c = np.asarray(c)
+    # Resample at uniform arc length FIRST. The raw point list mixes long
+    # straight segments with short arc steps, and a central difference over
+    # that measures the spacing rather than the direction, which buckles the
+    # rails at every corner.
+    seg = np.diff(c, axis=0)
+    cum = np.concatenate([[0.0], np.cumsum(np.hypot(seg[:, 0], seg[:, 1]))])
+    u = np.linspace(0.0, cum[-1], 240)
+    c = np.stack([np.interp(u, cum, c[:, 0]), np.interp(u, cum, c[:, 1])],
+                 axis=1)
+
+    # central-difference tangents -> left-hand normals -> the two rails
+    d = np.gradient(c, axis=0)
+    n = np.stack([-d[:, 1], d[:, 0]], axis=1)
+    n /= np.linalg.norm(n, axis=1, keepdims=True)
+    left, right = c + n * tail / 2, c - n * tail / 2
+
+    poly = list(map(tuple, left))
+    poly += [(c[-1][0], c[-1][1] + head_hw), (tip_x, y_dn),
+             (c[-1][0], c[-1][1] - head_hw)]
+    poly += list(map(tuple, right[::-1]))
+    ax.add_patch(Polygon(poly, closed=True,
+                         facecolor=_blend(hue, fill_alpha), edgecolor=hue,
+                         linewidth=lw, joinstyle="round", zorder=3))
+
+    # the join: repaint the mouth so the box outline runs straight through
+    ax.add_patch(Rectangle((x_edge - 0.8, y_up - tail / 2), inset + 0.8, tail,
+                           facecolor=_blend(hue, fill_alpha), edgecolor="none",
+                           zorder=4))
 
 
 def cartoon_histogram(ax, x, y, w, h, hue, values, *, gap=0.22):
@@ -1456,7 +1501,7 @@ def concept_server_hub(ax):
         return [HUB_CY + (n - 1) / 2 * pitch - i * pitch for i in range(n)]
 
     # ---- left: structures -> compounds -> reactions
-    CHIP_X, CHIP_W, CHIP_H = 10.0, 48.0, 13.0
+    CHIP_X, CHIP_W, CHIP_H = 13.0, 48.0, 13.0
     in_rows = [("STRUCTURES", "chain"), ("COMPOUNDS", "ring"),
                ("REACTIONS", "rxn")]
     ys = rows(3, 16.0)
@@ -1488,8 +1533,9 @@ def concept_server_hub(ax):
     # is what makes the arrow read as cut out of the box rather than drawn
     # beside it -- no separate notch patch is needed.
     for cy_up, cy_dn in zip(ys[:-1], ys[1:]):
-        influence_arc(ax, CHIP_X, cy_up - CHIP_H / 2 + 2.0,
-                      cy_dn + CHIP_H / 2 - CHIP_H / 3, CHIP_X - 6.0, IN_HUE)
+        influence_arc(ax, CHIP_X, cy_up - CHIP_H / 2 + 3.2,
+                      cy_dn + CHIP_H / 2 - CHIP_H / 3, CHIP_X - 8.5, IN_HUE,
+                      tail=4.6, r=2.5)
 
     # ---- the hub
     server_rack(ax, SRV_X, SRV_Y, SRV_W, SRV_H)
