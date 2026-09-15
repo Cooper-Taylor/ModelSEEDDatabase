@@ -1383,8 +1383,8 @@ def _blend(hue, alpha, base=SURFACE):
     return tuple(b[k] + (h[k] - b[k]) * alpha for k in range(3))
 
 
-def influence_arc(ax, x_edge, y_up, y_dn, out, hue, *, tail=5.0, r=3.0,
-                  inset=3.5, fill_alpha=FILL_A, lw=1.4):
+def influence_arc(ax, x_edge, y_up, y_dn, out, hue, *, tail=3.4, r=2.0,
+                  inset=2.5, tip_over=0.3, fill_alpha=FILL_A, lw=1.2):
     """A ribbon that leaves a box's left edge, drops, and re-enters the box
     below -- drawn so it reads as an extrusion OF the box, not a line beside it.
 
@@ -1403,8 +1403,10 @@ def influence_arc(ax, x_edge, y_up, y_dn, out, hue, *, tail=5.0, r=3.0,
     and this path is a polyline.
     """
     import numpy as np
-    head_l, head_hw = tail * 0.95, tail * 0.95
-    tip_x = x_edge + 0.8
+    head_l, head_hw = tail * 1.05, tail * 0.92
+    # The tip stops ON the border, not inside it: the ribbon should touch the
+    # box at the edge and nowhere else.
+    tip_x = x_edge + tip_over
     # The whole head has to fit in the straight run between the second corner
     # and the box edge. If it does not, the centreline doubles back and the
     # offset rails cross -- which is exactly what a silently reversed final
@@ -1534,8 +1536,7 @@ def concept_server_hub(ax):
     # beside it -- no separate notch patch is needed.
     for cy_up, cy_dn in zip(ys[:-1], ys[1:]):
         influence_arc(ax, CHIP_X, cy_up - CHIP_H / 2 + 3.2,
-                      cy_dn + CHIP_H / 2 - CHIP_H / 3, CHIP_X - 8.5, IN_HUE,
-                      tail=4.6, r=2.5)
+                      cy_dn + CHIP_H / 2 - CHIP_H / 3, CHIP_X - 7.0, IN_HUE)
 
     # ---- the hub
     server_rack(ax, SRV_X, SRV_Y, SRV_W, SRV_H)
