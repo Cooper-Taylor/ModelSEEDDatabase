@@ -1666,18 +1666,30 @@ def concept_server_hub(ax):
              ("mol", _molecule("Tartronate Semialdehyde"))])
         # Trace one atom across the reaction: the carboxylate carbon of
         # glyoxylate is the one released as CO2. Anchors are fractions of each
-        # capture, read off the artwork -- glyoxylate's carboxylate C sits at
-        # (0.60, 0.44) of its tile, CO2's C at its centre. The matching
-        # dark-green oxygens in both captures confirm the pair.
+        # capture, read off the artwork and then mapped onto the cropped tiles
+        # -- glyoxylate's carboxylate C at (0.63, 0.37), CO2's C near the middle
+        # of its one-line drawing. The matching dark-green oxygens in both
+        # captures confirm the pair.
         def _atom(idx, fx, fy):
             _k, mx, my, mw, mh = placed[idx]
             return mx + (fx - 0.5) * mw, my + (fy - 0.5) * mh
         a = _atom(1, 0.630, 0.368)
         b = _atom(3, 0.508, 0.457)
+        # Solve the arc3 rad rather than hand-tuning it. The two anchors sit
+        # at different heights inside their molecules, so a fixed rad puts the
+        # crown wherever the chord happens to fall -- at -0.42 it grazed
+        # glyoxylate's carbonyl oxygen. arc3 places its control point at
+        # (mid + rad*dy, mid - rad*dx), which puts the curve's apex at
+        # midy - rad*dx/2, so pinning the apex a fixed clearance under the
+        # panel's top edge inverts to one expression. The trace then passes
+        # cleanly over both structures and over the equilibrium arrows.
+        apex = ATOM_Y + ATOM_H - 3.4
+        rad = 2.0 * ((a[1] + b[1]) / 2 - apex) / (b[0] - a[0])
         ax.add_patch(FancyArrowPatch(
-            a, b, connectionstyle="arc3,rad=-0.42", arrowstyle="-|>",
-            mutation_scale=9, linewidth=1.2, linestyle=(0, (2.4, 1.8)),
-            color=STAGES["atom"], zorder=6, shrinkA=3.5, shrinkB=3.5))
+            a, b, connectionstyle=f"arc3,rad={rad:.4f}", arrowstyle="-|>",
+            mutation_scale=15, linewidth=1.7, linestyle=(0, (2.9, 2.0)),
+            color=STAGES["atom"], zorder=6, shrinkA=8.0, shrinkB=11.0,
+            capstyle="round"))
 
     # ---- right: one experimental source, three computational ones
     # "Group contribution" is 46.2 mm at 12 pt and sets where the boxes start.
