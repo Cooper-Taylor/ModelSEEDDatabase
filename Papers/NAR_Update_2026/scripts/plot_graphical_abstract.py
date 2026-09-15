@@ -488,7 +488,7 @@ def card(ax, x, y, w, h, *, face=SURFACE, edge=RULE, lw=1.0, radius=2.5,
 
 
 def card_down_arrow(ax, x, y, w, h, hue, *, arrow=True, radius=2.5, lw=1.4,
-                    shaft=5.0, shaft_l=1.8, head=11.0, head_l=3.4,
+                    shaft=4.0, shaft_l=1.8, head=9.0, head_l=3.4,
                     fill_alpha=None, z=1):
     """A rounded panel, optionally with a block arrow extruded from its BOTTOM
     edge, as ONE closed outline.
@@ -1592,7 +1592,7 @@ def concept_server_hub(ax):
     IN_HUE = STAGES["mol"]            # the three database-content inputs
     EXP_HUE = STAGES["rxn"]           # OpenTECR, and the Experimental box
     COMP_HUE = STAGES["thermo"]       # the three estimators, and Computational
-    SRV_X, SRV_W, SRV_H = 72.0, 34.0, 42.0
+    SRV_X, SRV_W, SRV_H = 68.0, 34.0, 42.0
     SRV_Y = HUB_CY - SRV_H / 2
 
     def rows(n, pitch):
@@ -1603,7 +1603,7 @@ def concept_server_hub(ax):
     # the "composes" sequence is carried by the boxes themselves. Pitch 17 on
     # an 11 mm box leaves a 6 mm gap, which the 1.8 + 3.4 mm arrow clears with
     # 0.8 to spare. The top box then reaches y 88.5, just under the title.
-    CHIP_X, CHIP_W, CHIP_H = 6.0, 52.0, 11.0
+    CHIP_X, CHIP_W, CHIP_H = 6.0, 48.0, 11.0
     in_rows = [("STRUCTURES", "chain"), ("COMPOUNDS", "ring"),
                ("REACTIONS", "rxn")]
     ys = rows(3, 17.0)
@@ -1641,6 +1641,12 @@ def concept_server_hub(ax):
     # molecule captures are square and were being squeezed under a header.
     text(ax, ATOM_X + 3.5, ATOM_Y + ATOM_H / 2, "ATOM\nMAPPING", 12,
          weight="bold", color=STAGES["atom"], va="center", linespacing=1.25)
+    # Separate the name from the illustration with a rule, centred in the gap
+    # between them: "MAPPING" is the wider of the two lines at 22.4 mm so the
+    # name ends at 45.9, and the centred equation's ink starts at about 52.
+    ax.add_patch(Rectangle((ATOM_X + 28.5, ATOM_Y + 4.0), 0.7, ATOM_H - 8.0,
+                           facecolor=STAGES["atom"], edgecolor="none",
+                           alpha=0.45, zorder=3))
     if ATOM_MAP_IMAGE.exists():
         paste_slot(ax, ATOM_X + 30.0, ATOM_Y + 3.0, ATOM_W - 34.0,
                    ATOM_H - 6.0, STAGES["atom"], "atom mapping")
@@ -1703,33 +1709,33 @@ def concept_server_hub(ax):
             zorder=6, shrinkA=8.0, shrinkB=11.0))
 
     # ---- right: one experimental source, three computational ones, merged
-    # "Group Contrib." is 35.6 mm at 12 pt and is the longest label, so it sets
-    # how far right the boxes can start: 108 + 35.6 leaves BOX_X at 146.
+    # Every estimator arrow has to leave the rack ALONGSIDE it, so all four
+    # rows live inside the server's own 45..87 span -- the bottom one used to
+    # sit at 42.4, below the rack's floor, and read as coming from nowhere.
+    # "Group Contrib." is 35.6 mm at 12 pt and still sets the box start: the
+    # labels run 104..139.6, so BOX_X cannot come in past ~141.
     LBL_X = SRV_X + SRV_W + GAP
     BOX_X, BOX_W = 146.0, 39.0
-    EXP_Y, EXP_H = 71.0, 14.0
-    COMP_Y, COMP_H = 34.0, 35.0
-    PAN_X, PAN_W, PAN_Y, PAN_H = 194.0, 25.0, 37.0, 45.0
-    PAN_HUE = INK_2                   # the merge belongs to neither kind
-    # The panel spans BOTH feeds with room to spare: the Experimental arrow
-    # comes in at y 78 and a 40 mm panel topped out at 79.5, so that arrow was
-    # arriving on the corner radius rather than on a straight edge.
+    EXP_Y, EXP_H = 75.0, 12.0
+    COMP_Y, COMP_H = 46.0, 27.0
+    PAN_X, PAN_W, PAN_Y, PAN_H = 194.0, 24.0, 45.0, 42.0
+    PAN_HUE = INK_2
 
     block_arrow(ax, LBL_X, EXP_Y + EXP_H / 2, BOX_X - GAP, EXP_Y + EXP_H / 2,
-                EXP_HUE, shaft=3.6, head=6.4, alpha=ARROW_A)
-    text(ax, LBL_X, EXP_Y + EXP_H / 2 + 4.6, "OpenTECR", 12,
+                EXP_HUE, shaft=2.8, head=5.2, alpha=ARROW_A)
+    text(ax, LBL_X, EXP_Y + EXP_H / 2 + 4.4, "OpenTECR", 12,
          weight="bold", color=EXP_HUE)
 
-    comp_rows = [COMP_Y + COMP_H * f for f in (0.86, 0.55, 0.24)]
+    comp_rows = [COMP_Y + COMP_H * f for f in (0.87, 0.54, 0.21)]
     for lab, cy in zip(["eQuilibrator", "dGPredictor", "Group Contrib."],
                        comp_rows):
-        block_arrow(ax, LBL_X, cy, BOX_X - GAP, cy, COMP_HUE, shaft=3.6,
-                    head=6.4, alpha=ARROW_A)
-        text(ax, LBL_X, cy + 4.6, lab, 12, weight="bold")
+        block_arrow(ax, LBL_X, cy, BOX_X - GAP, cy, COMP_HUE, shaft=2.8,
+                    head=5.2, alpha=ARROW_A)
+        text(ax, LBL_X, cy + 4.4, lab, 12, weight="bold")
 
     # Each kind gets its own box, and each box then feeds the ONE panel where
-    # the estimates are pooled -- which is the point: the grades are assigned
-    # off the merged distribution, not off either source alone.
+    # the estimates are pooled -- the grades are assigned off the merged
+    # distribution, not off either source alone.
     for by, bh, lab, hue in [(EXP_Y, EXP_H, "Experimental", EXP_HUE),
                              (COMP_Y, COMP_H, "Computational", COMP_HUE)]:
         contain(BOX_X, by, BOX_W, bh, f"{lab} box")
@@ -1740,14 +1746,15 @@ def concept_server_hub(ax):
         text(ax, BOX_X + BOX_W / 2, by + bh / 2, lab, 12, weight="bold",
              ha="center", va="center", color=hue)
         block_arrow(ax, BOX_X + BOX_W + GAP, by + bh / 2, PAN_X - GAP,
-                    by + bh / 2, hue, shaft=3.4, head=4.4, head_w=8.0,
+                    by + bh / 2, hue, shaft=2.8, head=4.2, head_w=6.0,
                     alpha=ARROW_A)
 
-    # ---- the merged panel: the pooled uncertainty distribution
+    # ---- the merged panel: the pooled uncertainty distribution.
+    # No tint behind the bars -- a grey wash made the chart look switched off,
+    # and the panel does not need a fill to read as a container when it has a
+    # border, a tag and content.
     contain(PAN_X, PAN_Y, PAN_W, PAN_H, "dG panel")
-    card(ax, PAN_X, PAN_Y, PAN_W, PAN_H, face=PAN_HUE, edge="none",
-         alpha=0.10, radius=2.5)
-    card(ax, PAN_X, PAN_Y, PAN_W, PAN_H, face="none", edge=PAN_HUE, lw=1.5,
+    card(ax, PAN_X, PAN_Y, PAN_W, PAN_H, face=SURFACE, edge=PAN_HUE, lw=1.5,
          radius=2.5)
     TAG_H = 8.5
     tag_y = PAN_Y + PAN_H - 3.0 - TAG_H
@@ -1767,14 +1774,14 @@ def concept_server_hub(ax):
                           PAN_H - 9.0 - TAG_H, COMP_HUE, EQ_SIGMA_CARTOON)
 
     # ---- classification
-    GR_X, GR_W, GR_H = 229.0, 23.0, 14.0
+    GR_X, GR_W, GR_H = 229.0, 23.0, 13.0
     grades = [("GOLD", GRADE_RAMP[0]), ("SILVER", GRADE_RAMP[1]),
               ("BRONZE", GRADE_RAMP[2])]
     stack_cy = PAN_Y + PAN_H / 2
     for (lab, col), cy in zip(grades,
-                              [stack_cy + 15.0, stack_cy, stack_cy - 15.0]):
+                              [stack_cy + 14.0, stack_cy, stack_cy - 14.0]):
         block_arrow(ax, PAN_X + PAN_W + GAP, cy, GR_X - GAP, cy, col,
-                    shaft=3.2, head=5.2, alpha=ARROW_A)
+                    shaft=2.6, head=4.6, alpha=ARROW_A)
         contain(GR_X, cy - GR_H / 2, GR_W, GR_H, f"{lab} chip")
         card(ax, GR_X, cy - GR_H / 2, GR_W, GR_H, face=col, edge="none",
              alpha=0.20, radius=2.5)
@@ -1784,7 +1791,7 @@ def concept_server_hub(ax):
              ha="center")
     # Right-aligned to the grade column's right edge: "Classification" is
     # 32.3 mm and the column is 23, so centring it would run off the canvas.
-    text(ax, GR_X + GR_W, stack_cy + 15.0 + GR_H / 2 + 5.0, "Classification",
+    text(ax, GR_X + GR_W, stack_cy + 14.0 + GR_H / 2 + 4.0, "Classification",
          12, weight="bold", ha="right", color=INK)
 
 CONCEPTS = {

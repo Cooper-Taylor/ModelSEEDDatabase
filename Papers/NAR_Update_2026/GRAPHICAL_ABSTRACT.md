@@ -313,7 +313,7 @@ rack is also a metaphor occupying roughly an eighth of the canvas.
 
 | Slot | Drop a file at | Or set |
 |---|---|---|
-| pooled-uncertainty bar chart, 19 × 27.5 mm | `assets/computational_bars.png` | `NAR_BAR_CHART_IMAGE` |
+| pooled-uncertainty bar chart, 18 × 24.5 mm | `assets/computational_bars.png` | `NAR_BAR_CHART_IMAGE` |
 
 The atom-mapping band is filled: molecule captures live in
 [`assets/molecules/`](assets/molecules/) and the equation is laid out by
@@ -330,7 +330,10 @@ as part of the panel's title.
 
 **Out to the right, continued:** the Experimental and Computational boxes each
 feed one **ΔG** panel, in their own colour, and the grades are assigned off
-that merged distribution rather than off either kind alone. The panel holds a
+that merged distribution rather than off either kind alone. All four estimator
+arrows leave the rack within its own 45–87 mm span, so each reads as coming
+out of the machine rather than from beside it. The panel carries no fill: a
+tint behind the bars made the chart look switched off. The panel holds a
 **cartoon** of eQuilibrator's reported-uncertainty distribution — silhouette traced from the vector data of panel C, chart 1, of
 [`figures/main_figures_draft.pdf`](figures/main_figures_draft.pdf): 30 bars over
 a 0–2 kcal/mol axis, downsampled to 15 by taking the taller of each pair.
